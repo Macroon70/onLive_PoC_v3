@@ -1,0 +1,203 @@
+/*********************/
+/* common tag values */
+/*********************/
+
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+body {
+	width: 100%;
+	margin: auto;
+	max-width: 1600px;
+	background-color: #000000;
+}
+
+a {
+	display: block;
+	position: absolute;
+	width: 60px;
+	height: 60px;
+}
+
+img {
+	width: 100%;
+	height: 100%;
+}
+
+h1 {
+	font-family: 'aktiv_groteskxbold_italic';
+	color: #ffffff;
+	font-size: 5.0em;
+	text-align: left;
+	line-height: 0.85em;
+}
+
+h2 {
+	font-family:  'aktiv_groteskmedium_italic';
+	color: #ffffff;
+	font-size: 3.5em;
+	text-align: left;
+	line-height: 0.85em;
+}
+
+h3 {
+	font-family: 'aktiv_groteskregular';
+	font-size: 1.5em;
+	line-height: 1.3em;
+	text-align: left;
+	color: #BDCCD4;	
+}
+
+p {
+	font-family: 'aktiv_groteskmedium';
+	font-size: 1.8em;
+	text-align: center;
+}
+
+/*********************/
+/* Classes           */
+/*********************/
+
+.content_margin {
+	left: 5%;
+}
+
+.full_screen {
+	width: 100%;
+	max-width: 1600px;
+	max-height: 932px;
+	min-height: 932px;
+}
+
+.bg_images {
+	background-position: center top;
+	background-repeat: no-repeat;
+}
+
+.dark_orange {
+	color: #D85B2A;
+}
+
+.zoom-content {
+	-webkit-backface-visibility: hidden;	
+	-moz-transition:width 1s linear 0s, -moz-transform 2s;	
+  -webkit-transition: transform 1s linear 0s;
+  transition: -webkit-transform 1s linear 0s;
+
+}
+
+.zoom-content:hover {
+	-webkit-transform: scale(1.03); 
+	transform: -webkit-transform scale(1.03);
+
+}
+
+/*********************/
+/* Video Layer       */
+/*********************/
+
+#video_layer {
+	position: absolute;
+	top: 0;
+	z-index: 0;
+}
+
+#video_layer > div {
+	position: relative;
+}
+
+#root_video {
+	position: absolute;
+	width: 640px;
+	top: 110px;
+	left: 660px;
+}
+
+/*********************/
+/* Scrolling Layer   */
+/*********************/
+
+#scrolling_layer {
+	height: auto;
+	width: 100%;
+	max-width: 1600px;
+	position: absolute;
+	top: 0;
+	z-index: 1;
+	height: 3000px;
+}
+
+#scrolling_layer > div {
+	width: 100%;
+	height: auto;
+	position: relative;
+}
+
+/* Main screen */
+
+#main_screen {
+	overflow: hidden;
+}
+
+#main_box_bg {
+	background-image: url('Media/living_room_with_tv.png?v=1');
+}
+
+#main_box_screen_wrapper > div {
+	position: absolute;
+	width: 100%;
+}
+
+#main_headline_text {
+	background-image: url('Media/headline_bg_bubbles.png');
+	top: 5%;
+	width: 700px !important;
+	height: 300px;
+}
+
+#main_screen_signup {
+	bottom: 400px;
+	height: 130px;
+	width: 20% !important;
+	background-color: #F7BB3E;
+}
+
+#main_screen_signup > p {
+	line-height: 130px;
+	width: 100%;
+}
+
+#main_screen_footer {
+	bottom: 0;
+	height: 400px;
+	background-color: #232120;
+}
+
+#main_screen_footer > a {
+	top: -30px;
+	left: 15%;
+}
+
+#main_footer_content {
+	width: 90%;
+	top: 20%;
+	position: absolute;
+}
+
+#main_footer_content > img {
+	width: 60%;
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 40%;
+	height: auto;
+}
+
+#main_footer_content > h3 {
+	margin-top: 40px;
+}
+
+
