@@ -10,33 +10,130 @@
 	<link href="site.css?v=1" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-<div id="video_layer" class="full_screen">
+<div id="video_layer">
 		<video id="root_video" class="video" muted="muted" loop="loop">
-			<source type="video/mp4" src="http://en.ony.ru/upload/BlocksPagesProperties/video_mp4/341b01de871d7879428bd2fbffcd04d0.m4v">
+			<source type="video/mp4" src="http://www.liandesign.hu/onLive_v3/Media/Dirt3_01.640.mp4">
   		<source src="http://en.ony.ru/upload/BlocksPagesProperties/video_ogv/ee103008ab88d41b442de738702b5493.ogv" type="video/ogg">
 		</video>
 </div>
 <div id="scrolling_layer">
-	<div id="main_screen" class="full_screen">
-		<div id="main_box_bg" class="full_screen bg_images zoom-content"></div>
-		<div id="main_box_screen_wrapper" class="full_screen">
-			<div id="main_headline_text" class="bg_images content_margin">
-				<h1>PLAY ANYTIME,<br />ANYWHERE.<br />INSTANTLY.</h1>
-			</div>
-			<div id="main_screen_signup">
-				<p class="dark_orange">PLAY NOW</p>
-			</div>
-			<div id="main_screen_footer">
-				<a href="#"><img src="Media/orange_button.png" alt=""/></a>
-				<div id="main_footer_content" class="content_margin">
-					<h2>PLAY ON ALL<br />DEVICES</h2>
-					<img src="Media/sources.png" alt=""/>
-					<h3>Continue playing wherever you go on<br />your Android and iOS devices.</h3>
-				</div>
-			</div> 
-		</div>	
-
+	<div id="main_screen" class="bg_images">
+		<div id="main_headline_text" class="bg_images content_margin">
+			<h1>PLAY ANYTIME,<br />ANYWHERE.<br />INSTANTLY.</h1>
+		</div>
+		<div id="main_screen_signup">
+			<p class="dark_orange">PLAY NOW</p>
+			<a class="divider_button" href="#"><img src="Media/orange_button.png" alt=""/></a>
+		</div>
 	</div>
+	<div id="main_screen_footer" class="dark_brown_bg">
+		<div id="main_footer_content" class="content_margin">
+			<h2>PLAY ON ALL<br />DEVICES</h2>
+			<h3>Continue playing wherever<br />you go on your TV, Android<br />and iOS devices.</h3>
+			<p class="dark_red">MORE INFO</p>
+			<div id="source_slider_controller">
+				<div id="source_iphone">
+					<a href="">
+						<div class="bg_images icon_iphone"></div>
+						<p class="light_grey">Smartphones</p>
+					</a>
+					<div class="clear"></div>
+				</div>
+			</div>
+		</div>
+		<a class="divider_button" href="#"><img src="Media/dark_red_button.png" alt=""/></a>
+	</div>
+	<div id="second_screen">
+		<div class="content_margin offset_3 small_brick">
+			<div class="inherit_height bg_images last_of_us_small zoom-content"></div>
+		</div>
+		<div class="content_margin offset_1 clear normal_brick">
+			<div class="inherit_height bg_images batman_normal zoom-content"></div>
+		</div>
+		<div class="content_margin bg_images offset_1 normal_brick borderlands2_normal"></div>
+		<div class="content_margin clear double_normal_brick">
+			<div class="bg_images normal_brick batman_normal"></div>
+			<div class="bg_images normal_brick purple_text_normal"></div>
+		</div>
+		<div class="content_margin double_normal_brick">
+			<div class="bg_images normal_brick crysis2_normal"></div>
+			<div class="bg_images normal_brick battlefield4_normal"></div>
+		</div>
+		<div id="second_headline" class="overflow_seeing conent_half_margin bg_images big_brick headline_bubbles_green">
+			<h1 class="uv_green">PLAY ALL<br />THE LATEST<br />GAMES</h1>
+		</div>
+		<div class="content_margin bg_images clear normal_brick lastofus_normal"></div>
+		<div id="second_upper_level" class="content_padding clear onehalf_brick uv_green_bg">
+			<h2>TRY ANY GAME<br />FOR FREE.<br />REALLY, FOR FREE.</h2>
+			<h3>All games are FREE TO TRY then buy<br />or subscribeto game bundles</h3>
+			<p class="dark_green">PLAY NOW</p>
+			<a class="divider_button" href="#"><img src="Media/dark_green_button.png" alt=""/></a>
+		</div>
+		<div class="bg_images normal_brick offset_2 lastofus_normal negativ_margin"></div>
+		<div class="bg_images normal_brick borderlands2_normal"></div>
+		<div class="bg_images normal_brick pusher_1 orange_text_normal"></div>
+		<div class="bg_images small_brick bioshock_small"></div>
+		<div class="bg_images normal_brick assassins_normal"></div>
+		<div class="bg_images normal_brick batman_normal"></div>
+		<div class="content_margin bg_images offset_1 clear normal_brick crysis2_normal"></div>
+		<div class="content_margin bg_images small_doubled_brick blue_text_small negativ_margin"></div>
+		<div class="content_margin bg_images onehalf_brick_game borderlands2_normal"></div>
+		<div class="content_margin bg_images normal_brick clear assassins_normal negativ_margin"></div>
+		<div class="content_margin bg_images offset_2 small_brick last_of_us_small"></div>
+		<div id="headline_brick" class="dirt3_headline bg_images onehalf_brick_game zoom-content"></div>
+	</div>
+	<div id="third_screen" class="clear">
+		<div id="third_screen_bg" class="bg_images negativ_top">
+			<div class="bricks content_margin bg_images normal_brick clear assassins_normal negativ_margin"></div>
+			<div class="bricks content_margin bg_images offset_2 small_brick last_of_us_small"></div>
+			<div id="player_avatars" class="content_margin bg_images"></div>
+			<div id="third_headline_text" class="bg_images content_margin">
+				<h1>WATCH<br />GREAT PLAYERS.</h1>
+			</div>
+			<div id="box_spectatle" class="blue_bg">
+				<h2>WATCH<br />THE SPECTATLE</h2>
+				<h3>Learn every side of the games you know and<br />love. Watch others play and gain new tricks</h3>
+				<p class="dark_blue">PLAY NOW</p>
+				<a class="divider_button" href="#"><img src="Media/dark_blue_button.png" alt=""/></a>
+			</div>
+		</div>
+	</div>
+	<div id="forth_screen" class="clear dark_brown_bg">
+		<div id="forth_screen_bg" class="bg_images"></div>
+		<div id="box_record" class="footer_box orange_bg">
+			<h2>RECORD, SHARE<br />&amp; BROWSE GREAT<br />BRAG CLIPS.</h2>
+			<h3>Learn every side of the games you know and<br />love. Watch others play, gain new tricks</h3>
+			<p class="purple">JOIN NOW</p>
+			<a class="divider_button" href="#"><img src="Media/purple_button.png" alt=""/></a>
+		</div>
+	</div>
+	<div id="footer_screen" class="clear">
+		<div id="box_join" class="footer_box white_bg">
+			<h2 class="light_orange">FREE TO JOIN.<br />WHAT DO YOU HAVE<br />TO LOSE?</h2>
+		</div>
+		<div id="box_readygo" class="footer_big_box light_orange_bg">
+			<h1>READY, SET --<br/>GO</h1>
+			<p class="dark_orange">JOIN NOW</p>
+			<a class="divider_button" href="#"><img src="Media/dark_orange_button.png" alt=""/></a>
+		</div>
+		<div id="footer_contents" class="dark_brown_bg content_padding">
+			<div id="link_wrapper">
+				<a href="#">About</a>
+				<a href="#">Developers</a>
+				<a href="#"><img src="Media/icon_fb.png" alt""/>&nbsp;Facebook</a>
+				<a href="#">Legal Info</a>
+				<a class="clear" href="#">Support</a>
+				<a href="#">Contact</a>
+				<a href="#"><img src="Media/icon_twitter.png" alt""/>&nbsp;Twitter</a>
+				<a class="clear" href="#">Careers</a>
+				<a href="#">Blog</a>
+				<a href="#"><img src="Media/icon_youtube.png" alt""/>&nbsp;YouTube</a>
+			</div>
+			<div id="footer_logo" class="bg_images"></div>
+		</div>
+	</div>
+	<div class="clear"></div>
+
 </div>
 </body>
 </html>
