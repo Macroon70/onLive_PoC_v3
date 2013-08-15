@@ -6,39 +6,78 @@
 	<script src="site.js?v=1" type="text/javascript"></script>
 	<script src="webfontkit/specimen_files/easytabs.js" type="text/javascript" charset="utf-8"></script>
 	<link rel="stylesheet" href="webfontkit/specimen_files/specimen_stylesheet.css" type="text/css" charset="utf-8" />
-	<link rel="stylesheet" href="webfontkit/stylesheet.css" type="text/css" charset="utf-8" />	
+	<link rel="stylesheet" href="webfontkit/stylesheet.css?v=1" type="text/css" charset="utf-8" />	
 	<link href="site.css?v=1" rel="stylesheet" type="text/css"/>
 </head>
 <body>
+<div id="menu_hamburger" class="bg_images"></div>
+<div id="down_arrow" class="bg_images"></div>
+<div id="menu_screen">
+	<div id="menu_close_button" class="bg_images"></div>
+	<div id="menu_system_main">
+		<a href="#"><p class="active_main_menu">WELCOME</p></a>
+		<a href="#"><p>GAMES</p></a>
+		<a href="#"><p>HARDWARE</p></a>
+		<a href="#"><p>JOIN</p></a>
+		<a href="#"><p>LOGIN</p></a>
+	</div>
+	<div id="menu_system_footer">
+		<a href="#"><p>About</p></a>
+		<a href="#"><p>Support</p></a>
+		<a href="#"><p>Carreers</p></a>
+		<a href="#"><p>Developers</p></a>
+		<a href="#"><p>Contact</p></a>
+		<a href="#"><p>Blog</p></a>
+	</div>
+	<div id="menu_logo_transparent" class="bg_images"></div>
+</div>
 <div id="video_layer">
 		<video id="root_video" class="video" muted="muted" loop="loop">
-			<source type="video/mp4" src="http://www.liandesign.hu/onLive_v3/Media/Dirt3_01.640.mp4">
+			<source type="video/mp4" src="http://www.liandesign.hu/onLive_v3/Media/Dirt3_01.mp4">
   		<source src="http://en.ony.ru/upload/BlocksPagesProperties/video_ogv/ee103008ab88d41b442de738702b5493.ogv" type="video/ogg">
 		</video>
 </div>
 <div id="scrolling_layer">
 	<div id="main_screen" class="bg_images">
+		<div id="logo" class="bg_images"><p>onlive</p></div>
+		<div id="main_screen1" class="main_subscreen bg_images active_main_screen"></div>
+		<div id="main_screen2" class="main_subscreen bg_images inactive_main_screen"></div>
 		<div id="main_headline_text" class="bg_images content_margin">
 			<h1>PLAY ANYTIME,<br />ANYWHERE.<br />INSTANTLY.</h1>
+			<h2>SIGN UP AND<br />PLAY NOW!</h2>
 		</div>
 		<div id="main_screen_signup">
 			<p class="dark_orange">PLAY NOW</p>
-			<a class="divider_button" href="#"><img src="Media/orange_button.png" alt=""/></a>
 		</div>
 	</div>
 	<div id="main_screen_footer" class="dark_brown_bg">
+		<a class="divider_up_button" href="#"><img src="Media/orange_button.png" alt=""/></a>
 		<div id="main_footer_content" class="content_margin">
 			<h2>PLAY ON ALL<br />DEVICES</h2>
 			<h3>Continue playing wherever<br />you go on your TV, Android<br />and iOS devices.</h3>
 			<p class="dark_red">MORE INFO</p>
+			<div id="source_slider_bg" class="light_grey_bg">
+				<div id="floating_bg"></div>
+			</div>
 			<div id="source_slider_controller">
-				<div id="source_iphone">
-					<a href="">
-						<div class="bg_images icon_iphone"></div>
+					<a data-pos="0" data-filename-prefix="1" data-video-position="22/28/52" class="device_button" href="#">
+						<div class="bg_images icon_iphone_transparent"></div>
 						<p class="light_grey">Smartphones</p>
 					</a>
+					<a data-pos="25" data-filename-prefix="2" data-video-position="22/36/52" class="device_button" href="#">
+						<div class="bg_images icon_tablet_transparent"></div>
+						<p class="light_grey">Tablets</p>
+					</a>
+					<a data-pos="50" data-filename-prefix="3" data-video-position="22/36/52" class="device_button" href="#">
+						<div class="bg_images icon_pcmac_transparent"></div>
+						<p class="light_grey">PC&nbsp;&amp;&nbsp;MAC</p>
+					</a>
+					<a data-pos="75" data-filename-prefix="4" data-video-position="21/36/52" class="device_button white" href="#">
+						<div class="bg_images icon_hdtv_transparent"></div>
+						<p class="light_grey">HDTV<br />More info</p>
+					</a>
+
 					<div class="clear"></div>
-				</div>
 			</div>
 		</div>
 		<a class="divider_button" href="#"><img src="Media/dark_red_button.png" alt=""/></a>
