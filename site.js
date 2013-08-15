@@ -64,7 +64,7 @@ function resizewindow(){
 			nextElem = $('a[data-filename-prefix="'+actualElemPrefix + '"]');
 		}
 		// ipad alatt a kevés browser memória miatt a képcsere esetén újratölti az oldalt, ezért sima fade-in-out effekt a cserénél
-		if (navigator.userAgent.match(/iPad/i) != null) {
+		if (isiPad) {
 			if (!nextElem.hasClass('white') && !$(':animated').length) {
 				nextElem.addClass('white').siblings().removeClass('white');
 				var filename = 'url(Media/slider' + nextElem.attr('data-filename-prefix') + '_device_bg.png)';
@@ -114,6 +114,11 @@ function resizewindow(){
 
 $(document).ready(function() {
 
+  fullScreenHeight = $(window).height();
+  fullScreenWidth = $(window).width();
+
+  isiPad = navigator.userAgent.match(/iPad/i) != null;
+
   resizewindow();
 
 	// tablet resolution fix
@@ -122,15 +127,13 @@ $(document).ready(function() {
 	};
 
 	// ipad browser low memory fix
-  if (navigator.userAgent.match(/iPad/i) != null) {
+  if (isiPad) {
   	$('#main_screen2').remove();
   } else {
   	$('#main_screen3').remove();
  	}
 
 
-  fullScreenHeight = $(window).height();
-  fullScreenWidth = $(window).width();
 
   var systemColors = new Array('blue','green','turquise','orange','purple','red');
   var menuColors = new Array('#2685B5','#8BC53F','#24B5A8','#FF8833','#614ABF','#E63A3A');
