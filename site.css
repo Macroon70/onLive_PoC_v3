@@ -24,6 +24,7 @@ a {
 	position: absolute;
 	width: 60px;
 	height: 60px;
+	text-decoration: none;
 }
 
 img {
@@ -561,7 +562,7 @@ p {
 }
 
 #main_screen1 {
-	background-image: url('Media/slider4_living_room_with_tv.png');
+	background-image: url('Media/slider4_device_bg.png');
 	z-index: 1;
 }
 
@@ -647,12 +648,34 @@ p {
 	height: 100px;
 }
 
-#ipad_right_bug {
+#ipad_right_bug1 {
 	position: absolute;
 	right: 0;
 	width: 2%;
 	height: inherit;
 }
+
+#ipad_right_bug2 {
+	position: absolute;
+	left: 23%;
+	width: 2%;
+	height: inherit;
+}
+
+#ipad_right_bug3 {
+	position: absolute;
+	left: 48%;
+	width: 2%;
+	height: inherit;
+}
+
+#ipad_right_bug4 {
+	position: absolute;
+	left: 73%;
+	width: 2%;
+	height: inherit;
+}
+
 
 #floating_bg {
 	position: absolute;
