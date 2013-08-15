@@ -16,6 +16,7 @@ body {
 	margin: auto;
 	font-size: 110%;
 	background-color: #000000;
+	zoom : 1;
 }
 
 a {
@@ -41,9 +42,11 @@ h1 {
 }
 
 h2 {
-	font-family:  'aktiv_groteskmedium_italic';
+	font-family: 'aktiv_groteskitalic';
+
+	/*font-family:  'aktiv_groteskmedium_italic';*/
 	color: #ffffff;
-	font-size: 3.0em;
+	font-size: 4.0em;
 	text-align: left;
 	line-height: 0.85em;
 }
@@ -332,7 +335,7 @@ p {
 }
 
 .assassins_normal {
-	background-image: url('Media/gamepic_assassins_normal.png');
+	background-image: url('Media/gamepic_assassins_normal.png?v=1');
 }
 
 .headline_bubbles_green {
@@ -566,40 +569,49 @@ p {
 	left: 100%;
 }
 
-#main_headline_text {
-	background-image: url('Media/headline_bg_bubbles.png');
-	top: 12%;
-	width: 70%;
-	height: 400px;
+#main_screen3 {
 	z-index: 3;
+	left: 0;
 }
 
-#main_headline_text > h2 {
+
+#main_headline_text {
+	background-image: url('Media/headline_bg_bubbles.png');
+	top: 7%;
+	width: 45%;
+	z-index: 3;
+	background-size: cover;
+}
+
+#main_headline_wrapper {
+	margin-top: 5%;
+	width: 200%;
+}
+
+#main_headline_wrapper > h2 {
 	margin-top: 10%;
+	font-size: 4.0em;
 }
 
 #main_screen_signup {
 	bottom: 0;
-	height: 130px;
 	width: 20% !important;
 	background-color: #F7BB3E;
 	z-index: 3;
 }
 
 #main_screen_signup > p {
-	line-height: 130px;
+	line-height: 4.5em;
 	width: 100%;
 }
 
 #main_screen_footer {
-	z-index: 2;
 	position: relative;
-	height: 478px !important;
 	z-index: 4;
 }
 
 #main_screen_footer > a {
-	left: 260px;
+	left: 15%;
 }
 
 #main_footer_content {
@@ -634,9 +646,16 @@ p {
 	height: 100px;
 }
 
+#ipad_right_bug {
+	position: absolute;
+	right: 0;
+	width: 2%;
+	height: inherit;
+}
+
 #floating_bg {
 	position: absolute;
-	width: 15%;
+	width: 23%;
 	height: 100px;
 	top: 0;
 	left: 75%;

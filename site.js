@@ -5,6 +5,24 @@ function resizewindow(){
   //return;
   var actualWindowWidth = $(this).width();
   var actualWindowHeight = $(this).height();
+
+  // new system of set height for elements
+  // míg a többi szétesik, ez a rész tökéletesen tartja a helyzetet .... szóval jQuery lassú, vagy bug
+  // a jó öreg js még mindig megbízhatóbb ilyen esetekben
+  var documentScreenWidth = document.body.offsetWidth;
+
+  var mainHeadlineText = document.getElementById('main_headline_text');
+  var mainHeadlineTextOffsets = mainHeadlineText.getBoundingClientRect();
+  mainHeadlineText.style.height = mainHeadlineTextOffsets.height * 0.61;
+
+
+
+  var mainScreenFooter = document.getElementById('main_screen_footer');
+  var mainScreenFooterOffset = mainScreenFooter.getBoundingClientRect();
+  mainScreenFooter.setAttribute('style' , 'height: '+documentScreenWidth * 0.301+'px !important');
+
+  // old system
+  // TODO : átírni az új rendszerre ezeket és lehet át is kell számolni, ezt majd megcsinálom
   $('#main_screen').css({ height : actualWindowWidth * 0.446 });
   $('#menu_screen').css({ height : actualWindowHeight});
   $('#menu_logo_transparent').css({ height : $('#menu_logo_transparent').width()});
@@ -14,6 +32,7 @@ function resizewindow(){
   $('#menu_close_button').css({ height : $('#menu_hamburger').height()});
   $('#main_screen1').css({ height : actualWindowWidth * 0.446 });
   $('#main_screen2').css({ height : actualWindowWidth * 0.446 });
+  $('#main_screen3').css({ height : actualWindowWidth * 0.446 });
   $('.small_brick').css({ height : actualWindowWidth * 0.0562});
   $('.small_doubled_brick').css({ height : actualWindowWidth * 0.0562 * 2});
   $('.normal_brick').css({ height : actualWindowWidth * 0.0562 * 2});
@@ -44,34 +63,71 @@ function resizewindow(){
 			if (++actualElemPrefix == 5) actualElemPrefix = 1;
 			nextElem = $('a[data-filename-prefix="'+actualElemPrefix + '"]');
 		}
-		if (!nextElem.hasClass('white') && !$(':animated').length) {
-			nextElem.addClass('white').siblings().removeClass('white');
-			var filename = 'url(Media/slider' + nextElem.attr('data-filename-prefix') + '_device_bg.png)';
-			var leftPos = nextElem.attr('data-pos');
-			var videoPos = nextElem.attr('data-video-position').split('/')
-			$('#video_layer').animate({
-				top : videoPos[0] + '%',
-				left: videoPos[1] + '%',
-				width : videoPos[2] + '%'
-			}, 1000);
-			$('#floating_bg').animate({ left: leftPos + '%'}, 1000);
-			$('.inactive_main_screen')
-				.css('background-image',filename)
-				.animate({ left: 0}, 1000, function() {
+		// ipad alatt a kevés browser memória miatt a képcsere esetén újratölti az oldalt, ezért sima fade-in-out effekt a cserénél
+		if (navigator.userAgent.match(/iPad/i) != null) {
+			if (!nextElem.hasClass('white') && !$(':animated').length) {
+				nextElem.addClass('white').siblings().removeClass('white');
+				var filename = 'url(Media/slider' + nextElem.attr('data-filename-prefix') + '_device_bg.png)';
+				var leftPos = nextElem.attr('data-pos');
+				$('#floating_bg').animate({ left: leftPos + '%'}, 1000);
+				$('.inactive_main_screen')
+					.css('background-image',filename)
+					.animate({ opacity: 1}, 1000, function() {
+						$(this)
+							.removeClass('inactive_main_screen')
+							.addClass('active_main_screen');
+					});
+				$('.active_main_screen').animate({ opacity: 0}, 1000, function() {
 					$(this)
-						.removeClass('inactive_main_screen')
-						.addClass('active_main_screen');
+						.removeClass('active_main_screen')
+						.addClass('inactive_main_screen');
 				});
-			$('.active_main_screen').animate({ left: '-100%'}, 1000, function() {
-				$(this)
-					.css({ left : '100%' })
-					.removeClass('active_main_screen')
-					.addClass('inactive_main_screen');
-			});
+			}
+		} else {
+			if (!nextElem.hasClass('white') && !$(':animated').length) {
+				nextElem.addClass('white').siblings().removeClass('white');
+				var filename = 'url(Media/slider' + nextElem.attr('data-filename-prefix') + '_device_bg.png)';
+				var leftPos = nextElem.attr('data-pos');
+				var videoPos = nextElem.attr('data-video-position').split('/')
+				$('#video_layer').animate({
+					top : videoPos[0] + '%',
+					left: videoPos[1] + '%',
+					width : videoPos[2] + '%'
+				}, 1000);
+				$('#floating_bg').animate({ left: leftPos + '%'}, 1000);
+				$('.inactive_main_screen')
+					.css('background-image',filename)
+					.animate({ left: 0}, 1000, function() {
+						$(this)
+							.removeClass('inactive_main_screen')
+							.addClass('active_main_screen');
+					});
+				$('.active_main_screen').animate({ left: '-100%'}, 1000, function() {
+					$(this)
+						.css({ left : '100%' })
+						.removeClass('active_main_screen')
+						.addClass('inactive_main_screen');
+				});
+			}
 		}
 	}
 
 $(document).ready(function() {
+
+  resizewindow();
+
+	// tablet resolution fix
+	if (!window.devicePixelRatio) {
+		window.devicePixelRatio = 1;
+	};
+
+	// ipad browser low memory fix
+  if (navigator.userAgent.match(/iPad/i) != null) {
+  	$('#main_screen2').remove();
+  } else {
+  	$('#main_screen3').remove();
+ 	}
+
 
   fullScreenHeight = $(window).height();
   fullScreenWidth = $(window).width();
@@ -90,9 +146,12 @@ $(document).ready(function() {
   $('#menu_screen').css('background-color', actualMenuColor);
   $('#menu_close_button').css('background-image', 'url(Media/icon_'+actualSystemColor+'_close.png)' );
 
+
 	$('.device_button').on({
 		click: function() {
 			sliderChanger($(this));
+			clearTimeout(sliderChangerTimer);
+			sliderChangerTimer = window.setInterval(function() { sliderChanger(0); }, 15000 );			
 			return false;
 		}
 	});
@@ -135,6 +194,10 @@ $(document).ready(function() {
 
 	var sliderChangerTimer = window.setInterval(function() { sliderChanger(0); }, 15000 );
 
+  var newFontSize = ($(this).width() / 2048) * 110;
+	$('body').css({ 'font-size' : newFontSize + '%'});
+
+
 	$(window).resize(function() {
     resizewindow();
     var newFontSize = ($(this).width() / 2048) * 110;
@@ -145,7 +208,6 @@ $(document).ready(function() {
     resizewindow();
 	});
 
-  resizewindow();
 
   $(window).scroll(function() {
 
