@@ -5,10 +5,15 @@ function resizewindow(){
   //return;
   var actualWindowWidth = $(this).width();
   var actualWindowHeight = $(this).height();
+  
+  // csak egy resize legyen
+  $('body').css({'font-size': (actualWindowWidth / 2048) * 110 + '%'});
+
 
   // new system of set height for elements
   // míg a többi szétesik, ez a rész tökéletesen tartja a helyzetet .... szóval jQuery lassú, vagy bug
   // a jó öreg js még mindig megbízhatóbb ilyen esetekben
+  //var documentScreenWidth = actualWindowWidth;//document.body.offsetWidth;
   var documentScreenWidth = document.body.offsetWidth;
 
   var mainHeadlineText = document.getElementById('main_headline_text');
@@ -29,6 +34,7 @@ function resizewindow(){
   $('#logo').css({ height : $('#logo').width() * 2});
   $('#menu_hamburger').css({ height : $('#menu_hamburger').width()});
   $('#down_arrow').css({ height : $('#menu_hamburger').height()});
+  $('.divider_up_button > img').css({height : $('#menu_hamburger').height(), width : $('#menu_hamburger').height()});
   $('#menu_close_button').css({ height : $('#menu_hamburger').height()});
   $('#main_screen1').css({ height : actualWindowWidth * 0.446 });
   $('#main_screen2').css({ height : actualWindowWidth * 0.446 });
@@ -197,20 +203,6 @@ $(document).ready(function() {
 
 	var sliderChangerTimer = window.setInterval(function() { sliderChanger(0); }, 15000 );
 
-  var newFontSize = ($(this).width() / 2048) * 110;
-	$('body').css({ 'font-size' : newFontSize + '%'});
-
-
-	$(window).resize(function() {
-    resizewindow();
-    var newFontSize = ($(this).width() / 2048) * 110;
-		$('body').css({ 'font-size' : newFontSize + '%'});
-	});
-
-	$(window).resize(function() {
-    resizewindow();
-	});
-
 
   $(window).scroll(function() {
 
@@ -237,7 +229,13 @@ $(document).ready(function() {
   		}
    	} else $('#down_arrow').removeClass('rotate');
 
-  })
+  });
 
 
 });
+
+$(window).resize(function(){ resizewindow();});
+
+// a biztonsag kedveert ujrarendezzuk a kepernyot, ha minden lejott
+$(window).load(function(){ resizewindow();});
+
