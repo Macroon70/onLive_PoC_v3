@@ -392,6 +392,7 @@ p {
 	z-index: 5;
 	right: 3%;
 	top: 25%;
+  /* this is the same as .divider_button > img in .js */
 	width: 5%;
 	cursor: pointer;
 	background-image: url('Media/icon_menu_hamburger.png');

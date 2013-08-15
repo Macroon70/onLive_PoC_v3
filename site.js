@@ -34,7 +34,8 @@ function resizewindow(){
   $('#logo').css({ height : $('#logo').width() * 2});
   $('#menu_hamburger').css({ height : $('#menu_hamburger').width()});
   $('#down_arrow').css({ height : $('#menu_hamburger').height()});
-  $('.divider_up_button > img').css({height : $('#menu_hamburger').height(), width : $('#menu_hamburger').height()});
+  $('.divider_up_button > img').css({height : actualWindowWidth*0.05 , width : actualWindowWidth*0.05});
+  $('.divider_button > img').css({height : actualWindowWidth*0.05, width : actualWindowWidth*0.05});
   $('#menu_close_button').css({ height : $('#menu_hamburger').height()});
   $('#main_screen1').css({ height : actualWindowWidth * 0.446 });
   $('#main_screen2').css({ height : actualWindowWidth * 0.446 });
