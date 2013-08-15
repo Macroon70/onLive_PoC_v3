@@ -1,5 +1,6 @@
 var fullScreenHeight;
 var fullScreenWidth;
+<<<<<<< HEAD
 
 function resizewindow(){
   //return;
@@ -80,6 +81,65 @@ $(document).ready(function() {
   var menuColors = new Array('#2685B5','#8BC53F','#24B5A8','#FF8833','#614ABF','#E63A3A');
 
   var sectionOffsets = new Array();
+=======
+
+function resizewindow(){
+  //return;
+  var actualWindowWidth = $(this).width();
+  $('#main_screen').css({ height : actualWindowWidth * 0.49 });
+  $('.small_brick').css({ height : actualWindowWidth * 0.0562});
+  $('.small_doubled_brick').css({ height : actualWindowWidth * 0.0562 * 2});
+  $('.normal_brick').css({ height : actualWindowWidth * 0.0562 * 2});
+  $('.negativ_margin').css({ marginTop : $('.normal_brick').height() / 2 * -1 });	
+  $('.big_brick').css({ height : $('.normal_brick').width() * 0.0562 * 8});
+  $('.onehalf_brick').css({ height : actualWindowWidth * 0.0562 * 5});
+  $('.onehalf_brick_game').css({ height : actualWindowWidth * 0.0562 * 3});
+  $('#third_screen_bg').css({ height : actualWindowWidth * 0.7 });
+  $('#third_screen').css({ height : actualWindowWidth * 0.7 - ($('.normal_brick').height() / 2)});
+  $('.negativ_top').css({ top : $('.normal_brick').height() / 2 * -1 });
+  $('#player_avatars').css({ height : $('#player_avatars') * 0.3 });
+  $('.footer_box').css({ height : $('.footer_box').width() * 0.623 });
+  $('.footer_big_box').css({ height : $('.footer_box').height() });
+  $('#footer_logo').css({ height : $('#footer_logo').width() * 0.272 });
+	$('#forth_screen').css({ height : fullScreenWidth * 0.897});
+	$('#forth_screen_bg').css({ height : $('#forth_screen_bg').width() * 0.76 });
+  $('.inherit_height').each(function() {
+    $(this).css({ height : $(this).parent().height() });
+  });
+
+}
+
+
+$(document).ready(function() {
+
+  fullScreenHeight = $(window).height();
+  fullScreenWidth = $(window).width();
+
+
+
+/*
+ 	$('#main_screen').css({ height : fullScreenWidth * 0.49});
+	$('.small_brick').css({ height : $(this).width() * 0.0562});
+	$('.small_doubled_brick').css({ height : $(this).width() * 0.0562 * 2});
+	$('.normal_brick').css({ height : $(this).width() * 0.0562 * 2});
+	$('.negativ_margin').css({ marginTop : $('.normal_brick').height() / 2 * -1 });	
+	$('.big_brick').css({ height : $('.normal_brick').width() * 0.0562 * 8});
+	$('.onehalf_brick').css({ height : $(this).width() * 0.0562 * 5});
+	$('.onehalf_brick_game').css({ height : $(this).width() * 0.0562 * 3});
+	$('#third_screen_bg').css({ height : fullScreenWidth * 0.7 });
+	$('#third_screen').css({ height : fullScreenWidth * 0.7 - ($('.normal_brick').height() / 2)});
+	$('.negativ_top').css({ top : $('.normal_brick').height() / 2 * -1 });
+	$('#player_avatars').css({ height : $('#player_avatars').width() * 0.3 });
+	$('#forth_screen').css({ height : fullScreenWidth * 0.897});
+	$('#forth_screen_bg').css({ height : $('#forth_screen_bg').width() * 0.76 });
+	$('.footer_box').css({ height : $('.footer_box').width() * 0.623 });
+	$('.footer_big_box').css({ height : $('.footer_box').height() });
+	$('#footer_logo').css({ height : $('#footer_logo').width() * 0.272 });
+	$('.inherit_height').each(function() {
+		$(this).css({ height : $(this).parent().height() });
+	});
+*/
+>>>>>>> 1865959cd61f069d4d858b3677d4c6c09d82fe98
 
   var randomNum = Math.floor(Math.random()*systemColors.length);
   var actualSystemColor = systemColors[randomNum];
@@ -96,6 +156,7 @@ $(document).ready(function() {
 			return false;
 		}
 	});
+<<<<<<< HEAD
 
 
 	$('#down_arrow').on({
@@ -139,6 +200,15 @@ $(document).ready(function() {
     var newFontSize = ($(this).width() / 2048) * 110;
 		$('body').css({ 'font-size' : newFontSize + '%'});
 	});
+=======
+*/
+
+	$(window).resize(function() {
+    resizewindow();
+	});
+
+  resizewindow();
+>>>>>>> 1865959cd61f069d4d858b3677d4c6c09d82fe98
 
   resizewindow();
 
