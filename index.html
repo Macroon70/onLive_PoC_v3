@@ -7,8 +7,8 @@
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 	<script src="site.js?v=1" type="text/javascript"></script>
 	<script src="webfontkit/specimen_files/easytabs.js" type="text/javascript" charset="utf-8"></script>
-	<link rel="stylesheet" href="webfontkit/specimen_files/specimen_stylesheet.css" type="text/css" />
-	<link rel="stylesheet" href="webfontkit/stylesheet.css?v=1" type="text/css"  />	
+	<link rel="stylesheet" href="webfontkit/specimen_files/specimen_stylesheet.css" type="text/css"/>
+	<link rel="stylesheet" href="webfontkit/stylesheet.css?v=1" type="text/css"/>	
 	<link href="site.css?v=1" rel="stylesheet" type="text/css"/>
 </head>
 <body>
@@ -34,10 +34,12 @@
 	<div id="menu_logo_transparent" class="bg_images"></div>
 </div>
 <div id="video_layer">
+	<div id="video_sizer">
 		<video id="root_video" autoplay="autoplay" class="video" muted="muted" loop="loop">
 			<source type="video/mp4" src="http://www.liandesign.hu/onLive_v3/Media/Dirt3_01.mp4">
-  		<source src="http://en.ony.ru/upload/BlocksPagesProperties/video_ogv/ee103008ab88d41b442de738702b5493.ogv" type="video/ogg">
+		 		<source src="http://en.ony.ru/upload/BlocksPagesProperties/video_ogv/ee103008ab88d41b442de738702b5493.ogv" type="video/ogg">
 		</video>
+	</div>
 </div>
 <div id="scrolling_layer">
 	<div id="main_screen" class="bg_images">
@@ -61,27 +63,20 @@
 			<h2>PLAY ON ALL<br />DEVICES</h2>
 			<h3>Continue playing wherever<br />you go on your TV, Android<br />and iOS devices.</h3>
 			<p class="dark_red">MORE INFO</p>
-			<div id="source_slider_bg" class="light_grey_bg">
-				<div id="ipad_right_bug1" class="dark_brown_bg"></div>
-				<div id="ipad_right_bug2" class="dark_brown_bg"></div>
-				<div id="ipad_right_bug3" class="dark_brown_bg"></div>
-				<div id="ipad_right_bug4" class="dark_brown_bg"></div>
-				<div id="floating_bg"></div>
-			</div>
 			<div id="source_slider_controller">
-					<a data-pos="0" data-filename-prefix="1" data-video-position="22/28/52" class="device_button" href="#">
+					<a data-filename-prefix="1" data-video-position="2.3/25/60/3" class="device_button" href="#">
 						<div class="bg_images icon_iphone_transparent"></div>
 						<p class="light_grey">Smartphones</p>
 					</a>
-					<a data-pos="25" data-filename-prefix="2" data-video-position="22/36/52" class="device_button" href="#">
+					<a data-filename-prefix="2" data-video-position="3/38.5/49/0" class="device_button" href="#">
 						<div class="bg_images icon_tablet_transparent"></div>
 						<p class="light_grey">Tablets</p>
 					</a>
-					<a data-pos="50" data-filename-prefix="3" data-video-position="22/36/52" class="device_button" href="#">
+					<a data-filename-prefix="3" data-video-position="3/38.5/49/0" class="device_button" href="#">
 						<div class="bg_images icon_pcmac_transparent"></div>
 						<p class="light_grey">PC&nbsp;&amp;&nbsp;MAC</p>
 					</a>
-					<a data-pos="75" data-filename-prefix="4" data-video-position="21/36/52" class="device_button white" href="#">
+					<a data-filename-prefix="4" data-video-position="2.8/38.5/49/0" class="device_button white" href="#">
 						<div class="bg_images icon_hdtv_transparent"></div>
 						<p class="light_grey">HDTV<br />More info</p>
 					</a>
@@ -92,12 +87,8 @@
 		<a class="divider_button" href="#"><img src="Media/dark_red_button.png" alt=""/></a>
 	</div>
 	<div id="second_screen">
-		<div class="content_margin offset_3 small_brick">
-			<div class="inherit_height bg_images last_of_us_small zoom-content"></div>
-		</div>
-		<div class="content_margin offset_1 clear normal_brick">
-			<div class="inherit_height bg_images batman_normal zoom-content"></div>
-		</div>
+		<div class="content_margin offset_3 small_brick bg_images last_of_us_small"></div>
+		<div class="content_margin offset_1 clear normal_brick bg_images batman_normal"></div>
 		<div class="content_margin bg_images offset_1 normal_brick borderlands2_normal"></div>
 		<div class="content_margin clear double_normal_brick">
 			<div class="bg_images normal_brick batman_normal"></div>
@@ -128,15 +119,21 @@
 		<div class="content_margin bg_images onehalf_brick_game borderlands2_normal"></div>
 		<div class="content_margin bg_images normal_brick clear assassins_normal negativ_margin"></div>
 		<div class="content_margin bg_images offset_2 small_brick last_of_us_small"></div>
-		<div id="headline_brick" class="dirt3_headline bg_images onehalf_brick_game zoom-content"></div>
+		<div id="headline_brick" class="dirt3_headline bg_images onehalf_brick_game zoom-content content_border content_shadow"></div>
 	</div>
 	<div id="third_screen" class="clear">
+		<div id="tablet_player_info" class="big_avatar_table">
+			<div class="avatar_icon bg_images content_avatar1"></div>
+			<p class="big_size_text">Robin</p>
+			<p class="small_size_text">Dirt 2</p>
+			<div class="icon_like"><p class="avatar_score">575</p></div>
+		</div>
 		<div id="third_screen_bg" class="bg_images negativ_top">
 			<div class="bricks content_margin bg_images normal_brick clear assassins_normal negativ_margin"></div>
 			<div class="bricks content_margin bg_images offset_2 small_brick last_of_us_small"></div>
 			<div id="player_avatars" class="content_margin bg_images"></div>
 			<div id="third_headline_text" class="bg_images content_margin">
-				<h1>WATCH<br />GREAT PLAYERS.</h1>
+				<h1>WATCH GREAT<br />PLAYERS</h1>
 			</div>
 			<div id="box_spectatle" class="blue_bg">
 				<h2>WATCH<br />THE SPECTATLE</h2>
@@ -154,6 +151,38 @@
 			<p class="purple">JOIN NOW</p>
 			<a class="divider_button" href="#"><img src="Media/purple_button.png" alt=""/></a>
 		</div>
+		<div id="video_image4" class="bg_images video_images video_image4"></div>
+		<div id="video_image2" class="bg_images video_images video_image2">
+			<div id="video2_avatar_info" class="info_avatar_table">
+				<div class="icon_like"><p class="avatar_score">75</p></div>
+				<div class="fr">
+					<div class="avatar_icon bg_images video_avatar2"></div>
+					<p>Cheesus</p>
+					<p class="smaller_text">1 hour ago</p>
+				</div>
+			</div>
+		</div>
+		<div id="video_image3" class="bg_images video_images video_image3">
+			<div id="video3_avatar_info" class="info_avatar_table">
+				<div class="icon_like"><p class="avatar_score">22</p></div>
+				<div class="fr">
+					<div class="avatar_icon bg_images video_avatar3"></div>
+					<p>Cheesus</p>
+					<p class="smaller_text">1 hour ago</p>
+				</div>
+			</div>
+		</div>
+		<div id="video_image1" class="bg_images video_images video_image1 content_border content_shadow">
+			<div id="video1_avatar_info" class="info_avatar_table">
+				<div class="icon_like"><p class="avatar_score">95</p></div>
+				<div class="fr">
+					<div class="avatar_icon bg_images video_avatar1"></div>
+					<p>lunaticPysch</p>
+					<p class="smaller_text">5 hours ago</p>
+				</div>
+			</div>
+		</div>
+		<h1>RECORD, BRAG<br />&amp; WATCH</h1>		
 	</div>
 	<div id="footer_screen" class="clear">
 		<div id="box_join" class="footer_box white_bg">
@@ -177,7 +206,7 @@
 				<a href="#">Blog</a>
 				<a href="#"><img src="Media/icon_youtube.png" alt=""/>&nbsp;YouTube</a>
 			</div>
-			<div id="footer_logo" class="bg_images"></div>
+			<div id="footer_logo" class="bg_images"><p>onlive</p></div>
 		</div>
 	</div>
 	<div class="clear"></div>
