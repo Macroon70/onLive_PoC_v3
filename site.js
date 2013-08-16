@@ -1,6 +1,15 @@
 var fullScreenHeight;
 var fullScreenWidth;
 
+var systemColors = new Array('blue','green','turquise','orange','purple','red');
+var menuColors = new Array('#2685B5','#8BC53F','#24B5A8','#FF8833','#614ABF','#E63A3A');
+
+var sectionOffsets = new Array();
+
+var randomNum = Math.floor(Math.random()*systemColors.length);
+
+$('link[rel=icon]').attr('href','Media/favico_'+systemColors[randomNum]+'.ico');
+
 function resizewindow(){
   //return;
   var actualWindowWidth = $(this).width();
@@ -177,12 +186,6 @@ $(document).ready(function() {
 
 
 
-  var systemColors = new Array('blue','green','turquise','orange','purple','red');
-  var menuColors = new Array('#2685B5','#8BC53F','#24B5A8','#FF8833','#614ABF','#E63A3A');
-
-  var sectionOffsets = new Array();
-
-  var randomNum = Math.floor(Math.random()*systemColors.length);
   var actualSystemColor = systemColors[randomNum];
   var actualMenuColor = menuColors[randomNum];
 
