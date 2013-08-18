@@ -146,7 +146,9 @@ function resizewindow(){
 					'-o-transform':'rotate('+videoPos[3]+'deg)'										
 				}, 1000);
 				$('.inactive_main_screen')
-					.css('background-image',filename)
+					.css({
+						'background-image' : filename,
+						display : 'block'	})
 					.animate({ left: 0}, 1000, function() {
 						$(this)
 							.removeClass('inactive_main_screen')
@@ -154,7 +156,9 @@ function resizewindow(){
 					});
 				$('.active_main_screen').animate({ left: '-100%'}, 1000, function() {
 					$(this)
-						.css({ left : '100%' })
+						.css({ 
+							display : 'none',
+							left : '100%' })
 						.removeClass('active_main_screen')
 						.addClass('inactive_main_screen');
 				});
