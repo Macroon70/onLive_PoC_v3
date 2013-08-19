@@ -535,7 +535,7 @@ p {
 
 #menu_hamburger {
 	position: fixed;
-	z-index: 5;
+	z-index: 6;
 	right: 3%;
 	/*top: 25%;*/
   /* this is the same as .divider_button > img in .js */
@@ -546,7 +546,7 @@ p {
 
 #down_arrow {
 	position: fixed;
-	z-index: 5;
+	z-index: 6;
 	right: 3%;
 	bottom: 5%;
 	width: 5%;
@@ -555,7 +555,7 @@ p {
 
 #menu_screen {
 	position: fixed;
-	z-index: 6;
+	z-index: 7;
 	width: 25%;
 	right: -30%;
 	top: 0;	
@@ -570,7 +570,7 @@ p {
 	left: -7.5%;
 	top: 3%;
 	width: 15%;
-	z-index: 7;
+	z-index: 8;
 }
 
 #menu_system_main {
@@ -671,7 +671,7 @@ p {
 	width: 100%;
 	position: absolute;
 	top: 0;
-	z-index: 1;
+	z-index: 2;
 }
 
 #scrolling_layer > div {
@@ -684,7 +684,7 @@ p {
 /* Main screen */
 
 #main_screen {
-	z-index: 3;
+	z-index: 4;
 	overflow: hidden;
 }
 
@@ -698,7 +698,7 @@ p {
 	width: 5%;
 	background-position: top center;
 	background-size: contain;
-	z-index: 5;
+	z-index: 6;
 }
 
 #logo > p {
@@ -715,16 +715,16 @@ p {
 
 #main_screen1 {
 	background-image: url('Media/slider4_device_bg.png');
-	z-index: 1;
+	z-index: 2;
 }
 
 #main_screen2 {
-	z-index: 2;
+	z-index: 3;
 	left: 100%;
 }
 
 #main_screen3 {
-	z-index: 3;
+	z-index: 4;
 	left: 0;
 }
 
@@ -733,7 +733,7 @@ p {
 	background-image: url('Media/headline_bg_bubbles.png');
 	top: 7%;
 	width: 45%;
-	z-index: 3;
+	z-index: 4;
 	background-size: cover;
 }
 
@@ -751,7 +751,7 @@ p {
 	bottom: 0;
 	width: 20% !important;
 	background-color: #F7BB3E;
-	z-index: 3;
+	z-index: 4;
 }
 
 #main_screen_signup > p {
@@ -761,7 +761,7 @@ p {
 
 #main_screen_footer {
 	position: relative;
-	z-index: 4;
+	z-index: 5;
 }
 
 #main_screen_footer > a {
@@ -838,10 +838,14 @@ p {
 
 /* Second Screen */
 
+#screen1 {
+	background-color: #ffffff;
+}
+
 #second_screen {
 	background-color: #ffffff;
 	height: auto;
-	z-index: 1;
+	z-index: 2;
 }
 
 #second_screen > div {
@@ -876,13 +880,13 @@ p {
 }
 
 #second_upper_level {
-	z-index: 2 !important;
+	z-index: 3 !important;
 	overflow: visible !important;
 }
 
 
 #headline_brick {
-	z-index: 3;
+	z-index: 4;
 	position: absolute !important;
 	top: 37.86%;
 	left: 26.8%;
@@ -893,12 +897,12 @@ p {
 
 #third_screen {
 	height: auto;
-	z-index: 2;
+	z-index: 3;
 }
 
 #tablet_player_info {
 	position: absolute;
-	z-index: 3;
+	z-index: 4;
 	right: 22%;
 	top: 34%;
 }
@@ -958,7 +962,7 @@ p {
 
 #forth_screen {
 	width: 100%;
-	z-index: 1;
+	z-index: 2;
 }
 
 
@@ -1065,11 +1069,11 @@ p {
 }
 
 #box_readygo {
-	z-index: 2;
+	z-index: 3;
 }
 
 #footer_contents {
-	z-index: 1;
+	z-index: 2;
 	width: 94.14%;
 	padding-top: 5%;
 	padding-bottom: 7%;
@@ -1130,4 +1134,15 @@ p {
 	color: #ffffff;
 	font-size: 3.5em;
 	line-height: 1.3em;
+}
+
+/*
+Parallax layer
+*/
+
+#parallax_layer{
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  position: fixed;
 }

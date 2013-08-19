@@ -1,6 +1,9 @@
 var fullScreenHeight;
 var fullScreenWidth;
 
+var actualWindowWidth;
+var actualWindowHeight;
+
 var systemColors = new Array('blue','green','turquise','orange','purple','red');
 var menuColors = new Array('#2685B5','#8BC53F','#24B5A8','#FF8833','#614ABF','#E63A3A');
 
@@ -12,11 +15,12 @@ $('link[rel=icon]').attr('href','Media/favico_'+systemColors[randomNum]+'.ico');
 
 function resizewindow(){
   //return;
-  var actualWindowWidth = $(this).width();
-  var actualWindowHeight = $(this).height();
+  actualWindowWidth = $(this).width();
+  actualWindowHeight = $(this).height();
   
   // csak egy resize legyen
   $('body').css({'font-size': (actualWindowWidth / 2048) * 110 + '%'});
+  $('#parallax_layer').height(actualWindowHeight);
 
 
   // new system of set height for elements
@@ -242,12 +246,69 @@ $(document).ready(function() {
 	});
 
 
-	var sliderChangerTimer = window.setInterval(function() { sliderChanger(0); }, 15000 );
+  screens = $('div[id^="screen"]');
+  
+  scrollwindow();
+
+});
+
+$(window).resize(function(){ resizewindow();});
+
+$(window).load(function(){ resizewindow();});
+
 
 
   $(window).scroll(function() {
+    scrollwindow();
+  });
+  
+  var clonedscreen = -1;
+  var screens;
+	var sliderChangerTimer = window.setInterval(function() { sliderChanger(0); }, 15000 );
+    
+  function scrollwindow(){
 
 		var scrollingLayerOffsets = document.getElementById('scrolling_layer').getBoundingClientRect();
+    var visiblefrom = Math.abs(scrollingLayerOffsets.top);
+    var visibleto = visiblefrom + actualWindowHeight;
+    
+    // find the screen to fix
+    var shouldclone = 0;
+    for (var i=0; i<screens.length; i++){
+      if ($(screens[i]).position().top < Math.abs(scrollingLayerOffsets.top)){
+        shouldclone = i;
+      }
+    }
+    // if screen has changed
+    if (shouldclone != clonedscreen) {
+      if (shouldclone > clonedscreen){
+        // going down
+        $('#parallax_layer').css('margin-top','0px');
+      }else{
+        // going up
+        $('#parallax_layer').css('margin-top','0px');
+      }
+      //clone the screen
+      clonedscreen = shouldclone;
+      $('#parallax_layer').empty();
+      $('div[id^="screen"]').css('visibility','visible');
+      $('#screen'+clonedscreen).css('visibility','hidden');
+      $('#screen'+clonedscreen).clone().appendTo($('#parallax_layer'));
+      $('#parallax_layer > #screen'+clonedscreen).css('visibility','visible');
+      $('#parallax_layer').height($('#screen'+clonedscreen).height());
+    }
+    
+    var currentscreen = $(screens[clonedscreen]);
+    var currenttop = currentscreen.position().top;
+    var currentheight = currentscreen.height();
+    var currentbottom = currenttop+currentheight;
+    
+    if (currentheight>actualWindowHeight){
+      if (currentbottom>visibleto){
+        $('#parallax_layer').css('margin-top', (currenttop-visiblefrom) +'px');
+      }
+    }
+    
 
 		setHamburgerPosition();
 
@@ -287,13 +348,4 @@ $(document).ready(function() {
   		}
    	} else $('#down_arrow').removeClass('rotate');
 
-  });
-
-
-});
-
-$(window).resize(function(){ resizewindow();});
-
-// a biztonsag kedveert ujrarendezzuk a kepernyot, ha minden lejott
-$(window).load(function(){ resizewindow();});
-
+  };
