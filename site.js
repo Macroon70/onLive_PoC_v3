@@ -294,6 +294,39 @@ $(document).ready(function() {
   });
 
 
+  /* embend player */
+  /** Write container **/
+  if (!document.getElementById("botr_7Wi9qfSk_GjAHfwUI_div")) {
+    document.write("<div id='botr_7Wi9qfSk_GjAHfwUI_div'></div>");
+  }
+
+  /** Insert fallback. **/
+  document.getElementById("botr_7Wi9qfSk_GjAHfwUI_div").innerHTML = "<div id='botr_7Wi9qfSk_GjAHfwUI_ply' style='position:relative; width:100%; height:270; background:#000 url(http://content.bitsontherun.com/thumbs/7Wi9qfSk-480.jpg) no-repeat center center;'><a href='http://content.bitsontherun.com/videos/7Wi9qfSk-IMKUyrAv.mp4' style='display:block; width:100%; height:100%; border:none; background:transparent url(http://content.bitsontherun.com/staticfiles/play.png) no-repeat center center; text-indent:-99999px;'>Bunny Test</a></div>";
+
+  /** Initialize player **/
+  jwplayer.key = "EcHWjL0bMZsdo8QE0vv5IpN4yF2kjo0m";
+  jwplayer("botr_7Wi9qfSk_GjAHfwUI_ply").setup({
+    analytics: {"enabled": false},
+    aspectratio: "16:9",
+    autostart: false,
+    controls: false,
+    displaytitle: false,
+    fallback: false,
+    flashplayer: "http://a.jwpcdn.com/player/6/653609/jwplayer.flash.swf",
+    height: "100%",
+    html5player: "http://a.jwpcdn.com/player/6/653609/jwplayer.html5.js",
+    image: "http://content.bitsontherun.com/thumbs/7Wi9qfSk-480.jpg",
+    playlist: "http://content.bitsontherun.com/jw6/7Wi9qfSk.xml",
+    plugins: {"http://a.jwpcdn.com/player/6/653609/ping.js": {"pixel": "http://content.bitsontherun.com/ping.gif"}},
+    primary: "flash",
+    repeat: false,
+    stretching: "uniform",
+    width: "100%"
+  });
+  jwplayer().play();
+  jwplayer().onComplete(function(){jwplayer().play();});
+
+
 });
 
 $(window).resize(function(){ resizewindow();});
