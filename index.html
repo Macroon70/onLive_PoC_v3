@@ -13,7 +13,7 @@
 	<link rel="stylesheet" href="webfontkit/stylesheet.css?v=1" type="text/css"/>	
 	<link href="site.css?v=1" rel="stylesheet" type="text/css"/>
 </head>
-<body>
+<body class="noselect">
 <div id="menu_hamburger" class="bg_images"></div>
 <div id="down_arrow" class="bg_images"></div>
 <div id="menu_screen">
@@ -52,7 +52,7 @@
 		<div id="main_screen3" class="main_subscreen bg_images inactive_main_screen"></div>
 		<div id="main_headline_text" class="bg_images content_margin">
 			<div id="main_headline_wrapper">
-				<h1>PLAY ANYTIME,<br />ANYWHERE.<br />INSTANTLY.</h1>
+				<!-- <h1>PLAY ANYTIME,<br />ANYWHERE.<br />INSTANTLY.</h1> -->
 				<h2>SIGN UP AND<br />PLAY NOW!</h2>
 			</div>
 		</div>
@@ -101,9 +101,9 @@
 			<div class="bg_images normal_brick gamepic_06"><a href="#"></a></div>
 			<div class="bg_images normal_brick gamepic_07"><a href="#"></a></div>
 		</div>
-		<div id="second_headline" class="overflow_seeing conent_half_margin bg_images big_brick headline_bubbles_green">
+		<!-- <div id="second_headline" class="overflow_seeing conent_half_margin bg_images big_brick">
 			<h1 class="uv_green">PLAY ALL<br />THE LATEST<br />GAMES</h1>
-		</div>
+		</div> -->
 		<div class="content_margin bg_images clear normal_brick gamepic_08"><a href="#"></a></div>
 		<div id="second_upper_level" class="content_padding clear onehalf_brick uv_green_bg">
 			<h2>TRY ANY GAME<br />FOR FREE.<br />REALLY, FOR FREE.</h2>
@@ -155,7 +155,8 @@
 			<a class="divider_button" href="#"><img src="Media/purple_button.png" alt=""/></a>
 		</div>
 		<div id="video_image4" class="bg_images video_images video_image4"></div>
-		<div id="video_image2" class="bg_images video_images video_image2">
+		<div id="video_image2" class="bg_images video_images video_image2 small_video_player">
+			<div id="small_video_2" class="subvideo_content"></div>
 			<div id="video2_avatar_info" class="info_avatar_table">
 				<div class="icon_like"><p class="avatar_score">75</p></div>
 				<div class="fr">
@@ -166,7 +167,8 @@
 			</div>
 			<div class="video_player_controller bg_images"></div>
 		</div>
-		<div id="video_image3" class="bg_images video_images video_image3">
+		<div id="video_image3" class="bg_images video_images video_image3 small_video_player">
+			<div id="small_video_3" class="subvideo_content"></div>
 			<div id="video3_avatar_info" class="info_avatar_table">
 				<div class="icon_like"><p class="avatar_score">22</p></div>
 				<div class="fr">
@@ -177,7 +179,8 @@
 			</div>
 			<div class="video_player_controller bg_images"></div>
 		</div>
-		<div id="video_image1" class="bg_images video_images video_image1 content_border content_shadow">
+		<div id="video_image1" class="bg_images video_images video_image1 content_border content_shadow small_video_player">
+			<div id="small_video_1" class="subvideo_content"></div>
 			<div id="video1_avatar_info" class="info_avatar_table">
 				<div class="icon_like"><p class="avatar_score">95</p></div>
 				<div class="fr">
@@ -216,7 +219,16 @@
 		</div>
 	</div>
 	<div class="clear"></div>
-
+</div>
+<div id="parallax_layer">
+	<div id="parallax_wrapper" class="content_padding">
+		<div id="parallax_first_headline" class="bg_images">
+			<h1>PLAY ANYTIME,<br />ANYWHERE.<br />INSTANTLY.</h1>
+		</div>
+		<div id="parallax_second_headline" class="bg_images headline_bubbles_green">
+			<h1 class="uv_green">PLAY ALL<br />THE LATEST<br />GAMES</h1>
+		</div>
+	</div>
 </div>
 </body>
 </html>

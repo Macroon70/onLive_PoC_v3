@@ -1,3 +1,5 @@
+// TODO : add comments and rearrange lines
+
 var fullScreenHeight;
 var fullScreenWidth;
 
@@ -19,15 +21,9 @@ function resizewindow(){
   $('body').css({'font-size': (actualWindowWidth / 2048) * 110 + '%'});
 
 
-  // new system of set height for elements
-  // míg a többi szétesik, ez a rész tökéletesen tartja a helyzetet .... szóval jQuery lassú, vagy bug
-  // a jó öreg js még mindig megbízhatóbb ilyen esetekben
-  //var documentScreenWidth = actualWindowWidth;//document.body.offsetWidth;
   var documentScreenWidth = document.body.offsetWidth;
 
-  var mainHeadlineText = document.getElementById('main_headline_text');
-  var mainHeadlineTextOffsets = mainHeadlineText.getBoundingClientRect();
-  mainHeadlineText.style.height = mainHeadlineTextOffsets.height * 0.61;
+  $('#main_headline_text').css({ height : $('#main_headline_text').width() * 0.61 });
 
   var mainScreenFooter = document.getElementById('main_screen_footer');
   var mainScreenFooterOffset = mainScreenFooter.getBoundingClientRect();
@@ -35,8 +31,6 @@ function resizewindow(){
 
   $('#third_headline_text').css({ height : $('#third_headline_text').width() * 0.51 });
 
-  // old system
-  // TODO : átírni az új rendszerre ezeket és lehet át is kell számolni, ezt majd megcsinálom
   $('img').css({ 'max-width': (actualWindowWidth / 1600) * actualWindowWidth });
   $('img').css({ 'max-height': (actualWindowWidth / 1600) * actualWindowWidth });
 
@@ -90,7 +84,14 @@ function resizewindow(){
   		'border-style' : 'solid' });
   });
   $('#video_layer').css({ height : $('#scrolling_layer').height() });
+  $('#parallax_layer').css({ height : $('#scrolling_layer').height()});
+  
 
+  $('#parallax_wrapper').css({ height : $('#scrolling_layer').height() * 2});
+
+
+  $('#parallax_first_headline').css({ height : $('#parallax_first_headline').width() * 0.61 });
+  $('#parallax_second_headline').css({ height : $('#parallax_second_headline').width() * 0.5});  
 
 }
 
@@ -112,7 +113,7 @@ function resizewindow(){
 			if (++actualElemPrefix == 5) actualElemPrefix = 1;
 			nextElem = $('a[data-filename-prefix="'+actualElemPrefix + '"]');
 		}
-		// ipad alatt a kevés browser memória miatt a képcsere esetén újratölti az oldalt, ezért sima fade-in-out effekt a cserénél
+		// iPad refresh browser on every animate because low its memory size. Using fade-in-out effect instead
 		if (isiPad) {
 			if (!nextElem.hasClass('white') && !$(':animated').length) {
 				nextElem.addClass('white').siblings().removeClass('white');
@@ -167,6 +168,7 @@ function resizewindow(){
 	}
 
 $(document).ready(function() {
+
 
   fullScreenHeight = $(window).height();
   fullScreenWidth = $(window).width();
@@ -225,7 +227,7 @@ $(document).ready(function() {
 				sectionOffsets[4] = $('#scrolling_layer').height();
 				for (var i = 0; i <= sectionOffsets.length; i++) {
 					if (sectionOffsets[i] - $(window).height() > Math.abs(scrollingLayerOffsets.top)) {
-						$('html, body').stop().animate({ scrollTop : sectionOffsets[i] - $(window).height()}, 1000);
+						$('html, body').stop().animate({ scrollTop : sectionOffsets[i] - $(window).height()}, 2000);
 						break;
 					}
 				}
@@ -251,7 +253,12 @@ $(document).ready(function() {
 
   $(window).scroll(function() {
 
+
 		var scrollingLayerOffsets = document.getElementById('scrolling_layer').getBoundingClientRect();
+
+  	// parallax effect - simple :)
+  	var parallaxSpeed = 0.35 // exponencial value
+  	$('#parallax_wrapper').css({ top : scrollingLayerOffsets.top * parallaxSpeed });
 
 		setHamburgerPosition();
 
@@ -294,6 +301,51 @@ $(document).ready(function() {
   });
 
 
+	// Small video players controll
+	$('.small_video_player').on({
+		click: function() {
+			var clickedZindex = $(this).css('z-index');
+			if (clickedZindex != 3) {
+				var idName = $(this).children().first().attr('id');
+				event.stopPropagation();
+    		jwplayer( idName+'_ply').play();
+				$(this)
+					.addClass('content_border content_shadow playing_small_video')
+					.css({
+						'z-index' : 3,
+						'border-color': '#ffffff',
+  					'border-width' : $(this).width() * 0.03 + 'px',
+  					'border-style' : 'solid'
+					})
+					.siblings('.small_video_player').each(function() {
+						var childZindex = $(this).css('z-index');
+						if (childZindex == 3) $(this).css({'z-index' : 2});
+						if (childZindex == 2) $(this).css({'z-index' : 1});
+						if ($(this).hasClass('playing_small_video')) {
+							var idName = $(this).children().first().attr('id');
+							event.stopPropagation();
+			    		jwplayer( idName+'_ply').pause(true);
+							$(this)
+								.removeClass('content_border content_shadow playing_small_video')
+								.css({ border : 0 })
+						}
+					})
+			} else {
+				if ($(this).hasClass('playing_small_video')) {
+					$(this).removeClass('playing_small_video')
+				} else { 
+					$(this).addClass('playing_small_video');
+					var idName = $(this).children().first().attr('id');
+					event.stopPropagation();
+	    		jwplayer( idName+'_ply').play();
+				}
+			}
+		}
+	})
+
+
+	// TODO : readable id name and configure player.js to our project for less codelines and disable repeating
+
   /* embend player */
   /** Write container **/
   if (!document.getElementById("botr_7Wi9qfSk_GjAHfwUI_div")) {
@@ -301,13 +353,20 @@ $(document).ready(function() {
   }
 
   /** Insert fallback. **/
-  document.getElementById("botr_7Wi9qfSk_GjAHfwUI_div").innerHTML = "<div id='botr_7Wi9qfSk_GjAHfwUI_ply' style='position:relative; width:100%; height:270; background:#000 url(http://content.bitsontherun.com/thumbs/7Wi9qfSk-480.jpg) no-repeat center center;'><a href='http://content.bitsontherun.com/videos/7Wi9qfSk-IMKUyrAv.mp4' style='display:block; width:100%; height:100%; border:none; background:transparent url(http://content.bitsontherun.com/staticfiles/play.png) no-repeat center center; text-indent:-99999px;'>Bunny Test</a></div>";
+  var videoSource = 'http://www.liandesign.hu/onLive_v3/Media/Dirt3_01.640.mp4';
+  var bgSource = 'http://content.bitsontherun.com/thumbs/7Wi9qfSk-480.jpg';
+  document.getElementById("botr_7Wi9qfSk_GjAHfwUI_div").innerHTML = "<div id='botr_7Wi9qfSk_GjAHfwUI_ply' style='background:#000 "+bgSource+"'><a href='"+videoSource+"' style='display:block; width:100%; height:100%; border:none; background:transparent url(http://content.bitsontherun.com/staticfiles/play.png) no-repeat center center; text-indent:-99999px;'>Bunny Test</a></div>";
+  document.getElementById("small_video_2").innerHTML = "<div id='small_video_2_ply' style='background:#000 "+bgSource+"'><a href='"+videoSource+"' style='display:block; width:100%; height:100%; border:none; background:transparent url(http://content.bitsontherun.com/staticfiles/play.png) no-repeat center center; text-indent:-99999px;'>Bunny Test</a></div>";
+  document.getElementById("small_video_3").innerHTML = "<div id='small_video_3_ply' style='background:#000 "+bgSource+"'><a href='"+videoSource+"' style='display:block; width:100%; height:100%; border:none; background:transparent url(http://content.bitsontherun.com/staticfiles/play.png) no-repeat center center; text-indent:-99999px;'>Bunny Test</a></div>";
+  document.getElementById("small_video_1").innerHTML = "<div id='small_video_1_ply' style='background:#000 "+bgSource+"'><a href='"+videoSource+"' style='display:block; width:100%; height:100%; border:none; background:transparent url(http://content.bitsontherun.com/staticfiles/play.png) no-repeat center center; text-indent:-99999px;'>Bunny Test</a></div>";
+
 
   /** Initialize player **/
   jwplayer.key = "EcHWjL0bMZsdo8QE0vv5IpN4yF2kjo0m";
   jwplayer("botr_7Wi9qfSk_GjAHfwUI_ply").setup({
     analytics: {"enabled": false},
     aspectratio: "16:9",
+    // strange, true value not starting the video, false however start
     autostart: false,
     controls: false,
     displaytitle: false,
@@ -323,8 +382,80 @@ $(document).ready(function() {
     stretching: "uniform",
     width: "100%"
   });
-  jwplayer().play();
-  jwplayer().onComplete(function(){jwplayer().play();});
+  //jwplayer("").play();
+  //jwplayer().onComplete(function(){jwplayer().play();});
+
+  /** Initialize player **/
+  jwplayer.key = "EcHWjL0bMZsdo8QE0vv5IpN4yF2kjo0m";
+  jwplayer("small_video_2_ply").setup({
+    analytics: {"enabled": false},
+    aspectratio: "16:9",
+    // strange, true value not starting the video, false however start
+    autostart: false,
+    controls: false,
+    displaytitle: false,
+    fallback: true,
+    flashplayer: "http://a.jwpcdn.com/player/6/653609/jwplayer.flash.swf",
+    height: "100%",
+    html5player: "http://a.jwpcdn.com/player/6/653609/jwplayer.html5.js",
+    image: "http://content.bitsontherun.com/thumbs/7Wi9qfSk-480.jpg",
+    playlist: "http://content.bitsontherun.com/jw6/7Wi9qfSk.xml",
+    plugins: {"http://a.jwpcdn.com/player/6/653609/ping.js": {"pixel": "http://content.bitsontherun.com/ping.gif"}},
+    primary: "flash",
+    repeat: false,
+    stretching: "uniform",
+    width: "100%"
+  });
+  //jwplayer().play();
+  //jwplayer().onComplete(function(){jwplayer().play();});
+
+  /** Initialize player **/
+  jwplayer.key = "EcHWjL0bMZsdo8QE0vv5IpN4yF2kjo0m";
+  jwplayer("small_video_3_ply").setup({
+    analytics: {"enabled": false},
+    aspectratio: "16:9",
+    // strange, true value not starting the video, false however start
+    autostart: false,
+    controls: false,
+    displaytitle: false,
+    fallback: true,
+    flashplayer: "http://a.jwpcdn.com/player/6/653609/jwplayer.flash.swf",
+    height: "100%",
+    html5player: "http://a.jwpcdn.com/player/6/653609/jwplayer.html5.js",
+    image: "http://content.bitsontherun.com/thumbs/7Wi9qfSk-480.jpg",
+    playlist: "http://content.bitsontherun.com/jw6/7Wi9qfSk.xml",
+    plugins: {"http://a.jwpcdn.com/player/6/653609/ping.js": {"pixel": "http://content.bitsontherun.com/ping.gif"}},
+    primary: "flash",
+    repeat: false,
+    stretching: "uniform",
+    width: "100%"
+  });
+  //jwplayer().play();
+  //jwplayer().onComplete(function(){jwplayer().play();});
+
+  /** Initialize player **/
+  jwplayer.key = "EcHWjL0bMZsdo8QE0vv5IpN4yF2kjo0m";
+  jwplayer("small_video_1_ply").setup({
+    analytics: {"enabled": false},
+    aspectratio: "16:9",
+    // strange, true value not starting the video, false however start
+    autostart: false,
+    controls: false,
+    displaytitle: false,
+    fallback: true,
+    flashplayer: "http://a.jwpcdn.com/player/6/653609/jwplayer.flash.swf",
+    height: "100%",
+    html5player: "http://a.jwpcdn.com/player/6/653609/jwplayer.html5.js",
+    image: "http://content.bitsontherun.com/thumbs/7Wi9qfSk-480.jpg",
+    playlist: "http://content.bitsontherun.com/jw6/7Wi9qfSk.xml",
+    plugins: {"http://a.jwpcdn.com/player/6/653609/ping.js": {"pixel": "http://content.bitsontherun.com/ping.gif"}},
+    primary: "flash",
+    repeat: false,
+    stretching: "uniform",
+    width: "100%"
+  });
+  //jwplayer().play();
+  //jwplayer().onComplete(function(){jwplayer().play();});
 
 
 });

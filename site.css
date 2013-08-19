@@ -72,6 +72,16 @@ p {
 /* Classes           */
 /*********************/
 
+.noselect {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;	
+}
+
+
 .rotate {
   -webkit-animation: rotating-function 1.25s linear 1;
      -moz-animation: rotating-function 1.25s linear 1;
@@ -471,7 +481,9 @@ p {
 	width: 100%;
 	height: inherit;
 	opacity: 0.5;
-	cursor: pointer;
+	position: absolute;
+	left: 0;
+	top: 0;
 }
 
 /*********************/
@@ -781,7 +793,7 @@ p {
 
 
 #main_headline_text {
-	background-image: url('Media/headline_bg_bubbles.png');
+	/* background-image: url('Media/headline_bg_bubbles.png'); */
 	top: 7%;
 	width: 45%;
 	z-index: 3;
@@ -794,7 +806,7 @@ p {
 }
 
 #main_headline_wrapper > h2 {
-	margin-top: 10%;
+	margin-top: 28%;
 	font-size: 4.0em;
 }
 
@@ -1055,18 +1067,21 @@ p {
   left: 40%;
   bottom: 25%;
   width: 30%;
+  z-index: 1;
 }
 
 #video_image3 {
 	right: 2%;
 	bottom: 31%;
 	width: 30%;
+	z-index: 2;
 }
 
 #video_image1 {
 	left: 3%;
 	bottom: 35%;
 	width: 40%;
+	z-index: 3;
 }
 
 #video_image1 .icon_like {
@@ -1087,6 +1102,19 @@ p {
 #video_image1 .fr p:not(.smaller_text) {
 	margin-top: 5%;
 	opacity: 1 !important;
+}
+
+.subvideo_content {
+	width: 100%;
+	height: inherit;
+}
+
+.small_video_player {
+	cursor: pointer;
+}
+
+.playing_small_video > .video_player_controller {
+	visibility: hidden;
 }
 
 #box_record {
@@ -1196,3 +1224,55 @@ p {
 	font-size: 3.5em;
 	line-height: 1.3em;
 }
+
+/*********************/
+/* Parallax Layer       */
+/*********************/
+
+#parallax_layer {
+	pointer-events: none;
+	z-index: 2;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	overflow: hidden;
+}
+
+#parallax_wrapper {
+	position: absolute;
+	width: 90%;
+}
+
+#parallax_wrapper > div {
+	position: absolute;
+}
+
+#parallax_first_headline {
+	top: 0.5%;
+	background-image: url('Media/headline_bg_bubbles.png');
+	background-size: cover;
+	background-position: top;
+	width: 45%;
+}
+
+#parallax_first_headline > h1 {
+	margin-top: 5%;
+}
+
+#parallax_second_headline {
+	pointer-events: none;
+	width: 46%;
+	top: 15.18%;
+	left: 45.5%;
+}
+
+#parallax_second_headline > h1 {
+	width: 110%;
+	margin-top: 10%;
+	margin-left: 26%;
+}
+
+
+
+
