@@ -463,6 +463,17 @@ p {
 }
 
 
+.video_player_controller {
+	background-image: url('Media/video_play.png');
+	background-size: 20% auto;
+	background-repeat: no-repeat;
+	background-position: center center;
+	width: 100%;
+	height: inherit;
+	opacity: 0.5;
+	cursor: pointer;
+}
+
 /*********************/
 /* Player info table */
 /*********************/
