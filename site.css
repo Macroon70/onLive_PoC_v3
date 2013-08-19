@@ -307,56 +307,96 @@ p {
 	clear: both;
 }
 
-.last_of_us_small {
+.gamepic_01 {
 	background-image: url('Media/gamepic_last_of_us_small.png');
 }
 
-.batman_normal {
+.gamepic_02 {
 	background-image: url('Media/gamepic_batman_normal.png');
 }
 
-.borderlands2_normal {
+.gamepic_03 {
 	background-image: url('Media/gamepic_borderlands2_normal.png');
 }
 
-.crysis2_normal {
-	background-image: url('Media/gamepic_crysis2_normal.png');
+.gamepic_04 {
+	background-image: url('Media/gamepic_batman_normal.png');
 }
 
-.purple_text_normal {
+.gamepic_05 {
 	background-image: url('Media/gamepic_purple_text.png');
 }
 
-.orange_text_normal {
-	background-image: url('Media/gamepic_orange_text.png');
+.gamepic_06 {
+	background-image: url('Media/gamepic_crysis2_normal.png');
 }
 
-.blue_text_small {
-	background-image: url('Media/gamepic_blue_normal.png');
-}
-
-.battlefield4_normal {
+.gamepic_07 {
 	background-image: url('Media/gamepic_battlefield4_normal.png');
 }
 
-.lastofus_normal {
+.gamepic_08 {
 	background-image: url('Media/gamepic_lastofus_normal.png');
 }
 
-.bioshock_small {
+.gamepic_09 {
+	background-image: url('Media/gamepic_lastofus_normal.png');
+}
+
+.gamepic_10 {
+	background-image: url('Media/gamepic_borderlands2_normal.png');
+}
+
+.gamepic_11 {
+	background-image: url('Media/gamepic_orange_text.png');
+}
+
+.gamepic_12 {
 	background-image: url('Media/gamepic_bioshock_small.png');
 }
 
-.assassins_normal {
+.gamepic_13 {
 	background-image: url('Media/gamepic_assassins_normal.png?v=1');
+}
+
+.gamepic_14 {
+	background-image: url('Media/gamepic_batman_normal.png');
+}
+
+.gamepic_15 {
+	background-image: url('Media/gamepic_crysis2_normal.png');
+}
+
+.gamepic_16 {
+	background-image: url('Media/gamepic_blue_normal.png');
+}
+
+.gamepic_17 {
+	background-image: url('Media/gamepic_borderlands2_normal.png');
+}
+
+.gamepic_18 {
+	background-image: url('Media/gamepic_assassins_normal.png?v=1');
+}
+
+.gamepic_19 {
+	background-image: url('Media/gamepic_last_of_us_small.png');
+}
+
+.gamepic_20 {
+	background-image: url('Media/gamepic_assassins_normal.png?v=1');
+}
+
+.gamepic_21 {
+	background-image: url('Media/gamepic_last_of_us_small.png');
+}
+
+.headline_gamepic {
+	background-image: url('Media/gamepic_dirt3_headline.png');
 }
 
 .headline_bubbles_green {
 	background-image: url('Media/headline_bg_bubbles_green.png');
-}
-
-.dirt3_headline {
-	background-image: url('Media/gamepic_dirt3_headline.png');
 }
 
 .icon_iphone {
@@ -850,6 +890,13 @@ p {
 	overflow: hidden;
 }
 
+#second_screen > div a:not(.divider_button) {
+	left: 0 !important;
+	width: 100%;
+	height: inherit;
+}
+
+
 #second_headline > h1 {
 	width: 80%;
 	margin-top: 10%;
@@ -908,6 +955,13 @@ p {
 	width: 100%;
 	background-image: url('Media/third_screen_ipad.png');
 }
+
+#third_screen_bg > div a:not(.divider_button) {
+	left: 0 !important;
+	width: 100%;
+	height: inherit;
+}
+
 
 #third_headline_text {
 	position: absolute;
