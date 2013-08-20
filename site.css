@@ -62,11 +62,6 @@ h3 {
 	color: #BDCCD4;	
 }
 
-p {
-	font-family: 'aktiv_groteskmedium';
-	font-size: 1.8em;
-	text-align: center;
-}
 
 /*********************/
 /* Classes           */
@@ -146,9 +141,6 @@ p {
 	float: right !important;
 }
 
-.content_margin {
-	left: 5.86%;
-}
 
 .content_shadow {
 	-webkit-box-shadow: 13px 13px 5px rgba(0, 0, 0, 0.55);
@@ -180,9 +172,6 @@ p {
 	margin-right: 11%;
 }
 
-.full_screen {
-	width: 100%;
-}
 
 .footer_box {
 	width: 36.34%;
@@ -234,78 +223,6 @@ p {
 	background-position: initial initial;
 	background-repeat: no-repeat;
 	background-size: 100%;
-}
-
-.grey {
-	color: #484F57;
-}
-
-.grey_bg {
-	background-color: #484F57;
-}
-
-.light_grey {
-	color: #7C858C;
-}
-
-.light_grey_bg {
-	background-color: #7C858C;
-}
-
-.dark_blue {
-	color: #198077;
-}
-
-.blue_bg {
-	background-color: #23B4A7;
-}
-
-.dark_brown_bg {
-	background-color: #232120;
-}
-
-.dark_orange {
-	color: #D85B2A;
-}
-
-.dark_red {
-	color: #E63B3A;
-}
-
-.purple {
-	color: #8B1C42;
-}
-
-.uv_green {
-	color: #8BC541;
-}
-
-.uv_green_bg {
-	background-color: #8BC541;
-}
-
-.dark_green {
-	color: #1F9255;
-}
-
-.white {
-	color: #ffffff;
-}
-
-.white_bg {
-	background-color: #ffffff;
-}
-
-.orange_bg {
-	background-color: #DA2A66;
-}
-
-.light_orange {
-	color: #F58638;
-}
-
-.light_orange_bg {
-	background-color: #F58638;
 }
 
 .bricks {
@@ -413,21 +330,6 @@ p {
 	background-image: url('Media/icon_iphone_normal.png');
 }
 
-.icon_iphone_transparent {
-	background-image: url('Media/icon_iphone_transparent.png');
-}
-
-.icon_tablet_transparent {
-	background-image: url('Media/icon_tablet_transparent.png');
-}
-
-.icon_pcmac_transparent {
-	background-image: url('Media/icon_pcmac_transparent.png');
-}
-
-.icon_hdtv_transparent {
-	background-image: url('Media/icon_hdtv_transparent.png');
-}
 
 .video_image1 {
 	background-image: url('Media/video_pic1.png');
@@ -854,28 +756,9 @@ p {
 
 }
 
-#source_slider_controller {
-	position: absolute;
-	width: 60%;
-	top: 0;
-	left: 40%;
-	height: auto;
-}
-
-#source_slider_controller a {
-	position: relative;
-	height: auto;
-	float: left;
-	display: block;
-	width: 25%;
-}
 
 .device_button.white > div {
 	background-color: #ffffff;
-}
-
-.device_button > div {
-	background-color: #7C858C;
 }
 
 .device_button.white > p {
@@ -886,26 +769,9 @@ p {
 	color: #ffffff;
 }
 
-#source_slider_controller a > div {
-	width: 100%;
-	background-position: top left;
-	background-size: 100% 100%;
-}
-
-#source_slider_controller a > p {
-	width: 100%;
-	text-align: left;
-	font-size: 1.5em;
-	margin-top: 40px;
-}
 
 /* Second Screen */
 
-#second_screen {
-	background-color: #ffffff;
-	height: auto;
-	z-index: 1;
-}
 
 #second_screen > div {
 	position: relative;

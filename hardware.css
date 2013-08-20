@@ -1,0 +1,231 @@
+p {
+	font-family: 'aktiv_groteskitalic';
+	font-size: 1.8em;
+	text-align: left;
+	color: #ffffff;
+}
+
+.divider_button {
+	position: absolute !important;
+}
+
+p.price_number {
+	font-family: 'aktiv_groteskxbold_italic';
+	letter-spacing: 0.05em;
+	font-size: 3.7em;
+}
+
+.controller_with_stick {
+	background-image: url(Media/Hardware/onlive_controller_with_stick.png);
+	background-size: 62%;
+	background-position: center top;
+	margin-left: 8%;
+	margin-top: 13%;
+}
+
+#main_screen > h2 {
+	position: absolute;
+	top: 35%;
+	font-size: 4.5em;
+}
+
+#main_screen {
+	z-index: 1;
+}
+
+#main_screen_footer {
+	z-index: 2;
+}
+
+#main_screen_footer > div {
+	position: absolute;
+}
+
+#slider_wrapper {
+	z-index: 2;
+	width: 57.5%;
+	height: inherit;
+	overflow: hidden;
+}
+
+#white_controller {
+	z-index: 3;
+	width: 30%;
+	bottom: -20%;
+	left: 15%;
+}
+
+.white_controller {
+	background-image: url(Media/Hardware/onlive_controller_white.png);
+}
+
+#slider_wrapper > img {
+	display: block;
+	z-index: 3;
+	position: absolute;
+	bottom: -20%;
+	left: 23%;
+}
+
+.main_subscreen {
+	z-index: 0;
+	position: absolute;
+	width: 100%;
+	height: inherit;
+	background-position: center;
+	background-size: contain;
+}
+
+#source_slider_controller {
+	z-index: 2;
+	width: 34.5%;
+	right: 0 !important;
+	top: -30%;
+	padding-left: 8%;
+}
+
+#source_slider_controller a {
+	margin-top: 17%;
+	position: relative;
+	height: auto;
+	float: left;
+	display: block;
+	width: auto;
+	height: auto;
+}
+
+#source_slider_controller a:not(.no_padding) {
+	margin-left: 7%;
+}
+
+#source_slider_controller a:not(.divider_button) > img {
+	background-color: #1F9255;
+}
+
+#source_slider_controller > p {
+	width: 100%;
+	margin-top: 12%;
+}
+
+#source_slider_controller > p.price_number {
+	width: 100%;
+	margin-top: 0;
+}
+
+
+#source_slider_controller h2 {
+	margin-top: 10%;
+	font-size: 3.1em;
+	line-height: 1em;
+}
+
+#source_slider_controller h3 {
+	margin-top: 10%;
+	color: #ffffff;
+	font-size: 1.8em;
+}
+
+.white > img {
+	background-color: #ffffff !important;
+}
+
+
+#main_screen_footer_extra_content {
+	z-index: 1;
+}
+
+
+.bundles_wrapper {
+	width: 100%;
+	margin-top: 10%;
+}
+
+.bundles_wrapper.dark_green h2 {
+	color: #1F9255;
+}
+
+.bundles_wrapper div {
+	position: relative;
+	float: left;
+}
+
+.bundle_header {
+	width: 14%;
+	height: inherit;
+}
+
+.bundle_header h2 {
+	font-size: 3.4em;
+	line-height: 1.05em;
+}
+
+.bundle_header img {
+	margin-top: 10%;
+	width: 35%;
+}
+
+.bundle_content {
+	width: 35%;
+	padding-left: 5%;
+	padding-bottom: 4.3%;
+}
+
+.bundle_content h2 {
+	font-family: 'aktiv_groteskxbold_italic';
+	font-size: 1.8em;
+	line-height: 1.2em;
+	margin-bottom: 5%;
+}
+
+.bundle_content h3 {
+	font-size: 1.8em;
+	line-height: 1.3em;
+	color: #484F57;
+}
+
+.bundle_content p {
+	color: #8BC541;
+}
+
+.bundle_content p:not(.price_number) {
+	margin-top: 10%;
+}
+
+.bundle_content .price_number {
+	margin-top: 2%;
+	margin-bottom: 3%;
+}
+
+.bundle_content .divider_button {
+	left: 35%;
+}
+
+#second_screen {
+	width: 100%;
+	z-index: 0;
+	background-image: url(Media/Hardware/flat_hdtv.png);
+}
+
+#second_screen > div {
+	position: absolute;
+}
+
+#onlive_page {
+	bottom: 8%;
+	left: 25%;
+	width: 11%;
+	background-image: url(Media/Hardware/onlive_page.png);
+}
+
+#second_white_controller {
+	width: 22%;
+	bottom: 5.3%;
+	left: 7%;
+	background-size: contain;
+}
+
+#second_screen > h2 {
+	position: absolute;
+	line-height: 1.05em;
+	margin-top: 20%;
+}

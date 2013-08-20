@@ -1,0 +1,60 @@
+p {
+	font-family: 'aktiv_groteskmedium';
+	font-size: 1.8em;
+	text-align: center;
+}
+
+#source_slider_controller {
+	position: absolute;
+	width: 60%;
+	top: 0;
+	left: 40%;
+	height: auto;
+}
+
+#source_slider_controller a {
+	position: relative;
+	height: auto;
+	float: left;
+	display: block;
+	width: 25%;
+}
+
+#source_slider_controller a > div {
+	width: 100%;
+	background-position: top left;
+	background-size: 100% 100%;
+}
+
+#source_slider_controller a > p {
+	width: 100%;
+	text-align: left;
+	font-size: 1.5em;
+	margin-top: 40px;
+}
+
+.device_button > div {
+	background-color: #7C858C;
+}
+
+.icon_iphone_transparent {
+	background-image: url('Media/icon_iphone_transparent.png');
+}
+
+.icon_tablet_transparent {
+	background-image: url('Media/icon_tablet_transparent.png');
+}
+
+.icon_pcmac_transparent {
+	background-image: url('Media/icon_pcmac_transparent.png');
+}
+
+.icon_hdtv_transparent {
+	background-image: url('Media/icon_hdtv_transparent.png');
+}
+
+#second_screen {
+	background-color: #ffffff;
+	height: auto;
+	z-index: 1;
+}
