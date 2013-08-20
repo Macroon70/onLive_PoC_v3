@@ -58,3 +58,8 @@ p {
 	height: auto;
 	z-index: 1;
 }
+
+#third_screen {
+	height: auto;
+	z-index: 2;
+}

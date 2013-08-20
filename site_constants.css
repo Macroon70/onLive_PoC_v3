@@ -2,6 +2,9 @@
 /* Colors                      */
 /*******************************/
 
+.beige_bg {
+	background-color: #EFEFEA;
+}
 
 .lightest_grey {
 	color: #A3A9AC;
@@ -65,6 +68,10 @@
 
 .white_bg {
 	background-color: #ffffff;
+}
+
+.orange {
+	color: #DA2A66;
 }
 
 .orange_bg {

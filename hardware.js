@@ -38,6 +38,13 @@ function resizewindow(){
   $('#second_screen').css({ height : $('#main_screen').height() });
   $('#onlive_page').css({ height : $('#onlive_page').width() * 1.52 });
 
+  $('#third_screen').css({ height : $('#third_screen').width() * 0.454 });
+
+  $('.footer_box').css({ height : $('.footer_box').width() * 0.623 });
+  $('.footer_big_box').css({ height : $('.footer_box').height() });
+  $('#footer_logo').css({ height : $('#footer_logo').width() * 0.272 });
+  
+
   $('#parallax_layer').css({ height : $('#scrolling_layer').height()});
   $('#parallax_wrapper').css({ height : $('#scrolling_layer').height() * 2});
   $('#parallax_first_headline').css({ height : $('#parallax_first_headline').width() * 0.61 });

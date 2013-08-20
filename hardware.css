@@ -102,24 +102,23 @@ p.price_number {
 	background-color: #1F9255;
 }
 
-#source_slider_controller > p {
+.headline_box > p {
 	width: 100%;
 	margin-top: 12%;
 }
 
-#source_slider_controller > p.price_number {
+.headline_box > p.price_number {
 	width: 100%;
 	margin-top: 0;
 }
 
-
-#source_slider_controller h2 {
+.headline_box > h2 {
 	margin-top: 10%;
 	font-size: 3.1em;
 	line-height: 1em;
 }
 
-#source_slider_controller h3 {
+.headline_box > h3 {
 	margin-top: 10%;
 	color: #ffffff;
 	font-size: 1.8em;
@@ -144,9 +143,21 @@ p.price_number {
 	color: #1F9255;
 }
 
+.bundles_wrapper.purple h2 {
+	color: #8B1C42;
+}
+
+.bundles_wrapper.purple img {
+	width: 70%;
+}
+
 .bundles_wrapper div {
 	position: relative;
 	float: left;
+}
+
+.bundles_wrapper.purple p {
+	color: #DA2A66;
 }
 
 .bundle_header {
@@ -228,4 +239,55 @@ p.price_number {
 	position: absolute;
 	line-height: 1.05em;
 	margin-top: 20%;
+}
+
+#third_screen {
+	z-index: 2;
+}
+
+#third_screen div {
+	position: absolute;
+}
+
+#play_on_any_tv {
+	left: 0;
+	top: 0;
+	width: 57.5%;
+	height: inherit;
+	background-image: url(Media/Hardware/playing_on_any_tv.png);
+}
+
+#play_on_any_tv_box {
+	padding-left: 7.3%;
+	width: 35.2%;
+	top: -10%;
+	right: 0;
+	height: 110%;
+}
+
+#playing_box_icons {
+	margin-top: 15%;
+	width: 40%;
+	height: 20%;
+	background-image: url(Media/Hardware/controller_with_tv.png);
+}
+
+#play_on_any_tv_box > h2 {
+	margin-top: 40%;
+}
+
+#play_on_any_tv_box > .divider_button {
+	left: 48%;
+}
+
+#third_screen .white_controller {
+	left: 33%;
+}
+
+#third_screen_footer {
+	z-index: 1;
+}
+
+#footer_screen {
+	z-index: 0;
 }

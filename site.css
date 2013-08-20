@@ -827,11 +827,6 @@ h3 {
 
 /* Third Screen */
 
-#third_screen {
-	height: auto;
-	z-index: 2;
-}
-
 #tablet_player_info {
 	position: absolute;
 	z-index: 3;
