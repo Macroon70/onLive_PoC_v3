@@ -14,19 +14,15 @@ var randomNum = Math.floor(Math.random()*systemColors.length);
 $('link[rel=icon]').attr('href','Media/favico_'+systemColors[randomNum]+'.ico');
 
 function resizewindow(){
-  //return;
   actualWindowWidth = $(this).width();
   actualWindowHeight = $(this).height();
   
-  // csak egy resize legyen
   $('body').css({'font-size': (actualWindowWidth / 2048) * 110 + '%'});
-  $('#parallax_layer').height(actualWindowHeight);
+  //$('#parallax_layer').height(actualWindowHeight);
+  $('#video_layer').height(actualWindowHeight);
 
 
   // new system of set height for elements
-  // míg a többi szétesik, ez a rész tökéletesen tartja a helyzetet .... szóval jQuery lassú, vagy bug
-  // a jó öreg js még mindig megbízhatóbb ilyen esetekben
-  //var documentScreenWidth = actualWindowWidth;//document.body.offsetWidth;
   var documentScreenWidth = document.body.offsetWidth;
 
   var mainHeadlineText = document.getElementById('main_headline_text');
@@ -40,7 +36,6 @@ function resizewindow(){
   $('#third_headline_text').css({ height : $('#third_headline_text').width() * 0.51 });
 
   // old system
-  // TODO : átírni az új rendszerre ezeket és lehet át is kell számolni, ezt majd megcsinálom
   $('img').css({ 'max-width': (actualWindowWidth / 1600) * actualWindowWidth });
   $('img').css({ 'max-height': (actualWindowWidth / 1600) * actualWindowWidth });
 
@@ -93,7 +88,7 @@ function resizewindow(){
   		'border-width' : $(this).width() * 0.03 + 'px',
   		'border-style' : 'solid' });
   });
-  $('#video_layer').css({ height : $('#scrolling_layer').height() });
+  //$('#video_layer').css({ height : $('#scrolling_layer').height() });
 
 
 }
@@ -140,7 +135,7 @@ function resizewindow(){
 				var filename = 'url(Media/slider' + nextElem.attr('data-filename-prefix') + '_device_bg.png)';
 				var videoPos = nextElem.attr('data-video-position').split('/')
 				$('#video_sizer').animate({
-					top : videoPos[0] + '%',
+					//top : videoPos[0] + '%',
 					left: videoPos[1] + '%',
 					width : videoPos[2] + '%',
 					'transform': 'rotate('+videoPos[3]+'deg)',
@@ -246,7 +241,8 @@ $(document).ready(function() {
 	});
 
 
-  screens = $('div[id^="screen"]');
+  screens = $('.accordionscreen');
+  $('#scrolling_layer').css('pointerEvents','none');
   
   scrollwindow();
 
@@ -265,6 +261,10 @@ $(window).load(function(){ resizewindow();});
   var clonedscreen = -1;
   var screens;
 	var sliderChangerTimer = window.setInterval(function() { sliderChanger(0); }, 15000 );
+  var currentscreen;
+  var currenttop;
+  var currentheight;
+  var currentbottom;
     
   function scrollwindow(){
 
@@ -274,65 +274,107 @@ $(window).load(function(){ resizewindow();});
     
     // find the screen to fix
     var shouldclone = 0;
+    var sumheight = 0;
     for (var i=0; i<screens.length; i++){
-      if ($(screens[i]).position().top < Math.abs(scrollingLayerOffsets.top)){
+      if ($(screens[i]).position().top <= Math.abs(scrollingLayerOffsets.top)){
         shouldclone = i;
+        sumheight += $(screens[i]).position().top;
+      }else{
+        break;
       }
     }
     // if screen has changed
     if (shouldclone != clonedscreen) {
-      if (shouldclone > clonedscreen){
-        // going down
-        $('#parallax_layer').css('margin-top','0px');
-      }else{
-        // going up
-        $('#parallax_layer').css('margin-top','0px');
-      }
       //clone the screen
-      clonedscreen = shouldclone;
       $('#parallax_layer').empty();
-      $('div[id^="screen"]').css('visibility','visible');
-      $('#screen'+clonedscreen).css('visibility','hidden');
-      $('#screen'+clonedscreen).clone().appendTo($('#parallax_layer'));
-      $('#parallax_layer > #screen'+clonedscreen).css('visibility','visible');
-      $('#parallax_layer').height($('#screen'+clonedscreen).height());
+      
+      if (clonedscreen>=0){
+        $(screens[clonedscreen]).css('visibility', 'visible');
+        $(screens[clonedscreen]).css('pointerEvents', 'auto');
+        $(screens[clonedscreen]).css('pointerEvents', 'auto');
+      }
+      
+      $(screens[shouldclone]).css('visibility','hidden');
+      $(screens[shouldclone]).find('*').css('pointerEvents','none');
+      $(screens[shouldclone]).css('pointerEvents','none');
+      $(screens[shouldclone]).clone().appendTo($('#parallax_layer'));
+      $('#parallax_layer > .accordionscreen').css('visibility','visible');
+      $('#parallax_layer *').css('pointerEvents','auto');
+      $('#parallax_layer').height($(screens[shouldclone]).height());
+      $('#parallax_layer').css('backgroundColor', $(screens[shouldclone]).css('backgroundColor'));
+
+      if (shouldclone > clonedscreen) {
+        // going down
+        $('#parallax_layer').css('margin-top', '0px');
+      } else {
+        // going up
+        var shift = Math.min(0, actualWindowHeight - $('#parallax_layer').height());
+        $('#parallax_layer').css('margin-top', shift + 'px');
+      }
+      clonedscreen = shouldclone;
+      currentscreen = $(screens[clonedscreen]);
+      currenttop = currentscreen.position().top;
+      currentheight = currentscreen.height();
+      currentbottom = currenttop+currentheight;
+      
+      if (clonedscreen == 1){
+        $('#video_layer').css('zIndex',2);
+      }else{
+        $('#video_layer').css('zIndex',0);
+      }
+      if (clonedscreen==0){
+  //      $('#video_sizer').css('top',  (actualWindowHeight*0.155)+'px');
+      }else{
+  //      $('#video_sizer').css('top',  '0px');
+        
+      }
+      
+      
+//      if (clonedscreen == 2){
+//        $('#video_sizer').css({
+//          top : sumheight - (actualWindowHeight / 2),
+//          left: '32%'
+//        });
+//      }
     }
-    
-    var currentscreen = $(screens[clonedscreen]);
-    var currenttop = currentscreen.position().top;
-    var currentheight = currentscreen.height();
-    var currentbottom = currenttop+currentheight;
-    
+
+    // imitate scrolling
     if (currentheight>actualWindowHeight){
       if (currentbottom>visibleto){
         $('#parallax_layer').css('margin-top', (currenttop-visiblefrom) +'px');
+        if (clonedscreen==0){
+//          $('#video_sizer').css('top',  (actualWindowHeight*0.155)+(currenttop-visiblefrom)+'px');
+        }
       }
+    }
+    if (clonedscreen==1){
+//      $('#video_sizer').css('top',  ($('#scrolling_layer').height()*0.52-sumheight)+'px');
     }
     
 
 		setHamburgerPosition();
-
-		if (Math.abs(scrollingLayerOffsets.top) > $('#main_screen').height() + 200) {
-			clearTimeout(sliderChangerTimer);
-	  	sliderChangerTimer = null;
-	  	if ( parseInt($('#video_sizer').css('top')) < $('#main_screen').height()) {
-	  		$('#video_sizer').css({
-	  			top : '52%',
-	  			left: '32%'
-	  		});
-	  	} 
-		} else if (sliderChangerTimer == null) {
-			sliderChangerTimer = window.setInterval(function() { sliderChanger(0); }, 15000 );
-			if ( parseInt($('#video_sizer').css('top')) > $('#main_screen').height()) {
-				var actualMainScreenVideoOffsets = $('a.device_button.white').attr('data-video-position').split('/');				
-				$('#video_sizer').css({
-					top : actualMainScreenVideoOffsets[0] + '%',
-					left: actualMainScreenVideoOffsets[1] + '%',
-					width : actualMainScreenVideoOffsets[2] + '%',
-				});
-
-			}
-		}
+    
+//		if (Math.abs(scrollingLayerOffsets.top) > $('#main_screen').height() + 200) {
+//			clearTimeout(sliderChangerTimer);
+//	  	sliderChangerTimer = null;
+//	  	if ( parseInt($('#video_sizer').css('top')) < $('#main_screen').height()) {
+//        $('#video_sizer').css({
+//          //top : '52%',
+//          left: '32%'
+//        });
+//	  	} 
+//		} else if (sliderChangerTimer == null) {
+//			sliderChangerTimer = window.setInterval(function() { sliderChanger(0); }, 15000 );
+//			if ( parseInt($('#video_sizer').css('top')) > $('#main_screen').height()) {
+//				var actualMainScreenVideoOffsets = $('a.device_button.white').attr('data-video-position').split('/');				
+//				$('#video_sizer').css({
+//					//top : actualMainScreenVideoOffsets[0] + '%',
+//					left: actualMainScreenVideoOffsets[1] + '%',
+//					width : actualMainScreenVideoOffsets[2] + '%',
+//				});
+//
+//			}
+//		}
 
   	if ($('#down_arrow').css('opacity') == 1)
 			$('#down_arrow').stop().fadeOut('slow');

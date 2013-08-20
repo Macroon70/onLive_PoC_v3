@@ -645,7 +645,7 @@ p {
 /*********************/
 
 #video_layer {
-	position: absolute;
+	position: fixed;
 	top: 0;
 	z-index: 0;
 	width: 100%;
@@ -653,7 +653,7 @@ p {
 
 #video_sizer {
 	position: absolute;
-	top: 2.8%;
+	top: 15.5%;
 	left: 38.5%;
 	width: 49%;
 }
@@ -897,12 +897,12 @@ p {
 
 #third_screen {
 	height: auto;
-	z-index: 3;
+	z-index: 4;
 }
 
 #tablet_player_info {
 	position: absolute;
-	z-index: 4;
+	z-index: 5;
 	right: 22%;
 	top: 34%;
 }
@@ -910,7 +910,7 @@ p {
 #third_screen_bg {
 	position: absolute;
 	width: 100%;
-	background-image: url('Media/third_screen_ipad.png');
+	background-image: url('Media/third_screen_ipad_black.png');
 }
 
 #third_headline_text {
