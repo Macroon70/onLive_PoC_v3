@@ -308,23 +308,29 @@ $(document).ready(function() {
   jwplayer("botr_7Wi9qfSk_GjAHfwUI_ply").setup({
     analytics: {"enabled": false},
     aspectratio: "16:9",
-    autostart: false,
+    autostart: true,
+    repeat: true,
     controls: false,
     displaytitle: false,
     fallback: false,
     flashplayer: "http://a.jwpcdn.com/player/6/653609/jwplayer.flash.swf",
     height: "100%",
     html5player: "http://a.jwpcdn.com/player/6/653609/jwplayer.html5.js",
-    image: "http://content.bitsontherun.com/thumbs/7Wi9qfSk-480.jpg",
-    playlist: "http://content.bitsontherun.com/jw6/7Wi9qfSk.xml",
+    playlist: 
+      [{
+          image: "http://www.liandesign.hu/onLive_v3/Media/gamepic_dirt3_headline.png",
+          sources: [
+            {file: "http://www.liandesign.hu/onLive_v3/Media/Dirt3_01.640.mp4"},
+            {file: "http://www.liandesign.hu/onLive_v3/Media/Dirt3_01.oggtheora.ogv"}
+          ]
+      }],
     plugins: {"http://a.jwpcdn.com/player/6/653609/ping.js": {"pixel": "http://content.bitsontherun.com/ping.gif"}},
-    primary: "flash",
-    repeat: false,
+    primary: "html5",
     stretching: "uniform",
     width: "100%"
   });
-  jwplayer().play();
-  jwplayer().onComplete(function(){jwplayer().play();});
+  //jwplayer().play();
+  //jwplayer().onComplete(function(){jwplayer().play();});
 
 
 });
