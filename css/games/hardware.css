@@ -25,7 +25,7 @@ p.price_number {
 }
 
 .controller_with_stick {
-	background-image: url(Media/Hardware/onlive_controller_with_stick.png);
+	background-image: url(../../images/games_site/Hardware/onlive_controller_with_stick.png);
 	background-size: 62%;
 	background-position: center top;
 	margin-left: 8%;
@@ -65,7 +65,7 @@ p.price_number {
 }
 
 .white_controller {
-	background-image: url(Media/Hardware/onlive_controller_white.png);
+	background-image: url(../../images/games_site/Hardware/onlive_controller_white.png);
 }
 
 #slider_wrapper > img {
@@ -223,7 +223,7 @@ p.price_number {
 #second_screen {
 	width: 100%;
 	z-index: 0;
-	background-image: url(Media/Hardware/flat_hdtv.png);
+	background-image: url(../../images/games_site/Hardware/flat_hdtv.png);
 }
 
 #second_screen > div {
@@ -234,7 +234,7 @@ p.price_number {
 	bottom: 8%;
 	left: 25%;
 	width: 11%;
-	background-image: url(Media/Hardware/onlive_page.png);
+	background-image: url(../../images/games_site/Hardware/onlive_page.png);
 }
 
 #second_white_controller {
@@ -263,7 +263,7 @@ p.price_number {
 	top: 0;
 	width: 57.5%;
 	height: inherit;
-	background-image: url(Media/Hardware/playing_on_any_tv.png);
+	background-image: url(../../images/games_site/Hardware/playing_on_any_tv.png);
 }
 
 #play_on_any_tv_box {
@@ -278,7 +278,7 @@ p.price_number {
 	margin-top: 15%;
 	width: 40%;
 	height: 20%;
-	background-image: url(Media/Hardware/controller_with_tv.png);
+	background-image: url(../../images/games_site/Hardware/controller_with_tv.png);
 }
 
 #play_on_any_tv_box > h2 {
@@ -303,7 +303,7 @@ p.price_number {
 
 #parallax_second_headline {
 	top: 28%;
-	background-image: url('Media/headline_bg_bubbles.png');
+	background-image: url('../../images/games_site/headline_bg_bubbles.png');
 	background-size: cover;
 	background-position: top;
 	width: 45%;

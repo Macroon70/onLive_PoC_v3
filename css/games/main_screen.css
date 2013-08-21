@@ -38,19 +38,19 @@ p {
 }
 
 .icon_iphone_transparent {
-	background-image: url('Media/icon_iphone_transparent.png');
+	background-image: url('../../images/games_site/icon_iphone_transparent.png');
 }
 
 .icon_tablet_transparent {
-	background-image: url('Media/icon_tablet_transparent.png');
+	background-image: url('../../images/games_site/icon_tablet_transparent.png');
 }
 
 .icon_pcmac_transparent {
-	background-image: url('Media/icon_pcmac_transparent.png');
+	background-image: url('../../images/games_site/icon_pcmac_transparent.png');
 }
 
 .icon_hdtv_transparent {
-	background-image: url('Media/icon_hdtv_transparent.png');
+	background-image: url('../../images/games_site/icon_hdtv_transparent.png');
 }
 
 #second_screen {

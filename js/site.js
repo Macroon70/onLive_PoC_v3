@@ -10,7 +10,7 @@ var sectionOffsets = new Array();
 
 var randomNum = Math.floor(Math.random()*systemColors.length);
 
-$('link[rel=icon]').attr('href','Media/favico_'+systemColors[randomNum]+'.ico');
+$('link[rel=icon]').attr('href','images/games_site/favico_'+systemColors[randomNum]+'.ico');
 
 	function setHamburgerPosition() {
 		var scrollingLayerOffsetsInside = document.getElementById('scrolling_layer').getBoundingClientRect();
@@ -33,7 +33,7 @@ $('link[rel=icon]').attr('href','Media/favico_'+systemColors[randomNum]+'.ico');
 		if (isiPad) {
 			if (!nextElem.hasClass('white') && !$(':animated').length) {
 				nextElem.addClass('white').siblings().removeClass('white');
-				var filename = 'url(Media/slider' + nextElem.attr('data-filename-prefix') + '_device_bg.png)';
+				var filename = 'url(images/games_site/slider' + nextElem.attr('data-filename-prefix') + '_device_bg.png)';
 				$('.inactive_main_screen')
 					.css('background-image',filename)
 					.animate({ opacity: 1}, 1000, function() {
@@ -50,7 +50,7 @@ $('link[rel=icon]').attr('href','Media/favico_'+systemColors[randomNum]+'.ico');
 		} else {
 			if (!nextElem.hasClass('white') && !$(':animated').length) {
 				nextElem.addClass('white').siblings().removeClass('white');
-				var filename = 'url(Media/slider' + nextElem.attr('data-filename-prefix') + '_device_bg.png)';
+				var filename = 'url(images/games_site/slider' + nextElem.attr('data-filename-prefix') + '_device_bg.png)';
 				var videoPos = nextElem.attr('data-video-position').split('/')
 				$('#video_sizer').animate({
 					top : videoPos[0] + '%',
@@ -111,12 +111,12 @@ $(document).ready(function() {
   var actualSystemColor = systemColors[randomNum];
   var actualMenuColor = menuColors[randomNum];
 
-  $('#logo').css('background-image', 'url(Media/'+actualSystemColor+'_onlive_logo_small.png)' );
-  $('#footer_logo').css('background-image', 'url(Media/'+actualSystemColor+'_onlive_logo_small.png)' );
+  $('#logo').css('background-image', 'url(images/games_site/'+actualSystemColor+'_onlive_logo_small.png)' );
+  $('#footer_logo').css('background-image', 'url(images/games_site/'+actualSystemColor+'_onlive_logo_small.png)' );
 
-  $('#down_arrow').css('background-image', 'url(Media/icon_'+actualSystemColor+'_down_arrow.png)' );
+  $('#down_arrow').css('background-image', 'url(images/games_site/icon_'+actualSystemColor+'_down_arrow.png)' );
   $('#menu_screen').css('background-color', actualMenuColor);
-  $('#menu_close_button').css('background-image', 'url(Media/icon_'+actualSystemColor+'_close.png)' );
+  $('#menu_close_button').css('background-image', 'url(images/games_site/icon_'+actualSystemColor+'_close.png)' );
 
 
 	$('.device_button').on({
