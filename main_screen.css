@@ -63,3 +63,16 @@ p {
 	height: auto;
 	z-index: 2;
 }
+
+#parallax_second_headline {
+	pointer-events: none;
+	width: 46%;
+	top: 15.18%;
+	left: 45.5%;
+}
+
+#parallax_second_headline > h1 {
+	width: 110%;
+	margin-top: 10%;
+	margin-left: 26%;
+}

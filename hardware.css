@@ -5,6 +5,15 @@ p {
 	color: #ffffff;
 }
 
+#menu_screen p {
+	font-family: 'aktiv_groteskmedium';
+}
+
+#logo p {
+	font-family: 'aktiv_groteskmedium';
+	text-align: center;
+}
+
 .divider_button {
 	position: absolute !important;
 }
@@ -291,3 +300,16 @@ p.price_number {
 #footer_screen {
 	z-index: 0;
 }
+
+#parallax_second_headline {
+	top: 28%;
+	background-image: url('Media/headline_bg_bubbles.png');
+	background-size: cover;
+	background-position: top;
+	width: 45%;
+}
+
+#parallax_second_headline > h1 {
+	margin-top: 5%;
+}
+

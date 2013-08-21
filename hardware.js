@@ -43,11 +43,12 @@ function resizewindow(){
   $('.footer_box').css({ height : $('.footer_box').width() * 0.623 });
   $('.footer_big_box').css({ height : $('.footer_box').height() });
   $('#footer_logo').css({ height : $('#footer_logo').width() * 0.272 });
-  
+
 
   $('#parallax_layer').css({ height : $('#scrolling_layer').height()});
   $('#parallax_wrapper').css({ height : $('#scrolling_layer').height() * 2});
   $('#parallax_first_headline').css({ height : $('#parallax_first_headline').width() * 0.61 });
+  $('#parallax_second_headline').css({ height : $('#parallax_first_headline').width() * 0.61 });
 
 
 
