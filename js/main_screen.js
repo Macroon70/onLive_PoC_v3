@@ -1,33 +1,50 @@
 function resizewindow(){
   //return;
+  
   var actualWindowWidth = $(this).width();
   var actualWindowHeight = $(this).height();
-  
+
+  actualWindowWidth = $('#layers_wrapper').width();
+
+
+  // v3.5
+  //////////////////////////////////////
+  $('#main_screen').css({ height : actualWindowWidth * 0.42 });
+  $('#main_screen_footer').css({ height: actualWindowWidth * 0.2344 });
+
+
+
+  // v3.0
+  //////////////////////////////////////
+
   // csak egy resize legyen
   $('body').css({'font-size': (actualWindowWidth / 2048) * 110 + '%'});
 
 
   var documentScreenWidth = document.body.offsetWidth;
+  documentScreenWidth = $('#layers_wrapper').width();
+
 
   $('#main_headline_text').css({ height : $('#main_headline_text').width() * 0.61 });
-  $('#main_screen_footer').css({ height: documentScreenWidth * 0.31 });
+
+  $('#controllers_wrapper').css({ height : actualWindowHeight });
 
   $('#third_headline_text').css({ height : $('#third_headline_text').width() * 0.51 });
 
-  $('img').css({ 'max-width': (actualWindowWidth / 1600) * actualWindowWidth });
-  $('img').css({ 'max-height': (actualWindowWidth / 1600) * actualWindowWidth });
+  $('img').css({ 'max-width': (actualWindowWidth / 1280) * actualWindowWidth });
+  $('img').css({ 'max-height': (actualWindowWidth / 1280) * actualWindowWidth });
 
   $('.device_button').each(function() {
   	$(this).children('div').css({ height : $(this).width() * 0.4673 });
   });
-  $('#main_screen').css({ height : actualWindowWidth * 0.446 });
-  $('#menu_screen').css({ height : actualWindowHeight});
+  //$('#main_screen').css({ height : actualWindowWidth * 0.446 });
+  //$('#menu_screen').css({ height : actualWindowHeight});
   $('#menu_logo_transparent').css({ height : $('#menu_logo_transparent').width()});
   $('#logo').css({ height : $('#logo').width() * 2});
   $('#menu_hamburger').css({ height : $('#menu_hamburger').width()});
   $('#down_arrow').css({ height : $('#menu_hamburger').height()});
-  $('.divider_up_button > img').css({height : actualWindowWidth*0.05 , width : actualWindowWidth*0.05});
-  $('.divider_button > img').css({height : actualWindowWidth*0.05, width : actualWindowWidth*0.05});
+  $('.divider_up_button > img').css({height : actualWindowWidth*0.045 , width : actualWindowWidth*0.045});
+  $('.divider_button > img').css({height : actualWindowWidth*0.045, width : actualWindowWidth*0.045});
   $('.divider_up_button').css({ top : ($('.divider_up_button > img').width() / 2) * -1 });
   $('.divider_button').css({ bottom : ($('.divider_button > img').width() / 2) * -1 });
   $('#menu_close_button').css({ height : $('#menu_hamburger').height()});
@@ -68,8 +85,8 @@ function resizewindow(){
   });
   $('#video_layer').css({ height : $('#scrolling_layer').height() });
   $('#parallax_layer').css({ height : $('#scrolling_layer').height()});
+  $('body').css({ height : $('#scrolling_layer').height()});
   
-
   $('#parallax_wrapper').css({ height : $('#scrolling_layer').height() * 2});
 
 

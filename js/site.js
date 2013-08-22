@@ -1,5 +1,9 @@
 // TODO : add comments and rearrange lines
 
+$(window).load(function() {
+	$('body').fadeIn(1000);
+});
+
 var fullScreenHeight;
 var fullScreenWidth;
 
@@ -24,63 +28,40 @@ $('link[rel=icon]').attr('href','images/games_site/favico_'+systemColors[randomN
 	}
 
 	function sliderChanger(nextElem) {
+		var actualElemPrefix = $('div.device_button.white').attr('data-filename-prefix');
 		if (nextElem == 0) {
-			var actualElemPrefix = $('a.device_button.white').attr('data-filename-prefix');
-			if (++actualElemPrefix == 5) actualElemPrefix = 1;
-			nextElem = $('a[data-filename-prefix="'+actualElemPrefix + '"]');
+			if (++actualElemPrefix == 4) actualElemPrefix = 1;
+			nextElem = $('div[data-filename-prefix="'+actualElemPrefix + '"]');
 		}
-		// iPad refresh browser on every animate because low its memory size. Using fade-in-out effect instead
-		if (isiPad) {
-			if (!nextElem.hasClass('white') && !$(':animated').length) {
-				nextElem.addClass('white').siblings().removeClass('white');
-				var filename = 'url(images/games_site/slider' + nextElem.attr('data-filename-prefix') + '_device_bg.png)';
-				$('.inactive_main_screen')
-					.css('background-image',filename)
-					.animate({ opacity: 1}, 1000, function() {
-						$(this)
-							.removeClass('inactive_main_screen')
-							.addClass('active_main_screen');
-					});
-				$('.active_main_screen').animate({ opacity: 0}, 1000, function() {
+		var nextElemPrefix = nextElem.attr('data-filename-prefix');
+		var nextElemVideoPos = nextElem.attr('data-video-position');
+		var activeLayer = $('#main_screen'+actualElemPrefix);
+		var pushLayer = $('#main_screen'+nextElemPrefix);
+		if (!nextElem.hasClass('white') && !$('.active_main_screen').is(':animated')) {
+			nextElem.addClass('white').siblings().removeClass('white');
+			pushLayer
+				.animate({ opacity: 1}, 1000, function() {
 					$(this)
-						.removeClass('active_main_screen')
-						.addClass('inactive_main_screen');
+						.removeClass('inactive_main_screen')
+						.addClass('active_main_screen');
 				});
-			}
-		} else {
-			if (!nextElem.hasClass('white') && !$(':animated').length) {
-				nextElem.addClass('white').siblings().removeClass('white');
-				var filename = 'url(images/games_site/slider' + nextElem.attr('data-filename-prefix') + '_device_bg.png)';
-				var videoPos = nextElem.attr('data-video-position').split('/')
-				$('#video_sizer').animate({
-					top : videoPos[0] + '%',
-					left: videoPos[1] + '%',
-					width : videoPos[2] + '%',
-					'transform': 'rotate('+videoPos[3]+'deg)',
-					'-webkit-transform':'rotate('+videoPos[3]+'deg)',
-					'-moz-transform':'rotate('+videoPos[3]+'deg)',
-					'-ms-transform':'rotate('+videoPos[3]+'deg)',
-					'-o-transform':'rotate('+videoPos[3]+'deg)'										
+			activeLayer
+				.animate({ opacity: 0}, 1000, function() {
+				$(this)
+					.removeClass('active_main_screen')
+					.addClass('inactive_main_screen');
+			});
+			actualMainScreenVideoOffsets = nextElemVideoPos.split('/');
+			$('#video_sizer')
+				.animate({
+					top : actualMainScreenVideoOffsets[0] + '%',
+					left: actualMainScreenVideoOffsets[1] + '%',
+					width : actualMainScreenVideoOffsets[2] + '%',
 				}, 1000);
-				$('.inactive_main_screen')
-					.css({
-						'background-image' : filename,
-						display : 'block'	})
-					.animate({ left: 0}, 1000, function() {
-						$(this)
-							.removeClass('inactive_main_screen')
-							.addClass('active_main_screen');
-					});
-				$('.active_main_screen').animate({ left: '-100%'}, 1000, function() {
-					$(this)
-						.css({ 
-							display : 'none',
-							left : '100%' })
-						.removeClass('active_main_screen')
-						.addClass('inactive_main_screen');
-				});
-			}
+
 		}
+
+
 	}
 
 $(document).ready(function() {
@@ -92,20 +73,12 @@ $(document).ready(function() {
   isiPad = navigator.userAgent.match(/iPad/i) != null;
 
   resizewindow();
-  setHamburgerPosition();
+  //setHamburgerPosition();
 
 	// tablet resolution fix
 	if (!window.devicePixelRatio) {
 		window.devicePixelRatio = 1;
 	};
-
-	// ipad browser low memory fix
-  if (isiPad) {
-  	$('#main_screen2').remove();
-  } else {
-  	$('#main_screen3').remove();
- 	}
-
 
 
   var actualSystemColor = systemColors[randomNum];
@@ -119,12 +92,12 @@ $(document).ready(function() {
   $('#menu_close_button').css('background-image', 'url(images/games_site/icon_'+actualSystemColor+'_close.png)' );
 
 
-	$('.device_button').on({
-		click: function() {
+	$('div.device_button').on({
+		click: function(event) {
+			console.log('itt');
 			sliderChanger($(this));
 			clearTimeout(sliderChangerTimer);
-			sliderChangerTimer = window.setInterval(function() { sliderChanger(0); }, 15000 );			
-			return false;
+			sliderChangerTimer = window.setInterval(function() { sliderChanger(0); }, 15000 );
 		}
 	});
 
@@ -159,9 +132,15 @@ $(document).ready(function() {
 
 	$('#menu_close_button').on({
 		click: function() {
-			$('#menu_screen').animate({ right : '-30%'}, 500);
+			$('#menu_screen').animate({ right : '-130%'}, 500);
 		}
 	});
+
+	document.addEventListener('click', function(e) {
+		if ($('#menu_screen').css('right') != 0 && !$('#menu_screen').is(':animated')) {
+			$('#menu_screen').animate({ right : '-130%'}, 500);
+		}
+	}, true);
 
 
 	var sliderChangerTimer = window.setInterval(function() { sliderChanger(0); }, 15000 );
@@ -173,10 +152,10 @@ $(document).ready(function() {
 		var scrollingLayerOffsets = document.getElementById('scrolling_layer').getBoundingClientRect();
 
   	// parallax effect - simple :)
-  	var parallaxSpeed = 0.35 // exponencial value
+  	var parallaxSpeed = 0.15 // exponencial value
   	$('#parallax_wrapper').css({ top : scrollingLayerOffsets.top * parallaxSpeed });
 
-		setHamburgerPosition();
+		//setHamburgerPosition();
 
 		if (Math.abs(scrollingLayerOffsets.top) > $('#main_screen').height() + 200) {
 			clearTimeout(sliderChangerTimer);
@@ -217,9 +196,10 @@ $(document).ready(function() {
   });
 
 
+
 	// Small video players controll
 	$('.small_video_player').on({
-		click: function() {
+		click: function(event) {
 			var clickedZindex = $(this).css('z-index');
 			if (clickedZindex != 3) {
 				var idName = $(this).children().first().attr('id');
