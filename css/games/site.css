@@ -1,3 +1,6 @@
+
+
+
 /*********************/
 /* common tag values */
 /*********************/
@@ -12,11 +15,9 @@ body {
 	width: 100%;
 	margin: auto;
 	font-size: 110%;
-	background-color: #EFEFEA;
+	background-color: #000000;
 	zoom : 1;
-	display: none;
 }
-
 
 a {
 	display: block;
@@ -498,32 +499,31 @@ h3 {
 /*********************/
 
 #menu_hamburger {
-	position: absolute;
-	z-index: 0;
-	right: 10%;
-	top: 37.5%;
+	position: fixed;
+	z-index: 5;
+	right: 3%;
+	/*top: 25%;*/
   /* this is the same as .divider_button > img in .js */
-	width: 25%;
+	width: 5%;
 	cursor: pointer;
 	background-image: url('../../images/games_site/icon_menu_hamburger.png');
 }
 
 #down_arrow {
-	position: absolute;
-	z-index: 0;
-	right: 10%;
-	bottom: 4%;
-	width: 25%;
+	position: fixed;
+	z-index: 5;
+	right: 3%;
+	bottom: 5%;
+	width: 5%;
 	cursor: pointer;
 }
 
 #menu_screen {
-	position: absolute;
-	z-index: 1;
-	width: 120%;
-	right: -130%;
-	top: 0;
-	height: inherit;
+	position: fixed;
+	z-index: 6;
+	width: 25%;
+	right: -30%;
+	top: 0;	
 }
 
 #menu_screen > div {
@@ -605,33 +605,9 @@ h3 {
 	background-image: url('../../images/games_site/icon_onlive_logo_transparent.png');
 }
 
-/************************************************************/
-/* Layer wrappers                                           */
-/************************************************************/
-
-#layers_wrapper {
-	position: relative;
-	max-width: 1280px;
-	min-width: 768px;
-	margin: auto;
-	width: 100%;
-	height: auto;
-}
-
-#controllers_wrapper {
-	z-index: 4;
-	position: fixed;
-	top: 0;
-	right: 0;
-	width: 20%;
-	max-width: 256px;
-	height: auto;
-}
-
-
-/************************************************************/
-/* Video Layer       																				*/
-/************************************************************/
+/*********************/
+/* Video Layer       */
+/*********************/
 
 #video_layer {
 	position: absolute;
@@ -651,9 +627,9 @@ h3 {
 	width: 100%;
 }
 
-/************************************************************/
-/* Scrolling Layer   																				*/
-/************************************************************/
+/*********************/
+/* Scrolling Layer   */
+/*********************/
 
 #scrolling_layer {
 	height: inherit;
@@ -703,41 +679,48 @@ h3 {
 }
 
 #main_screen1 {
-	background-image: url('../../images/games_site/welcome/slider1_device_bg.png');
+	background-image: url('../../images/games_site/slider4_device_bg.png');
+	z-index: 1;
 }
 
 #main_screen2 {
-	background-image: url('../../images/games_site/welcome/slider2_device_bg.png');
+	z-index: 2;
+	left: 100%;
 }
 
 #main_screen3 {
-	background-image: url('../../images/games_site/welcome/slider3_device_bg.png');
+	z-index: 3;
+	left: 0;
 }
 
-.active_main_screen {
-	z-index: 2;
-	opacity: 1;
+
+#main_headline_text {
+	/* background-image: url('../../images/games_site/headline_bg_bubbles.png'); */
+	top: 7%;
+	width: 45%;
+	z-index: 3;
+	background-size: cover;
 }
 
-.inactive_main_screen {
-	z-index: 1;
-	opacity: 0;
+#main_headline_wrapper {
+	margin-top: 5%;
+	width: 200%;
+}
+
+#main_headline_wrapper > h2 {
+	margin-top: 28%;
+	font-size: 4.0em;
 }
 
 #main_screen_signup {
-	bottom: 16.3%;
-	width: 13.48%;
-	left: 4%;
-	height: 11.63%;
+	bottom: 0;
+	width: 20% !important;
+	background-color: #F7BB3E;
 	z-index: 3;
 }
 
-#main_screen_signup .divider_button {
-	right: -15%;
-}
-
 #main_screen_signup > p {
-	line-height: 3.2em;
+	line-height: 4.5em;
 	width: 100%;
 }
 

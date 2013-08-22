@@ -1,6 +1,6 @@
 p {
-	font-family: 'aktiv_groteskregular';
-	font-size: 1.9em;
+	font-family: 'aktiv_groteskmedium';
+	font-size: 1.8em;
 	text-align: center;
 }
 
@@ -12,8 +12,7 @@ p {
 	height: auto;
 }
 
-#source_slider_controller > div {
-	cursor: pointer;
+#source_slider_controller a {
 	position: relative;
 	height: auto;
 	float: left;
@@ -21,13 +20,13 @@ p {
 	width: 25%;
 }
 
-#source_slider_controller > div > div {
+#source_slider_controller a > div {
 	width: 100%;
 	background-position: top left;
 	background-size: 100% 100%;
 }
 
-#source_slider_controller > div > p {
+#source_slider_controller a > p {
 	width: 100%;
 	text-align: left;
 	font-size: 1.5em;
@@ -68,7 +67,7 @@ p {
 #parallax_second_headline {
 	pointer-events: none;
 	width: 46%;
-	top: 13.58%;
+	top: 15.18%;
 	left: 45.5%;
 }
 
