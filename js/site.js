@@ -66,7 +66,6 @@ $('link[rel=icon]').attr('href','images/games_site/favico_'+systemColors[randomN
 
 $(document).ready(function() {
 
-
   fullScreenHeight = $(window).height();
   fullScreenWidth = $(window).width();
 
