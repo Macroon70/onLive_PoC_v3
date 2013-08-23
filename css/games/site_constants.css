@@ -1,6 +1,315 @@
 /************************************************************/
+/* Tags                       															*/
+/************************************************************/
+
+h2 {
+	font-family: 'aktiv_groteskregular';
+	/*font-family:  'aktiv_groteskmedium_italic';*/
+	color: #ffffff;
+	font-size: 2.7em;
+	text-align: left;
+	line-height: 1.3em;
+	color: #ffffff;
+}
+
+h3 {
+	font-family: 'aktiv_groteskregular';
+	font-size: 1.7em;
+	line-height: 1.3em;
+	text-align: left;
+	color: #ffffff;
+}
+
+p {
+	font-family: 'aktiv_groteskregular';
+	font-size: 1.9em;
+	text-align: left;
+	color: #ffffff;
+}
+
+
+/************************************************************/
 /* Colors                      															*/
 /************************************************************/
+
+/* new system of colors */
+/* color palette from layout */
+
+.white {
+	color: #ffffff;
+}
+
+.white_bg {
+	background-color: #ffffff;
+}
+
+/* dark colors column */
+
+/* grey */
+.c1r1_color {
+	color: #484F57;
+}
+
+.c1r1_bg {
+	background-color: #484F57;
+}
+
+/* dark brown */
+.c1r2_color {
+	color: #232120;
+}
+
+.c1r2_bg {
+	background-color: #232120;
+}
+
+/* dark grey */
+.c1r3_color {
+	color: #1C1C1B;
+}
+
+.c1r3_bg {
+	background-color: #1C1C1B;
+}
+
+/* light grey column */
+
+/* lightest grey */
+.c2r1_color {
+	color: #EFEFEA;
+}
+
+.c2r1_bg {
+	background-color: #EFEFEA;
+}
+
+/* light grey */
+.c2r2_color {
+	color: #A3A9AC
+}
+
+.c2r2_bg {
+	background-color: #A3A9AC;
+}
+
+/* gray */
+.c2r3_color {
+	color: #7C858C
+}
+
+.c2r3_bg {
+	background-color: #7C858C;
+}
+
+/* magenta column */
+
+/* light magenta */
+.c3r1_color {
+	color: #F06A96;
+}
+
+.c3r1_bg {
+	background-color: #F06A96;
+}
+
+/* magenta */
+.c3r2_color {
+	color: #DA2A66;
+}
+
+.c3r2_bg {
+	background-color: #DA2A66;
+}
+
+/* dark magenta */
+.c3r3_color {
+	color: #8B1C42;
+}
+
+.c3r3_bg {
+	background-color: #8B1C42;
+}
+
+/* red column 1 */
+
+/* light red */
+.c4r1_color {
+	color: #F27A7A;
+}
+
+.c4r1_bg {
+	background-color: #F27A7A;
+}
+
+/* red */
+.c4r2_color {
+	color: #E63B3A;
+}
+
+.c4r2_bg {
+	background-color: #E63B3A;
+}
+
+/* dark_red */
+.c4r3_color {
+	color: #A51E28;
+}
+
+.c4r3_bg {
+	background-color: #A51E28;
+}
+
+/* orange column */
+
+/* light orange */
+.c5r1_color {
+	color: #F7BB3E;
+}
+
+.c5r1_bg {
+	background-color: #F7BB3E;
+}
+
+/* orange */
+.c5r2_color {
+	color: #F58638;
+}
+
+.c5r2_bg {
+	background-color: #F58638;
+}
+
+/* dark_orange */
+.c5r3_color {
+	color: #D85B2A;
+}
+
+.c5r3_bg {
+	background-color: #D85B2A;
+}
+
+/* green column */
+
+/* light green */
+.c6r1_color {
+	color: #DCE256;
+}
+
+.c6r1_bg {
+	background-color: #DCE256;
+}
+
+/* green */
+.c6r2_color {
+	color: #8BC541;
+}
+
+.c6r2_bg {
+	background-color: #8BC541;
+}
+
+/* dark green */
+.c6r3_color {
+	color: #1F9255;
+}
+
+.c6r3_bg {
+	background-color: #1F9255;
+}
+
+/* Turquise column */
+
+/* light turquise */
+.c7r1_color {
+	color: #77CBC8;
+}
+
+.c7r1_bg {
+	background-color: #77CBC8;
+}
+
+/* turquise */
+.c7r1_color {
+	color: #23B4A7;
+}
+
+.c7r2_bg {
+	background-color: #23B4A7;
+}
+
+/* dark turquise */
+.c7r3_color {
+	color: #198077;
+}
+
+.c7r3_bg {
+	background-color: #198077;
+}
+
+/* Blue column */
+
+/* light blue */
+.c8r1_color {
+	color: #6BB5DB;
+}
+
+.c8r1_bg {
+	background-color: #6BB5DB;
+}
+
+/* blue */
+.c8r2_color {
+	color: #2685B5;
+}
+
+.c8r2_bg {
+	background-color: #2685B5;
+}
+
+/* dark blue */
+.c8r3_color {
+	color: #1E5E80;
+}
+
+.c8r3_bg {
+	background-color: #1E5E80;
+}
+
+/* Purple column */
+
+/* light purple */
+.c9r1_color {
+	color: #A093C6;
+}
+
+.c9r1_bg {
+	background-color: #A093C6;
+}
+
+/* purple */
+.c9r2_color {
+	color: #6053A2;
+}
+
+.c9r2_bg {
+	background-color: #6053A2;
+}
+
+/* dark purple */
+.c9r3_color {
+	color: #38398B;
+}
+
+.c9r3_bg {
+	background-color: #38398B;
+}
+
+/************************************************************/
+
+
+
+
+
 
 
 
@@ -68,13 +377,6 @@
 	color: #1F9255;
 }
 
-.white {
-	color: #ffffff;
-}
-
-.white_bg {
-	background-color: #ffffff;
-}
 
 .orange {
 	color: #DA2A66;

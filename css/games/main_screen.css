@@ -1,57 +1,79 @@
-p {
-	font-family: 'aktiv_groteskregular';
-	font-size: 1.9em;
-	text-align: center;
+
+
+
+.slider_wrappers {
+	position: absolute;
+	width: 66%;
+	top: 0;
+	left: 35%;
+	height: 85%;
 }
 
-#source_slider_controller {
-	position: absolute;
-	width: 60%;
-	top: 0;
-	left: 40%;
-	height: auto;
+#slider_menu_bg {
+	opacity: 0.4;
+	width: 22%;
+	left: 79%;
 }
 
 #source_slider_controller > div {
-	cursor: pointer;
 	position: relative;
-	height: auto;
+	height: 100%;
 	float: left;
 	display: block;
-	width: 25%;
+	width: 23.33%;
+	padding-left: 5%;
+	padding-right: 5%;
+}
+
+.device_button {
+	cursor: pointer;
 }
 
 #source_slider_controller > div > div {
 	width: 100%;
-	background-position: top left;
-	background-size: 100% 100%;
+	background-position: bottom left;
+	background-size: 40% auto;
+}
+
+#source_slider_controller > div:first-child > div {
+	background-size: 80% auto;
 }
 
 #source_slider_controller > div > p {
 	width: 100%;
-	text-align: left;
-	font-size: 1.5em;
-	margin-top: 40px;
+	font-size: 1.6em;
+	line-height: 1.2em;
+	margin-top: 15%;
 }
 
-.device_button > div {
-	background-color: #7C858C;
+#source_slider_controller > div > a {
+	margin-top: 10%;
+	visibility: hidden;
 }
 
-.icon_iphone_transparent {
-	background-image: url('../../images/games_site/icon_iphone_transparent.png');
+.device_button.white a {
+	visibility: visible !important;
 }
 
-.icon_tablet_transparent {
-	background-image: url('../../images/games_site/icon_tablet_transparent.png');
+
+.device_button.white > p {
+	color: #ffffff;
 }
 
-.icon_pcmac_transparent {
-	background-image: url('../../images/games_site/icon_pcmac_transparent.png');
+.device_button:hover > p {
+	color: #ffffff;
 }
 
-.icon_hdtv_transparent {
-	background-image: url('../../images/games_site/icon_hdtv_transparent.png');
+.menu_mobile_devices {
+	background-image: url(../../images/games_site/welcome/menu_mobile_devices.png);
+}
+
+.menu_pcmac_devices {
+	background-image: url(../../images/games_site/welcome/menu_pcmac_devices.png);
+}
+
+.menu_hdtv_devices {
+	background-image: url(../../images/games_site/welcome/menu_hdtv_devices.png);
 }
 
 #second_screen {
@@ -68,7 +90,7 @@ p {
 #parallax_second_headline {
 	pointer-events: none;
 	width: 46%;
-	top: 13.58%;
+	top: 12.38%;
 	left: 45.5%;
 }
 

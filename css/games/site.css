@@ -43,23 +43,7 @@ h1 {
 	letter-spacing: -0.0em;
 }
 
-h2 {
-	font-family: 'aktiv_groteskitalic';
 
-	/*font-family:  'aktiv_groteskmedium_italic';*/
-	color: #ffffff;
-	font-size: 4.0em;
-	text-align: left;
-	line-height: 0.85em;
-}
-
-h3 {
-	font-family: 'aktiv_groteskregular';
-	font-size: 1.4em;
-	line-height: 1.3em;
-	text-align: left;
-	color: #BDCCD4;	
-}
 
 
 /*********************/
@@ -619,6 +603,7 @@ h3 {
 }
 
 #controllers_wrapper {
+	pointer-events: none;
 	z-index: 4;
 	position: fixed;
 	top: 0;
@@ -628,6 +613,9 @@ h3 {
 	height: auto;
 }
 
+#controllers_wrapper > div {
+	pointer-events: auto;
+}
 
 /************************************************************/
 /* Video Layer       																				*/
@@ -714,14 +702,8 @@ h3 {
 	background-image: url('../../images/games_site/welcome/slider3_device_bg.png');
 }
 
-.active_main_screen {
-	z-index: 2;
-	opacity: 1;
-}
-
 .inactive_main_screen {
-	z-index: 1;
-	opacity: 0;
+	display: none;
 }
 
 #main_screen_signup {
@@ -732,6 +714,7 @@ h3 {
 	z-index: 3;
 }
 
+
 #main_screen_signup .divider_button {
 	right: -15%;
 }
@@ -739,6 +722,7 @@ h3 {
 #main_screen_signup > p {
 	line-height: 3.2em;
 	width: 100%;
+	text-align: center;
 }
 
 #main_screen_footer {
@@ -747,12 +731,12 @@ h3 {
 }
 
 #main_screen_footer > a {
-	left: 13%;
+	left: 15%;
 }
 
 #main_footer_content {
 	width: 90%;
-	top: 20%;
+	top: 10%;
 	position: absolute;
 }
 
@@ -762,9 +746,8 @@ h3 {
 }
 
 #main_footer_content > h3 {
-	margin-top: 4%;
-	font-size: 1.7em;
-	line-height: 1.3em;
+	display: block;
+	margin-top: 1.7%;
 }
 
 #main_footer_content > p {
@@ -774,17 +757,6 @@ h3 {
 }
 
 
-.device_button.white > div {
-	background-color: #ffffff;
-}
-
-.device_button.white > p {
-	color: #ffffff;
-}
-
-.device_button:hover > p {
-	color: #ffffff;
-}
 
 
 /* Second Screen */
@@ -831,6 +803,10 @@ h3 {
 #second_upper_level {
 	z-index: 2 !important;
 	overflow: visible !important;
+}
+
+#second_upper_level > h2 {
+	line-height: 1.0em;
 }
 
 

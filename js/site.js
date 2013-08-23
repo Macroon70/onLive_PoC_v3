@@ -29,28 +29,31 @@ $('link[rel=icon]').attr('href','images/games_site/favico_'+systemColors[randomN
 
 	function sliderChanger(nextElem) {
 		var actualElemPrefix = $('div.device_button.white').attr('data-filename-prefix');
+		var nextElemPrefix;
 		if (nextElem == 0) {
-			if (++actualElemPrefix == 4) actualElemPrefix = 1;
-			nextElem = $('div[data-filename-prefix="'+actualElemPrefix + '"]');
+			nextElemPrefix = parseInt(actualElemPrefix) + 1;
+			if (nextElemPrefix == 4) nextElemPrefix = 1;
+			nextElem = $('div[data-filename-prefix="'+nextElemPrefix + '"]');
+		} else {
+			nextElemPrefix = nextElem.attr('data-filename-prefix');
 		}
-		var nextElemPrefix = nextElem.attr('data-filename-prefix');
 		var nextElemVideoPos = nextElem.attr('data-video-position');
 		var activeLayer = $('#main_screen'+actualElemPrefix);
 		var pushLayer = $('#main_screen'+nextElemPrefix);
 		if (!nextElem.hasClass('white') && !$('.active_main_screen').is(':animated')) {
 			nextElem.addClass('white').siblings().removeClass('white');
 			pushLayer
-				.animate({ opacity: 1}, 1000, function() {
+				.fadeIn(1000, function() {
 					$(this)
 						.removeClass('inactive_main_screen')
 						.addClass('active_main_screen');
 				});
 			activeLayer
-				.animate({ opacity: 0}, 1000, function() {
-				$(this)
-					.removeClass('active_main_screen')
-					.addClass('inactive_main_screen');
-			});
+				.fadeOut(1000, function() {
+					$(this)
+						.removeClass('active_main_screen')
+						.addClass('inactive_main_screen');
+				});
 			actualMainScreenVideoOffsets = nextElemVideoPos.split('/');
 			$('#video_sizer')
 				.animate({
@@ -58,11 +61,14 @@ $('link[rel=icon]').attr('href','images/games_site/favico_'+systemColors[randomN
 					left: actualMainScreenVideoOffsets[1] + '%',
 					width : actualMainScreenVideoOffsets[2] + '%',
 				}, 1000);
-
+			$('#slider_menu_bg').animate({
+				left : (13 + (nextElemPrefix * 22)) + '%'
+			}, 1000);
 		}
 
 
 	}
+
 
 $(document).ready(function() {
 
@@ -93,7 +99,6 @@ $(document).ready(function() {
 
 	$('div.device_button').on({
 		click: function(event) {
-			console.log('itt');
 			sliderChanger($(this));
 			clearTimeout(sliderChangerTimer);
 			sliderChangerTimer = window.setInterval(function() { sliderChanger(0); }, 15000 );
@@ -125,19 +130,19 @@ $(document).ready(function() {
 
 	$('#menu_hamburger').on({
 		click: function() {
-			$('#menu_screen').animate({ right : 0}, 500);
+			$('#menu_screen').animate({ right : 0}, 300);
 		}
 	});
 
 	$('#menu_close_button').on({
 		click: function() {
-			$('#menu_screen').animate({ right : '-130%'}, 500);
+			$('#menu_screen').animate({ right : '-130%'}, 300);
 		}
 	});
 
 	document.addEventListener('click', function(e) {
 		if ($('#menu_screen').css('right') != 0 && !$('#menu_screen').is(':animated')) {
-			$('#menu_screen').animate({ right : '-130%'}, 500);
+			$('#menu_close_button').trigger('click');
 		}
 	}, true);
 
@@ -161,14 +166,15 @@ $(document).ready(function() {
 	  	sliderChangerTimer = null;
 	  	if ( parseInt($('#video_sizer').css('top')) < $('#main_screen').height()) {
 	  		$('#video_sizer').css({
-	  			top : '52%',
-	  			left: '32%'
+	  			top : '50.7%',
+	  			left: '30%',
+	  			width: '52%'
 	  		});
 	  	} 
 		} else if (sliderChangerTimer == null) {
 			sliderChangerTimer = window.setInterval(function() { sliderChanger(0); }, 15000 );
 			if ( parseInt($('#video_sizer').css('top')) > $('#main_screen').height()) {
-				var actualMainScreenVideoOffsets = $('a.device_button.white').attr('data-video-position').split('/');				
+				var actualMainScreenVideoOffsets = $('div.device_button.white').attr('data-video-position').split('/');				
 				$('#video_sizer').css({
 					top : actualMainScreenVideoOffsets[0] + '%',
 					left: actualMainScreenVideoOffsets[1] + '%',

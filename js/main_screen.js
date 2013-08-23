@@ -43,8 +43,8 @@ function resizewindow(){
   $('#logo').css({ height : $('#logo').width() * 2});
   $('#menu_hamburger').css({ height : $('#menu_hamburger').width()});
   $('#down_arrow').css({ height : $('#menu_hamburger').height()});
-  $('.divider_up_button > img').css({height : actualWindowWidth*0.045 , width : actualWindowWidth*0.045});
-  $('.divider_button > img').css({height : actualWindowWidth*0.045, width : actualWindowWidth*0.045});
+  $('.divider_up_button > img').css({height : actualWindowWidth*0.04 , width : actualWindowWidth*0.04});
+  $('.divider_button > img').css({height : actualWindowWidth*0.04, width : actualWindowWidth*0.04});
   $('.divider_up_button').css({ top : ($('.divider_up_button > img').width() / 2) * -1 });
   $('.divider_button').css({ bottom : ($('.divider_button > img').width() / 2) * -1 });
   $('#menu_close_button').css({ height : $('#menu_hamburger').height()});
