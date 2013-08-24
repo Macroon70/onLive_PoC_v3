@@ -72,6 +72,16 @@ $('link[rel=icon]').attr('href','images/games_site/favico_'+systemColors[randomN
 
 $(document).ready(function() {
 
+
+	$('#features_wrapper h3').on({
+		mouseover: function() {
+			var ringsName = $(this).attr('data-ringname');
+			$('#featurerings_wrapper div.'+ringsName).fadeIn(300);
+			$('#featurerings_wrapper div:not(.'+ringsName+')').fadeOut(300);
+		}
+	})
+
+
   fullScreenHeight = $(window).height();
   fullScreenWidth = $(window).width();
 

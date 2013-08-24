@@ -124,21 +124,6 @@
 	position: absolute;
 }
 
-#logo {
-	right: 3%;
-	top: 5%;
-	width: 5%;
-	background-position: top center;
-	background-size: contain;
-	z-index: 5;
-}
-
-#logo > p {
-	color: #ffffff;
-	font-size: 1.6em;
-	margin-top: 120%;
-}
-
 .main_subscreen {
 	top: 0;
 	left: 0;
