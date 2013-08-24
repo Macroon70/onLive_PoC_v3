@@ -526,7 +526,7 @@
 }
 
 .playing_small_video > .video_player_controller {
-	visibility: hidden;
+	opacity: 0.0;
 }
 
 #box_record {

@@ -232,7 +232,7 @@ $(document).ready(function() {
 						var childZindex = $(this).css('z-index');
 						if (childZindex == 3) $(this).css({'z-index' : 2});
 						if (childZindex == 2) $(this).css({'z-index' : 1});
-						if ($(this).hasClass('playing_small_video')) {
+						if ($(this).hasClass('content_border')) {
 							var idName = $(this).children().first().attr('id');
 							event.stopPropagation();
 			    		jwplayer( idName+'_ply').pause(true);
@@ -244,11 +244,14 @@ $(document).ready(function() {
 			} else {
 				if ($(this).hasClass('playing_small_video')) {
 					$(this).removeClass('playing_small_video')
+					var idName = $(this).children().first().attr('id');
+					event.stopPropagation();
+	    		jwplayer( idName+'_ply').pause(true);
 				} else { 
 					$(this).addClass('playing_small_video');
 					var idName = $(this).children().first().attr('id');
 					event.stopPropagation();
-	    		jwplayer( idName+'_ply').play();
+	    		jwplayer( idName+'_ply').play(true);
 				}
 			}
 		}
