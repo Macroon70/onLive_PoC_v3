@@ -89,12 +89,12 @@ $(document).ready(function() {
   var actualSystemColor = systemColors[randomNum];
   var actualMenuColor = menuColors[randomNum];
 
-  $('#logo').css('background-image', 'url(images/games_site/'+actualSystemColor+'_onlive_logo_small.png)' );
-  $('#footer_logo').css('background-image', 'url(images/games_site/'+actualSystemColor+'_onlive_logo_small.png)' );
+  $('#logo').css('background-image', 'url(images/games_site/logo_'+actualSystemColor+'.png)' );
+  $('#footer_logo').css('background-image', 'url(images/games_site/logo_'+actualSystemColor+'.png)' );
 
-  $('#down_arrow').css('background-image', 'url(images/games_site/icon_'+actualSystemColor+'_down_arrow.png)' );
+  $('#down_arrow').css('background-image', 'url(images/games_site/button_down_'+actualSystemColor+'.png)' );
   $('#menu_screen').css('background-color', actualMenuColor);
-  $('#menu_close_button').css('background-image', 'url(images/games_site/icon_'+actualSystemColor+'_close.png)' );
+  $('#menu_close_button').css('background-image', 'url(images/games_site/button_close_'+actualSystemColor+'.png)' );
 
 
 	$('div.device_button').on({
@@ -114,9 +114,9 @@ $(document).ready(function() {
 				$('html, body').stop().animate({ scrollTop : 0 }, 1000);
 			} else {
 				sectionOffsets[0] = $('#main_screen').height() + $('#main_screen_footer').height();
-				sectionOffsets[1] = sectionOffsets[0] + $('#second_screen').height() - $('.small_brick').height();
+				sectionOffsets[1] = sectionOffsets[0] + $('.normal_brick').height() + $(window).height();
 				sectionOffsets[2] = sectionOffsets[1] + $('#third_screen').height() + $('.normal_brick').height();
-				sectionOffsets[3] = sectionOffsets[2] + $('#main_screen').height() * 2;
+				sectionOffsets[3] = sectionOffsets[2] + $('#main_screen').height() * 2 + $('.normal_brick').height();
 				sectionOffsets[4] = $('#scrolling_layer').height();
 				for (var i = 0; i <= sectionOffsets.length; i++) {
 					if (sectionOffsets[i] - $(window).height() > Math.abs(scrollingLayerOffsets.top)) {
@@ -166,7 +166,7 @@ $(document).ready(function() {
 	  	sliderChangerTimer = null;
 	  	if ( parseInt($('#video_sizer').css('top')) < $('#main_screen').height()) {
 	  		$('#video_sizer').css({
-	  			top : '50.7%',
+	  			top : '48.6%',
 	  			left: '30%',
 	  			width: '52%'
 	  		});

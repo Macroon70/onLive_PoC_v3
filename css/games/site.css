@@ -1,6 +1,6 @@
-/*********************/
-/* common tag values */
-/*********************/
+/************************************************************/
+/* Common tags                 															*/
+/************************************************************/
 
 * {
 	margin: 0;
@@ -16,7 +16,6 @@ body {
 	zoom : 1;
 	display: none;
 }
-
 
 a {
 	display: block;
@@ -43,12 +42,44 @@ h1 {
 	letter-spacing: -0.0em;
 }
 
+h2 {
+	font-family: 'aktiv_groteskregular';
+	/*font-family:  'aktiv_groteskmedium_italic';*/
+	color: #ffffff;
+	font-size: 2.7em;
+	text-align: left;
+	line-height: 1.3em;
+	color: #ffffff;
+}
+
+h3 {
+	font-family: 'aktiv_groteskregular';
+	font-size: 1.7em;
+	line-height: 1.3em;
+	text-align: left;
+	color: #ffffff;
+}
+
+p {
+	font-family: 'aktiv_groteskregular';
+	font-size: 1.9em;
+	text-align: left;
+	color: #ffffff;
+}
 
 
+/************************************************************/
+/* Classes                     															*/
+/************************************************************/
 
-/*********************/
-/* Classes           */
-/*********************/
+
+.full_screen {
+	width: 100%;
+}
+
+.content_margin {
+	left: 5.86%;
+}
 
 .noselect {
 	-webkit-touch-callout: none;
@@ -126,9 +157,9 @@ h1 {
 
 
 .content_shadow {
-	-webkit-box-shadow: 13px 13px 5px rgba(0, 0, 0, 0.55);
-	-moz-box-shadow:    13px 13px 5px rgba(0, 0, 0, 0.55);
-	box-shadow:         13px 13px 5px rgba(0, 0, 0, 0.55);	
+	-webkit-box-shadow: 13px 13px 1px rgba(0, 0, 0, 0.55);
+	-moz-box-shadow:    13px 13px 1px rgba(0, 0, 0, 0.55);
+	box-shadow:         13px 13px 1px rgba(0, 0, 0, 0.55);	
 }
 
 .content_padding {
@@ -159,47 +190,13 @@ h1 {
 .footer_box {
 	width: 36.34%;
 	padding-left: 5.86%;
-	padding-top: 5.86%;
+	padding-top: 3.86%;
 }
 
 .footer_big_box {
 	width: 47.8%;
 	padding-left: 10%;
-	padding-top: 5.86%;
-}
-
-.small_brick {
-	width: 11%;
-}
-
-.small_doubled_brick {
-	width: 11%;
-}
-
-.normal_brick {
-	width: 22%;
-}
-
-
-.double_normal_brick {
-	width: 22%;
-	height: auto;
-}
-
-.double_normal_brick > div {
-	width: 100% !important;
-}
-
-.onehalf_brick {
-	width: 33%;
-}
-
-.onehalf_brick_game {
-	width: 33%;
-}
-
-.big_brick {
-	width: 44%;
+	padding-top: 3.86%;
 }
 
 .bg_images {
@@ -215,130 +212,6 @@ h1 {
 
 .clear {
 	clear: both;
-}
-
-.gamepic_01 {
-	background-image: url('../../images/games_site/gamepic_last_of_us_small.png');
-}
-
-.gamepic_02 {
-	background-image: url('../../images/games_site/gamepic_batman_normal.png');
-}
-
-.gamepic_03 {
-	background-image: url('../../images/games_site/gamepic_borderlands2_normal.png');
-}
-
-.gamepic_04 {
-	background-image: url('../../images/games_site/gamepic_batman_normal.png');
-}
-
-.gamepic_05 {
-	background-image: url('../../images/games_site/gamepic_purple_text.png');
-}
-
-.gamepic_06 {
-	background-image: url('../../images/games_site/gamepic_crysis2_normal.png');
-}
-
-.gamepic_07 {
-	background-image: url('../../images/games_site/gamepic_battlefield4_normal.png');
-}
-
-.gamepic_08 {
-	background-image: url('../../images/games_site/gamepic_lastofus_normal.png');
-}
-
-.gamepic_09 {
-	background-image: url('../../images/games_site/gamepic_lastofus_normal.png');
-}
-
-.gamepic_10 {
-	background-image: url('../../images/games_site/gamepic_borderlands2_normal.png');
-}
-
-.gamepic_11 {
-	background-image: url('../../images/games_site/gamepic_orange_text.png');
-}
-
-.gamepic_12 {
-	background-image: url('../../images/games_site/gamepic_bioshock_small.png');
-}
-
-.gamepic_13 {
-	background-image: url('../../images/games_site/gamepic_assassins_normal.png?v=1');
-}
-
-.gamepic_14 {
-	background-image: url('../../images/games_site/gamepic_batman_normal.png');
-}
-
-.gamepic_15 {
-	background-image: url('../../images/games_site/gamepic_crysis2_normal.png');
-}
-
-.gamepic_16 {
-	background-image: url('../../images/games_site/gamepic_blue_normal.png');
-}
-
-.gamepic_17 {
-	background-image: url('../../images/games_site/gamepic_borderlands2_normal.png');
-}
-
-.gamepic_18 {
-	background-image: url('../../images/games_site/gamepic_assassins_normal.png?v=1');
-}
-
-.gamepic_19 {
-	background-image: url('../../images/games_site/gamepic_last_of_us_small.png');
-}
-
-.gamepic_20 {
-	background-image: url('../../images/games_site/gamepic_assassins_normal.png?v=1');
-}
-
-.gamepic_21 {
-	background-image: url('../../images/games_site/gamepic_last_of_us_small.png');
-}
-
-.headline_gamepic {
-	background-image: url('../../images/games_site/gamepic_dirt3_headline.png');
-}
-
-.headline_bubbles_green {
-	background-image: url('../../images/games_site/headline_bg_bubbles_green.png');
-}
-
-.icon_iphone {
-	background-image: url('../../images/games_site/icon_iphone_normal.png');
-}
-
-
-.video_image1 {
-	background-image: url('../../images/games_site/video_pic1.png');
-}
-
-.video_image2 {
-	background-image: url('../../images/games_site/video_pic2.png');
-}
-.video_image3 {
-	background-image: url('../../images/games_site/video_pic3.png');
-}
-
-.video_image4 {
-	background-image: url('../../images/games_site/video_pic4.png');
-}
-
-.video_avatar1 {
-	background-image: url('../../images/games_site/avatar_video1.png');
-}
-
-.video_avatar2 {
-	background-image: url('../../images/games_site/avatar_video2.png');
-}
-
-.video_avatar3 {
-	background-image: url('../../images/games_site/avatar_video3.png');
 }
 
 .overflow_seeing {
@@ -357,9 +230,8 @@ h1 {
 	transform: -webkit-transform scale(1.03);
 }
 
-
 .video_player_controller {
-	background-image: url('../../images/games_site/video_play.png');
+	background-image: url(../../images/games_site/video_play.png);
 	background-size: 20% auto;
 	background-repeat: no-repeat;
 	background-position: center center;
@@ -469,17 +341,18 @@ h1 {
 }
 
 .icon_like {
-	background-image: url('../../images/games_site/icon_like.png');
+	background-image: url(../../images/games_site/icon_like.png);
 }
 
 .content_avatar1 {
-	background-image: url('../../images/games_site/avatar_tablet_big.png');
+	background-image: url(../../images/games_site/welcome/avatar_tablet_big.png);
 }
 
 
-/*********************/
-/* Fix Layers       */
-/*********************/
+/************************************************************/
+/* Fix layers                  															*/
+/************************************************************/
+
 
 #menu_hamburger {
 	position: absolute;
@@ -489,7 +362,7 @@ h1 {
   /* this is the same as .divider_button > img in .js */
 	width: 25%;
 	cursor: pointer;
-	background-image: url('../../images/games_site/icon_menu_hamburger.png');
+	background-image: url(../../images/games_site/button_hamburger.png);
 }
 
 #down_arrow {
@@ -586,7 +459,7 @@ h1 {
 	right: 4%;
 	top: 3%;
 	width: 12%;
-	background-image: url('../../images/games_site/icon_onlive_logo_transparent.png');
+	background-image: url(../../images/games_site/logo_transparent.png);
 }
 
 /************************************************************/
@@ -623,6 +496,7 @@ h1 {
 
 #video_layer {
 	position: absolute;
+	background-color: #000000;
 	top: 0;
 	z-index: 0;
 	width: 100%;
@@ -658,353 +532,45 @@ h1 {
 	float: left;
 }
 
-/* Main screen */
-
-#main_screen {
-	z-index: 3;
-	overflow: hidden;
-}
-
-#main_screen > div {
-	position: absolute;
-}
-
-#logo {
-	right: 3%;
-	top: 5%;
-	width: 5%;
-	background-position: top center;
-	background-size: contain;
-	z-index: 5;
-}
-
-#logo > p {
-	color: #ffffff;
-	font-size: 1.6em;
-	margin-top: 120%;
-}
-
-.main_subscreen {
-	top: 0;
-	left: 0;
-	width: 100%;
-}
-
-#main_screen1 {
-	background-image: url('../../images/games_site/welcome/slider1_device_bg.png');
-}
-
-#main_screen2 {
-	background-image: url('../../images/games_site/welcome/slider2_device_bg.png');
-}
-
-#main_screen3 {
-	background-image: url('../../images/games_site/welcome/slider3_device_bg.png');
-}
-
-.inactive_main_screen {
-	display: none;
-}
-
-#main_screen_signup {
-	bottom: 16.3%;
-	width: 13.48%;
-	left: 4%;
-	height: 11.63%;
-	z-index: 3;
-}
-
-
-#main_screen_signup .divider_button {
-	right: -15%;
-}
-
-#main_screen_signup > p {
-	line-height: 3.2em;
-	width: 100%;
-	text-align: center;
-}
-
-#main_screen_footer {
-	position: relative;
-	z-index: 4;
-}
-
-#main_screen_footer > a {
-	left: 15%;
-}
-
-#main_footer_content {
-	width: 90%;
-	top: 10%;
-	position: absolute;
-}
-
-#main_footer_content > img {
-	display: block;
-	position: absolute;
-}
-
-#main_footer_content > h3 {
-	display: block;
-	margin-top: 1.7%;
-}
-
-#main_footer_content > p {
-	text-align: left;
-	line-height: 5.5em;
-
-}
-
-
-
-
-/* Second Screen */
-
-
-#second_screen > div {
-	position: relative;
-	float: left;
-	overflow: hidden;
-}
-
-#second_screen > div a:not(.divider_button) {
-	left: 0 !important;
-	width: 100%;
-	height: inherit;
-}
-
-
-#second_headline > h1 {
-	width: 80%;
-	margin-top: 10%;
-	margin-left: 25%;
-}
-
-#second_screen h2 {
-	margin-top: 24%;
-	font-size: 3.5em;
-}
-
-#second_screen h3 {
-	margin-top: 7%;
-	color: #000000;
-}
-
-#second_screen p {
-	text-align: left;
-	margin-top: 7%;
-}
-
-#second_screen a {
-	left: 38%;
-}
-
-#second_upper_level {
-	z-index: 2 !important;
-	overflow: visible !important;
-}
-
-#second_upper_level > h2 {
-	line-height: 1.0em;
-}
-
-
-#headline_brick {
-	z-index: 3;
-	position: absolute !important;
-	top: 37.86%;
-	left: 26.8%;
-	overflow: auto !important;
-}
-
-/* Third Screen */
-
-#tablet_player_info {
-	position: absolute;
-	z-index: 3;
-	right: 22%;
-	top: 34%;
-}
-
-#third_screen_bg {
-	position: absolute;
-	width: 100%;
-	background-image: url('../../images/games_site/third_screen_ipad.png');
-}
-
-#third_screen_bg > div a:not(.divider_button) {
-	left: 0 !important;
-	width: 100%;
-	height: inherit;
-}
-
-
-#third_headline_text {
-	position: absolute;
-	background-image: url('../../images/games_site/headline_bg_bubbles.png');
-	top: 15%;
-	width: 50%;
-}
-
-#third_headline_text > h1 {
-	position: absolute;
-	top: 20%;
-}
-
-#player_avatars {
-	position: absolute;
-	background-image: url('../../images/games_site/gamer_avatars.png');
-	width: 30%;
-	left: 3%;
-	bottom: 10%;
-}
-
-#box_spectatle {
-	position: absolute;
-	right: 3%;
-	bottom: -5%;
-	width: 38%;
-	padding-left: 7%;
-	padding-top: 5%;
-	height: 25%;
-}
-
-#box_spectatle > h3 {
-	margin-top: 5%;
-	color: #ffffff;
-}
-
-#box_spectatle > p {
-	margin-top: 5%;
-	text-align: left;
-}
-
-#box_spectatle > a {
-	left: 38%;
-}
-
-
-/* Forth Screen */
-
-#forth_screen {
-	width: 100%;
-	z-index: 1;
-}
-
-
-#forth_screen > div {
-	position: absolute;
-}
-
-#forth_screen h1 {
-	position: absolute;
-	right: 10%;
-	top: 35%;	
-}
-
-#forth_screen_bg {
-	background-image: url('../../images/games_site/bubbles_with_likes.png');
-	width: 95%;
-	left: 2%;
-	top: 15%;
-}
-
-#video_image4 {
-	right: 8%;
-	bottom: 14%;
-	width: 15%;
-	opacity: 0.3;
-}
-
-#video_image2 {
-  left: 40%;
-  bottom: 25%;
-  width: 30%;
-  z-index: 1;
-}
-
-#video_image3 {
-	right: 2%;
-	bottom: 31%;
-	width: 30%;
-	z-index: 2;
-}
-
-#video_image1 {
-	left: 3%;
-	bottom: 35%;
-	width: 40%;
-	z-index: 3;
-}
-
-#video_image1 .icon_like {
-	opacity: 1 !important;
-	width: 28%;
-	background-size: 20% 50%;
-}
-
-#video_image1 .avatar_score {
-	opacity: 1 !important;
-}
-
-#video_image1 .fr {
-	margin-top: 3%;
-	width: 40% !important;
-}
-
-#video_image1 .fr p:not(.smaller_text) {
-	margin-top: 5%;
-	opacity: 1 !important;
-}
-
-.subvideo_content {
-	width: 100%;
-	height: inherit;
-}
-
-.small_video_player {
-	cursor: pointer;
-}
-
-.playing_small_video > .video_player_controller {
-	visibility: hidden;
-}
-
-#box_record {
-	bottom: 0;
-	left: 0;
-}
+/************************************************************/
+/* Footer screen     																				*/
+/************************************************************/
 
 .footer_box > h2 {
-	font-size: 3.5em;
-	line-height: 0.9em;
+	margin-top: 2%;
+	font-size: 3.7em;
+	line-height: 0.95em;
 }
 
 .footer_box > h3 {
-	margin-top: 4%;
+	margin-top: 6%;
 	color: #000000;
 }
 
 .footer_box > p {
-	margin-top: 8%;
-	text-align: left;
+	margin-top: 12%;
 }
 
 .footer_box > a {
-	left: 35%;
+	left: 38%;
 }
-
-/* Footer screen */
 
 #footer_screen > div {
 	position: relative;
 	float: left;
 }
 
+#footer_screen .footer_box > h2 {
+	margin-top: 30%;
+}
+
+.footer_big_box > h1 {
+	margin-top: 10%;
+}
+
 .footer_big_box > p {
 	text-align: left;
-	margin-top: 10%;
+	margin-top: 13%;
 }
 
 .footer_big_box > a {
@@ -1079,9 +645,9 @@ h1 {
 	line-height: 1.3em;
 }
 
-/*********************/
-/* Parallax Layer       */
-/*********************/
+/************************************************************/
+/* Parallax Layer   																				*/
+/************************************************************/
 
 #parallax_layer {
 	pointer-events: none;
@@ -1100,18 +666,6 @@ h1 {
 
 #parallax_wrapper > div {
 	position: absolute;
-}
-
-#parallax_first_headline {
-	top: 0.5%;
-	background-image: url('../../images/games_site/headline_bg_bubbles.png');
-	background-size: cover;
-	background-position: top;
-	width: 45%;
-}
-
-#parallax_first_headline > h1 {
-	margin-top: 5%;
 }
 
 

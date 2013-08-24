@@ -1,5 +1,218 @@
+/************************************************************/
+/* Second screen gamepics      															*/
+/************************************************************/
+
+.gamepic_01 {
+	background-image: url(../../images/games_site/welcome/gamepic_batman_normal.png);
+}
+
+.gamepic_02 {
+	background-image: url(../../images/games_site/welcome/gamepic_oddworld.png);
+}
+
+.gamepic_03 {
+	background-image: url(../../images/games_site/welcome/gamepic_bioshock_small.png);
+}
+
+.gamepic_04 {
+	background-image: url(../../images/games_site/welcome/gamepic_blue_box.png);
+}
+
+.gamepic_05 {
+	background-image: url(../../images/games_site/welcome/gamepic_crysis2_normal.png);
+}
+
+.gamepic_06 {
+	background-image: url(../../images/games_site/welcome/gamepic_battlefield4_normal.png);
+}
+
+.gamepic_07 {
+	background-image: url(../../images/games_site/welcome/gamepic_lastofus_normal.png);
+}
+
+.gamepic_08 {
+	background-image: url(../../images/games_site/welcome/gamepic_motogp13.png);
+}
+
+.gamepic_09 {
+	background-image: url(../../images/games_site/welcome/gamepic_borderlands2_normal.png);
+}
+
+.gamepic_10 {
+	background-image: url(../../images/games_site/welcome/gamepic_orange_box.png);
+}
+
+.gamepic_11 {
+	background-image: url(../../images/games_site/welcome/gamepic_homefront.png);
+}
+
+.gamepic_12 {
+	background-image: url(../../images/games_site/welcome/gamepic_wrc3.png);
+}
+
+.gamepic_13 {
+	background-image: url(../../images/games_site/welcome/gamepic_darknes2.png);
+}
+
+.gamepic_14 {
+	background-image: url(../../images/games_site/welcome/gamepic_witcher2.png);
+}
+
+.gamepic_15 {
+	background-image: url(../../images/games_site/welcome/gamepic_turquise_box.png);
+}
+
+.gamepic_16 {
+	background-image: url(../../images/games_site/welcome/gamepic_assassins_normal.png);
+}
+
+.gamepic_17 {
+	background-image: url(../../images/games_site/welcome/gamepic_sleeping_dogs.png);
+}
+
+.headline_gamepic {
+	background-image: url(../../images/games_site/welcome/gamepic_dirt3_headline.png);
+}
+
+/************************************************************/
+/* Video images               															*/
+/************************************************************/
 
 
+.video_image1 {
+	background-image: url(../../images/games_site/welcome/video_pic1.png);
+}
+
+.video_image2 {
+	background-image: url(../../images/games_site/welcome/video_pic2.png);
+}
+.video_image3 {
+	background-image: url(../../images/games_site/welcome/video_pic3.png);
+}
+
+.video_image4 {
+	background-image: url(../../images/games_site/welcome/video_pic4.png);
+}
+
+/************************************************************/
+/* Video avatars              															*/
+/************************************************************/
+
+
+.video_avatar1 {
+	background-image: url(../../images/games_site/welcome/avatar_video1.png);
+}
+
+.video_avatar2 {
+	background-image: url(../../images/games_site/welcome/avatar_video2.png);
+}
+
+.video_avatar3 {
+	background-image: url(../../images/games_site/welcome/avatar_video3.png);
+}
+
+/************************************************************/
+/* Main_screen                															*/
+/************************************************************/
+
+#main_screen {
+	z-index: 3;
+	overflow: hidden;
+}
+
+#main_screen > div {
+	position: absolute;
+}
+
+#logo {
+	right: 3%;
+	top: 5%;
+	width: 5%;
+	background-position: top center;
+	background-size: contain;
+	z-index: 5;
+}
+
+#logo > p {
+	color: #ffffff;
+	font-size: 1.6em;
+	margin-top: 120%;
+}
+
+.main_subscreen {
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+
+#main_screen1 {
+	background-image: url(../../images/games_site/welcome/slider1_device_bg.png);
+}
+
+#main_screen2 {
+	background-image: url(../../images/games_site/welcome/slider2_device_bg.png);
+}
+
+#main_screen3 {
+	background-image: url(../../images/games_site/welcome/slider3_device_bg.png);
+}
+
+.inactive_main_screen {
+	display: none;
+}
+
+#main_screen_signup {
+	bottom: 16.3%;
+	width: 13.48%;
+	left: 4%;
+	height: 11.63%;
+	z-index: 3;
+}
+
+#main_screen_signup .divider_button {
+	right: -15%;
+}
+
+#main_screen_signup > p {
+	line-height: 3.2em;
+	width: 100%;
+	text-align: center;
+}
+
+/************************************************************/
+/* Main Screen Footer                											  */
+/************************************************************/
+
+#main_screen_footer {
+	position: relative;
+	z-index: 4;
+}
+
+#main_screen_footer > a {
+	left: 15%;
+}
+
+#main_footer_content {
+	width: 90%;
+	top: 10%;
+	position: absolute;
+}
+
+#main_footer_content > img {
+	display: block;
+	position: absolute;
+}
+
+#main_footer_content > h3 {
+	display: block;
+	margin-top: 1.7%;
+}
+
+#main_footer_content > p {
+	text-align: left;
+	line-height: 5.5em;
+
+}
 
 .slider_wrappers {
 	position: absolute;
@@ -55,7 +268,6 @@
 	visibility: visible !important;
 }
 
-
 .device_button.white > p {
 	color: #ffffff;
 }
@@ -76,21 +288,288 @@
 	background-image: url(../../images/games_site/welcome/menu_hdtv_devices.png);
 }
 
+/************************************************************/
+/* Second Screen                    											  */
+/************************************************************/
+
 #second_screen {
 	background-color: #ffffff;
 	height: auto;
 	z-index: 1;
 }
 
+#second_screen > div {
+	position: relative;
+	float: left;
+	overflow: hidden;
+}
+
+#second_screen > div a:not(.divider_button) {
+	left: 0 !important;
+	width: 100%;
+	height: inherit;
+}
+
+
+#second_headline > h1 {
+	width: 80%;
+	margin-top: 10%;
+	margin-left: 25%;
+}
+
+#second_screen h2 {
+	margin-top: 12%;
+	font-size: 3.7em;
+}
+
+#second_screen h3 {
+	margin-top: 4%;
+	color: #000000;
+}
+
+#second_screen p {
+	margin-top: 7%;
+}
+
+#second_screen a {
+	left: 38%;
+}
+
+#second_upper_level {
+	z-index: 2 !important;
+	overflow: visible !important;
+}
+
+#second_upper_level > h2 {
+	line-height: 1.0em;
+}
+
+
+#headline_brick {
+	z-index: 3;
+	position: absolute !important;
+	top: 36.4%;
+	left: 26.8%;
+	overflow: auto !important;
+}
+
+.small_brick {
+	width: 11%;
+}
+
+.small_doubled_brick {
+	width: 11%;
+}
+
+.normal_brick {
+	width: 22%;
+}
+
+
+.double_normal_brick {
+	width: 22%;
+	height: auto;
+}
+
+.double_normal_brick > div {
+	width: 100% !important;
+}
+
+.onehalf_brick {
+	width: 33%;
+}
+
+.onehalf_brick_game {
+	width: 33%;
+}
+
+.big_brick {
+	width: 44%;
+}
+
+/************************************************************/
+/* Third Screen                     											  */
+/************************************************************/
+
 #third_screen {
 	height: auto;
 	z-index: 2;
 }
 
+#third_screen {
+	width: 100%;
+	background-image: url(../../images/games_site/welcome/main_third_screen.png);
+}
+
+#tablet_player_info {
+	position: absolute;
+	z-index: 3;
+	right: 20%;
+	top: 27%;
+}
+
+#third_screen_bg > div a:not(.divider_button) {
+	left: 0 !important;
+	width: 100%;
+	height: inherit;
+}
+
+#player_avatars {
+	position: absolute;
+	background-image: url(../../images/games_site/welcome/main_avatars.png);
+	background-size: contain;
+	width: 37%;
+	left: 8%;
+	bottom: 24%;
+}
+
+#box_spectatle {
+	position: absolute;
+	right: 3.5%;
+	bottom: 7%;
+	width: 38%;
+	padding-left: 4%;
+	padding-top: 3%;
+	height: 23%;
+}
+
+#box_spectatle > h2 {
+	font-size: 3.8em;
+	line-height: 0.9em;
+}
+
+#box_spectatle > h3 {
+	font-family: 'aktiv_grotesklight';
+	margin-top: 4%;
+	color: #ffffff;
+}
+
+#box_spectatle > p {
+	margin-top: 5%;
+	text-align: left;
+}
+
+#box_spectatle > a {
+	left: 38%;
+}
+
+/************************************************************/
+/* Forth Screen                     											  */
+/************************************************************/
+
+#forth_screen {
+	width: 100%;
+	z-index: 1;
+}
+
+
+#forth_screen > div {
+	position: absolute;
+}
+
+#forth_screen h1 {
+	position: absolute;
+	right: 10%;
+	top: 35%;	
+}
+
+#forth_screen_bg {
+	background-image: url(../../images/games_site/welcome/main_forth_bg.png);
+	width: 85%;
+	left: 2%;
+	top: 15%;
+}
+
+#video_image4_above_bg {
+	opacity: 0.8;
+}
+
+.video_image4_pos {
+	right: 8%;
+	bottom: 16%;
+	width: 15%;
+}
+
+#video_image2 {
+  left: 41%;
+  bottom: 26%;
+  width: 30%;
+  z-index: 1;
+}
+
+#video_image3 {
+	right: 2%;
+	bottom: 33%;
+	width: 29%;
+	z-index: 2;
+}
+
+#video_image1 {
+	left: 3%;
+	bottom: 38%;
+	width: 40%;
+	z-index: 3;
+}
+
+#video_image1 .icon_like {
+	opacity: 1 !important;
+	width: 28%;
+	background-size: 20% 50%;
+}
+
+#video_image1 .avatar_score {
+	opacity: 1 !important;
+}
+
+#video_image1 .fr {
+	margin-top: 3%;
+	width: 40% !important;
+}
+
+#video_image1 .fr p:not(.smaller_text) {
+	margin-top: 5%;
+	opacity: 1 !important;
+}
+
+.subvideo_content {
+	width: 100%;
+	height: inherit;
+}
+
+.small_video_player {
+	cursor: pointer;
+}
+
+.playing_small_video > .video_player_controller {
+	visibility: hidden;
+}
+
+#box_record {
+	bottom: 0;
+	left: 0;
+}
+
+/************************************************************/
+/* Parallax Layer                    											  */
+/************************************************************/
+
+#parallax_first_headline {
+	top: 0.5%;
+	background-image: url(../../images/games_site/welcome/main_first_bubbles.png);
+	background-size: cover;
+	background-position: top;
+	width: 45%;
+}
+
+#parallax_first_headline > h1 {
+	margin-top: 5%;
+}
+
 #parallax_second_headline {
 	pointer-events: none;
+	background-image: url(../../images/games_site/welcome/main_second_bubbles.png);
 	width: 46%;
-	top: 12.38%;
+	top: 11.4%;
 	left: 45.5%;
 }
 
@@ -98,4 +577,30 @@
 	width: 110%;
 	margin-top: 10%;
 	margin-left: 26%;
+}
+
+#parallax_third_headline {
+	background-image: url(../../images/games_site/welcome/main_third_bubbles.png);
+	pointer-events: none;
+	top: 25.2%;
+	width: 50%;
+}
+
+#parallax_third_headline > h1 {
+	position: absolute;
+	top: 30%;
+}
+
+#parallax_forth_headline {
+	pointer-events: none;
+	top: 39%;
+	left: 55%;
+	background-image: url(../../images/games_site/welcome/main_forth_bubbles.png);
+	background-size: cover;
+	background-position: top;
+	width: 45%;
+}
+
+#parallax_forth_headline > h1 {
+	margin-top: 20%;
 }

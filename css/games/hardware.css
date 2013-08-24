@@ -313,3 +313,83 @@ p.price_number {
 	margin-top: 5%;
 }
 
+.beige_bg {
+	background-color: #EFEFEA;
+}
+
+.lightest_grey {
+	color: #A3A9AC;
+}
+
+.grey {
+	color: #484F57;
+}
+
+.grey_bg {
+	background-color: #484F57;
+}
+
+.light_grey {
+	color: #7C858C;
+}
+
+.light_grey_bg {
+	background-color: #7C858C;
+}
+
+.dark_blue {
+	color: #198077;
+}
+
+.blue_bg {
+	background-color: #23B4A7;
+}
+
+.dark_brown_bg {
+	background-color: #232120;
+}
+
+.dark_orange {
+	color: #D85B2A;
+}
+
+.dark_orange_bg {
+	background-color: #D85B2A;
+}
+
+.dark_red {
+	color: #E63B3A;
+}
+
+.purple {
+	color: #8B1C42;
+}
+
+.uv_green {
+	color: #8BC541;
+}
+
+.uv_green_bg {
+	background-color: #8BC541;
+}
+
+.dark_green {
+	color: #1F9255;
+}
+
+
+.orange {
+	color: #DA2A66;
+}
+
+.orange_bg {
+	background-color: #DA2A66;
+}
+
+.light_orange {
+	color: #F58638;
+}
+
+.light_orange_bg {
+	background-color: #F58638;
+}
