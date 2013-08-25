@@ -145,6 +145,10 @@
 	color: #F58638;
 }
 
+.c5r2_imp {
+	color: #F58638 !important;
+}
+
 .c5r2_bg {
 	background-color: #F58638;
 }
@@ -198,13 +202,22 @@
 	background-color: #77CBC8;
 }
 
-/* turquise */
+/* light turquise */
 .c7r1_color {
 	color: #23B4A7;
 }
 
-.c7r2_bg {
+.c7r1_bg {
 	background-color: #23B4A7;
+}
+
+/* turquise */
+.c7r2_color {
+	color: #23B1A4;
+}
+
+.c7r2_bg {
+	background-color: #23B1A4;
 }
 
 /* dark turquise */

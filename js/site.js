@@ -76,8 +76,27 @@ $(document).ready(function() {
 	$('#features_wrapper h3').on({
 		mouseover: function() {
 			var ringsName = $(this).attr('data-ringname');
-			$('#featurerings_wrapper div.'+ringsName).fadeIn(300);
-			$('#featurerings_wrapper div:not(.'+ringsName+')').fadeOut(300);
+			$(this)
+				.addClass('c5r2_imp')
+				.siblings()
+					.removeClass('c5r2_imp');
+			$('#featurerings_wrapper div.'+ringsName).stop().animate({ opacity : 1 },300);
+			$('#featurerings_wrapper div:not(.'+ringsName+')').stop().animate({ opacity : 0 },300);
+		}
+	});
+
+	$('.fring').on({
+		mouseover: function() {
+			if ($(this).css('opacity') == 0) {
+				var ringsName = $(this).attr('data-ringname');
+				$('#featurerings_wrapper div.'+ringsName).stop().animate({ opacity : 1 },300);
+				$('#featurerings_wrapper div:not(.'+ringsName+')').stop().animate({ opacity : 0 },300);
+				$('#features_wrapper h3.'+ringsName)
+					.addClass('c5r2_imp')
+					.siblings()
+						.removeClass('c5r2_imp');
+
+			}
 		}
 	})
 
