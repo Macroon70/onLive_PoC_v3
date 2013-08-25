@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-p {
-	font-family: 'aktiv_groteskmedium';
-	font-size: 1.8em;
-=======
 /************************************************************/
 /* Second screen gamepics      															*/
 /************************************************************/
@@ -219,11 +214,7 @@ p {
 	left: 79%;
 }
 
-<<<<<<< HEAD
-#source_slider_controller a {
-=======
 #source_slider_controller > div {
->>>>>>> v3.5
 	position: relative;
 	height: 100%;
 	float: left;
@@ -564,11 +555,7 @@ p {
 	pointer-events: none;
 	background-image: url(../../images/games_site/welcome/main_second_bubbles.png);
 	width: 46%;
-<<<<<<< HEAD
-	top: 15.18%;
-=======
 	top: 11.4%;
->>>>>>> v3.5
 	left: 45.5%;
 }
 

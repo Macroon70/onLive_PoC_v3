@@ -1,15 +1,6 @@
-<<<<<<< HEAD
-
-
-
-/*********************/
-/* common tag values */
-/*********************/
-=======
 /************************************************************/
 /* Common tags                 															*/
 /************************************************************/
->>>>>>> v3.5
 
 * {
 	margin: 0;
@@ -470,11 +461,6 @@ p {
 	background-image: url(../../images/games_site/logo_transparent.png);
 }
 
-<<<<<<< HEAD
-/*********************/
-/* Video Layer       */
-/*********************/
-=======
 /************************************************************/
 /* Layer wrappers                                           */
 /************************************************************/
@@ -560,144 +546,6 @@ p {
 	font-size: 2.2em;
 	margin-top: 120%;
 }
-
-<<<<<<< HEAD
-.main_subscreen {
-	top: 0;
-	left: 0;
-	width: 100%;
-}
-
-#main_screen1 {
-	background-image: url('../../images/games_site/slider4_device_bg.png');
-	z-index: 1;
-}
-
-#main_screen2 {
-	z-index: 2;
-	left: 100%;
-}
-
-#main_screen3 {
-	z-index: 3;
-	left: 0;
-}
-
-
-#main_headline_text {
-	/* background-image: url('../../images/games_site/headline_bg_bubbles.png'); */
-	top: 7%;
-	width: 45%;
-	z-index: 3;
-	background-size: cover;
-}
-
-#main_headline_wrapper {
-	margin-top: 5%;
-	width: 200%;
-}
-
-#main_headline_wrapper > h2 {
-	margin-top: 28%;
-	font-size: 4.0em;
-}
-
-#main_screen_signup {
-	bottom: 0;
-	width: 20% !important;
-	background-color: #F7BB3E;
-	z-index: 3;
-}
-
-#main_screen_signup > p {
-	line-height: 4.5em;
-	width: 100%;
-}
-
-#main_screen_footer {
-	position: relative;
-	z-index: 4;
-}
-
-#main_screen_footer > a {
-	left: 13%;
-}
-
-#main_footer_content {
-	width: 90%;
-	top: 20%;
-	position: absolute;
-}
-
-#main_footer_content > img {
-	display: block;
-	position: absolute;
-}
-
-#main_footer_content > h3 {
-	margin-top: 4%;
-	font-size: 1.7em;
-	line-height: 1.3em;
-}
-
-#main_footer_content > p {
-	text-align: left;
-	line-height: 5.5em;
-
-}
-
-
-.device_button.white > div {
-	background-color: #ffffff;
-}
-
-.device_button.white > p {
-	color: #ffffff;
-}
-
-.device_button:hover > p {
-	color: #ffffff;
-}
-
-
-/* Second Screen */
-
-
-#second_screen > div {
-	position: relative;
-	float: left;
-	overflow: hidden;
-}
-
-#second_screen > div a:not(.divider_button) {
-	left: 0 !important;
-	width: 100%;
-	height: inherit;
-}
-
-
-#second_headline > h1 {
-	width: 80%;
-	margin-top: 10%;
-	margin-left: 25%;
-}
-
-#second_screen h2 {
-	margin-top: 24%;
-	font-size: 3.5em;
-}
-
-#second_screen h3 {
-	margin-top: 7%;
-	color: #000000;
-}
-
-#second_screen p {
-	text-align: left;
-	margin-top: 7%;
-}
-=======
->>>>>>> v3.5
 
 
 /************************************************************/
