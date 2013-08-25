@@ -24,6 +24,7 @@ $('link[rel=icon]').attr('href','images/games_site/favico_'+systemColors[randomN
 	}
 
 	function sliderChanger(nextElem) {
+<<<<<<< HEAD
 		if (nextElem == 0) {
 			var actualElemPrefix = $('a.device_button.white').attr('data-filename-prefix');
 			if (++actualElemPrefix == 5) actualElemPrefix = 1;
@@ -42,10 +43,29 @@ $('link[rel=icon]').attr('href','images/games_site/favico_'+systemColors[randomN
 							.addClass('active_main_screen');
 					});
 				$('.active_main_screen').animate({ opacity: 0}, 1000, function() {
+=======
+		var actualElemPrefix = $('div.device_button.white').attr('data-filename-prefix');
+		var nextElemPrefix;
+		if (nextElem == 0) {
+			nextElemPrefix = parseInt(actualElemPrefix) + 1;
+			if (nextElemPrefix == 4) nextElemPrefix = 1;
+			nextElem = $('div[data-filename-prefix="'+nextElemPrefix + '"]');
+		} else {
+			nextElemPrefix = nextElem.attr('data-filename-prefix');
+		}
+		var nextElemVideoPos = nextElem.attr('data-video-position');
+		var activeLayer = $('#main_screen'+actualElemPrefix);
+		var pushLayer = $('#main_screen'+nextElemPrefix);
+		if (!nextElem.hasClass('white') && !$('.active_main_screen').is(':animated')) {
+			nextElem.addClass('white').siblings().removeClass('white');
+			pushLayer
+				.fadeIn(1000, function() {
+>>>>>>> v3.5
 					$(this)
 						.removeClass('active_main_screen')
 						.addClass('inactive_main_screen');
 				});
+<<<<<<< HEAD
 			}
 		} else {
 			if (!nextElem.hasClass('white') && !$(':animated').length) {
@@ -80,16 +100,67 @@ $('link[rel=icon]').attr('href','images/games_site/favico_'+systemColors[randomN
 						.addClass('inactive_main_screen');
 				});
 			}
+=======
+			activeLayer
+				.fadeOut(1000, function() {
+					$(this)
+						.removeClass('active_main_screen')
+						.addClass('inactive_main_screen');
+				});
+			actualMainScreenVideoOffsets = nextElemVideoPos.split('/');
+			$('#video_sizer')
+				.animate({
+					top : actualMainScreenVideoOffsets[0] + '%',
+					left: actualMainScreenVideoOffsets[1] + '%',
+					width : actualMainScreenVideoOffsets[2] + '%',
+				}, 1000);
+			$('#slider_menu_bg').animate({
+				left : (13 + (nextElemPrefix * 22)) + '%'
+			}, 1000);
+>>>>>>> v3.5
 		}
 	}
 
+
 $(document).ready(function() {
+
+
+	$('#features_wrapper h3').on({
+		mouseover: function() {
+			var ringsName = $(this).attr('data-ringname');
+			$(this)
+				.addClass('c5r2_imp')
+				.siblings()
+					.removeClass('c5r2_imp');
+			$('#featurerings_wrapper div.'+ringsName).stop().animate({ opacity : 1 },300);
+			$('#featurerings_wrapper div:not(.'+ringsName+')').stop().animate({ opacity : 0 },300);
+		}
+	});
+
+	$('.fring').on({
+		mouseover: function() {
+			if ($(this).css('opacity') == 0) {
+				var ringsName = $(this).attr('data-ringname');
+				$('#featurerings_wrapper div.'+ringsName).stop().animate({ opacity : 1 },300);
+				$('#featurerings_wrapper div:not(.'+ringsName+')').stop().animate({ opacity : 0 },300);
+				$('#features_wrapper h3.'+ringsName)
+					.addClass('c5r2_imp')
+					.siblings()
+						.removeClass('c5r2_imp');
+
+			}
+		}
+	})
 
 
   fullScreenHeight = $(window).height();
   fullScreenWidth = $(window).width();
 
   isiPad = navigator.userAgent.match(/iPad/i) != null;
+
+  if (isiPad) {
+  	$('#layers_wrapper').css({'max-width': '2048px'});
+  };
 
   resizewindow();
   setHamburgerPosition();
@@ -111,16 +182,21 @@ $(document).ready(function() {
   var actualSystemColor = systemColors[randomNum];
   var actualMenuColor = menuColors[randomNum];
 
-  $('#logo').css('background-image', 'url(images/games_site/'+actualSystemColor+'_onlive_logo_small.png)' );
-  $('#footer_logo').css('background-image', 'url(images/games_site/'+actualSystemColor+'_onlive_logo_small.png)' );
+  $('#logo').css('background-image', 'url(images/games_site/logo_'+actualSystemColor+'.png)' );
+  $('#footer_logo').css('background-image', 'url(images/games_site/logo_'+actualSystemColor+'.png)' );
 
-  $('#down_arrow').css('background-image', 'url(images/games_site/icon_'+actualSystemColor+'_down_arrow.png)' );
+  $('#down_arrow').css('background-image', 'url(images/games_site/button_down_'+actualSystemColor+'.png)' );
   $('#menu_screen').css('background-color', actualMenuColor);
-  $('#menu_close_button').css('background-image', 'url(images/games_site/icon_'+actualSystemColor+'_close.png)' );
+  $('#menu_close_button').css('background-image', 'url(images/games_site/button_close_'+actualSystemColor+'.png)' );
 
 
+<<<<<<< HEAD
 	$('.device_button').on({
 		click: function() {
+=======
+	$('div.device_button').on({
+		click: function(event) {
+>>>>>>> v3.5
 			sliderChanger($(this));
 			clearTimeout(sliderChangerTimer);
 			sliderChangerTimer = window.setInterval(function() { sliderChanger(0); }, 15000 );			
@@ -137,9 +213,9 @@ $(document).ready(function() {
 				$('html, body').stop().animate({ scrollTop : 0 }, 1000);
 			} else {
 				sectionOffsets[0] = $('#main_screen').height() + $('#main_screen_footer').height();
-				sectionOffsets[1] = sectionOffsets[0] + $('#second_screen').height() - $('.small_brick').height();
+				sectionOffsets[1] = sectionOffsets[0] + $('.normal_brick').height() + $(window).height();
 				sectionOffsets[2] = sectionOffsets[1] + $('#third_screen').height() + $('.normal_brick').height();
-				sectionOffsets[3] = sectionOffsets[2] + $('#main_screen').height() * 2;
+				sectionOffsets[3] = sectionOffsets[2] + $('#main_screen').height() * 2 + $('.normal_brick').height();
 				sectionOffsets[4] = $('#scrolling_layer').height();
 				for (var i = 0; i <= sectionOffsets.length; i++) {
 					if (sectionOffsets[i] - $(window).height() > Math.abs(scrollingLayerOffsets.top)) {
@@ -153,16 +229,29 @@ $(document).ready(function() {
 
 	$('#menu_hamburger').on({
 		click: function() {
-			$('#menu_screen').animate({ right : 0}, 500);
+			$('#menu_screen').animate({ right : 0}, 300);
 		}
 	});
 
 	$('#menu_close_button').on({
 		click: function() {
+<<<<<<< HEAD
 			$('#menu_screen').animate({ right : '-30%'}, 500);
 		}
 	});
 
+=======
+			$('#menu_screen').animate({ right : '-130%'}, 300);
+		}
+	});
+
+	document.addEventListener('click', function(e) {
+		if ($('#menu_screen').css('right') != 0 && !$('#menu_screen').is(':animated')) {
+			$('#menu_close_button').trigger('click');
+		}
+	}, true);
+
+>>>>>>> v3.5
 
 	var sliderChangerTimer = window.setInterval(function() { sliderChanger(0); }, 15000 );
 
@@ -183,14 +272,15 @@ $(document).ready(function() {
 	  	sliderChangerTimer = null;
 	  	if ( parseInt($('#video_sizer').css('top')) < $('#main_screen').height()) {
 	  		$('#video_sizer').css({
-	  			top : '52%',
-	  			left: '32%'
+	  			top : '48.6%',
+	  			left: '30%',
+	  			width: '52%'
 	  		});
 	  	} 
 		} else if (sliderChangerTimer == null) {
 			sliderChangerTimer = window.setInterval(function() { sliderChanger(0); }, 15000 );
 			if ( parseInt($('#video_sizer').css('top')) > $('#main_screen').height()) {
-				var actualMainScreenVideoOffsets = $('a.device_button.white').attr('data-video-position').split('/');				
+				var actualMainScreenVideoOffsets = $('div.device_button.white').attr('data-video-position').split('/');				
 				$('#video_sizer').css({
 					top : actualMainScreenVideoOffsets[0] + '%',
 					left: actualMainScreenVideoOffsets[1] + '%',
@@ -237,7 +327,7 @@ $(document).ready(function() {
 						var childZindex = $(this).css('z-index');
 						if (childZindex == 3) $(this).css({'z-index' : 2});
 						if (childZindex == 2) $(this).css({'z-index' : 1});
-						if ($(this).hasClass('playing_small_video')) {
+						if ($(this).hasClass('content_border')) {
 							var idName = $(this).children().first().attr('id');
 							event.stopPropagation();
 			    		jwplayer( idName+'_ply').pause(true);
@@ -249,11 +339,14 @@ $(document).ready(function() {
 			} else {
 				if ($(this).hasClass('playing_small_video')) {
 					$(this).removeClass('playing_small_video')
+					var idName = $(this).children().first().attr('id');
+					event.stopPropagation();
+	    		jwplayer( idName+'_ply').pause(true);
 				} else { 
 					$(this).addClass('playing_small_video');
 					var idName = $(this).children().first().attr('id');
 					event.stopPropagation();
-	    		jwplayer( idName+'_ply').play();
+	    		jwplayer( idName+'_ply').play(true);
 				}
 			}
 		}
