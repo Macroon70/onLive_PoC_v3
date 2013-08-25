@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /************************************************************/
 /* Second screen gamepics      															*/
 /************************************************************/
@@ -162,121 +163,66 @@
 	line-height: 3.2em;
 	width: 100%;
 >>>>>>> v3.5
+=======
+p {
+	font-family: 'aktiv_groteskmedium';
+	font-size: 1.8em;
+>>>>>>> parent of b3e6ce2... Merge branch 'v3.5'
 	text-align: center;
 }
 
-/************************************************************/
-/* Main Screen Footer                											  */
-/************************************************************/
-
-#main_screen_footer {
-	position: relative;
-	z-index: 4;
-}
-
-#main_screen_footer > a {
-	left: 15%;
-}
-
-#main_footer_content {
-	width: 90%;
-	top: 10%;
+#source_slider_controller {
 	position: absolute;
-}
-
-#main_footer_content > img {
-	display: block;
-	position: absolute;
-}
-
-#main_footer_content > h3 {
-	display: block;
-	margin-top: 1.7%;
-}
-
-#main_footer_content > p {
-	text-align: left;
-	line-height: 5.5em;
-
-}
-
-.slider_wrappers {
-	position: absolute;
-	width: 66%;
+	width: 60%;
 	top: 0;
-	left: 35%;
-	height: 85%;
+	left: 40%;
+	height: auto;
 }
 
-#slider_menu_bg {
-	opacity: 0.4;
-	width: 22%;
-	left: 79%;
-}
-
+<<<<<<< HEAD
 #source_slider_controller > div {
+=======
+#source_slider_controller a {
+>>>>>>> parent of b3e6ce2... Merge branch 'v3.5'
 	position: relative;
-	height: 100%;
+	height: auto;
 	float: left;
 	display: block;
-	width: 23.33%;
-	padding-left: 5%;
-	padding-right: 5%;
-}
-
-.device_button {
-	cursor: pointer;
+	width: 25%;
 }
 
 #source_slider_controller a > div {
 	width: 100%;
-	background-position: bottom left;
-	background-size: 40% auto;
-}
-
-#source_slider_controller > div:first-child > div {
-	background-size: 80% auto;
+	background-position: top left;
+	background-size: 100% 100%;
 }
 
 #source_slider_controller a > p {
 	width: 100%;
-	font-size: 1.6em;
-	line-height: 1.2em;
-	margin-top: 15%;
+	text-align: left;
+	font-size: 1.5em;
+	margin-top: 40px;
 }
 
-#source_slider_controller > div > a {
-	margin-top: 10%;
-	visibility: hidden;
+.device_button > div {
+	background-color: #7C858C;
 }
 
-.device_button.white a {
-	visibility: visible !important;
+.icon_iphone_transparent {
+	background-image: url('../../images/games_site/icon_iphone_transparent.png');
 }
 
-.device_button.white > p {
-	color: #ffffff;
+.icon_tablet_transparent {
+	background-image: url('../../images/games_site/icon_tablet_transparent.png');
 }
 
-.device_button:hover > p {
-	color: #ffffff;
+.icon_pcmac_transparent {
+	background-image: url('../../images/games_site/icon_pcmac_transparent.png');
 }
 
-.menu_mobile_devices {
-	background-image: url(../../images/games_site/welcome/menu_mobile_devices.png);
+.icon_hdtv_transparent {
+	background-image: url('../../images/games_site/icon_hdtv_transparent.png');
 }
-
-.menu_pcmac_devices {
-	background-image: url(../../images/games_site/welcome/menu_pcmac_devices.png);
-}
-
-.menu_hdtv_devices {
-	background-image: url(../../images/games_site/welcome/menu_hdtv_devices.png);
-}
-
-/************************************************************/
-/* Second Screen                    											  */
-/************************************************************/
 
 #second_screen {
 	background-color: #ffffff;
@@ -284,278 +230,19 @@
 	z-index: 1;
 }
 
-#second_screen > div {
-	position: relative;
-	float: left;
-	overflow: hidden;
-}
-
-#second_screen > div a:not(.divider_button) {
-	left: 0 !important;
-	width: 100%;
-	height: inherit;
-}
-
-
-#second_headline > h1 {
-	width: 80%;
-	margin-top: 10%;
-	margin-left: 25%;
-}
-
-#second_screen h2 {
-	margin-top: 12%;
-	font-size: 3.7em;
-}
-
-#second_screen h3 {
-	margin-top: 4%;
-	color: #000000;
-}
-
-#second_screen p {
-	margin-top: 7%;
-}
-
-#second_screen a {
-	left: 38%;
-}
-
-#second_upper_level {
-	z-index: 2 !important;
-	overflow: visible !important;
-}
-
-#second_upper_level > h2 {
-	line-height: 1.0em;
-}
-
-
-#headline_brick {
-	z-index: 3;
-	position: absolute !important;
-	top: 36.4%;
-	left: 26.8%;
-	overflow: auto !important;
-}
-
-.small_brick {
-	width: 11%;
-}
-
-.small_doubled_brick {
-	width: 11%;
-}
-
-.normal_brick {
-	width: 22%;
-}
-
-
-.double_normal_brick {
-	width: 22%;
-	height: auto;
-}
-
-.double_normal_brick > div {
-	width: 100% !important;
-}
-
-.onehalf_brick {
-	width: 33%;
-}
-
-.onehalf_brick_game {
-	width: 33%;
-}
-
-.big_brick {
-	width: 44%;
-}
-
-/************************************************************/
-/* Third Screen                     											  */
-/************************************************************/
-
 #third_screen {
 	height: auto;
 	z-index: 2;
-}
-
-#third_screen {
-	width: 100%;
-	background-image: url(../../images/games_site/welcome/main_third_screen.png);
-}
-
-#tablet_player_info {
-	position: absolute;
-	z-index: 3;
-	right: 20%;
-	top: 27%;
-}
-
-#third_screen_bg > div a:not(.divider_button) {
-	left: 0 !important;
-	width: 100%;
-	height: inherit;
-}
-
-#player_avatars {
-	position: absolute;
-	background-image: url(../../images/games_site/welcome/main_avatars.png);
-	background-size: contain;
-	width: 37%;
-	left: 8%;
-	bottom: 24%;
-}
-
-#box_spectatle {
-	position: absolute;
-	right: 3.5%;
-	bottom: 7%;
-	width: 38%;
-	padding-left: 4%;
-	padding-top: 3%;
-	height: 23%;
-}
-
-#box_spectatle > h2 {
-	font-size: 3.8em;
-	line-height: 0.9em;
-}
-
-#box_spectatle > h3 {
-	font-family: 'aktiv_grotesklight';
-	margin-top: 4%;
-	color: #ffffff;
-}
-
-#box_spectatle > p {
-	margin-top: 5%;
-	text-align: left;
-}
-
-#box_spectatle > a {
-	left: 38%;
-}
-
-/************************************************************/
-/* Forth Screen                     											  */
-/************************************************************/
-
-#forth_screen {
-	width: 100%;
-	z-index: 1;
-}
-
-
-#forth_screen > div {
-	position: absolute;
-}
-
-#forth_screen h1 {
-	position: absolute;
-	right: 10%;
-	top: 35%;	
-}
-
-#forth_screen_bg {
-	background-image: url(../../images/games_site/welcome/main_forth_bg.png);
-	width: 85%;
-	left: 2%;
-	top: 15%;
-}
-
-#video_image4_above_bg {
-	opacity: 0.8;
-}
-
-.video_image4_pos {
-	right: 8%;
-	bottom: 16%;
-	width: 15%;
-}
-
-#video_image2 {
-  left: 41%;
-  bottom: 26%;
-  width: 30%;
-  z-index: 1;
-}
-
-#video_image3 {
-	right: 2%;
-	bottom: 33%;
-	width: 29%;
-	z-index: 2;
-}
-
-#video_image1 {
-	left: 3%;
-	bottom: 38%;
-	width: 40%;
-	z-index: 3;
-}
-
-#video_image1 .icon_like {
-	opacity: 1 !important;
-	width: 28%;
-	background-size: 20% 50%;
-}
-
-#video_image1 .avatar_score {
-	opacity: 1 !important;
-}
-
-#video_image1 .fr {
-	margin-top: 3%;
-	width: 40% !important;
-}
-
-#video_image1 .fr p:not(.smaller_text) {
-	margin-top: 5%;
-	opacity: 1 !important;
-}
-
-.subvideo_content {
-	width: 100%;
-	height: inherit;
-}
-
-.small_video_player {
-	cursor: pointer;
-}
-
-.playing_small_video > .video_player_controller {
-	opacity: 0.0;
-}
-
-#box_record {
-	bottom: 0;
-	left: 0;
-}
-
-/************************************************************/
-/* Parallax Layer                    											  */
-/************************************************************/
-
-#parallax_first_headline {
-	top: 0.5%;
-	background-image: url(../../images/games_site/welcome/main_first_bubbles.png);
-	background-size: cover;
-	background-position: top;
-	width: 45%;
-}
-
-#parallax_first_headline > h1 {
-	margin-top: 5%;
 }
 
 #parallax_second_headline {
 	pointer-events: none;
-	background-image: url(../../images/games_site/welcome/main_second_bubbles.png);
 	width: 46%;
+<<<<<<< HEAD
 	top: 11.4%;
+=======
+	top: 15.18%;
+>>>>>>> parent of b3e6ce2... Merge branch 'v3.5'
 	left: 45.5%;
 }
 
@@ -563,30 +250,4 @@
 	width: 110%;
 	margin-top: 10%;
 	margin-left: 26%;
-}
-
-#parallax_third_headline {
-	background-image: url(../../images/games_site/welcome/main_third_bubbles.png);
-	pointer-events: none;
-	top: 25.2%;
-	width: 50%;
-}
-
-#parallax_third_headline > h1 {
-	position: absolute;
-	top: 30%;
-}
-
-#parallax_forth_headline {
-	pointer-events: none;
-	top: 39%;
-	left: 55%;
-	background-image: url(../../images/games_site/welcome/main_forth_bubbles.png);
-	background-size: cover;
-	background-position: top;
-	width: 45%;
-}
-
-#parallax_forth_headline > h1 {
-	margin-top: 20%;
 }
