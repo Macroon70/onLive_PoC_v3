@@ -106,6 +106,10 @@ $(document).ready(function() {
 
   isiPad = navigator.userAgent.match(/iPad/i) != null;
 
+  if (isiPad) {
+  	$('#layers_wrapper').css({'max-width': '2048px'});
+  };
+
   resizewindow();
   //setHamburgerPosition();
 
