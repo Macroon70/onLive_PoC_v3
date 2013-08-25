@@ -1,4 +1,5 @@
 // TODO : add comments and rearrange lines
+// TODO : optimizing resize method for each sites
 
 $(window).load(function() {
 	$('body').fadeIn(1000);
