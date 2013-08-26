@@ -1,0 +1,98 @@
+/************************************************************/
+/* Common Tags                  														*/
+/************************************************************/
+
+ul {
+	position: absolute;
+	list-style: none;
+	height: auto;
+}
+
+li {
+	position: relative;
+	float: left;
+	width: 100%;
+	height: auto;
+}
+
+li > a {
+	position: relative;
+	width: 100%;
+	height: auto;
+}
+
+/************************************************************/
+/* Catalog Header                														*/
+/************************************************************/
+#catalog_header {
+	overflow: hidden;
+}
+
+#catalog_header > div {
+	position: absolute;
+}
+
+#catalog_header > ul {
+	top: 45%;
+	width: 25%;
+}
+
+#catalog_header > ul li {
+	display: none;
+	opacity: 0;
+	height: 0;
+}
+
+#catalog_header > ul li.actual_header {
+	opacity: 1;
+	display: inline;
+	height: auto;
+}
+
+#catalog_header a {
+	font-family: 'aktiv_groteskregular';
+	font-size: 3.2em;
+	line-height: 1.3em;
+}
+
+#catalog_header li.hovered_header a,
+#catalog_header li.actual_header a {
+	font-family: 'aktiv_groteskbold';
+}
+
+#catalog_header a > img {
+	position: absolute;
+	width: 8%;
+	right: 0;
+	bottom: -4%;
+}
+
+.has_submenu {
+	left: 3.4%;
+	padding-left: 2.46%;
+	cursor: pointer;
+	position: absolute;
+	float: left;
+	width: 15%;
+	height: inherit;
+}
+
+.has_submenu > p {
+	height: inherit;
+	line-height: 3em;
+}
+
+
+.has_submenu img {
+	margin-bottom: -3%;
+	margin-left: 5%;
+	width: 12%;
+}
+
+#menu1 li:not(.full_screen) {
+	width: 50%;
+}
+
+.white_up {
+	content: url(../../images/games_site/button_up_white.png);
+}
