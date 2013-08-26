@@ -1,6 +1,19 @@
 // TODO : add comments and rearrange lines
 // TODO : optimizing resize method for each sites
 
+Array.prototype.shuffle = function() {
+	var actualPos = this.length, rndPos, tmpElem;
+	if (actualPos == 0) return this;
+	while (--actualPos) {
+		rndPos = Math.floor( Math.random() * (actualPos + 1));
+		tmpElem = this[actualPos];
+		this[actualPos] = this[rndPos];
+		this[rndPos] = tmpElem;
+	}
+	return this;
+}
+
+
 $(window).load(function() {
 	$('body').fadeIn(1000);
 });
@@ -13,6 +26,8 @@ var menuColors = new Array('c8r2_bg','c6r2_bg','c7r2_bg','c5r2_bg','c9r2_bg','c4
 var catalogHeaderDarkColor = new Array('c8r3_','c6r3_','c7r3_','c5r3_','c9r3_','c4r3_');
 var catalogHeaderColor = new Array('c8r2_','c6r2_','c7r2_','c5r2_','c9r2_','c4r2_');
 var catalogHeaderLightColor = new Array('c8r1_','c6r1_','c7r1_','c5r1_','c9r1_','c4r1_');
+
+var catalogGameRndColors = catalogHeaderColor.shuffle();
 
 var sectionOffsets = new Array();
 
@@ -146,16 +161,43 @@ $(document).ready(function() {
 			$(this)
 				.addClass(catalogHeaderDarkColor[randomNum]+'bg')
 				.find('img')
-					.addClass('white_up');
+					.attr('src','images/games_site/button_up_white.png');
+			$(this).children('.cat_submenu').stop().fadeIn(100);
 		},
-		mouseout: function() {
+		mouseout: function(e) {
 			$(this).removeClass(catalogHeaderDarkColor[randomNum]+'bg')
 				.find('img')
-					.removeClass('white_up');
-
+					.attr('src','images/games_site/button_down_dark_'+actualSystemColor+'.png');
+			var nextHoverElem=e.relatedTarget|| e.toElement;
+			if ($(this).has(nextHoverElem).length == 0) $(this).children('.cat_submenu').stop().fadeOut(100);
 		},
 
 	})
+
+	$('.game_brick').on({
+		click: function() {
+			if ($(this).hasClass('selected_brick')) {
+				$(this)
+					.css({ 
+						'z-index' : 0,
+						'border-color' : 'transparent' })
+					.removeClass('selected_brick');
+			} else {
+				$(this)
+					.css({
+						'z-index' : 1,
+						'border-color': '#ffffff',
+					})
+					.addClass('selected_brick');
+			}
+		}
+	});
+
+	$('.selected_brick').on({
+		click: function() {
+		}
+	})
+
 
 
 
@@ -191,8 +233,18 @@ $(document).ready(function() {
   $('#catalog_menu').addClass(actualMenuColor);
   $('#catalog_header a').not('.actual_header').addClass(catalogHeaderLightColor[randomNum]+'color');
   $('#catalog_header li.actual_header a').addClass(catalogHeaderDarkColor[randomNum]+'color')
-  	.append('<img src="images/games_site/button_down_dark_'+actualSystemColor+'.png" alt=""/>')
-  $('.has_submenu p').append('<img src="images/games_site/button_down_dark_'+actualSystemColor+'.png" alt=""/>')
+  	.append('<img src="images/games_site/button_down_dark_'+actualSystemColor+'.png" alt=""/>');
+  $('.has_submenu p').append('<img src="images/games_site/button_down_dark_'+actualSystemColor+'.png" alt=""/>');
+  $('ul.cat_submenu')
+  	.addClass(catalogHeaderDarkColor[randomNum]+'bg')
+  	.find('a')
+  		.addClass(catalogHeaderLightColor[randomNum]+'color');
+  $('.game_brick').each(function() {
+	  var colorBrick = $(this).attr('data-color');
+		if (typeof colorBrick !== 'undefined' && colorBrick !== false) {
+			$(this).addClass(catalogGameRndColors[colorBrick]+'bg');
+		}
+  })
 
 
 	$('div.device_button').on({

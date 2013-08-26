@@ -21,6 +21,29 @@ li > a {
 	height: auto;
 }
 
+#scrolling_layer > div {
+	z-index: 0;
+}
+
+.content_shadow {
+	-webkit-box-shadow: 13px 13px 1px rgba(0, 0, 0, 0.25);
+	-moz-box-shadow:    13px 13px 1px rgba(0, 0, 0, 0.25);
+	box-shadow:         13px 13px 1px rgba(0, 0, 0, 0.25);	
+}
+
+/************************************************************/
+/* Gamepics                   															*/
+/************************************************************/
+
+.header_gamepic {
+	background-image: url(../../images/games_site/welcome/gamepic_borderlands2_normal.png);
+}
+
+.gamebrick_01 {
+	background-image: url(../../images/games_site/welcome/gamepic_bioshock_small.png);
+}
+
+
 /************************************************************/
 /* Catalog Header                														*/
 /************************************************************/
@@ -67,21 +90,34 @@ li > a {
 	bottom: -4%;
 }
 
+/************************************************************/
+/* Catalog Menu                								  						*/
+/************************************************************/
+#catalog_menu {
+	z-index: 1 !important;
+}
+
+#catalog_menu > div {
+	width: 20%;
+	position: relative;
+	float: left;
+}
+
 .has_submenu {
-	left: 3.4%;
-	padding-left: 2.46%;
+	left: 4%;
 	cursor: pointer;
 	position: absolute;
 	float: left;
 	width: 15%;
-	height: inherit;
+	height: auto;
 }
 
 .has_submenu > p {
 	height: inherit;
-	line-height: 3em;
+	font-size: 1.5em;
+	padding-left: 10%;
+	line-height: 3.8em;
 }
-
 
 .has_submenu img {
 	margin-bottom: -3%;
@@ -89,10 +125,101 @@ li > a {
 	width: 12%;
 }
 
-#menu1 li:not(.full_screen) {
-	width: 50%;
+#menu1 li {
+	width: 94%;
+	padding-left: 8%;
 }
 
-.white_up {
-	content: url(../../images/games_site/button_up_white.png);
+#menu1.has_submenu li:not(.full_screen) {
+	width: 41%;
 }
+
+#menu1 ul {
+	width: 130%;
+}
+
+.cat_submenu li {
+	padding-left: 10%;
+	width: 88%;
+}
+
+.cat_submenu {
+	margin-left: -5.7%;
+	padding-top: 7%;
+	padding-bottom: 7%;
+	display: none;
+	width: 100%;
+}
+
+.cat_submenu > li  a {
+	font-size: 1.5em;
+	line-height: 2.2em;
+}
+
+.cat_submenu > li a:hover {
+	color: #ffffff;
+}
+
+/************************************************************/
+/* Games wrapper                														*/
+/************************************************************/
+
+#games_wrapper > div {
+	position: relative;
+	float: left;
+}
+
+.header_game_brick {
+	width: 88.28%;
+	cursor: pointer;
+}
+
+.header_game_brick > div {
+	position: relative;
+	float: left;
+	height: 100%;
+}
+
+.header_game_brick img {
+	position: absolute;
+	width: 20%;
+	right: 35%;
+	bottom: -7%;
+}
+
+.header_game_brick > div.header_gamepic {
+	width: 68%;
+}
+
+.header_game_brick > div.header_details_wrapper {
+	width: 25%;
+	margin-left: 4%;
+}
+
+.header_details_wrapper > h2 {
+	margin-top: 20%;
+	font-size: 3.5em;
+	margin-bottom: 5%;
+}
+
+.header_details_wrapper > .moredetails {
+	margin-top: 8%;
+	margin-bottom: 30%;
+}
+
+
+.game_brick {
+	position: absolute !important;
+	cursor: pointer;
+	width: 43.94%;
+}
+
+.left_side {
+	left: -1.3%;
+}
+
+.right_side {
+	left: 43.04%;
+}
+
+
