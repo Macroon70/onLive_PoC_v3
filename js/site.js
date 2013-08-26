@@ -397,7 +397,6 @@ $(document).ready(function() {
 		}
 	})
 
-
 	// TODO : readable id name and configure player.js to our project for less codelines and disable repeating
 
   /* embend player */
@@ -416,11 +415,21 @@ $(document).ready(function() {
   document.getElementById("small_video_1").innerHTML = "<div id='small_video_1_ply' style='background:#000 "+bgSource+"'><a href='"+videoSource+"' style='display:block; width:100%; height:100%; border:none; background:transparent url(http://content.bitsontherun.com/staticfiles/play.png) no-repeat center center; text-indent:-99999px;'>Bunny Test</a></div>";
 
 
-   /** Initialize players **/
-  createPlayer("small_video_2_ply", {image: "http://content.bitsontherun.com/thumbs/7Wi9qfSk-480.jpg", playlist: "http://content.bitsontherun.com/jw6/7Wi9qfSk.xml"}, playerComplete);
-  createPlayer("small_video_3_ply", {image: "http://content.bitsontherun.com/thumbs/7Wi9qfSk-480.jpg", playlist: "http://content.bitsontherun.com/jw6/7Wi9qfSk.xml"}, playerComplete);
-  createPlayer("small_video_1_ply", {image: "http://content.bitsontherun.com/thumbs/7Wi9qfSk-480.jpg", playlist: "http://content.bitsontherun.com/jw6/7Wi9qfSk.xml"}, playerComplete);
-  createPlayer("botr_7Wi9qfSk_GjAHfwUI_ply", {image: "http://content.bitsontherun.com/thumbs/7Wi9qfSk-480.jpg", playlist: "http://content.bitsontherun.com/jw6/7Wi9qfSk.xml", autostart: true, repeat: true, mute: true});
+  /** Initialize players **/
+  var pl =  {playlist:
+      [{
+          image: "./images/games_site/welcome/gamepic_dirt3_headline.png",
+          sources: [
+            {file: "http://www.w3schools.com/html/movie.mp4"},
+            {file: "http://www.w3schools.com/html/movie.ogg"}
+          ]
+      }]};
+   
+  createPlayer("small_video_2_ply", pl, playerComplete);
+  createPlayer("small_video_3_ply", pl, playerComplete);
+  createPlayer("small_video_1_ply", pl, playerComplete);
+//  createPlayer("botr_7Wi9qfSk_GjAHfwUI_ply", {image: "http://content.bitsontherun.com/thumbs/7Wi9qfSk-480.jpg", playlist: "http://content.bitsontherun.com/jw6/7Wi9qfSk.xml", autostart: true, repeat: true, mute: true});
+  createPlayer("botr_7Wi9qfSk_GjAHfwUI_ply", $.extend({}, pl, {autostart: true, repeat: true, mute: true}));
 
  
 
