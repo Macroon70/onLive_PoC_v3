@@ -276,101 +276,11 @@ $(document).ready(function() {
   document.getElementById("small_video_1").innerHTML = "<div id='small_video_1_ply' style='background:#000 "+bgSource+"'><a href='"+videoSource+"' style='display:block; width:100%; height:100%; border:none; background:transparent url(http://content.bitsontherun.com/staticfiles/play.png) no-repeat center center; text-indent:-99999px;'>Bunny Test</a></div>";
 
 
-   /** Initialize player **/
-  jwplayer.key = "EcHWjL0bMZsdo8QE0vv5IpN4yF2kjo0m";
-  jwplayer("small_video_2_ply").setup({
-    analytics: {"enabled": false},
-    aspectratio: "16:9",
-    // strange, true value not starting the video, false however start
-    autostart: false,
-    controls: false,
-    displaytitle: false,
-    fallback: true,
-    flashplayer: "http://a.jwpcdn.com/player/6/653609/jwplayer.flash.swf",
-    height: "100%",
-    html5player: "http://a.jwpcdn.com/player/6/653609/jwplayer.html5.js",
-    image: "http://content.bitsontherun.com/thumbs/7Wi9qfSk-480.jpg",
-    playlist: "http://content.bitsontherun.com/jw6/7Wi9qfSk.xml",
-    plugins: {"http://a.jwpcdn.com/player/6/653609/ping.js": {"pixel": "http://content.bitsontherun.com/ping.gif"}},
-    primary: "flash",
-    repeat: false,
-    stretching: "uniform",
-    width: "100%"
-  });
-  //jwplayer().play();
-  //jwplayer().onComplete(function(){jwplayer().play();});
-
-  /** Initialize player **/
-  jwplayer.key = "EcHWjL0bMZsdo8QE0vv5IpN4yF2kjo0m";
-  jwplayer("small_video_3_ply").setup({
-    analytics: {"enabled": false},
-    aspectratio: "16:9",
-    // strange, true value not starting the video, false however start
-    autostart: false,
-    controls: false,
-    displaytitle: false,
-    fallback: true,
-    flashplayer: "http://a.jwpcdn.com/player/6/653609/jwplayer.flash.swf",
-    height: "100%",
-    html5player: "http://a.jwpcdn.com/player/6/653609/jwplayer.html5.js",
-    image: "http://content.bitsontherun.com/thumbs/7Wi9qfSk-480.jpg",
-    playlist: "http://content.bitsontherun.com/jw6/7Wi9qfSk.xml",
-    plugins: {"http://a.jwpcdn.com/player/6/653609/ping.js": {"pixel": "http://content.bitsontherun.com/ping.gif"}},
-    primary: "flash",
-    repeat: false,
-    stretching: "uniform",
-    width: "100%"
-  });
-  //jwplayer().play();
-  //jwplayer().onComplete(function(){jwplayer().play();});
-
-  /** Initialize player **/
-  jwplayer.key = "EcHWjL0bMZsdo8QE0vv5IpN4yF2kjo0m";
-  jwplayer("small_video_1_ply").setup({
-    analytics: {"enabled": false},
-    aspectratio: "16:9",
-    // strange, true value not starting the video, false however start
-    autostart: false,
-    controls: false,
-    displaytitle: false,
-    fallback: true,
-    flashplayer: "http://a.jwpcdn.com/player/6/653609/jwplayer.flash.swf",
-    height: "100%",
-    html5player: "http://a.jwpcdn.com/player/6/653609/jwplayer.html5.js",
-    image: "http://content.bitsontherun.com/thumbs/7Wi9qfSk-480.jpg",
-    playlist: "http://content.bitsontherun.com/jw6/7Wi9qfSk.xml",
-    plugins: {"http://a.jwpcdn.com/player/6/653609/ping.js": {"pixel": "http://content.bitsontherun.com/ping.gif"}},
-    primary: "flash",
-    repeat: false,
-    stretching: "uniform",
-    width: "100%"
-  });
-  //jwplayer().play();
-  //jwplayer().onComplete(function(){jwplayer().play();});
-
-  /** Initialize player **/
-  jwplayer.key = "EcHWjL0bMZsdo8QE0vv5IpN4yF2kjo0m";
-  jwplayer("botr_7Wi9qfSk_GjAHfwUI_ply").setup({
-    analytics: {"enabled": false},
-    aspectratio: "16:9",
-    // strange, true value not starting the video, false however start
-    autostart: false,
-    controls: false,
-    displaytitle: false,
-    fallback: false,
-    flashplayer: "http://a.jwpcdn.com/player/6/653609/jwplayer.flash.swf",
-    height: "100%",
-    html5player: "http://a.jwpcdn.com/player/6/653609/jwplayer.html5.js",
-    image: "http://content.bitsontherun.com/thumbs/7Wi9qfSk-480.jpg",
-    playlist: "http://content.bitsontherun.com/jw6/7Wi9qfSk.xml",
-    plugins: {"http://a.jwpcdn.com/player/6/653609/ping.js": {"pixel": "http://content.bitsontherun.com/ping.gif"}},
-    primary: "flash",
-    repeat: false,
-    stretching: "uniform",
-    width: "100%"
-  });
-  //jwplayer("").play();
-  //jwplayer().onComplete(function(){jwplayer().play();});
+   /** Initialize players **/
+  createPlayer("small_video_2_ply", {image: "http://content.bitsontherun.com/thumbs/7Wi9qfSk-480.jpg", playlist: "http://content.bitsontherun.com/jw6/7Wi9qfSk.xml"}, playerComplete);
+  createPlayer("small_video_3_ply", {image: "http://content.bitsontherun.com/thumbs/7Wi9qfSk-480.jpg", playlist: "http://content.bitsontherun.com/jw6/7Wi9qfSk.xml"}, playerComplete);
+  createPlayer("small_video_1_ply", {image: "http://content.bitsontherun.com/thumbs/7Wi9qfSk-480.jpg", playlist: "http://content.bitsontherun.com/jw6/7Wi9qfSk.xml"}, playerComplete);
+  createPlayer("botr_7Wi9qfSk_GjAHfwUI_ply", {image: "http://content.bitsontherun.com/thumbs/7Wi9qfSk-480.jpg", playlist: "http://content.bitsontherun.com/jw6/7Wi9qfSk.xml", autostart: true, repeat: true, mute: true});
 
  
 
@@ -382,3 +292,28 @@ $(window).resize(function(){ resizewindow();});
 // a biztonsag kedveert ujrarendezzuk a kepernyot, ha minden lejott
 $(window).load(function(){ resizewindow();});
 
+function playerComplete(pa){
+  $('#'+pa).parents('.playing_small_video').removeClass('playing_small_video');
+}
+
+function createPlayer(pa, se, oc){
+  jwplayer(pa).setup($.extend({},{
+    analytics: {"enabled": false},
+    aspectratio: "16:9",
+    autostart: false,
+    controls: false,
+    displaytitle: false,
+    fallback: false,
+    flashplayer: "http://a.jwpcdn.com/player/6/653609/jwplayer.flash.swf",
+    height: "100%",
+    html5player: "http://a.jwpcdn.com/player/6/653609/jwplayer.html5.js",
+    plugins: {"http://a.jwpcdn.com/player/6/653609/ping.js": {"pixel": "http://content.bitsontherun.com/ping.gif"}},
+    primary: "html5",
+    repeat: false,
+    stretching: "uniform",
+    width: "100%"
+  },se));
+  if (oc != null){
+    jwplayer(pa).onComplete(function(){oc(pa);});
+  }
+}
