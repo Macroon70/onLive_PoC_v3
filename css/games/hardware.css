@@ -101,7 +101,7 @@
 /* Third Screen                 														*/
 /************************************************************/
 
-#second_screen {
+#third_screen {
 	z-index: 1;
 }
 
@@ -135,16 +135,6 @@
 	font-size: 1.8em;
 }
 
-#features_wrapper > h3:hover {
-	/* c5r2 color */
-	color: #F58638;
-}
-
-#features_wrapper > h3.selected_feature {
-	/* c5r2 color */
-	color: #F58638;
-}
-
 #featurerings_wrapper {
 	position: absolute;
 	width: 60%;
@@ -175,14 +165,186 @@
 	left: 60%;
 }
 
+/* feature2 rings */
+.featurering2_1 {
+	top: 51.7%;
+	left: 14.2%;
+	opacity: 0;
+}
 
 /* feature3 rings */
 .featurering3_1 {
 	top: 45.7%;
 	left: 31.2%;
-	display: none;
+	opacity: 0;
+}
+
+/* feature4 rings */
+.featurering4_1 {
+	top: 51.7%;
+	left: 61.2%;
+	opacity: 0;
+}
+
+/* feature5 rings */
+.featurering5_1 {
+	top: 59.7%;
+	left: 51.2%;
+	opacity: 0;
+}
+
+/* feature6 rings */
+.featurering6_1 {
+	top: 31.7%;
+	left: 40.1%;
+	opacity: 0;
+}
+
+/* feature7 rings */
+.featurering7_1 {
+	top: 59.7%;
+	left: 40.2%;
+	opacity: 0;
+}
+
+/* feature8 rings */
+.featurering8_1 {
+	top: 18.7%;
+	left: 40.1%;
+	opacity: 0;
 }
 
 
+/************************************************************/
+/* Forth Screen                 														*/
+/************************************************************/
+
+#forth_screen {
+	z-index: 0;
+	background-image: url(../../images/games_site/hardware/main_forth_bg.png?v=1);
+}
+
+#forth_screen > div {
+	position: absolute;
+}
+
+#forth_info_wrapper {
+	top: 18%;
+	width: 25%;
+	height: 80%;
+}
+
+#forth_info_wrapper > h2 {
+	font-size: 4.2em;
+	line-height: 1.0em;
+}
+
+#forth_info_wrapper > h3 {
+	margin-top: 15%;
+	font-family: 'aktiv_groteskbold';
+	line-height: 1.2em;
+	font-size: 1.8em;
+}
+
+#forth_info_wrapper > p {
+	margin-top: 7%;
+	margin-bottom: 18%;
+	line-height: 1.6em;
+}
+
+.tv_button {
+	width: 75%;
+	height: 8%;
+	padding: 5%;
+	background-size: 85% auto;
+	background-position: center center;
+}
+
+.tv_button:not(.tv_selected) {
+	opacity: 0.3;
+}
+
+#tv_lg_google {
+	background-image: url(../../images/games_site/hardware/button_tv_lg_google.png);
+}
+
+#tv_vizio {
+	background-image: url(../../images/games_site/hardware/button_tv_vizio.png);
+}
+
+#forth_screen > .price_box {
+	padding-bottom: 2%;
+	bottom: 7%;
+}
+
+/************************************************************/
+/* Fifth Screen                 														*/
+/************************************************************/
+
+#fifth_screen > div {
+	position: absolute;
+}
+
+#fifth_screen > h2 {
+	top: 15%;
+	position: absolute;
+	line-height: 1.1em;
+	font-size: 4.3em;
+}
+
+#wireless_compatibility {
+	width: 30%;
+	left: 30%;
+	top: 20%;
+}
+
+#cables_batteries {
+	width: 30%;
+	left: 65%;
+	top: 20%;
+}
+
+.hw_details > h3 {
+	font-family: 'aktiv_groteskbold';
+	margin-bottom: 3%;	
+}
+
+.hw_details > p {
+	line-height: 1.6em;
+}
+
+.h3_push_down {
+	margin-top: 4%;
+}
+
+/************************************************************/
+/* Footer Screen                 														*/
+/************************************************************/
+
+#footer_screen .footer_box > h2 {
+	margin-top: 25%;
+}
+
+.footer_big_box > h1 {
+	margin-top: 5%;
+}
+
+/************************************************************/
+/* Parallax Layer                														*/
+/************************************************************/
+
+
+#parallax_first_headline {
+	top: 0.3%;
+	background-image: url(../../images/games_site/hardware/main_first_bubbles.png);
+	background-size: cover;
+	background-position: top;
+	width: 60%;
+}
+
+#parallax_first_headline > h1 {
+	margin-top: 5%;
+	font-size: 8.5em;
+}
 
 
