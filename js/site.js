@@ -1,19 +1,6 @@
 // TODO : add comments and rearrange lines
 // TODO : optimizing resize method for each sites
 
-Array.prototype.shuffle = function() {
-	var actualPos = this.length, rndPos, tmpElem;
-	if (actualPos == 0) return this;
-	while (--actualPos) {
-		rndPos = Math.floor( Math.random() * (actualPos + 1));
-		tmpElem = this[actualPos];
-		this[actualPos] = this[rndPos];
-		this[rndPos] = tmpElem;
-	}
-	return this;
-}
-
-
 $(window).load(function() {
 	$('body').fadeIn(1000);
 });
@@ -23,15 +10,12 @@ var fullScreenWidth;
 
 var systemColors = new Array('blue','green','turquise','orange','purple','red');
 var menuColors = new Array('c8r2_bg','c6r2_bg','c7r2_bg','c5r2_bg','c9r2_bg','c4r2_bg');
-var catalogHeaderDarkColor = new Array('c8r3_','c6r3_','c7r3_','c5r3_','c9r3_','c4r3_');
-var catalogHeaderColor = new Array('c8r2_','c6r2_','c7r2_','c5r2_','c9r2_','c4r2_');
-var catalogHeaderLightColor = new Array('c8r1_','c6r1_','c7r1_','c5r1_','c9r1_','c4r1_');
 
-var catalogGameRndColors = catalogHeaderColor.shuffle();
+
 
 var sectionOffsets = new Array();
 
-var randomNum = Math.floor(Math.random()*systemColors.length);
+randomNum = Math.floor(Math.random()*systemColors.length);
 
 $('link[rel=icon]').attr('href','images/games_site/favico_'+systemColors[randomNum]+'.ico');
 
@@ -121,85 +105,6 @@ $(document).ready(function() {
 	});
 
 
-	// Catalog methods
-	$('.actual_header').on({
-		click: function() {
-			if ($('#catalog_header ul').hasClass('opened_menu')) {
-				$('#catalog_header ul').animate({ top : '45%' },300).removeClass('opened_menu');
-				$('#catalog_header li').not('.actual_header').animate({ opacity : 0 },300, function() {
-					$(this).css({ 'display' : 'none' })
-				});
-				$('#catalog_header').animate({ height : $('#layers_wrapper').width() * 0.1 });
-				$('#catalog_header img').removeClass('rotate');
-			} else {
-				$('#catalog_header ul').animate({ top : '15%' },300).addClass('opened_menu');
-				$('#catalog_header li').css({ 'display' : 'block' }).animate({ opacity : 1, height : '100%' },300);
-				$('#catalog_header').animate({ height : $('#layers_wrapper').width() * 0.33 });
-				$('#catalog_header img').addClass('rotate');
-			}
-			return false;
-		}
-	});
-
-	$('#catalog_header li').not('actual_header').on({
-		mouseover: function() {
-			$(this)
-				.addClass('hovered_header')
-				.children('a')
-					.addClass(catalogHeaderDarkColor[randomNum]+'imp');
-		},
-		mouseout: function() {
-			$(this)
-				.removeClass('hovered_header')
-				.children('a')
-					.removeClass(catalogHeaderDarkColor[randomNum]+'imp');
-		}
-	});
-
-	$('.has_submenu').on({
-		mouseover: function() {
-			$(this)
-				.addClass(catalogHeaderDarkColor[randomNum]+'bg')
-				.find('img')
-					.attr('src','images/games_site/button_up_white.png');
-			$(this).children('.cat_submenu').stop().fadeIn(100);
-		},
-		mouseout: function(e) {
-			$(this).removeClass(catalogHeaderDarkColor[randomNum]+'bg')
-				.find('img')
-					.attr('src','images/games_site/button_down_dark_'+actualSystemColor+'.png');
-			var nextHoverElem=e.relatedTarget|| e.toElement;
-			if ($(this).has(nextHoverElem).length == 0) $(this).children('.cat_submenu').stop().fadeOut(100);
-		},
-
-	})
-
-	$('.game_brick').on({
-		click: function() {
-			if ($(this).hasClass('selected_brick')) {
-				$(this)
-					.css({ 
-						'z-index' : 0,
-						'border-color' : 'transparent' })
-					.removeClass('selected_brick');
-			} else {
-				$(this)
-					.css({
-						'z-index' : 1,
-						'border-color': '#ffffff',
-					})
-					.addClass('selected_brick');
-			}
-		}
-	});
-
-	$('.selected_brick').on({
-		click: function() {
-		}
-	})
-
-
-
 
   fullScreenHeight = $(window).height();
   fullScreenWidth = $(window).width();
@@ -219,8 +124,8 @@ $(document).ready(function() {
 	};
 
 
-  var actualSystemColor = systemColors[randomNum];
-  var actualMenuColor = menuColors[randomNum];
+  actualSystemColor = systemColors[randomNum];
+  actualMenuColor = menuColors[randomNum];
 
   $('#logo').css('background-image', 'url(images/games_site/logo_'+actualSystemColor+'.png)' );
   $('#footer_logo').css('background-image', 'url(images/games_site/logo_'+actualSystemColor+'.png)' );
@@ -230,21 +135,6 @@ $(document).ready(function() {
   $('#menu_close_button').css('background-image', 'url(images/games_site/button_close_'+actualSystemColor+'.png)' );
 
   // Catalog Colors
-  $('#catalog_menu').addClass(actualMenuColor);
-  $('#catalog_header a').not('.actual_header').addClass(catalogHeaderLightColor[randomNum]+'color');
-  $('#catalog_header li.actual_header a').addClass(catalogHeaderDarkColor[randomNum]+'color')
-  	.append('<img src="images/games_site/button_down_dark_'+actualSystemColor+'.png" alt=""/>');
-  $('.has_submenu p').append('<img src="images/games_site/button_down_dark_'+actualSystemColor+'.png" alt=""/>');
-  $('ul.cat_submenu')
-  	.addClass(catalogHeaderDarkColor[randomNum]+'bg')
-  	.find('a')
-  		.addClass(catalogHeaderLightColor[randomNum]+'color');
-  $('.game_brick').each(function() {
-	  var colorBrick = $(this).attr('data-color');
-		if (typeof colorBrick !== 'undefined' && colorBrick !== false) {
-			$(this).addClass(catalogGameRndColors[colorBrick]+'bg');
-		}
-  })
 
 
 	$('div.device_button').on({
@@ -296,223 +186,6 @@ $(document).ready(function() {
 		}
 	}, true);
 
-
-	var sliderChangerTimer = window.setInterval(function() { sliderChanger(0); }, 15000 );
-
-
-  $(window).scroll(function() {
-
-
-		var scrollingLayerOffsets = document.getElementById('scrolling_layer').getBoundingClientRect();
-
-  	// parallax effect - simple :)
-  	var parallaxSpeed = 0.15 // exponencial value
-  	$('#parallax_wrapper').css({ top : scrollingLayerOffsets.top * parallaxSpeed });
-
-		//setHamburgerPosition();
-
-		if (Math.abs(scrollingLayerOffsets.top) > $('#main_screen').height() + 200) {
-			clearTimeout(sliderChangerTimer);
-	  	sliderChangerTimer = null;
-	  	if ( parseInt($('#video_sizer').css('top')) < $('#main_screen').height()) {
-	  		$('#video_sizer').css({
-	  			top : '48.6%',
-	  			left: '30%',
-	  			width: '52%'
-	  		});
-	  	} 
-		} else if (sliderChangerTimer == null) {
-			sliderChangerTimer = window.setInterval(function() { sliderChanger(0); }, 15000 );
-			if ( parseInt($('#video_sizer').css('top')) > $('#main_screen').height()) {
-				var actualMainScreenVideoOffsets = $('div.device_button.white').attr('data-video-position').split('/');				
-				$('#video_sizer').css({
-					top : actualMainScreenVideoOffsets[0] + '%',
-					left: actualMainScreenVideoOffsets[1] + '%',
-					width : actualMainScreenVideoOffsets[2] + '%',
-				});
-
-			}
-		}
-
-  	if ($('#down_arrow').css('opacity') == 1)
-			$('#down_arrow').stop().fadeOut('slow');
-
-  	clearTimeout($.data(this, 'scrollTimer'));
-  	$.data(this, 'scrollTimer', setTimeout(function() {
-  		$('#down_arrow').stop().fadeIn('slow');
-  	}, 250));
-
-  	if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
-  		if (!$('#down_arrow').hasClass('rotate')) {
-				$('#down_arrow').addClass('rotate');
-  		}
-   	} else $('#down_arrow').removeClass('rotate');
-
-  });
-
-
-
-	// Small video players controll
-	$('.small_video_player').on({
-		click: function(event) {
-			var clickedZindex = $(this).css('z-index');
-			if (clickedZindex != 3) {
-				var idName = $(this).children().first().attr('id');
-				event.stopPropagation();
-    		jwplayer( idName+'_ply').play();
-				$(this)
-					.addClass('content_border content_shadow playing_small_video')
-					.css({
-						'z-index' : 3,
-						'border-color': '#ffffff',
-  					'border-width' : $(this).width() * 0.03 + 'px',
-  					'border-style' : 'solid'
-					})
-					.siblings('.small_video_player').each(function() {
-						var childZindex = $(this).css('z-index');
-						if (childZindex == 3) $(this).css({'z-index' : 2});
-						if (childZindex == 2) $(this).css({'z-index' : 1});
-						if ($(this).hasClass('content_border')) {
-							var idName = $(this).children().first().attr('id');
-							event.stopPropagation();
-			    		jwplayer( idName+'_ply').pause(true);
-							$(this)
-								.removeClass('content_border content_shadow playing_small_video')
-								.css({ border : 0 })
-						}
-					})
-			} else {
-				if ($(this).hasClass('playing_small_video')) {
-					$(this).removeClass('playing_small_video')
-					var idName = $(this).children().first().attr('id');
-					event.stopPropagation();
-	    		jwplayer( idName+'_ply').pause(true);
-				} else { 
-					$(this).addClass('playing_small_video');
-					var idName = $(this).children().first().attr('id');
-					event.stopPropagation();
-	    		jwplayer( idName+'_ply').play(true);
-				}
-			}
-		}
-	})
-
-
-	// TODO : readable id name and configure player.js to our project for less codelines and disable repeating
-
-  /* embend player */
-  /** Write container **/
-  if (!document.getElementById("botr_7Wi9qfSk_GjAHfwUI_div")) {
-    document.write("<div id='botr_7Wi9qfSk_GjAHfwUI_div'></div>");
-  }
-
-  /** Insert fallback. **/
-  var videoSource = 'http://www.liandesign.hu/onLive_v3/Media/Dirt3_01.640.mp4';
-  var bgSource = 'http://content.bitsontherun.com/thumbs/7Wi9qfSk-480.jpg';
-  document.getElementById("botr_7Wi9qfSk_GjAHfwUI_div").innerHTML = "<div id='botr_7Wi9qfSk_GjAHfwUI_ply' style='background:#000 "+bgSource+"'><a href='"+videoSource+"' style='display:block; width:100%; height:100%; border:none; background:transparent url(http://content.bitsontherun.com/staticfiles/play.png) no-repeat center center; text-indent:-99999px;'>Bunny Test</a></div>";
-
-  document.getElementById("small_video_2").innerHTML = "<div id='small_video_2_ply' style='background:#000 "+bgSource+"'><a href='"+videoSource+"' style='display:block; width:100%; height:100%; border:none; background:transparent url(http://content.bitsontherun.com/staticfiles/play.png) no-repeat center center; text-indent:-99999px;'>Bunny Test</a></div>";
-  document.getElementById("small_video_3").innerHTML = "<div id='small_video_3_ply' style='background:#000 "+bgSource+"'><a href='"+videoSource+"' style='display:block; width:100%; height:100%; border:none; background:transparent url(http://content.bitsontherun.com/staticfiles/play.png) no-repeat center center; text-indent:-99999px;'>Bunny Test</a></div>";
-  document.getElementById("small_video_1").innerHTML = "<div id='small_video_1_ply' style='background:#000 "+bgSource+"'><a href='"+videoSource+"' style='display:block; width:100%; height:100%; border:none; background:transparent url(http://content.bitsontherun.com/staticfiles/play.png) no-repeat center center; text-indent:-99999px;'>Bunny Test</a></div>";
-
-
-   /** Initialize player **/
-  jwplayer.key = "EcHWjL0bMZsdo8QE0vv5IpN4yF2kjo0m";
-  jwplayer("small_video_2_ply").setup({
-    analytics: {"enabled": false},
-    aspectratio: "16:9",
-    // strange, true value not starting the video, false however start
-    autostart: false,
-    controls: false,
-    displaytitle: false,
-    fallback: true,
-    flashplayer: "http://a.jwpcdn.com/player/6/653609/jwplayer.flash.swf",
-    height: "100%",
-    html5player: "http://a.jwpcdn.com/player/6/653609/jwplayer.html5.js",
-    image: "http://content.bitsontherun.com/thumbs/7Wi9qfSk-480.jpg",
-    playlist: "http://content.bitsontherun.com/jw6/7Wi9qfSk.xml",
-    plugins: {"http://a.jwpcdn.com/player/6/653609/ping.js": {"pixel": "http://content.bitsontherun.com/ping.gif"}},
-    primary: "flash",
-    repeat: false,
-    stretching: "uniform",
-    width: "100%"
-  });
-  //jwplayer().play();
-  //jwplayer().onComplete(function(){jwplayer().play();});
-
-  /** Initialize player **/
-  jwplayer.key = "EcHWjL0bMZsdo8QE0vv5IpN4yF2kjo0m";
-  jwplayer("small_video_3_ply").setup({
-    analytics: {"enabled": false},
-    aspectratio: "16:9",
-    // strange, true value not starting the video, false however start
-    autostart: false,
-    controls: false,
-    displaytitle: false,
-    fallback: true,
-    flashplayer: "http://a.jwpcdn.com/player/6/653609/jwplayer.flash.swf",
-    height: "100%",
-    html5player: "http://a.jwpcdn.com/player/6/653609/jwplayer.html5.js",
-    image: "http://content.bitsontherun.com/thumbs/7Wi9qfSk-480.jpg",
-    playlist: "http://content.bitsontherun.com/jw6/7Wi9qfSk.xml",
-    plugins: {"http://a.jwpcdn.com/player/6/653609/ping.js": {"pixel": "http://content.bitsontherun.com/ping.gif"}},
-    primary: "flash",
-    repeat: false,
-    stretching: "uniform",
-    width: "100%"
-  });
-  //jwplayer().play();
-  //jwplayer().onComplete(function(){jwplayer().play();});
-
-  /** Initialize player **/
-  jwplayer.key = "EcHWjL0bMZsdo8QE0vv5IpN4yF2kjo0m";
-  jwplayer("small_video_1_ply").setup({
-    analytics: {"enabled": false},
-    aspectratio: "16:9",
-    // strange, true value not starting the video, false however start
-    autostart: false,
-    controls: false,
-    displaytitle: false,
-    fallback: true,
-    flashplayer: "http://a.jwpcdn.com/player/6/653609/jwplayer.flash.swf",
-    height: "100%",
-    html5player: "http://a.jwpcdn.com/player/6/653609/jwplayer.html5.js",
-    image: "http://content.bitsontherun.com/thumbs/7Wi9qfSk-480.jpg",
-    playlist: "http://content.bitsontherun.com/jw6/7Wi9qfSk.xml",
-    plugins: {"http://a.jwpcdn.com/player/6/653609/ping.js": {"pixel": "http://content.bitsontherun.com/ping.gif"}},
-    primary: "flash",
-    repeat: false,
-    stretching: "uniform",
-    width: "100%"
-  });
-  //jwplayer().play();
-  //jwplayer().onComplete(function(){jwplayer().play();});
-
-  /** Initialize player **/
-  jwplayer.key = "EcHWjL0bMZsdo8QE0vv5IpN4yF2kjo0m";
-  jwplayer("botr_7Wi9qfSk_GjAHfwUI_ply").setup({
-    analytics: {"enabled": false},
-    aspectratio: "16:9",
-    // strange, true value not starting the video, false however start
-    autostart: false,
-    controls: false,
-    displaytitle: false,
-    fallback: false,
-    flashplayer: "http://a.jwpcdn.com/player/6/653609/jwplayer.flash.swf",
-    height: "100%",
-    html5player: "http://a.jwpcdn.com/player/6/653609/jwplayer.html5.js",
-    image: "http://content.bitsontherun.com/thumbs/7Wi9qfSk-480.jpg",
-    playlist: "http://content.bitsontherun.com/jw6/7Wi9qfSk.xml",
-    plugins: {"http://a.jwpcdn.com/player/6/653609/ping.js": {"pixel": "http://content.bitsontherun.com/ping.gif"}},
-    primary: "flash",
-    repeat: false,
-    stretching: "uniform",
-    width: "100%"
-  });
-  //jwplayer("").play();
-  //jwplayer().onComplete(function(){jwplayer().play();});
-
- 
 
 
 });

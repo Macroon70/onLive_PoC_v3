@@ -31,18 +31,78 @@ li > a {
 	box-shadow:         13px 13px 1px rgba(0, 0, 0, 0.25);	
 }
 
+.content_shadow_reverse {
+	-webkit-box-shadow: -13px 13px 1px rgba(0, 0, 0, 0.25);
+	-moz-box-shadow:    -13px 13px 1px rgba(0, 0, 0, 0.25);
+	box-shadow:         -13px 13px 1px rgba(0, 0, 0, 0.25);	
+}
+
+
 /************************************************************/
 /* Gamepics                   															*/
 /************************************************************/
 
 .header_gamepic {
-	background-image: url(../../images/games_site/welcome/gamepic_borderlands2_normal.png);
+	background-image: url(../../images/games_site/catalog/gamepic_borderlands2.png);
 }
 
 .gamebrick_01 {
-	background-image: url(../../images/games_site/welcome/gamepic_bioshock_small.png);
+	background-image: url(../../images/games_site/catalog/gamepic_bioshock.png);
 }
 
+.gamebrick_02 {
+	background-image: url(../../images/games_site/catalog/gamepic_batman.png);
+}
+
+.gamebrick_03 {
+	background-image: url(../../images/games_site/catalog/gamepic_dirt3.png);
+}
+
+.gamebrick_04 {
+	background-image: url(../../images/games_site/catalog/gamepic_battlefield4.png);
+}
+
+.gamebrick_05 {
+	background-image: url(../../images/games_site/catalog/gamepic_syndicate.png);
+}
+
+.gamebrick_06 {
+	background-image: url(../../images/games_site/catalog/gamepic_simcity.png);
+}
+
+.gamebrick_07 {
+	background-image: url(../../images/games_site/catalog/gamepic_lanoire.png);
+}
+
+.gamebrick_08 {
+	background-image: url(../../images/games_site/catalog/gamepic_civilization5.png);
+}
+
+.gamebrick_09 {
+	background-image: url(../../images/games_site/catalog/gamepic_lastofus.png);
+}
+
+.gamebrick_10 {
+	background-image: url(../../images/games_site/catalog/gamepic_assassin4.png);
+}
+
+.gamebrick_11 {
+	background-image: url(../../images/games_site/catalog/gamepic_crysis2.png);
+}
+
+.gamebrick_12 {
+	background-image: url(../../images/games_site/catalog/gamepic_bioshock.png);
+}
+
+/************************************************************/
+/* Details Box                															*/
+/************************************************************/
+#hidden_details_box {
+	z-index: 3;
+	position: absolute;
+	width: 36.6%;
+	display: none;
+}
 
 /************************************************************/
 /* Catalog Header                														*/
@@ -164,6 +224,10 @@ li > a {
 /* Games wrapper                														*/
 /************************************************************/
 
+#games_wrapper {
+	overflow: hidden;
+}
+
 #games_wrapper > div {
 	position: relative;
 	float: left;
@@ -214,6 +278,15 @@ li > a {
 	width: 43.94%;
 }
 
+.gamedetails {
+	width: 0;
+	height: 0;
+}
+
+.game_brick > div {
+	position: absolute;
+}
+
 .left_side {
 	left: -1.3%;
 }
@@ -222,4 +295,36 @@ li > a {
 	left: 43.04%;
 }
 
+.game_brick .bg_color_wrapper {
+	top: 0;
+	width: 35%;
+	height: inherit;
+}
+
+.game_brick .bg_color_wrapper > h3 {
+	font-family: 'aktiv_groteskitalic';
+	margin-top: 10%;
+	margin-left: 15%;
+	margin-right: 15%;
+}
+
+.game_brick .sub_brick {
+	top: 0;
+	width: 66%;
+	height: inherit;
+}
+
+.game_brick.onehalf_size .sub_brick {
+	width: 100%;
+}
+
+.game_brick.right_info .sub_brick,
+.game_brick.left_info .bg_color_wrapper {
+	left: 0;
+}
+
+.game_brick.right_info .bg_color_wrapper,
+.game_brick.left_info .sub_brick {
+	right: 0;
+}
 
