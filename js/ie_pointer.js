@@ -25,7 +25,7 @@ $(document).ready(function() {
         $(this).hide();
         var BottomElement = document.elementFromPoint(e.clientX, e.clientY);
         $(this).show();
-        if (IE_LastBottomElement == BottomElement){
+        if (IE_LastBottomElement == BottomElement && $(this).css('cursor')!='auto'){
           return false;
         }
         IE_LastBottomElement = BottomElement;
