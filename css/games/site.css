@@ -96,7 +96,6 @@ p {
 	user-select: none;	
 }
 
-
 .rotate {
   -webkit-animation: rotating-function 1.25s linear 1;
      -moz-animation: rotating-function 1.25s linear 1;

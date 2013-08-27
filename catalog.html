@@ -18,21 +18,44 @@
 </head>
 <body class="noselect">
 <div id="hidden_details_box">
-	<h3 class="game_name"></h3>
-	<p class="game_type"><p>
-	<p class="user_rating_txt detail_txt">USER RATING</p>
-	<div class="user_rating_vis_bg white_bg"></div>
-	<div class="user_rating_vis bg_images"></div>
-	<p class="metascore_txt detail_txt">METASCORE</p>
-	<p class="metascore_vis value_txt"></p>
-	<p class="content_txt detail_txt">CONTENT</p>
-	<p class="content_vis value_txt"></p>
-	<p class="game_bundle_txt detail_txt">GAME BUNDLE</p>
-	<img class="bundle_img" href="" alt=""/>
-	<p class="game_bundle_vis value_txt"></p>
-	<p class="game_togo_txt detail_txt">GAME TO GO</p>
-	<img class="togo_img" href="" alt=""/>
-	<p class="game_togo_vis value_txt"></p>
+	<div class="upper_section">
+		<h3 class="game_name"></h3>
+		<p class="game_type detail_txt"><p>
+	</div>
+	<div class="middle_section">
+		<div class="sub_middle">
+			<p class="user_rating_txt detail_txt">USER RATING</p>
+			<div class="user_rating_vis_opacity">&nbsp;</div>
+			<div class="user_rating_vis_bg white_bg">&nbsp;</div>
+			<div class="user_rating_vis bg_images">&nbsp;</div>
+		</div>
+		<div class="sub_middle">
+			<p class="metascore_txt detail_txt">METASCORE</p>
+			<p class="metascore_vis value_txt"></p>
+		</div>
+		<div class="sub_middle">
+			<p class="content_txt detail_txt">CONTENT</p>
+			<p class="content_vis value_txt"></p>
+		</div>
+	</div>
+	<div class="lower_section">
+		<div class="sub_lower">
+			<p class="game_bundle_txt detail_txt">GAME BUNDLE</p>
+			<img class="bundle_img" src="" alt=""/>
+			<p class="game_bundle_vis value_txt"></p>
+			<p class="month_text">&nbsp;/&nbsp;MO</p>
+		</div>
+		<div class="sub_lower">
+			<p class="game_togo_txt detail_txt">GAME TO GO</p>
+			<img class="togo_img" src="" alt=""/>
+			<p class="game_togo_vis value_txt"></p>
+		</div>
+	</div>
+	<div class="button_section">
+		<a href="#"><p>TRY FREE</p></a>
+		<a href="#"><p>MORE DETAILS</p></a>
+	</div>
+	<img class="details_close" src="" alt=""/>
 </div>
 <div id="controllers_wrapper">
 	<div id="menu_hamburger" class="bg_images"></div>
@@ -40,8 +63,8 @@
 	<div id="menu_screen">
 		<div id="menu_close_button" class="bg_images"></div>
 		<div id="menu_system_main">
-			<a href="index.html"><p class="active_main_menu">WELCOME</p></a>
-			<a href="catalog.html"><p>GAMES</p></a>
+			<a href="index.html"><p>WELCOME</p></a>
+			<a href="catalog.html"><p class="active_main_menu">GAMES</p></a>
 			<a href="hardware.html"><p>HARDWARE</p></a>
 			<a href="#"><p>JOIN</p></a>
 			<a href="#"><p>LOGIN</p></a>
@@ -140,16 +163,16 @@
 			<div class="content_margin_rel white_bg header_game_brick">
 				<div class="bg_images header_gamepic"></div>
 				<div class="header_details_wrapper">
-					<h2 class="c4r2_color">ITS HERE.</h2>
+					<h2>ITS HERE.</h2>
 					<h3 class="c2r3_color">Lorem ipsum descriptum dipsum<br />update new features this thing<br />is new you should buy it.</h3>
-					<p class="c4r2_color moredetails">More Details</p>
-					<p class="c4r2_color tryfree">TRY FREE</p>
+					<p class="moredetails">More Details</p>
+					<p class="tryfree">TRY FREE</p>
 					<img src="images/games_site/button_forward_red.png" alt=""/>			
 				</div>
 			</div>
 			<div data-row="0/0/1" class="content_margin_rel game_brick left_side onehalf_size">
-				<div class="gamedetails" 
-					data-name="Bioshock Infinite"
+				<div class="game_details" 
+					data-name="BIOSHOCK<br />INFINITE"
 					data-type="ACTION"
 					data-rating="4.3"
 					data-metascore="80"

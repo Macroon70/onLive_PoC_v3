@@ -8,7 +8,7 @@ $(window).load(function() {
 var fullScreenHeight;
 var fullScreenWidth;
 
-var systemColors = new Array('blue','green','turquise','orange','purple','red');
+systemColors = new Array('blue','green','turquise','orange','purple','red');
 var menuColors = new Array('c8r2_bg','c6r2_bg','c7r2_bg','c5r2_bg','c9r2_bg','c4r2_bg');
 
 

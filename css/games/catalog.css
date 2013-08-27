@@ -104,6 +104,135 @@ li > a {
 	display: none;
 }
 
+#hidden_details_box > div {
+	position: relative;
+	float: left;
+	width: 90%;
+	margin-left: 10%;
+	height: auto;
+}
+
+#hidden_details_box > div * {
+	position: relative;
+	float: left;
+}
+
+#hidden_details_box p.value_txt {
+	font-size: 2.8em;
+	margin-top: 6%;
+	clear: left;
+}
+
+#hidden_details_box p.detail_txt {
+	opacity: 0.5;
+	font-size: 1.4em;
+	line-height: 1.2em;
+}
+
+#hidden_details_box .game_name {
+	width: 100%;
+	margin-top: 10%;
+	font-family: 'aktiv_groteskxbold_italic';	
+	font-size: 3.5em;
+	line-height: 0.9em;
+}
+
+#hidden_details_box .game_type {
+	width: 100%;
+	margin-top: 2%;
+}
+
+.middle_section {
+	margin-top: 7%;
+}
+
+.sub_middle {
+	width: 33%;
+}
+
+.sub_middle > div {
+	width: 80%;
+	margin-top: 8%;
+	line-height: 2.0em;
+}
+
+.sub_middle .user_rating_vis_bg {
+	position: absolute !important;
+	left: 0;
+	bottom: 0;
+	width: 0;
+}
+
+.sub_middle .user_rating_vis_opacity {
+	position: absolute !important;
+	left: 0;
+	bottom: 0;
+	background-color: #ffffff;
+	opacity: 0.5;
+}
+
+.lower_section {
+	margin-top: 10%;
+}
+
+.sub_lower {
+	width: 50%;
+}
+
+.sub_lower img {
+	display: block;
+	clear: left;
+	width: 12%;
+	margin-top: 6%;
+	margin-right: 2%;
+}
+
+.sub_lower p {
+	clear: none !important;
+}
+
+.sub_lower p.month_text {
+	font-size: 1.7em !important;
+	margin-top: 11%;
+}
+
+.button_section {
+	position: absolute !important;
+	left: 0;
+	margin-left: 0 !important;
+	bottom: 0;
+	width: 100% !important;
+}
+
+.button_section > a {
+	width: 50%;
+}
+
+.button_section > a:hover {
+	opacity: 0.7;
+}
+
+.button_section p {
+	line-height: 4.0em;
+	padding-left: 15%;
+}
+
+.details_close {
+	cursor: pointer;
+	position: absolute;
+	width: 12%;
+	top: 10%;
+}
+
+.details_close.right_close {
+	right: -6%;
+}
+
+.details_close.left_close {
+	left: -6%;
+}
+
+
 /************************************************************/
 /* Catalog Header                														*/
 /************************************************************/
@@ -136,11 +265,13 @@ li > a {
 	font-family: 'aktiv_groteskregular';
 	font-size: 3.2em;
 	line-height: 1.3em;
+	opacity: 0.5;
 }
 
 #catalog_header li.hovered_header a,
 #catalog_header li.actual_header a {
 	font-family: 'aktiv_groteskbold';
+	opacity: 1;
 }
 
 #catalog_header a > img {
@@ -214,10 +345,11 @@ li > a {
 .cat_submenu > li  a {
 	font-size: 1.5em;
 	line-height: 2.2em;
+	opacity: 0.5;
 }
 
 .cat_submenu > li a:hover {
-	color: #ffffff;
+	opacity: 1;
 }
 
 /************************************************************/
