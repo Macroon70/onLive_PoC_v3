@@ -3,16 +3,24 @@
 /************************************************************/
 // TODO : more loop for better rnd
 Array.prototype.shuffle = function() {
-  var actualPos = this.length, rndPos, tmpElem;
+  var actualPos = this.length, rndPos, tmpElem, tmpName, tmpDark;
   if (actualPos == 0) return this;
   while (--actualPos) {
     rndPos = Math.floor( Math.random() * (actualPos + 1));
     tmpElem = this[actualPos];
+    tmpName = catalogColorNames[actualPos];
+    tmpDark = catalogGameRndDarkColors[actualPos];
     this[actualPos] = this[rndPos];
+    catalogColorNames[actualPos] = catalogColorNames[rndPos];
+    catalogGameRndDarkColors[actualPos] = catalogGameRndDarkColors[rndPos];
     this[rndPos] = tmpElem;
+    catalogColorNames[rndPos] = tmpName;
+    catalogGameRndDarkColors[rndPos] = tmpDark;
   }
   return this;
 }
+
+
 
 /************************************************************/
 /* Resize Values                                            */
@@ -44,7 +52,11 @@ function resizewindow(){
   /************************************************************/
   /* Unique Values                                            */
   /************************************************************/  
-  $('#hidden_details_box').css({ height : $('#hidden_details_box').height() * 0.8 });
+  $('#hidden_details_box').css({ height : $('#hidden_details_box').width() * 0.8 });
+  $('.cloned_details').css({ height : $('.cloned_details').width() * 0.8 });
+  //$('body #hidden_details_box').each(function() {
+  //  $(this).css({ height : $(this).width() * 0.8 });
+  //});
   $('#catalog_header').css({ height : actualWindowWidth * 0.117 });
   $('#catalog_menu').css({ height : actualWindowWidth * 0.0488 });
   var rowsNum = $('#games_wrapper').attr('data-rows');
@@ -97,18 +109,24 @@ $(document).ready(function() {
   var catalogHeaderDarkColor = new Array('c8r3_','c6r3_','c7r3_','c5r3_','c9r3_','c4r3_');
   var catalogHeaderColor = new Array('c8r2_','c6r2_','c7r2_','c5r2_','c9r2_','c4r2_');
   var catalogHeaderLightColor = new Array('c8r1_','c6r1_','c7r1_','c5r1_','c9r1_','c4r1_');
+  catalogColorNames = new Array('blue','green','turquise','orange','purple','red');
 
-  var catalogGameRndColors = catalogHeaderColor.shuffle();
+
+  catalogGameRndDarkColors = catalogHeaderDarkColor.slice(0); 
+  var catalogGameRndColors = catalogHeaderColor.slice(0);
+  catalogGameRndColors.shuffle();
 
   $('#catalog_menu').addClass(actualMenuColor);
-  $('#catalog_header a').not('.actual_header').addClass(catalogHeaderLightColor[randomNum]+'color');
-  $('#catalog_header li.actual_header a').addClass(catalogHeaderDarkColor[randomNum]+'color')
-    .append('<img src="images/games_site/button_down_dark_'+actualSystemColor+'.png" alt=""/>');
+  $('#catalog_header a').addClass(catalogHeaderDarkColor[randomNum]+'color');
+  $('#catalog_header li.actual_header a').append('<img src="images/games_site/button_down_dark_'+actualSystemColor+'.png" alt=""/>');
   $('.has_submenu p').append('<img src="images/games_site/button_down_dark_'+actualSystemColor+'.png" alt=""/>');
   $('ul.cat_submenu')
     .addClass(catalogHeaderDarkColor[randomNum]+'bg')
     .find('a')
-      .addClass(catalogHeaderLightColor[randomNum]+'color');
+      .addClass('white');
+  $('.header_details_wrapper h2').addClass(catalogHeaderColor[randomNum]+'color');
+  $('.header_details_wrapper p').addClass(catalogHeaderColor[randomNum]+'color');
+  $('.header_details_wrapper img').attr('src','images/games_site/button_forward_dark_'+actualSystemColor+'.png')
   $('.game_brick').each(function() {
     var colorBrick = $(this).attr('data-color');
     if (typeof colorBrick !== 'undefined' && colorBrick !== false) {
@@ -210,19 +228,45 @@ $(document).ready(function() {
         bgColor = $(this).attr('data-color');
         if (typeof bgColor !== 'undefined' && bgColor !== false) {
           bgClass = catalogGameRndColors[bgColor]+'bg';
+          bgUsrRate = catalogColorNames[bgColor];
+          bgDark = catalogGameRndDarkColors[bgColor]+'bg';
         } else {
           bgrandomNum = Math.floor(Math.random()*catalogGameRndColors.length);
           bgClass = catalogGameRndColors[bgrandomNum]+'bg';
+          bgUsrRate = catalogColorNames[bgrandomNum];
+          bgDark = catalogGameRndDarkColors[bgrandomNum]+'bg';
         }
-        $('#hidden_details_box')
-          .clone()
+        cloneElem = $('#hidden_details_box').clone();
+        dataElem = $(this).children('.game_details');
+        upperSection = cloneElem.children('.upper_section');
+        upperSection.children('.game_name').html(dataElem.attr('data-name'));
+        upperSection.children('.game_type').html(dataElem.attr('data-type'));
+        middleSection = cloneElem.children('.middle_section');
+        middleSection.find('.user_rating_vis').css('background-image','url(images/games_site/user_rating_'+bgUsrRate+'.png)');
+        middleSection.find('.user_rating_vis_bg').animate({ width : ((80 / 5) * dataElem.attr('data-rating')) + '%'}, 500);
+        middleSection.find('.metascore_vis').html(dataElem.attr('data-metascore') );
+        middleSection.find('.content_vis').html(dataElem.attr('data-content'));
+        lowerSection = cloneElem.children('.lower_section');
+        lowerSection.find('.bundle_img').attr('src','images/games_site/game_bundle_'+bgUsrRate+'.png');
+        lowerSection.find('.game_bundle_vis').html('&#36;'+dataElem.attr('data-bundle'));
+        lowerSection.find('.togo_img').attr('src','images/games_site/game_togo_'+bgUsrRate+'.png');
+        lowerSection.find('.game_togo_vis').html('&#36;'+dataElem.attr('data-togo'));
+        buttonSection = cloneElem.children('.button_section');
+        buttonSection.find('a').each(function() {
+          $(this).addClass(bgDark);
+        })
+        closePosition = ($(this).hasClass('left_side')) ? 'right_close' : 'left_close';
+        cloneElem.find('.details_close')
+          .attr('src','images/games_site/button_close_'+bgUsrRate+'.png')
+          .addClass(closePosition);
+        cloneElem
           .css({ 
             left : leftPos,
             top : topPos,
             display : 'block' ,
             height : $('#hidden_details_box').width() * 0.8
           })
-          .addClass(bgClass)
+          .addClass(bgClass + ' cloned_details')
           .appendTo('#games_wrapper');
       }
     }

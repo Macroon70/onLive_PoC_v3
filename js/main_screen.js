@@ -212,14 +212,41 @@ $(document).ready(function() {
       [{
           image: "./images/games_site/welcome/gamepic_dirt3_headline.png",
           sources: [
-            {file: "http://www.w3schools.com/html/movie.mp4"},
-            {file: "http://www.w3schools.com/html/movie.ogg"}
+            {file: "http://www.liandesign.hu/onLive_v3/media/Dirt3_01.640.mp4"},
+            {file: "http://www.liandesign.hu/onLive_v3/media/Dirt3_01.oggtheora.ogv"}
           ]
       }]};
+
+  var pl2 =  {playlist:
+      [{
+          image: "./images/games_site/welcome/gamepic_dirt3_headline.png",
+          sources: [
+            {file: "http://www.liandesign.hu/onLive_v3/media/Dirt3_01.mp4"},
+            {file: "http://www.liandesign.hu/onLive_v3/media/Dirt3_01.oggtheora.ogv"}
+          ]
+      }]};
+
+  var pl3 =  {playlist:
+      [{
+          image: "./images/games_site/welcome/gamepic_dirt3_headline.png",
+          sources: [
+            {file: "http://www.liandesign.hu/onLive_v3/media/Dirt3_01.mp4"},
+            {file: "http://www.liandesign.hu/onLive_v3/media/Dirt3_01.oggtheora.ogv"}
+          ]
+      }]};
+  var pl4 =  {playlist:
+      [{
+          image: "./images/games_site/welcome/gamepic_dirt3_headline.png",
+          sources: [
+            {file: "http://www.liandesign.hu/onLive_v3/media/Dirt3_01.mp4"},
+            {file: "http://www.liandesign.hu/onLive_v3/media/Dirt3_01.oggtheora.ogv"}
+          ]
+      }]};
+
    
-  createPlayer("small_video_2_ply", pl, playerComplete);
-  createPlayer("small_video_3_ply", pl, playerComplete);
-  createPlayer("small_video_1_ply", pl, playerComplete);
+  createPlayer("small_video_2_ply", pl2, playerComplete);
+  createPlayer("small_video_3_ply", pl2, playerComplete);
+  createPlayer("small_video_1_ply", pl2, playerComplete);
 //  createPlayer("botr_7Wi9qfSk_GjAHfwUI_ply", {image: "http://content.bitsontherun.com/thumbs/7Wi9qfSk-480.jpg", playlist: "http://content.bitsontherun.com/jw6/7Wi9qfSk.xml", autostart: true, repeat: true, mute: true});
   createPlayer("main_video_ply", $.extend({}, pl, {autostart: true, repeat: true, mute: true}));
 
