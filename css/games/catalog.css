@@ -214,7 +214,8 @@ li > a {
 
 .button_section p {
 	line-height: 4.0em;
-	padding-left: 15%;
+	width: 100%;
+	text-align: center;
 }
 
 .details_close {
