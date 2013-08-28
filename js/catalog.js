@@ -52,11 +52,12 @@ function resizewindow(){
   /************************************************************/
   /* Unique Values                                            */
   /************************************************************/  
-  $('#hidden_details_box').css({ height : $('#hidden_details_box').width() * 0.8 });
-  $('.cloned_details').css({ height : $('.cloned_details').width() * 0.8 });
-  //$('body #hidden_details_box').each(function() {
-  //  $(this).css({ height : $(this).width() * 0.8 });
-  //});
+  //$('#hidden_details_box').css({ height : $('#hidden_details_box').width() * 0.8 });
+  //$('.cloned_details').css({ height : $('.cloned_details').width() * 0.8 });
+  $('#games_wrapper > #hidden_details_box').each(function() {
+    console.log($(this));
+    $(this).css({ height : $('#layers_wrapper').width() * 0.34 });
+  });
   $('#catalog_header').css({ height : actualWindowWidth * 0.117 });
   $('#catalog_menu').css({ height : actualWindowWidth * 0.0488 });
   var rowsNum = $('#games_wrapper').attr('data-rows');
@@ -201,18 +202,22 @@ $(document).ready(function() {
   /************************************************************/
   $('.game_brick').on({
     click: function() {
-      $('#games_wrapper > #hidden_details_box').remove();
       if ($(this).hasClass('selected_brick')) {
+        // TODO : start to play trailer video
+        /*
         $(this)
           .css({ 
             'z-index' : 0,
             'border-color' : 'transparent' })
           .removeClass('selected_brick content_shadow_reverse');
+        $(this).children('.play_trailer').removeClass('show_play_controll');
+        */
       } else {
+        $('#games_wrapper > #hidden_details_box').remove();
         $(this)
           .css({
             'z-index' : 1,
-            'border-color': '#ffffff',
+            'border-color': '#ffffff'
           })
           .addClass('selected_brick content_shadow_reverse')
           .siblings()
@@ -221,6 +226,8 @@ $(document).ready(function() {
               'border-color' : 'transparent'
             })
             .removeClass('selected_brick content_shadow_reverse');
+        $(this).children('.play_trailer').addClass('show_play_controll');
+        $(this).siblings().children('.play_trailer').removeClass('show_play_controll');
         leftPos = ($(this).hasClass('right_side')) ? '18%' : '46%';
         topPos = $(this).position().top - ($('.game_brick.onehalf_size').height() * 1.7);
         parentTopMin = $('#games_wrapper').offset().top + $('#games_wrapper').height() * 0.45;
@@ -258,23 +265,19 @@ $(document).ready(function() {
         closePosition = ($(this).hasClass('left_side')) ? 'right_close' : 'left_close';
         cloneElem.find('.details_close')
           .attr('src','images/games_site/button_close_'+bgUsrRate+'.png')
-          .addClass(closePosition);
+          .addClass(closePosition + ' cloned_details');
         cloneElem
           .css({ 
             left : leftPos,
             top : topPos,
             display : 'block' ,
-            height : $('#hidden_details_box').width() * 0.8
+            height : $('#layers_wrapper').width() * 0.34
           })
-          .addClass(bgClass + ' cloned_details')
+          .addClass(bgClass)
           .appendTo('#games_wrapper');
       }
     }
   });
 
-  $('.selected_brick').on({
-    click: function() {
-    }
-  });
 
 });

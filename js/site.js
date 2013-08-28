@@ -184,6 +184,18 @@ $(document).ready(function() {
 		if ($('#menu_screen').css('right') != 0 && !$('#menu_screen').is(':animated')) {
 			$('#menu_close_button').trigger('click');
 		}
+    var toElem=e.relatedTarget|| e.toElement;
+		if ($(toElem)[0] === $('img.details_close.cloned_details')[0]) {
+			$('img.details_close.cloned_details').parent().remove();
+      $('.game_brick')
+        .css({ 
+          'z-index' : 0,
+          'border-color' : 'transparent' })
+        .removeClass('selected_brick content_shadow_reverse')
+        .children('.play_trailer')
+        	.removeClass('show_play_controll');
+
+		}
 	}, true);
 
 

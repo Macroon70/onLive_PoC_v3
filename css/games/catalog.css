@@ -100,7 +100,7 @@ li > a {
 #hidden_details_box {
 	z-index: 3;
 	position: absolute;
-	width: 36.6%;
+	width: 40%;
 	display: none;
 }
 
@@ -115,6 +115,11 @@ li > a {
 #hidden_details_box > div * {
 	position: relative;
 	float: left;
+}
+
+.precache_imgs img {
+	width: 0 !important;
+	height: 0 !important;
 }
 
 #hidden_details_box p.value_txt {
@@ -143,7 +148,7 @@ li > a {
 }
 
 .middle_section {
-	margin-top: 7%;
+	margin-top: 6%;
 }
 
 .sub_middle {
@@ -172,7 +177,7 @@ li > a {
 }
 
 .lower_section {
-	margin-top: 10%;
+	margin-top: 7%;
 }
 
 .sub_lower {
@@ -183,7 +188,7 @@ li > a {
 	display: block;
 	clear: left;
 	width: 12%;
-	margin-top: 6%;
+	margin-top: 4.5%;
 	margin-right: 2%;
 }
 
@@ -191,9 +196,13 @@ li > a {
 	clear: none !important;
 }
 
+.sub_lower p.value_txt {
+	margin-top: 5% !important;
+}
+
 .sub_lower p.month_text {
 	font-size: 1.7em !important;
-	margin-top: 11%;
+	margin-top: 10%;
 }
 
 .button_section {
@@ -213,7 +222,7 @@ li > a {
 }
 
 .button_section p {
-	line-height: 4.0em;
+	line-height: 3.6em;
 	width: 100%;
 	text-align: center;
 }
@@ -223,6 +232,7 @@ li > a {
 	position: absolute;
 	width: 12%;
 	top: 10%;
+	z-index: 1;
 }
 
 .details_close.right_close {
@@ -441,12 +451,14 @@ li > a {
 	margin-right: 15%;
 }
 
+.game_brick .play_trailer,
 .game_brick .sub_brick {
 	top: 0;
 	width: 66%;
 	height: inherit;
 }
 
+.game_brick.onehalf_size .play_trailer,
 .game_brick.onehalf_size .sub_brick {
 	width: 100%;
 }
@@ -459,5 +471,9 @@ li > a {
 .game_brick.right_info .bg_color_wrapper,
 .game_brick.left_info .sub_brick {
 	right: 0;
+}
+
+.show_play_controll {
+	background-image: url(../../images/games_site/video_play_button.png?v=1);
 }
 
