@@ -194,8 +194,10 @@ $(document).ready(function() {
         .removeClass('selected_brick content_shadow_reverse')
         .children('.play_trailer')
         	.removeClass('show_play_controll');
-
 		}
+    $('.input_box').each(function() {
+      $(this).children('ul').animate({ height : 0}, 100);
+    });
 	}, true);
 
 
