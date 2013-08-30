@@ -216,7 +216,7 @@ $(document).ready(function() {
       [{
           image: "./images/games_site/welcome/gamepic_dirt3_headline.png",
           sources: [
-            {file: "http://www.liandesign.hu/onLive_v3/media/Dirt3_01.640.mp4"},
+            {file: "http://www.liandesign.hu/onLive_v3/media/Dirt3_01.mp4"},
             {file: "http://www.liandesign.hu/onLive_v3/media/Dirt3_01.oggtheora.ogv"}
           ]
       }]};
@@ -224,7 +224,7 @@ $(document).ready(function() {
       [{
           image: "./images/games_site/welcome/gamepic_dirt3_headline.png",
           sources: [
-            {file: "http://www.liandesign.hu/onLive_v3/media/Dirt3_01.640.mp4"},
+            {file: "http://www.liandesign.hu/onLive_v3/media/Dirt3_01.mp4"},
             {file: "http://www.liandesign.hu/onLive_v3/media/Dirt3_01.oggtheora.ogv"}
           ]
       }]};
@@ -232,7 +232,7 @@ $(document).ready(function() {
       [{
           image: "./images/games_site/welcome/gamepic_dirt3_headline.png",
           sources: [
-            {file: "http://www.liandesign.hu/onLive_v3/media/Dirt3_01.640.mp4"},
+            {file: "http://www.liandesign.hu/onLive_v3/media/Dirt3_01.mp4"},
             {file: "http://www.liandesign.hu/onLive_v3/media/Dirt3_01.oggtheora.ogv"}
           ]
       }]};

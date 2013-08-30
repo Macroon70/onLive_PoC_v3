@@ -292,26 +292,6 @@
 	margin-bottom: 5%;
 }
 
-#related_games {
-	width: 90%;
-}
-
-#related_games h3 {
-	margin-top: 2%;
-}
-
-.related_game {
-	width: 32.35%;
-	display: block;
-	margin-right: 0.5%;
-	margin-bottom: 0.5%;
-}
-
-.related_game > div {
-	width: 100%;
-	height: inherit;
-}
-
 .related_01 {
 	background-image: url(../../images/games_site/gamedetail/gamepic_borderlands2.png);
 }

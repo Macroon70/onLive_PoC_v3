@@ -1,15 +1,4 @@
 /************************************************************/
-/* Chache images                                            */
-/************************************************************/
-cacheImg = "images/games_site/gamedetail/header_pic_bioshock.png,images/games_site/gamedetail/header_pic_bubbles.png,images/games_site/gamedetail/gamepic_bioshock.png,images/games_site/gamedetail/gamepic_assassins.png,images/games_site/gamedetail/gamepic_batman.png,images/games_site/gamedetail/gamepic_borderlands2.png,images/games_site/gamedetail/gamepic_crysis2.png,images/games_site/gamedetail/gamepic_lanoire.png,images/games_site/gamedetail/gamepic_lastofus.png".split(",")
-var tempImg = []
-
-for(var x=0;x<cacheImg.length;x++) {
-    tempImg[x] = new Image();
-    tempImg[x].src = cacheImg[x];
-}
-
-/************************************************************/
 /* Resize Values                                            */
 /************************************************************/
 function resizewindow(){
@@ -39,14 +28,13 @@ function resizewindow(){
   /************************************************************/
   /* Unique Values                                            */
   /************************************************************/  
-  $('#header_wrapper').css({ height : actualWindowWidth * 0.25 });
-  $('div.rating_type').css({ height : $('div.rating_type').width() * 0.21 });
-  $('div.rating_type_cl').css({ height : $('div.rating_type').width() * 0.21 });
-  var valueWidth = ($('div.rating_type').width() / 5) * $('div.rating_value').attr('data-value');
-  $('div.rating_value').css({ width : valueWidth });
-  $('.info_image').css({ height : $('.info_panel').height() * 0.6});
-  $('.info_image.biggersize').css({ height : $('.info_panel').height() * 1.5});
-  $('#right_info_panel').css({ height : $('#right_info_panel').width() * 1.34 });
+  $('#main_header').css({ height : actualWindowWidth * 0.6 });
+  $('#video_layer').css({ height : $('#main_header').height() * 1.2 });
   $('.related_game').css({ height : $('.related_game').width() * 0.56 });
+  $('.header_bg').css({ height : $('.header_bg').width() * 0.512 });
+  $('#join_form_wrapper').css({ height : $('#join_form_wrapper').width() * 1.633 });
+  $('#main_offers').css({ height : $('#main_header').height() });
+  $('.offer.no_bg').css({ height : $('.offer.no_bg').width() * 1.432 });
+  $('.offer.with_bg').css({ height : $('.offer.no_bg').height() });
 
 }
