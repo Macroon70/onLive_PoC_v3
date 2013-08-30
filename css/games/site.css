@@ -78,6 +78,55 @@ p {
 	color: #ffffff;
 }
 
+/************************************************************/
+/* Input box                   															*/
+/************************************************************/
+
+.input_box {
+	position: relative;
+	float: left;
+	height: auto;
+	margin-bottom: 0.5%;
+	padding-top: 5%;
+	padding-bottom: 5%;
+}
+
+.input_box > input {
+	position: relative !important;
+	margin-left: 5%;
+	float: left;
+	font-size: 1.6em;
+	display: block;
+	width: 80%;
+	height: auto;
+	line-height: 1.3em;
+}
+
+.input_box > textarea {
+	position: relative !important;
+	margin-left: 5%;
+	float: left;
+	font-size: 1.6em;
+	display: block;
+	width: 90%;
+	height: auto;
+	line-height: 1.3em;
+}
+
+
+.input_box a {
+	position: absolute;
+	right: 5%;
+	top: 30%;
+	width: 7%;
+	height: auto;
+}
+
+.input_box a > img {
+	position: relative !important;
+	width: 100%;
+	height: auto;
+}
 
 /************************************************************/
 /* Classes                     															*/
@@ -573,10 +622,11 @@ p {
 #logo {
 	right: 3%;
 	top: 5%;
-	width: 5%;
+	width: 5% !important;
 	background-position: top center;
 	background-size: contain;
 	z-index: 5;
+	position: absolute !important;
 }
 
 #logo > p {

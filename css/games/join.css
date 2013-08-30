@@ -132,38 +132,6 @@
 	line-height: 1.3em !important;
 }
 
-.input_box {
-	height: auto;
-	margin-bottom: 0.5%;
-	padding-top: 5%;
-	padding-bottom: 5%;
-}
-
-.input_box > input {
-	position: relative !important;
-	margin-left: 5%;
-	float: left;
-	font-size: 1.6em;
-	display: block;
-	width: 80%;
-	height: auto;
-	line-height: 1.3em;
-}
-
-
-.input_box a {
-	position: absolute;
-	right: 5%;
-	top: 30%;
-	width: 7%;
-	height: auto;
-}
-
-.input_box a > img {
-	position: relative !important;
-	width: 100%;
-	height: auto;
-}
 
 #input_gamertag input {
 	margin-right: 15%;

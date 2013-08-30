@@ -42,9 +42,20 @@
 </div>
 <div id="layers_wrapper" class="content_shadow">
 	<div id="scrolling_layer">
-		<div id="main_content_wrapper" class="c2r1_color">
-			<div id="main_menu_area"></div>
+		<div id="logo" class="bg_images"><p>onlive</p></div>
+		<div id="main_content_wrapper" class="c2r1_bg">
+			<div id="main_menu_area" class="white_bg content_padding">
+				<h2 class="c5r2_color">CONTACT<br />US</h2>
+				<ul>
+					<li data-template="" class="c2r2_color">MENU ITEMS</li>
+					<li data-template="" class="c2r2_color">LISTED ITEM WITH<br/>TWO LINES</li>
+					<li data-template="" class="c2r2_color">DEVELOPER<br />CONNECTION</li>
+					<li data-template="contact_us_template" class="c2r2_color selected_menu">CONTACT US</li>
+					<li data-template="" class="c2r2_color">UNSELECTED</li>
+				</ul>
+			</div>
 			<div id="main_content_area"></div>
+			<div class="clear"></div>
 		</div>
 		<div id="footer_screen" class="clear">
 			<div id="footer_contents" class="c1r2_bg content_padding">
@@ -64,6 +75,63 @@
 			</div>
 		</div>
 		<div class="clear"></div>
+	</div>
+</div>
+<div id="templates_wrapper">
+	<div id="contact_us_template" class="general_template">
+		<div id="contact_left_area">
+			<h3 class="c5r2_color">SEND US AN EMAIL</h3>
+			<div class="input_box white_bg">
+				<input class="c5r2_color" type="text" name="send_name" value="" placeholder="Name"/>
+			</div>
+			<div class="input_box white_bg">
+				<input class="c5r2_color" type="text" name="send_email" value="" placeholder="Email"/>
+			</div>
+			<div class="input_box white_bg">
+				<input class="c5r2_color" type="text" name="send_confmail" value="" placeholder="Confirm Email"/>
+			</div>
+			<div class="input_box white_bg">
+				<input class="c5r2_color" type="text" name="send_category" value="" placeholder="Category"/>
+			</div>
+			<div class="input_box white_bg">
+				<textarea class="c5r2_color" name="send_comment" value="" placeholder="Comment" rows="5"></textarea>
+			</div>
+			<div class="input_box white_bg captcha_header">
+				<input class="c5r2_color" type="text" name="send_captcha" value="" placeholder="Enter words shown below"/>
+			</div>
+			<div class="input_box white_bg">
+				<img src="images/games_site/__delete_captcha.png" alt=""/>
+			</div>
+			<a class="c5r2_color captcha_refresh" href="#">Refresh</a>
+			<a class="c5r2_color captcha_audio" href="#">Audio Clip</a>
+			<a class="c5r2_color captcha_help" href="#">Help</a>
+			<a class="c5r2_bg send_submit"><p>SUBMIT</p></a>
+		</div>
+		<div id="contact_right_area">
+			<div class="company_info_box">
+				<p class="headline c5r2_color">ADDRESS</p>
+				<p class="c2r2_color">1091 N Shoreline Blvd,<br />Suite 100<br />Mountain View, CA<br/>94043&nbsp;&nbsp;
+					<a href="#" class="c5r2_color map_link">Map</a>
+				</p>
+			</div>
+			<div class="company_info_box">
+				<p class="headline c5r2_color">PHONE</p>
+				<p class="c2r2_color">(650) 543-5500</p>
+			</div>
+			<div class="company_info_box">
+				<p class="headline c5r2_color">SUPPORT</p>
+				<p class="c2r2_color">We're here to help —<br />contact us via the<br />
+					<a href="#" class="c5r2_color map_link">Contact site</a>
+				<p>
+			</div>
+			<div class="company_info_box">
+				<p class="headline c5r2_color">PRESS INQUIRIES</p>
+				<p class="c2r2_color">Jane Anderson<br />OnLive PR<br />
+					<a href="mailto:jane.anderson@onlive.com" class="c5r2_color map_link">jane.anderson@onlive.com</a>
+				<p>
+			</div>
+
+		</div>
 	</div>
 </div>
 <div class="clear"></div>
