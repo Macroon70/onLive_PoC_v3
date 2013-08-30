@@ -33,37 +33,30 @@ function resizewindow(){
   $('.related_game').css({ height : $('.related_game').width() * 0.56 });
   $('.header_bg').css({ height : $('.header_bg').width() * 0.512 });
   $('#join_form_wrapper').css({ height : $('#join_form_wrapper').width() * 1.633 });
+  $('#login_form_wrapper').css({ height : $('#join_form_wrapper').width() * 1.25 });
   $('#main_offers').css({ height : $('#main_header').height() });
   $('.offer.no_bg').css({ height : $('.offer.no_bg').width() * 1.55 });
   $('.offer.with_bg').css({ height : $('.offer.no_bg').height() });
+  $('#mask_layer').css({ height : actualWindowHeight });
+  $('.checkbox').css({ height : $('.checkbox').width() * 0.95 });
 
 }
 
 $(document).ready(function() {
-  $('.input_box').on({
-    click: function() {
-      var childUl = $(this).children('ul');
-      if (childUl.height() == 0) {
-        childUl.animate({ height : '280%'}, 100); 
-      }
-    }
-  });
 
-  $('.input_box li').on({
-    click: function() {
-      $(this)
-        .closest('.form_select')
-        .children('p')
-          .html($(this).text())
-          .addClass('c5r2_imp')
-          .siblings('img')
-            .remove();
-    }
-  });
+  $('body').css({ overflow : 'hidden' });
 
-  $('#join_now_button').on({
+  $('#login_button').on({
     click: function() {
       return false;
+    }
+  });
+
+  $('.checkbox').on({
+    click: function() {
+      if ($(this).hasClass('checkbox_checked')) {
+        $(this).removeClass('checkbox_checked')
+      } else $(this).addClass('checkbox_checked');
     }
   })
 

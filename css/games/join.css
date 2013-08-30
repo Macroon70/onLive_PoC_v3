@@ -116,7 +116,7 @@
 }
 
 .main_form h2 {
-	margin-top: 15%;
+	margin-top: 12%;
 	line-height: 1.1em;
 	font-size: 2.9em;
 	margin-bottom: 7%;
@@ -139,16 +139,17 @@
 	padding-bottom: 5%;
 }
 
-.input_box > label,
 .input_box > input {
 	position: relative !important;
+	margin-left: 5%;
 	float: left;
 	font-size: 1.6em;
+	display: block;
+	width: 80%;
+	height: auto;
+	line-height: 1.3em;
 }
 
-.main_form label {
-	margin-left: 5%;
-}
 
 .input_box a {
 	position: absolute;
@@ -162,15 +163,6 @@
 	position: relative !important;
 	width: 100%;
 	height: auto;
-}
-
-.input_box input {
-	display: block;
-	width: 60%;
-	height: 100%;
-	float: right !important;
-	margin-right: 5%;
-	line-height: 1.0em;
 }
 
 #input_gamertag input {
@@ -242,6 +234,13 @@
 /************************************************************/
 /* Offers                                                   */
 /************************************************************/
+.divider_button {
+	position: absolute;
+	top: -3%;
+	left: 57%;
+}
+
+
 #main_offers div {
 	position: relative;
 	float: left;
@@ -367,3 +366,82 @@
 	margin-top: 5% !important;
 }
 
+/************************************************************/
+/* Mask Layer                                               */
+/************************************************************/
+#mask_layer {
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	opacity: 0.8;
+}
+
+/************************************************************/
+/* Mask Layer                                               */
+/************************************************************/
+#login_layer {
+	position: fixed;
+	width: 21%;
+	left: 39.5%;
+	top: 25%;
+	z-index: 3;
+
+}
+
+#login_layer .checkbox {
+	cursor: pointer;
+	position: relative;
+	float: left;
+	width: 7%;
+	background-position: center;
+	background-size: 80%;
+}
+
+.border_down {
+	padding-top: 7%;
+	padding-bottom: 7%;
+	margin-bottom: 2%;
+	border-bottom: 1.5px;
+	border-style: solid;
+}
+
+.checkbox_checked {
+	background-image: url(../../images/games_site/icon_check.png);
+}
+
+.login_button {
+	margin-top: 1.5%;
+	margin-left: 5.6%;
+	width: 43.7%;
+	padding-top: 5%;
+	padding-bottom: 5%;
+	height: auto;
+}
+
+.login_button.c5r2_bg {
+	margin-left: 1%;
+}
+
+.login_button p {
+	text-align: center;
+}
+
+.join_onlive {
+	margin-top: 3%;
+	width: auto;
+	height: auto;
+}
+
+.rememberme {
+	position: relative;
+	float: left;
+	font-size: 1.5em;
+	margin-left: 3%;
+	line-height: 1.4em;
+}
+
+.join_onlive  p {
+	font-size: 1.3em;
+}

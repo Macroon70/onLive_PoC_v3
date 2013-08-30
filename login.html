@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Join - onLive (PoC)</title>
+	<title>Login - onLive (PoC)</title>
 	<link rel="icon" href="" type="image/x-icon"/>	
 	<meta charset="utf-8">	
 	<meta name="viewport" content="initial-scale=0.5,user-scalable=no,maximum-scale=0.5,width=device-width">	
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
   <script type="text/javascript" src="js/player.js"></script>	
 	<script src="js/site.js" type="text/javascript"></script>
-	<script src="js/join.js" type="text/javascript"></script>
+	<script src="js/login.js" type="text/javascript"></script>
 	<!-- <script src="webfontkit/specimen_files/easytabs.js" type="text/javascript" charset="utf-8"></script> -->
 	<link rel="stylesheet" href="webfontkit/specimen_files/specimen_stylesheet.css" type="text/css"/>
 	<link rel="stylesheet" href="webfontkit/stylesheet.css?v=1" type="text/css"/>	
@@ -19,15 +19,14 @@
 <body class="noselect">
 <div id="controllers_wrapper">
 	<div id="menu_hamburger" class="bg_images"></div>
-	<div id="down_arrow" class="bg_images"></div>
 	<div id="menu_screen">
 		<div id="menu_close_button" class="bg_images"></div>
 		<div id="menu_system_main">
 			<a href="index.html"><p>WELCOME</p></a>
 			<a href="catalog.html"><p>GAMES</p></a>
 			<a href="hardware.html"><p>HARDWARE</p></a>
-			<a href="join.html"><p class="active_main_menu">JOIN</p></a>
-			<a href="login.html"><p>LOGIN</p></a>
+			<a href="join.html"><p>JOIN</p></a>
+			<a href="login.html"><p class="active_main_menu">LOGIN</p></a>
 		</div>
 		<div id="menu_system_footer">
 			<a href="generaltemplate.html"><p>About</p></a>
@@ -91,13 +90,13 @@
 			<h3 class="c5r1_color">VIEW MORE WAYS<br />TO PLAY!</h3>
 			<div id="join_form_wrapper" class="main_form content_margin c2r1_bg">
 				<h2 class="c5r2_color">JOIN INSTANTLY<br />FOR FREE!</h2>
-				<div id="input_mail" class="input_box white_bg">
+				<div class="input_box white_bg">
 					<input class="c5r2_color" type="text" value="" placeholder="Email"/>
 				</div>
-				<div id="input_pwd" class="input_box white_bg">
+				<div class="input_box white_bg">
 					<input class="c5r2_color" type="password" value="" placeholder="Password"/>
 				</div>
-				<div id="input_gamertag" class="input_box white_bg">
+				<div class="input_box white_bg">
 					<input class="c5r2_color" type="text" value="" placeholder="GamerTag"/>
 					<a href="#"><img src="images/games_site/icon_info.png" alt=""/></a>
 				</div>
@@ -106,105 +105,21 @@
 					<div id="select_month" class="form_select input_box white_bg bg_images">
 						<p class="c2r2_color">Month</p>
 						<img src="images/games_site/icon_select.png" alt=""/>
-						<ul>
-							<li class="white_bg c5r2_color">January</li>
-							<li class="white_bg c5r2_color">February</li>
-							<li class="white_bg c5r2_color">March</li>
-							<li class="white_bg c5r2_color">April</li>
-							<li class="white_bg c5r2_color">May</li>
-							<li class="white_bg c5r2_color">June</li>
-							<li class="white_bg c5r2_color">July</li>
-							<li class="white_bg c5r2_color">August</li>
-							<li class="white_bg c5r2_color">September</li>
-							<li class="white_bg c5r2_color">October</li>
-							<li class="white_bg c5r2_color">November</li>
-							<li class="white_bg c5r2_color">December</li>
-						</ul>
 					</div>
 					<div id="select_day" class="form_select input_box white_bg bg_images">
 						<p class="c2r2_color">Day</p>
 						<img src="images/games_site/icon_select.png" alt=""/>
-						<ul>
-							<li class="white_bg c5r2_color">1</li>
-							<li class="white_bg c5r2_color">2</li>
-							<li class="white_bg c5r2_color">3</li>
-							<li class="white_bg c5r2_color">4</li>
-							<li class="white_bg c5r2_color">5</li>
-							<li class="white_bg c5r2_color">6</li>
-							<li class="white_bg c5r2_color">7</li>
-							<li class="white_bg c5r2_color">8</li>
-							<li class="white_bg c5r2_color">9</li>
-							<li class="white_bg c5r2_color">10</li>
-							<li class="white_bg c5r2_color">11</li>
-							<li class="white_bg c5r2_color">12</li>
-							<li class="white_bg c5r2_color">13</li>
-							<li class="white_bg c5r2_color">14</li>
-							<li class="white_bg c5r2_color">15</li>
-							<li class="white_bg c5r2_color">16</li>
-							<li class="white_bg c5r2_color">17</li>
-							<li class="white_bg c5r2_color">18</li>
-							<li class="white_bg c5r2_color">19</li>
-							<li class="white_bg c5r2_color">20</li>
-							<li class="white_bg c5r2_color">21</li>
-							<li class="white_bg c5r2_color">22</li>
-							<li class="white_bg c5r2_color">23</li>
-							<li class="white_bg c5r2_color">24</li>
-							<li class="white_bg c5r2_color">25</li>
-							<li class="white_bg c5r2_color">26</li>
-							<li class="white_bg c5r2_color">27</li>
-							<li class="white_bg c5r2_color">28</li>
-							<li class="white_bg c5r2_color">29</li>
-							<li class="white_bg c5r2_color">30</li>
-							<li class="white_bg c5r2_color">31</li>
-						</ul>
 					</div>
 					<div id="select_year" class="form_select input_box white_bg bg_images">
 						<p class="c2r2_color">Year</p>
 						<img src="images/games_site/icon_select.png" alt=""/>
-						<ul>
-							<li class="white_bg c5r2_color">1970</li>
-							<li class="white_bg c5r2_color">1971</li>
-							<li class="white_bg c5r2_color">1972</li>
-							<li class="white_bg c5r2_color">1973</li>
-							<li class="white_bg c5r2_color">1974</li>
-							<li class="white_bg c5r2_color">1975</li>
-							<li class="white_bg c5r2_color">1976</li>
-							<li class="white_bg c5r2_color">1977</li>
-							<li class="white_bg c5r2_color">1978</li>
-							<li class="white_bg c5r2_color">1979</li>
-							<li class="white_bg c5r2_color">1980</li>
-							<li class="white_bg c5r2_color">1981</li>
-							<li class="white_bg c5r2_color">1982</li>
-							<li class="white_bg c5r2_color">1983</li>
-							<li class="white_bg c5r2_color">1984</li>
-							<li class="white_bg c5r2_color">1985</li>
-							<li class="white_bg c5r2_color">1986</li>
-							<li class="white_bg c5r2_color">1987</li>
-							<li class="white_bg c5r2_color">1988</li>
-							<li class="white_bg c5r2_color">1989</li>
-							<li class="white_bg c5r2_color">1990</li>
-							<li class="white_bg c5r2_color">1991</li>
-							<li class="white_bg c5r2_color">1992</li>
-							<li class="white_bg c5r2_color">1993</li>
-							<li class="white_bg c5r2_color">1994</li>
-							<li class="white_bg c5r2_color">1995</li>
-							<li class="white_bg c5r2_color">1996</li>
-							<li class="white_bg c5r2_color">1997</li>
-							<li class="white_bg c5r2_color">1998</li>
-							<li class="white_bg c5r2_color">1999</li>
-							<li class="white_bg c5r2_color">2000</li>
-							<li class="white_bg c5r2_color">2001</li>
-						</ul>						
 					</div>
 				</div>
 				<p class="dob term_text c2r2_color">Clicking JOIN NOW, confirms that you are 18 years or older and agree to Onlive’s Terms &amp; Conditions, EULA and Privacy Policy.</p>
-				<a href="#" id="join_now_button" class="c5r2_bg submit_button">
-						<p>JOIN NOW</p>
-				</a>
+				<a href="#" id="join_now_button" class="c5r2_bg submit_button"><p>JOIN NOW</p></a>
 			</div>
 		</div>
 		<div id="main_offers" class="white_bg">
-			<img class="divider_button" src="images/games_site/button_down_light_orange.png" alt=""/>
 			<div class="offer no_bg content_margin_rel">
 				<a href="#" >
 					<div class="offer_wrapper">
@@ -272,6 +187,24 @@
 		</div>
 		<div class="clear"></div>
 	</div>
+	<div id="mask_layer" class="black_bg"></div>
+	<div id="login_layer">
+		<div id="login_form_wrapper" class="main_form content_margin c2r1_bg content_shadow">
+			<h2 class="c5r2_color">WELCOME BACK,<br />LOG IN</h2>
+			<div id="input_mail" class="input_box white_bg">
+				<input class="c5r2_color" type="text" value="" placeholder="Email"/>
+			</div>
+			<div id="input_pwd" class="input_box white_bg">
+				<input class="c5r2_color" type="password" value="" placeholder="Password"/>
+			</div>
+			<div id="input_checkbox" class="input_box border_down c2r2_border">
+				<div class="checkbox white_bg bg_images"></div><p class="rememberme c2r2_color">Remember me</p>
+			</div>
+			<a href="index.html" id="cancel_button" class="c2r2_bg login_button"><p>CANCEL</p></a>
+			<a href="#" id="login_button" class="c5r2_bg login_button"><p>JOIN NOW</p></a>
+			<a href="join.html" class="join_onlive"><p class="c5r2_color">Join Onlive!</p></p>
+		</div>
+	</div>	
 </div>
 <div class="clear"></div>
 </body>

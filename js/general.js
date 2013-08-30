@@ -28,43 +28,5 @@ function resizewindow(){
   /************************************************************/
   /* Unique Values                                            */
   /************************************************************/  
-  $('#main_header').css({ height : actualWindowWidth * 0.6 });
-  $('#video_layer').css({ height : $('#main_header').height() * 1.2 });
-  $('.related_game').css({ height : $('.related_game').width() * 0.56 });
-  $('.header_bg').css({ height : $('.header_bg').width() * 0.512 });
-  $('#join_form_wrapper').css({ height : $('#join_form_wrapper').width() * 1.633 });
-  $('#main_offers').css({ height : $('#main_header').height() });
-  $('.offer.no_bg').css({ height : $('.offer.no_bg').width() * 1.55 });
-  $('.offer.with_bg').css({ height : $('.offer.no_bg').height() });
 
 }
-
-$(document).ready(function() {
-  $('.input_box').on({
-    click: function() {
-      var childUl = $(this).children('ul');
-      if (childUl.height() == 0) {
-        childUl.animate({ height : '280%'}, 100); 
-      }
-    }
-  });
-
-  $('.input_box li').on({
-    click: function() {
-      $(this)
-        .closest('.form_select')
-        .children('p')
-          .html($(this).text())
-          .addClass('c5r2_imp')
-          .siblings('img')
-            .remove();
-    }
-  });
-
-  $('#join_now_button').on({
-    click: function() {
-      return false;
-    }
-  })
-
-});
