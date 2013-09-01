@@ -18,7 +18,20 @@ Array.prototype.shuffle = function() {
     catalogGameRndDarkColors[rndPos] = tmpDark;
   }
   return this;
-}
+};
+
+/************************************************************/
+/* Color manager                                            */
+/************************************************************/
+var catalogHeaderDarkColor = new Array('c8r3_','c6r3_','c7r3_','c5r3_','c9r3_','c4r3_');
+var catalogHeaderColor = new Array('c8r2_','c6r2_','c7r2_','c5r2_','c9r2_','c4r2_');
+var catalogHeaderLightColor = new Array('c8r1_','c6r1_','c7r1_','c5r1_','c9r1_','c4r1_');
+catalogColorNames = new Array('blue','green','turquise','orange','purple','red');
+
+
+catalogGameRndDarkColors = catalogHeaderDarkColor.slice(0); 
+var catalogGameRndColors = catalogHeaderColor.slice(0);
+catalogGameRndColors.shuffle();
 
 
 
@@ -89,33 +102,147 @@ function resizewindow(){
 /************************************************************/
 /* GameBricks animations after Load Page                    */
 /************************************************************/
-$(window).load(function() {
-  $('.game_brick').each(function() {
+function addBricks() {
+  var root = null;
+  var firstTop = 0;
+  $('#games_wrapper > .game_brick').each(function() {
+    if (root===null){
+      root = $(this).parents('#games_wrapper');
+      firstTop = 0;//root.position().top;
+      //var x = root.find('.header_game_brick');
+      //alert(root.find('.header_game_brick'));
+      root.find('.header_game_brick').each(function(){
+        firstTop += $(this).height();
+      });
+      firstTop *= 1.15;
+    }
     var rowNumber = $(this).attr('data-row').split('/');
     var pushSize = $(this).width() * 0.03;
     var actualWindowWidth = $('#layers_wrapper').width();
     var pushBorder = rowNumber[1] * (((actualWindowWidth * 0.018) - pushSize) * rowNumber[2]);
-    var originalTop = (actualWindowWidth * 0.371) + (rowNumber[0] * (actualWindowWidth * 0.0788)) + parseInt(pushBorder);
+    var originalTop = /*(actualWindowWidth * 0.371)*/firstTop + (rowNumber[0] * (actualWindowWidth * 0.0788)) + parseInt(pushBorder);
     $(this)
       .css({ top : originalTop * ((rowNumber[0] + 6) * 0.15 )})
       .animate({ top : originalTop} , 1500);
-  })
+    var colorBrick = $(this).attr('data-color');
+    if (typeof colorBrick !== 'undefined' && colorBrick !== false) {
+      $(this).children('.bg_color_wrapper').addClass(catalogGameRndColors[colorBrick]+'bg');
+    }
+  });
+};
+
+var catalogCount = 0;
+
+function loadbricks(sc){
+  $.ajax({
+    url: './newCatalogBricks.xml?catno='+catalogCount,
+    complete: function(data, textStatus, jqXHR){
+      if (textStatus === 'success'){
+        $('#scrolling_layer').append(data.responseText);
+        resizewindow();
+        addBricks();
+
+        /************************************************************/
+        /* Gamebrick click                                          */
+        /************************************************************/
+        $('.game_brick').on({
+          click: function() {
+            if ($(this).hasClass('selected_brick')) {
+              // TODO : start to play trailer video
+              /*
+               $(this)
+               .css({ 
+               'z-index' : 0,
+               'border-color' : 'transparent' })
+               .removeClass('selected_brick content_shadow_reverse');
+               $(this).children('.play_trailer').removeClass('show_play_controll');
+               */
+            } else {
+              $('#games_wrapper > #hidden_details_box').remove();
+              $(this)
+                      .css({
+                'z-index': 1,
+                'border-color': '#ffffff'
+              })
+                      .addClass('selected_brick content_shadow_reverse')
+                      .siblings()
+                      .css({
+                'z-index': 0,
+                'border-color': 'transparent'
+              })
+                      .removeClass('selected_brick content_shadow_reverse');
+              $(this).children('.play_trailer').addClass('show_play_controll');
+              $(this).siblings().children('.play_trailer').removeClass('show_play_controll');
+              leftPos = ($(this).hasClass('right_side')) ? '18%' : '46%';
+              topPos = $(this).position().top - ($('.game_brick.onehalf_size').height() * 1.7);
+              parentTopMin = $('#games_wrapper').offset().top + $('#games_wrapper').height() * 0.45;
+              topPos = Math.min(topPos, parentTopMin);
+              bgColor = $(this).attr('data-color');
+              if (typeof bgColor !== 'undefined' && bgColor !== false) {
+                bgClass = catalogGameRndColors[bgColor] + 'bg';
+                bgUsrRate = catalogColorNames[bgColor];
+                bgDark = catalogGameRndDarkColors[bgColor] + 'bg';
+              } else {
+                bgrandomNum = Math.floor(Math.random() * catalogGameRndColors.length);
+                bgClass = catalogGameRndColors[bgrandomNum] + 'bg';
+                bgUsrRate = catalogColorNames[bgrandomNum];
+                bgDark = catalogGameRndDarkColors[bgrandomNum] + 'bg';
+              }
+              cloneElem = $('#hidden_details_box').clone();
+              dataElem = $(this).children('.game_details');
+              upperSection = cloneElem.children('.upper_section');
+              upperSection.children('.game_name').html(dataElem.attr('data-name'));
+              upperSection.children('.game_type').html(dataElem.attr('data-type'));
+              middleSection = cloneElem.children('.middle_section');
+              middleSection.find('.user_rating_vis').css('background-image', 'url(images/games_site/user_rating_' + bgUsrRate + '.png)');
+              middleSection.find('.user_rating_vis_bg').animate({width: ((80 / 5) * dataElem.attr('data-rating')) + '%'}, 500);
+              middleSection.find('.metascore_vis').html(dataElem.attr('data-metascore'));
+              middleSection.find('.content_vis').html(dataElem.attr('data-content'));
+              lowerSection = cloneElem.children('.lower_section');
+              lowerSection.find('.bundle_img').attr('src', 'images/games_site/game_bundle_' + bgUsrRate + '.png');
+              lowerSection.find('.game_bundle_vis').html('&#36;' + dataElem.attr('data-bundle'));
+              lowerSection.find('.togo_img').attr('src', 'images/games_site/game_togo_' + bgUsrRate + '.png');
+              lowerSection.find('.game_togo_vis').html('&#36;' + dataElem.attr('data-togo'));
+              buttonSection = cloneElem.children('.button_section');
+              buttonSection.find('a').each(function() {
+                $(this).addClass(bgDark);
+              });
+              closePosition = ($(this).hasClass('left_side')) ? 'right_close' : 'left_close';
+              cloneElem.find('.details_close')
+                      .attr('src', 'images/games_site/button_close_' + bgUsrRate + '.png')
+                      .addClass(closePosition + ' cloned_details');
+              cloneElem
+                      .css({
+                left: leftPos,
+                top: topPos,
+                display: 'block',
+                height: $('#layers_wrapper').width() * 0.34
+              })
+                      .addClass(bgClass)
+                      .appendTo('#games_wrapper');
+            }
+          }
+        });
+        
+        $('#games_wrapper').attr('id','games_wrapper'+catalogCount);
+        catalogCount++;
+        
+        if (sc){
+        var actualWindowHeight = $(window).height();
+          $('html, body').stop().animate({scrollTop: $(window).scrollTop() + actualWindowHeight}, 500);
+        }
+        
+      }
+    },
+    dataType: 'text'
+  });
+}
+
+$(window).load(function() {
+  loadbricks(false);
 });
 
 $(document).ready(function() {
-
-  /************************************************************/
-  /* Color manager                                            */
-  /************************************************************/
-  var catalogHeaderDarkColor = new Array('c8r3_','c6r3_','c7r3_','c5r3_','c9r3_','c4r3_');
-  var catalogHeaderColor = new Array('c8r2_','c6r2_','c7r2_','c5r2_','c9r2_','c4r2_');
-  var catalogHeaderLightColor = new Array('c8r1_','c6r1_','c7r1_','c5r1_','c9r1_','c4r1_');
-  catalogColorNames = new Array('blue','green','turquise','orange','purple','red');
-
-
-  catalogGameRndDarkColors = catalogHeaderDarkColor.slice(0); 
-  var catalogGameRndColors = catalogHeaderColor.slice(0);
-  catalogGameRndColors.shuffle();
 
   $('#catalog_menu').addClass(actualMenuColor);
   $('#catalog_header a').addClass(catalogHeaderDarkColor[randomNum]+'color');
@@ -128,12 +255,6 @@ $(document).ready(function() {
   $('.header_details_wrapper h2').addClass(catalogHeaderColor[randomNum]+'color');
   $('.header_details_wrapper p').addClass(catalogHeaderColor[randomNum]+'color');
   $('.header_details_wrapper img').attr('src','images/games_site/button_forward_dark_'+actualSystemColor+'.png')
-  $('.game_brick').each(function() {
-    var colorBrick = $(this).attr('data-color');
-    if (typeof colorBrick !== 'undefined' && colorBrick !== false) {
-      $(this).children('.bg_color_wrapper').addClass(catalogGameRndColors[colorBrick]+'bg');
-    }
-  })
 
   /************************************************************/
   /* User interactions                                        */
@@ -197,87 +318,17 @@ $(document).ready(function() {
 
   })
 
-  /************************************************************/
-  /* Gamebrick click                                          */
-  /************************************************************/
-  $('.game_brick').on({
-    click: function() {
-      if ($(this).hasClass('selected_brick')) {
-        // TODO : start to play trailer video
-        /*
-        $(this)
-          .css({ 
-            'z-index' : 0,
-            'border-color' : 'transparent' })
-          .removeClass('selected_brick content_shadow_reverse');
-        $(this).children('.play_trailer').removeClass('show_play_controll');
-        */
-      } else {
-        $('#games_wrapper > #hidden_details_box').remove();
-        $(this)
-          .css({
-            'z-index' : 1,
-            'border-color': '#ffffff'
-          })
-          .addClass('selected_brick content_shadow_reverse')
-          .siblings()
-            .css({
-              'z-index' : 0,
-              'border-color' : 'transparent'
-            })
-            .removeClass('selected_brick content_shadow_reverse');
-        $(this).children('.play_trailer').addClass('show_play_controll');
-        $(this).siblings().children('.play_trailer').removeClass('show_play_controll');
-        leftPos = ($(this).hasClass('right_side')) ? '18%' : '46%';
-        topPos = $(this).position().top - ($('.game_brick.onehalf_size').height() * 1.7);
-        parentTopMin = $('#games_wrapper').offset().top + $('#games_wrapper').height() * 0.45;
-        topPos = Math.min(topPos,parentTopMin);
-        bgColor = $(this).attr('data-color');
-        if (typeof bgColor !== 'undefined' && bgColor !== false) {
-          bgClass = catalogGameRndColors[bgColor]+'bg';
-          bgUsrRate = catalogColorNames[bgColor];
-          bgDark = catalogGameRndDarkColors[bgColor]+'bg';
-        } else {
-          bgrandomNum = Math.floor(Math.random()*catalogGameRndColors.length);
-          bgClass = catalogGameRndColors[bgrandomNum]+'bg';
-          bgUsrRate = catalogColorNames[bgrandomNum];
-          bgDark = catalogGameRndDarkColors[bgrandomNum]+'bg';
-        }
-        cloneElem = $('#hidden_details_box').clone();
-        dataElem = $(this).children('.game_details');
-        upperSection = cloneElem.children('.upper_section');
-        upperSection.children('.game_name').html(dataElem.attr('data-name'));
-        upperSection.children('.game_type').html(dataElem.attr('data-type'));
-        middleSection = cloneElem.children('.middle_section');
-        middleSection.find('.user_rating_vis').css('background-image','url(images/games_site/user_rating_'+bgUsrRate+'.png)');
-        middleSection.find('.user_rating_vis_bg').animate({ width : ((80 / 5) * dataElem.attr('data-rating')) + '%'}, 500);
-        middleSection.find('.metascore_vis').html(dataElem.attr('data-metascore') );
-        middleSection.find('.content_vis').html(dataElem.attr('data-content'));
-        lowerSection = cloneElem.children('.lower_section');
-        lowerSection.find('.bundle_img').attr('src','images/games_site/game_bundle_'+bgUsrRate+'.png');
-        lowerSection.find('.game_bundle_vis').html('&#36;'+dataElem.attr('data-bundle'));
-        lowerSection.find('.togo_img').attr('src','images/games_site/game_togo_'+bgUsrRate+'.png');
-        lowerSection.find('.game_togo_vis').html('&#36;'+dataElem.attr('data-togo'));
-        buttonSection = cloneElem.children('.button_section');
-        buttonSection.find('a').each(function() {
-          $(this).addClass(bgDark);
-        })
-        closePosition = ($(this).hasClass('left_side')) ? 'right_close' : 'left_close';
-        cloneElem.find('.details_close')
-          .attr('src','images/games_site/button_close_'+bgUsrRate+'.png')
-          .addClass(closePosition + ' cloned_details');
-        cloneElem
-          .css({ 
-            left : leftPos,
-            top : topPos,
-            display : 'block' ,
-            height : $('#layers_wrapper').width() * 0.34
-          })
-          .addClass(bgClass)
-          .appendTo('#games_wrapper');
+	$('#down_arrow').off("click");
+  $('#down_arrow').on({
+    click: function(event){
+      var actualWindowHeight = $(window).height();
+      var bodyHeight = $(document).height();
+      if ($(window).scrollTop() < bodyHeight - actualWindowHeight){
+        $('html, body').stop().animate({ scrollTop : bodyHeight - actualWindowHeight }, 2000);
+      }else{
+        loadbricks(true);
       }
     }
   });
-
 
 });
