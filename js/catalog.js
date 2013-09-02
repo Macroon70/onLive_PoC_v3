@@ -55,18 +55,19 @@ function resizewindow(){
   //$('#hidden_details_box').css({ height : $('#hidden_details_box').width() * 0.8 });
   //$('.cloned_details').css({ height : $('.cloned_details').width() * 0.8 });
   $('#games_wrapper > #hidden_details_box').each(function() {
-    console.log($(this));
     $(this).css({ height : $('#layers_wrapper').width() * 0.34 });
   });
   $('#catalog_header').css({ height : actualWindowWidth * 0.117 });
   $('#catalog_menu').css({ height : actualWindowWidth * 0.0488 });
   var rowsNum = $('#games_wrapper').attr('data-rows');
-  $('#games_wrapper').css({ height : (actualWindowWidth * 0.1 * rowsNum) + (actualWindowWidth * 0.06) });
 
   $('.header_game_brick').css({ 
     height: $('.header_game_brick').width() * 0.375,
     marginBottom: $('.header_game_brick').width() * 0.04
   });
+
+  $('#games_wrapper').css({ height : ($('.header_game_brick').width()*0.379) + (actualWindowWidth * 0.078 * rowsNum) + (actualWindowWidth * 0.06) });
+
 
   $('.game_brick').css({ height : $('.game_brick').width() * 0.36 });
   $('.game_brick.onehalf_size').css({ height : $('.game_brick').width() * 0.54 });
@@ -74,36 +75,58 @@ function resizewindow(){
   $('.game_brick').each(function() {
     var rowNumber = $(this).attr('data-row').split('/');
     var pushSize = $(this).width() * 0.03;
-    var pushBorder = rowNumber[1] * ((($('.game_brick.onehalf_size').height() * 0.08) - pushSize) * rowNumber[2]);
+    var fixPos = (actualWindowWidth * 0.371) + (rowNumber[0] * (actualWindowWidth * 0.081));
     $(this).css({ 
-      top : (actualWindowWidth * 0.371) + (rowNumber[0] * (actualWindowWidth * 0.0788)) + parseInt(pushBorder),
+      top : fixPos ,
       'border-width' : pushSize + 'px',
       'border-style' : 'solid',
       'border-color' : 'transparent'
     });
   })
+}
 
-
+/************************************************************/
+/* Colorize bricks                                          */
+/************************************************************/
+function colorizeBricks(minRow) {
+  $('.game_brick').each(function() {
+    var rowNumber = $(this).attr('data-row').split('/');
+    if (rowNumber[0] >= minRow) {
+      var colorBrick = $(this).attr('data-color');
+      if (typeof colorBrick !== 'undefined' && colorBrick !== false) {
+        $(this).children('.bg_color_wrapper').addClass(catalogGameRndColors[colorBrick]+'bg');
+      }
+    }
+  })
 }
 
 /************************************************************/
 /* GameBricks animations after Load Page                    */
 /************************************************************/
-$(window).load(function() {
+function brickAnim(minRow) {
   $('.game_brick').each(function() {
     var rowNumber = $(this).attr('data-row').split('/');
-    var pushSize = $(this).width() * 0.03;
-    var actualWindowWidth = $('#layers_wrapper').width();
-    var pushBorder = rowNumber[1] * (((actualWindowWidth * 0.018) - pushSize) * rowNumber[2]);
-    var originalTop = (actualWindowWidth * 0.371) + (rowNumber[0] * (actualWindowWidth * 0.0788)) + parseInt(pushBorder);
-    $(this)
-      .css({ top : originalTop * ((rowNumber[0] + 6) * 0.15 )})
-      .animate({ top : originalTop} , 1500);
+    if (rowNumber[0] >= minRow) {
+      var pushSize = $(this).width() * 0.03;
+      var actualWindowWidth = $('#layers_wrapper').width();
+      var originalTop = (actualWindowWidth * 0.371) + (rowNumber[0] * (actualWindowWidth * 0.081))
+      $(this)
+        .css({ top : originalTop + (((rowNumber[0] - ((catalogCount - 1) * 15)) + 6) * 200 )})
+        .animate({ top : originalTop} , 1500);
+    }
   })
+}
+
+catalogCount = 1;
+maxPage = 3;
+
+$(window).load(function() {
+  brickAnim(0);
 });
 
 $(document).ready(function() {
 
+  $(this).scrollTop(0);
   /************************************************************/
   /* Color manager                                            */
   /************************************************************/
@@ -114,7 +137,7 @@ $(document).ready(function() {
 
 
   catalogGameRndDarkColors = catalogHeaderDarkColor.slice(0); 
-  var catalogGameRndColors = catalogHeaderColor.slice(0);
+  catalogGameRndColors = catalogHeaderColor.slice(0);
   catalogGameRndColors.shuffle();
 
   $('#catalog_menu').addClass(actualMenuColor);
@@ -128,12 +151,7 @@ $(document).ready(function() {
   $('.header_details_wrapper h2').addClass(catalogHeaderColor[randomNum]+'color');
   $('.header_details_wrapper p').addClass(catalogHeaderColor[randomNum]+'color');
   $('.header_details_wrapper img').attr('src','images/games_site/button_forward_dark_'+actualSystemColor+'.png')
-  $('.game_brick').each(function() {
-    var colorBrick = $(this).attr('data-color');
-    if (typeof colorBrick !== 'undefined' && colorBrick !== false) {
-      $(this).children('.bg_color_wrapper').addClass(catalogGameRndColors[colorBrick]+'bg');
-    }
-  })
+  colorizeBricks(0);
 
   /************************************************************/
   /* User interactions                                        */
@@ -198,9 +216,9 @@ $(document).ready(function() {
   })
 
   /************************************************************/
-  /* Gamebrick click                                          */
+  /* Gamebrick click (dynamically check)                      */
   /************************************************************/
-  $('.game_brick').on({
+  $('#games_wrapper').on({
     click: function() {
       if ($(this).hasClass('selected_brick')) {
         // TODO : start to play trailer video
@@ -230,7 +248,9 @@ $(document).ready(function() {
         $(this).siblings().children('.play_trailer').removeClass('show_play_controll');
         leftPos = ($(this).hasClass('right_side')) ? '18%' : '46%';
         topPos = $(this).position().top - ($('.game_brick.onehalf_size').height() * 1.7);
-        parentTopMin = $('#games_wrapper').offset().top + $('#games_wrapper').height() * 0.45;
+        //parentTopMin = $('#games_wrapper').offset().top + $('#games_wrapper').height() * 0.98;
+        parentTopMin = $('#games_wrapper').height() - ($('.game_brick.onehalf_size').height() * 3);
+        console.log(parentTopMin + ' ? ' + topPos);
         topPos = Math.min(topPos,parentTopMin);
         bgColor = $(this).attr('data-color');
         if (typeof bgColor !== 'undefined' && bgColor !== false) {
@@ -276,8 +296,40 @@ $(document).ready(function() {
           .addClass(bgClass)
           .appendTo('#games_wrapper');
       }
-    }
-  });
+   }
+  },'.game_brick');
+
+  /************************************************************/
+  /* Loading more games                                       */
+  /************************************************************/
+  $(window).scroll(function(e) {
+    var elementHeight = $('#scrolling_layer').height(); 
+    var scrollPosition = document.getElementById('scrolling_layer').getBoundingClientRect();
+    if (elementHeight == Math.abs(parseInt(scrollPosition.top) - parseInt($(window).height()))) {
+      if (catalogCount + 1 <= maxPage) {
+        catalogCount++;
+        $('#games_wrapper').attr('data-rows',catalogCount * 16);          
+        resizewindow();
+        $.ajax({
+          url: './ajaxCatalog'+catalogCount+'.php',
+          data: { requestCatalog : catalogCount },
+          type: 'post',
+          success: function(data) {
+            $('#games_wrapper')
+              .append(data);
+            resizewindow();
+            colorizeBricks((catalogCount-1) * 15);
+            brickAnim((catalogCount-1) * 15);
+          },
+          error: function(xhr, error) {
+            --catalogCount;
+            $('#games_wrapper').attr('data-rows',catalogCount * 16);
+            //resizewindow();     
+          }
+        });
+      }
+    } 
+  })
 
 
 });

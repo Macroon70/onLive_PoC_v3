@@ -156,3 +156,89 @@
 	font-size: 1.5em;
 	line-height: 1.3em;
 }
+
+/************************************************************/
+/* Developer Connection template         									  */
+/************************************************************/
+#developer_wrapper * {
+	width: 80%;
+	position: relative;
+	float: left;
+}
+
+#developer_wrapper a {
+	position: relative;
+	float: none !important;
+	display: inline;
+	width: 30%;
+}
+
+#developer_wrapper p {
+	font-size: 1.5em;
+	line-height: 1.2em;
+}
+
+#developer_wrapper h3 {
+	margin-bottom: 4%;
+}
+
+#developer_wrapper h4 {
+	font-size: 1.3em !important;
+	margin-top: 5%;
+	margin-bottom: 1.5%;
+}
+
+#developer_wrapper h4.half_size {
+	margin-top: 0;
+	margin-left: 2%;
+	width: 38%;
+}
+
+#developer_wrapper p.half_size {
+	margin-left: 2%;
+	width: 38%;
+}
+
+.dev_headdesc {
+	font-size: 1.7em;
+	line-height: 1.2em;
+	width: 90%;
+	margin-bottom: 2%;
+}
+
+#developer_wrapper ul {
+	width: 46%;
+	margin-right: 3%;
+}
+
+#developer_wrapper li {
+}
+
+#developer_wrapper li img {
+	position: relative;
+	float: left;
+	width: 2%;
+	margin-top: 2.5%;
+}
+
+#developer_wrapper li p {
+	position: relative;
+	float: left;
+	margin-left: 4%;
+	width: 89%;
+	margin-bottom: 5%;
+}
+
+#caption_area {
+	margin-top: 4%;
+	margin-bottom: 5%;
+}
+
+#developer_wrapper .subhead {
+	margin-bottom: 5%;
+}
+
+#developer_wrapper .half_size {
+	width: 40%;
+}
+

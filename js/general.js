@@ -28,10 +28,12 @@ function resizewindow(){
   /************************************************************/
   /* Unique Values                                            */
   /************************************************************/  
-  $('#main_menu_area').css({ 
-    minHeight : actualWindowWidth * 0.6,
-    height : $('#main_content_area').height() * 1.2 });
+  var menuHeight = Math.max(actualWindowWidth * 0.6, $('#main_content_area').height() * 1.2 );
+  $('#main_menu_area').css({ height : menuHeight });
   $('#main_menu_area ul li.selected_menu').addClass('c5r2_imp');
+  $('#caption_area').height( actualWindowWidth * 0.2343);
+  $('#caption_subhead').height( actualWindowWidth * 0.1152);
+
 }
 
 
@@ -54,8 +56,12 @@ $(document).ready(function() {
         $('#main_content_area').fadeOut('fast', function() {
           $(this).empty();
           $('#'+actualTemplate).clone().appendTo($(this));
+          var wrapperHeight = Math.max($('#main_content_area').height() * 1.20, actualWindowWidth * 0.6);
           $('#main_content_wrapper').animate({
-            height: Math.max($('#main_content_area').height() * 1.20, actualWindowWidth * 0.6)},
+            height: wrapperHeight},
+            700 );
+          $('#main_menu_area').animate({
+            height: wrapperHeight},
             700 );
           $(this).fadeIn('fast');
         });
