@@ -147,6 +147,7 @@ function loadbricks(sc){
         /************************************************************/
         $('.game_brick').on({
           click: function() {
+            console.log('itt');
             if ($(this).hasClass('selected_brick')) {
               // TODO : start to play trailer video
               /*
@@ -158,7 +159,7 @@ function loadbricks(sc){
                $(this).children('.play_trailer').removeClass('show_play_controll');
                */
             } else {
-              $('#games_wrapper > #hidden_details_box').remove();
+              $('.games_wrapper > #hidden_details_box').remove();
               $(this)
                       .css({
                 'z-index': 1,
@@ -175,7 +176,7 @@ function loadbricks(sc){
               $(this).siblings().children('.play_trailer').removeClass('show_play_controll');
               leftPos = ($(this).hasClass('right_side')) ? '18%' : '46%';
               topPos = $(this).position().top - ($('.game_brick.onehalf_size').height() * 1.7);
-              parentTopMin = $('#games_wrapper').offset().top + $('#games_wrapper').height() * 0.45;
+              parentTopMin = $('.games_wrapper').offset().top + $('.games_wrapper').height() * 0.45;
               topPos = Math.min(topPos, parentTopMin);
               bgColor = $(this).attr('data-color');
               if (typeof bgColor !== 'undefined' && bgColor !== false) {
@@ -219,11 +220,11 @@ function loadbricks(sc){
                 height: $('#layers_wrapper').width() * 0.34
               })
                       .addClass(bgClass)
-                      .appendTo('#games_wrapper');
+                      .appendTo('.games_wrapper');
             }
           }
         });
-        
+
         $('#games_wrapper').attr('id','games_wrapper'+catalogCount);
         catalogCount++;
         
@@ -259,7 +260,6 @@ $(document).ready(function() {
   /************************************************************/
   /* User interactions                                        */
   /************************************************************/
-
   /************************************************************/
   /* Click on header menu                                     */
   /************************************************************/

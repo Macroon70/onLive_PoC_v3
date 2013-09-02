@@ -1,4 +1,4 @@
-<div id="games_wrapper" class="c2r1_bg" data-rows="16">
+<div id="games_wrapper" class="c2r1_bg games_wrapper" data-rows="16">
   <div class="content_margin_rel white_bg header_game_brick">
     <div class="bg_images header_gamepic"></div>
     <div class="header_details_wrapper">
