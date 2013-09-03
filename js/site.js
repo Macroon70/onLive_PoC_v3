@@ -8,6 +8,7 @@ function playerComplete(pa){
   $('#'+pa).parents('.playing_small_video').removeClass('playing_small_video');
 }
 
+
 function createPlayer(pa, se, oc){
   jwplayer(pa).setup($.extend({},{
     analytics: {"enabled": false},
@@ -25,6 +26,9 @@ function createPlayer(pa, se, oc){
     stretching: "uniform",
     width: "100%"
   },se));
+  jwplayer(pa).onPlay(function() {
+    $('body .jwfullscreen').remove();
+  });  
   if (oc != null){
     jwplayer(pa).onComplete(function(){oc(pa);});
   }

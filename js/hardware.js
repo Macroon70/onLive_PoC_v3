@@ -30,7 +30,6 @@ function resizewindow(){
   $('#footer_logo').css({ height : $('#footer_logo').width() * 0.272 });
 
   $('#parallax_layer').css({ height : $('#scrolling_layer').height()});
-  $('#video_layer').css({ height : $(document).height() * 2});
   $('#parallax_wrapper').css({ height : $('#scrolling_layer').height() * 2});
 
   /************************************************************/
@@ -59,6 +58,8 @@ function resizewindow(){
   $('#fifth_screen').css({ height : actualWindowWidth * 0.371 });
 
   $('#parallax_first_headline').css({ height : $('#parallax_first_headline').width() * 0.31 });
+  $('#video_layer').css({ height : $('#scrolling_layer').height()});
+
 }
 
 
@@ -101,7 +102,7 @@ $(document).ready(function($) {
   /************************************************************/
   $('#down_arrow').on({
     click: function() {
-      sectionOffsets[0] = ($('#main_screen').height() * 0.94) + $('#second_screen').height();
+      sectionOffsets[0] = ($('#main_screen').height() * 1.09);
       sectionOffsets[1] = sectionOffsets[0] + $('#second_screen').height();
       sectionOffsets[2] = sectionOffsets[1] + $('#third_screen').height();
       sectionOffsets[3] = sectionOffsets[2] + $('#forth_screen').height();

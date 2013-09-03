@@ -76,7 +76,7 @@ function playingTrailer(elem) {
     .offset(elemOffset)
     .append(videoElem);
   $('body').append(playingElem);
-  createPlayer("video_player", $.extend({}, plm, {autostart: true, repeat: true, mute: false, controls: true}));    
+  createPlayer("video_player", $.extend({}, plm, {autostart: true, repeat: false, mute: false, controls: true}));    
   $(playingElem).animate({
     width: '60%',
     height: $('body').width() * 0.6 * 0.5625,
@@ -122,7 +122,8 @@ $('html').on({
 $(document).ready(function($) {
   $('#play_trailer').on({
     click: function() {
-      playingTrailer($(this));
+      if ($('body #trailer_player').length == 0)
+        playingTrailer($(this));
     }
   }) 
 });
