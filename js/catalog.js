@@ -117,13 +117,94 @@ function brickAnim(minRow) {
   })
 }
 
+/************************************************************/
+/* PlayingTrailer                                           */
+/************************************************************/
+function playingTrailer(elem) {
+  elemOffset = elem.offset();
+  elemOffset.top += elem.width() * 0.03;
+  elemOffset.left += elem.width() * 0.03;
+  playingElem = $(elem.children('.sub_brick').clone(true));
+  dataElem = $(elem.children('.play_trailer'));
+  var plm =  {playlist:
+      [{
+          image: "./images/games_site/welcome/gamepic_dirt3_headline.png",
+          sources: [
+            {file: "http://www.liandesign.hu/onLive_v3/media/"+dataElem.attr('data-videoname')+".mp4"},
+            {file: "http://www.liandesign.hu/onLive_v3/media/Dirt3_01.oggtheora.ogv"}
+          ]
+      }]};
+  videoElem = $('<div/>').attr('id','video_player');
+  $(playingElem)
+    .attr('id','trailer_player')
+    .css({
+      position: 'absolute',
+      width: elem.width(),
+      height: elem.height(),
+      'z-index': 10 })
+    .offset(elemOffset)
+    .append(videoElem);
+  $('body').append(playingElem);
+  createPlayer("video_player", $.extend({}, plm, {autostart: true, repeat: true, mute: false, controls: true}));    
+  $(playingElem).animate({
+    width: '60%',
+    height: '59%',
+    left: '20%',
+    top: $(document).scrollTop() + ($(window).innerHeight() * 0.21) },
+    300, function() {
+      $(this).addClass('content_shadow');
+      playingBg = $('<div/>', { id: 'trailer_bg', class: 'black_bg' });
+      $(playingBg)
+        .css({
+          position: 'absolute',
+          width: $(window).innerWidth(),
+          height: $(window).innerHeight(),
+          left: 0,
+          top: $(document).scrollTop(),
+          'opacity': '0.8',
+          'z-index': 9 });
+      $('body')
+        .append(playingBg)
+        .css({ 'overflow' : 'hidden' });
+  });
+}
+
+$('html').on({
+  click: function() {
+    $(this).remove();
+    $('body').css({ 'overflow' : 'visible' });
+    parentElem = $('.show_play_controll').parent();
+    parentOffsets = $(parentElem).offset();
+    parentOffsets.left += parentElem.width() * 0.03;
+    parentOffsets.top += parentElem.height() * 0.03;
+    $('#trailer_player').removeClass('content_shadow').animate({
+      width: parentElem.width(),
+      height: parentElem.height(),
+      left: parentOffsets.left,
+      top: parentOffsets.top },
+      300, function() {
+        $(this).remove();
+    });
+  }
+}, '#trailer_bg');
+
+
+/************************************************************/
+/* Catalog defaults                                         */
+/************************************************************/
 catalogCount = 1;
 maxPage = 3;
 
+/************************************************************/
+/* Window onLoad                                            */
+/************************************************************/
 $(window).load(function() {
   brickAnim(0);
 });
 
+/************************************************************/
+/* Document ready                                           */
+/************************************************************/
 $(document).ready(function() {
 
   $(this).scrollTop(0);
@@ -221,15 +302,8 @@ $(document).ready(function() {
   $('#games_wrapper').on({
     click: function() {
       if ($(this).hasClass('selected_brick')) {
-        // TODO : start to play trailer video
-        /*
-        $(this)
-          .css({ 
-            'z-index' : 0,
-            'border-color' : 'transparent' })
-          .removeClass('selected_brick content_shadow_reverse');
-        $(this).children('.play_trailer').removeClass('show_play_controll');
-        */
+        if ($(this).children('.play_trailer').length > 0)
+          playingTrailer($(this));
       } else {
         $('#games_wrapper > #hidden_details_box').remove();
         $(this)
@@ -248,9 +322,7 @@ $(document).ready(function() {
         $(this).siblings().children('.play_trailer').removeClass('show_play_controll');
         leftPos = ($(this).hasClass('right_side')) ? '18%' : '46%';
         topPos = $(this).position().top - ($('.game_brick.onehalf_size').height() * 1.7);
-        //parentTopMin = $('#games_wrapper').offset().top + $('#games_wrapper').height() * 0.98;
         parentTopMin = $('#games_wrapper').height() - ($('.game_brick.onehalf_size').height() * 3);
-        console.log(parentTopMin + ' ? ' + topPos);
         topPos = Math.min(topPos,parentTopMin);
         bgColor = $(this).attr('data-color');
         if (typeof bgColor !== 'undefined' && bgColor !== false) {

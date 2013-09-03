@@ -463,11 +463,13 @@ li > a {
 	width: 100%;
 }
 
+.game_brick.right_info .play_trailer,
 .game_brick.right_info .sub_brick,
 .game_brick.left_info .bg_color_wrapper {
 	left: 0;
 }
 
+.game_brick.left_info .play_trailer,
 .game_brick.right_info .bg_color_wrapper,
 .game_brick.left_info .sub_brick {
 	right: 0;

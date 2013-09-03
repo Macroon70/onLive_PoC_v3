@@ -1,3 +1,6 @@
+/************************************************************/
+/* Functions                                                */
+/************************************************************/
 function resizewindow(){
 
   var actualWindowWidth = $('#layers_wrapper').width();
@@ -27,6 +30,7 @@ function resizewindow(){
   $('#footer_logo').css({ height : $('#footer_logo').width() * 0.272 });
 
   $('#parallax_layer').css({ height : $('#scrolling_layer').height()});
+  $('#video_layer').css({ height : $(document).height() * 2});
   $('#parallax_wrapper').css({ height : $('#scrolling_layer').height() * 2});
 
   /************************************************************/
@@ -55,7 +59,56 @@ function resizewindow(){
   $('#fifth_screen').css({ height : actualWindowWidth * 0.371 });
 
   $('#parallax_first_headline').css({ height : $('#parallax_first_headline').width() * 0.31 });
-
-
 }
+
+
+/************************************************************/
+/* Document Ready                                           */
+/************************************************************/
+$(document).ready(function($) {
+
+  /************************************************************/
+  /* User interactions - Features                             */
+  /************************************************************/
+  $('#features_wrapper h3').on({
+    mouseover: function() {
+      var ringsName = $(this).attr('data-ringname');
+      $(this)
+        .addClass('c5r2_imp')
+        .siblings()
+          .removeClass('c5r2_imp');
+      $('#featurerings_wrapper div.'+ringsName).stop().animate({ opacity : 1 },300);
+      $('#featurerings_wrapper div:not(.'+ringsName+')').stop().animate({ opacity : 0 },300);
+    }
+  });
+
+  $('.fring').on({
+    mouseover: function() {
+      if ($(this).css('opacity') == 0) {
+        var ringsName = $(this).attr('data-ringname');
+        $('#featurerings_wrapper div.'+ringsName).stop().animate({ opacity : 1 },300);
+        $('#featurerings_wrapper div:not(.'+ringsName+')').stop().animate({ opacity : 0 },300);
+        $('#features_wrapper h3.'+ringsName)
+          .addClass('c5r2_imp')
+          .siblings()
+            .removeClass('c5r2_imp');
+      }
+    }
+  });
+
+  /************************************************************/
+  /* Initialize small video resources                         */
+  /************************************************************/
+  var plm =  {playlist:
+      [{
+          image: "./images/games_site/welcome/gamepic_dirt3_headline.png",
+          sources: [
+            {file: "http://www.liandesign.hu/onLive_v3/media/Dirt3_01.640.mp4"},
+            {file: "http://www.liandesign.hu/onLive_v3/media/Dirt3_01.oggtheora.ogv"}
+          ]
+      }]};
+
+  createPlayer("main_video_ply", $.extend({}, plm, {autostart: true, repeat: true, mute: true}));
+
+});
 

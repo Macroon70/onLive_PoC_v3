@@ -13,6 +13,14 @@
 	background-color: #ffffff;
 }
 
+.white_imp {
+	color: #ffffff !important;
+}
+
+.white_bg_imp {
+	background-color: #ffffff !important;
+}
+
 .black {
 	color: #000000;
 }

@@ -8,7 +8,8 @@
 		data-content="M"
 		data-bundle="9.99"
 		data-togo="39.99"
-		data-morelink="details.html/bioshock_infinite">
+		data-morelink="details.html/bioshock_infinite"
+		data-videoname="Dirt3_01.640">
 	</div>
 </div>
 <div data-row="15" data-color="0" class="content_margin_rel game_brick right_side left_info info_brick">

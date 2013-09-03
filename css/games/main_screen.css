@@ -147,14 +147,16 @@
 }
 
 #main_screen_signup {
-	bottom: 16.3%;
+	bottom: 16.3% !important;
 	width: 13.48%;
 	left: 4%;
 	height: 11.63%;
 	z-index: 3;
 }
 
-#main_screen_signup .divider_button {
+#main_screen_signup img {
+	position: absolute;
+	bottom: -35%;
 	right: -15%;
 }
 
@@ -196,7 +198,6 @@
 #main_footer_content > p {
 	text-align: left;
 	line-height: 5.5em;
-
 }
 
 .slider_wrappers {
@@ -249,16 +250,8 @@
 	visibility: hidden;
 }
 
-.device_button.white a {
+.device_button.white_color a {
 	visibility: visible !important;
-}
-
-.device_button.white > p {
-	color: #ffffff;
-}
-
-.device_button:hover > p {
-	color: #ffffff;
 }
 
 .menu_mobile_devices {
@@ -278,7 +271,6 @@
 /************************************************************/
 
 #second_screen {
-	background-color: #ffffff;
 	height: auto;
 	z-index: 1;
 }
@@ -309,7 +301,6 @@
 
 #second_screen h3 {
 	margin-top: 4%;
-	color: #000000;
 }
 
 #second_screen p {
@@ -426,7 +417,6 @@
 #box_spectatle > h3 {
 	font-family: 'aktiv_grotesklight';
 	margin-top: 4%;
-	color: #ffffff;
 }
 
 #box_spectatle > p {

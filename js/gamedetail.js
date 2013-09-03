@@ -50,3 +50,79 @@ function resizewindow(){
   $('.related_game').css({ height : $('.related_game').width() * 0.56 });
 
 }
+
+/************************************************************/
+/* PlayingTrailer                                           */
+/************************************************************/
+function playingTrailer(elem) {
+  elemOffset = elem.offset();
+  playingElem = $(elem.clone(true));
+  var plm =  {playlist:
+      [{
+          image: "./images/games_site/welcome/gamepic_dirt3_headline.png",
+          sources: [
+            {file: "http://www.liandesign.hu/onLive_v3/media/"+elem.attr('data-videoname')+".mp4"},
+            {file: "http://www.liandesign.hu/onLive_v3/media/Dirt3_01.oggtheora.ogv"}
+          ]
+      }]};
+  videoElem = $('<div/>').attr('id','video_player');
+  $(playingElem)
+    .attr('id','trailer_player')
+    .css({
+      position: 'absolute',
+      width: elem.width(),
+      height: elem.height(),
+      'z-index': 10 })
+    .offset(elemOffset)
+    .append(videoElem);
+  $('body').append(playingElem);
+  createPlayer("video_player", $.extend({}, plm, {autostart: true, repeat: true, mute: false, controls: true}));    
+  $(playingElem).animate({
+    width: '60%',
+    height: '59%',
+    left: '20%',
+    top: $(document).scrollTop() + ($(window).innerHeight() * 0.21) },
+    300, function() {
+      $(this).addClass('content_shadow');
+      playingBg = $('<div/>', { id: 'trailer_bg', class: 'black_bg' });
+      $(playingBg)
+        .css({
+          position: 'absolute',
+          width: $(window).innerWidth(),
+          height: $(window).innerHeight(),
+          left: 0,
+          top: $(document).scrollTop(),
+          'opacity': '0.8',
+          'z-index': 9 });
+      $('body')
+        .append(playingBg)
+        .css({ 'overflow' : 'hidden' });
+  });
+}
+
+$('html').on({
+  click: function() {
+    $(this).remove();
+    $('body').css({ 'overflow' : 'visible' });
+    parentElem = $('#play_trailer');
+    parentOffsets = $(parentElem).offset();
+    parentOffsets.left += parentElem.width() * 0.03;
+    parentOffsets.top += parentElem.height() * 0.03;
+    $('#trailer_player').removeClass('content_shadow').animate({
+      width: parentElem.width(),
+      height: parentElem.height(),
+      left: parentOffsets.left,
+      top: parentOffsets.top },
+      300, function() {
+        $(this).remove();
+    });
+  }
+}, '#trailer_bg');
+
+$(document).ready(function($) {
+  $('#play_trailer').on({
+    click: function() {
+      playingTrailer($(this));
+    }
+  }) 
+});

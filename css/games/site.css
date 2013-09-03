@@ -35,6 +35,11 @@ a {
 	text-decoration: none;
 	width: auto;
 	height: auto;
+	cursor: pointer;
+}
+
+a * {
+	cursor: pointer !important;
 }
 
 img {
@@ -50,6 +55,7 @@ h1 {
 	text-align: left;
 	line-height: 0.85em;
 	letter-spacing: -0.0em;
+	cursor: default;
 }
 
 h2 {
@@ -59,7 +65,7 @@ h2 {
 	font-size: 2.7em;
 	text-align: left;
 	line-height: 1.3em;
-	color: #ffffff;
+	cursor: default;
 }
 
 h3 {
@@ -69,6 +75,7 @@ h3 {
 	text-align: left;
 	color: #ffffff;
 	font-weight: normal;
+	cursor: default;
 }
 
 p {
@@ -76,6 +83,7 @@ p {
 	font-size: 1.9em;
 	text-align: left;
 	color: #ffffff;
+	cursor: default;
 }
 
 /************************************************************/
@@ -340,7 +348,6 @@ p {
 
 .big_avatar_table p {
 	text-align: left;
-	color: #ffffff;
 }
 
 .big_avatar_table > p {
@@ -390,7 +397,6 @@ p {
 
 .info_avatar_table p {
 	text-align: left;
-	color: #ffffff;
 }
 
 .info_avatar_table div,
@@ -498,7 +504,6 @@ p {
 #menu_system_main p {
 	width: 100%;
 	text-align: right;
-	color: #ffffff;
 	font-size: 3.0em;
 	opacity: 0.6;
 	line-height: 1.1em;
@@ -528,7 +533,6 @@ p {
 #menu_system_footer p {
 	width: 100%;
 	text-align: right;
-	color: #ffffff;
 	font-size: 1.2em;
 	opacity: 0.6;
 	line-height: 2.5em;
@@ -583,7 +587,6 @@ p {
 
 #video_layer {
 	position: absolute;
-	background-color: #000000;
 	top: 0;
 	z-index: 0;
 	width: 100%;
@@ -649,7 +652,6 @@ p {
 
 .footer_box > h3 {
 	margin-top: 6%;
-	color: #000000;
 }
 
 .footer_box > p {
@@ -708,24 +710,13 @@ p {
 	position: relative;
 	display: block;
 	float: left;
-	color: #484F57;
 	font-size: 2.2em;
 	line-height: 1.8em;
 	width: 25%;
 	margin: 1% 0 1% 0;
 }
 
-#link_wrapper > a:hover {
-	color: #ffffff;
-}
-
-#link_wrapper > a:hover > img{
-	background-color: #ffffff;
-}
-
-
 #link_wrapper img {
-	background-color: #484F57;
 	position: relative;
 	float: left;
 	display: block;
@@ -745,7 +736,6 @@ p {
 
 #footer_logo > p {
 	text-align: right;
-	color: #ffffff;
 	font-size: 3.5em;
 	line-height: 1.3em;
 }
