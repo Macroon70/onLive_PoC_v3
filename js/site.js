@@ -44,6 +44,22 @@ function setHamburgerPosition() {
 	}		
 }
 
+/************************************************************/
+/* Down button breakpoints                                  */
+/************************************************************/
+function moveToNextBreakpoint() {
+  var scrollingLayerOffsets = document.getElementById('scrolling_layer').getBoundingClientRect();
+  if ($(window).scrollTop() + $(window).height() == $(document).height()) {
+    $('html, body').stop().animate({ scrollTop : 0 }, 1000);
+  } else {
+    for (var i = 0; i <= sectionOffsets.length; i++) {
+      if (sectionOffsets[i] - $(window).height() * 1.01 > Math.abs(scrollingLayerOffsets.top)) {
+        $('html, body').stop().animate({ scrollTop : sectionOffsets[i] - $(window).height()}, 2000);
+        break;
+      }
+    }
+  }
+}
 
 /************************************************************/
 /* Window onLoad                                            */
@@ -177,6 +193,31 @@ $(document).ready(function() {
 			$('#menu_screen').animate({ right : '-130%'}, 300);
 		}
 	});
+
+  /************************************************************/
+  /* User interactions - Down button                           */
+  /************************************************************/
+  $('#down_arrow').on({
+    click: function() {
+      var scrollingLayerOffsets = document.getElementById('scrolling_layer').getBoundingClientRect();
+      if ($(window).scrollTop() + $(window).height() == $(document).height()) {
+        $('html, body').stop().animate({ scrollTop : 0 }, 1000);
+      } else {
+        sectionOffsets[0] = $('#main_screen').height() * 1.1;
+        sectionOffsets[1] = sectionOffsets[0] + $('#second_screen').height();
+        sectionOffsets[2] = sectionOffsets[1] + $('#third_screen').height();
+        sectionOffsets[3] = sectionOffsets[2] + $('#forth_screen').height();
+        sectionOffsets[4] = sectionOffsets[3] + $('#fifth_screen').height();
+        sectionOffsets[5] = $('#scrolling_layer').height();
+        for (var i = 0; i <= sectionOffsets.length; i++) {
+          if (sectionOffsets[i] - $(window).height() * 1.01 > Math.abs(scrollingLayerOffsets.top)) {
+            $('html, body').stop().animate({ scrollTop : sectionOffsets[i] - $(window).height()}, 2000);
+            break;
+          }
+        }
+      }
+    }
+  });  
 
 	/************************************************************/
 	/* User interactions - Global click events listener         */

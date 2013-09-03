@@ -79,9 +79,9 @@ function playingTrailer(elem) {
   createPlayer("video_player", $.extend({}, plm, {autostart: true, repeat: true, mute: false, controls: true}));    
   $(playingElem).animate({
     width: '60%',
-    height: '59%',
+    height: $('body').width() * 0.6 * 0.5625,
     left: '20%',
-    top: $(document).scrollTop() + ($(window).innerHeight() * 0.21) },
+    top: $(document).scrollTop() + ($(window).innerHeight() * 0.17) },
     300, function() {
       $(this).addClass('content_shadow');
       playingBg = $('<div/>', { id: 'trailer_bg', class: 'black_bg' });

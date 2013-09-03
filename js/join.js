@@ -40,6 +40,21 @@ function resizewindow(){
 }
 
 $(document).ready(function() {
+
+  /************************************************************/
+  /* User interactions - Down button                           */
+  /************************************************************/
+  $('#down_arrow').on({
+    click: function() {
+      sectionOffsets[0] = $('#main_header').height() * 2;
+      sectionOffsets[1] = $('#scrolling_layer').height();
+      moveToNextBreakpoint();
+    }
+  });
+
+  /************************************************************/
+  /* User interactions - Input boxes                          */
+  /************************************************************/
   $('.input_box').on({
     click: function() {
       var childUl = $(this).children('ul');
@@ -61,6 +76,9 @@ $(document).ready(function() {
     }
   });
 
+  /************************************************************/
+  /* User interactions - Join now                             */
+  /************************************************************/
   $('#join_now_button').on({
     click: function() {
       return false;

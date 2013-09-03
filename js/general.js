@@ -39,6 +39,19 @@ function resizewindow(){
 
 $(document).ready(function() {
 
+  /************************************************************/
+  /* User interactions - Down button                           */
+  /************************************************************/
+  $('#down_arrow').on({
+    click: function() {
+      sectionOffsets[0] = $('#scrolling_layer').height();
+      moveToNextBreakpoint();
+    }
+  });
+
+  /************************************************************/
+  /* User interactions - Menu                                 */
+  /************************************************************/
   $('#main_menu_area ul li').on({ 
     mouseover: function() {
       $(this).addClass('c5r2_imp');

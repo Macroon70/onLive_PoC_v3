@@ -97,6 +97,22 @@ $(document).ready(function($) {
   });
 
   /************************************************************/
+  /* User interactions - Down button                           */
+  /************************************************************/
+  $('#down_arrow').on({
+    click: function() {
+      sectionOffsets[0] = ($('#main_screen').height() * 0.94) + $('#second_screen').height();
+      sectionOffsets[1] = sectionOffsets[0] + $('#second_screen').height();
+      sectionOffsets[2] = sectionOffsets[1] + $('#third_screen').height();
+      sectionOffsets[3] = sectionOffsets[2] + $('#forth_screen').height();
+      sectionOffsets[4] = sectionOffsets[3] + $('#fifth_screen').height();
+      sectionOffsets[5] = $('#scrolling_layer').height();
+      moveToNextBreakpoint();
+    }
+  });
+
+
+  /************************************************************/
   /* Initialize small video resources                         */
   /************************************************************/
   var plm =  {playlist:

@@ -215,22 +215,12 @@ $(document).ready(function() {
   /************************************************************/
   $('#down_arrow').on({
     click: function() {
-      var scrollingLayerOffsets = document.getElementById('scrolling_layer').getBoundingClientRect();
-      if ($(window).scrollTop() + $(window).height() == $(document).height()) {
-        $('html, body').stop().animate({ scrollTop : 0 }, 1000);
-      } else {
-        sectionOffsets[0] = $('#main_screen').height() + $('#main_screen_footer').height();
-        sectionOffsets[1] = sectionOffsets[0] + $('.normal_brick').height() + $(window).height();
-        sectionOffsets[2] = sectionOffsets[1] + $('#third_screen').height() + $('.normal_brick').height();
-        sectionOffsets[3] = sectionOffsets[2] + $('#main_screen').height() * 2 + $('.normal_brick').height();
-        sectionOffsets[4] = $('#scrolling_layer').height();
-        for (var i = 0; i <= sectionOffsets.length; i++) {
-          if (sectionOffsets[i] - $(window).height() > Math.abs(scrollingLayerOffsets.top)) {
-            $('html, body').stop().animate({ scrollTop : sectionOffsets[i] - $(window).height()}, 2000);
-            break;
-          }
-        }
-      }
+      sectionOffsets[0] = $('#main_screen').height() + $('#main_screen_footer').height();
+      sectionOffsets[1] = sectionOffsets[0] + $('.normal_brick').height() + $(window).height();
+      sectionOffsets[2] = sectionOffsets[1] + $('#third_screen').height() + $('.normal_brick').height();
+      sectionOffsets[3] = sectionOffsets[2] + $('#main_screen').height() * 2 + $('.normal_brick').height();
+      sectionOffsets[4] = $('#scrolling_layer').height();
+      moveToNextBreakpoint();
     }
   });
 
