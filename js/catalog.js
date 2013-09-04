@@ -25,10 +25,19 @@ Array.prototype.shuffle = function() {
 /************************************************************/
 /* Resize Values                                            */
 /************************************************************/
+var previousWindowWidth = -1;
 function resizewindow(){
 
   actualWindowWidth = $('#layers_wrapper').width();
   var actualWindowHeight = $(this).height();
+
+  /************************************************************/
+  /* Recalculate Scroll Stop Values                           */
+  /************************************************************/
+  for(var i=0; i<sectionOffsets.length; i++){
+    sectionOffsets[i] = sectionOffsets[i] * actualWindowWidth / previousWindowWidth;
+  }
+  previousWindowWidth = actualWindowWidth;
 
   /************************************************************/
   /* Common Values                                            */
@@ -207,6 +216,7 @@ maxPage = 4;
 /************************************************************/
 $(window).load(function() {
   brickAnim(0);
+  sectionOffsets.push($('#games_wrapper').height() + ($('#catalog_header').height() * 1.5));
 });
 
 /************************************************************/
@@ -215,6 +225,7 @@ $(window).load(function() {
 $(document).ready(function() {
 
   $(this).scrollTop(0);
+  previousWindowWidth = Math.max(parseInt($('#layers_wrapper').css('min-width')), Math.min(parseInt($('#layers_wrapper').css('max-width')),$(window).width()));
   /************************************************************/
   /* Color manager                                            */
   /************************************************************/
@@ -402,7 +413,6 @@ $(document).ready(function() {
   /************************************************************/
   $('#down_arrow').on({
     click: function() {
-      sectionOffsets[0] = $('#games_wrapper').height() + ($('#catalog_header').height() * 5);
       moveToNextBreakpoint();
     }
   });
@@ -437,6 +447,7 @@ $(document).ready(function() {
             resizewindow();
             colorizeBricks((catalogCount-1) * 15);
             brickAnim((catalogCount-1) * 15);
+            sectionOffsets.push($('#games_wrapper').height() + ($('#catalog_header').height() * 1.5));
           },
           error: function(xhr, error) {
             $('#footer_screen').css({ 'display' : 'block' });            
@@ -444,6 +455,7 @@ $(document).ready(function() {
               .attr('data-rows',--catalogCount * 16)
               .animate({ height : ($('.header_game_brick').width()*0.379) + (actualWindowWidth * 0.078 * (catalogCount * 16)) + (actualWindowWidth * 0.06) },1000);
             catalogCount = maxPage;
+            sectionOffsets.push(($('.header_game_brick').width()*0.379) + (actualWindowWidth * 0.078 * (catalogCount * 16)) + (actualWindowWidth * 0.06) + ($('#catalog_header').height() * 1.5));
           }
         });
       }
