@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Games - onLive (PoC)</title>
+	<link rel="icon" href="" type="image/x-icon"/>	
+	<meta charset="utf-8">	
+	<meta name="viewport" content="initial-scale=0.5,user-scalable=no,maximum-scale=0.5,width=device-width">	
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <script type="text/javascript" src="js/player.js"></script>	
+  <script type="text/javascript">jwplayer.key = "EcHWjL0bMZsdo8QE0vv5IpN4yF2kjo0m";</script>
+	<script src="js/site.js" type="text/javascript"></script>
+	<script src="js/catalog.js" type="text/javascript"></script>
+	<!-- <script src="webfontkit/specimen_files/easytabs.js" type="text/javascript" charset="utf-8"></script> -->
+	<link rel="stylesheet" href="webfontkit/specimen_files/specimen_stylesheet.css" type="text/css"/>
+	<link rel="stylesheet" href="webfontkit/stylesheet.css?v=1" type="text/css"/>	
+	<link href="css/games/site.css" rel="stylesheet" type="text/css"/>
+	<link href="css/games/catalog.css" rel="stylesheet" type="text/css"/>
+	<link href="css/games/site_constants.css" rel="stylesheet" type="text/css"/>
+</head>
+<body class="noselect">
+<div id="hidden_details_box">
+	<div class="upper_section">
+		<h3 class="game_name"></h3>
+		<p class="game_type detail_txt"><p>
+	</div>
+	<div class="middle_section">
+		<div class="precache_imgs">
+			<img src="images/games_site/user_rating_red.png" alt=""/>
+			<img src="images/games_site/user_rating_orange.png" alt=""/>
+			<img src="images/games_site/user_rating_blue.png" alt=""/>
+			<img src="images/games_site/user_rating_turquise.png" alt=""/>
+			<img src="images/games_site/user_rating_purple.png" alt=""/>
+			<img src="images/games_site/user_rating_green.png" alt=""/>
+		</div>
+		<div class="sub_middle">
+			<p class="user_rating_txt detail_txt">USER RATING</p>
+			<div class="user_rating_vis_opacity">&nbsp;</div>
+			<div class="user_rating_vis_bg white_bg">&nbsp;</div>
+			<div class="user_rating_vis bg_images">&nbsp;</div>
+		</div>
+		<div class="sub_middle">
+			<p class="metascore_txt detail_txt">METASCORE</p>
+			<p class="metascore_vis value_txt"></p>
+		</div>
+		<div class="sub_middle">
+			<p class="content_txt detail_txt">CONTENT</p>
+			<p class="content_vis value_txt"></p>
+		</div>
+	</div>
+	<div class="lower_section">
+		<div class="sub_lower">
+			<p class="game_bundle_txt detail_txt">GAME BUNDLE</p>
+			<img class="bundle_img" src="" alt=""/>
+			<p class="game_bundle_vis value_txt"></p>
+			<p class="month_text">&nbsp;/&nbsp;MO</p>
+		</div>
+		<div class="sub_lower">
+			<p class="game_togo_txt detail_txt">GAME TO GO</p>
+			<img class="togo_img" src="" alt=""/>
+			<p class="game_togo_vis value_txt"></p>
+		</div>
+	</div>
+	<div class="button_section">
+		<a href="#"><p>TRY FREE</p></a>
+		<a href="gamedetail.html"><p>MORE DETAILS</p></a>
+	</div>
+	<img class="details_close" src="" alt=""/>
+</div>
+<div id="controllers_wrapper">
+	<div id="menu_hamburger" class="bg_images"></div>
+	<div id="down_arrow" class="bg_images"></div>
+	<div id="menu_screen">
+		<div id="menu_close_button" class="bg_images"></div>
+		<div id="menu_system_main">
+			<a href="index.html"><p>WELCOME</p></a>
+			<a href="catalog.html"><p class="active_main_menu">GAMES</p></a>
+			<a href="hardware.html"><p>HARDWARE</p></a>
+			<a href="join.html"><p>JOIN</p></a>
+			<a href="login.html"><p>LOGIN</p></a>
+		</div>
+		<div id="menu_system_footer">
+			<a href="generaltemplate.html"><p>About</p></a>
+			<a href="generaltemplate.html"><p>Support</p></a>
+			<a href="generaltemplate.html"><p>Carreers</p></a>
+			<a href="generaltemplate.html"><p>Developers</p></a>
+			<a href="generaltemplate.html"><p>Contact</p></a>
+			<a href="generaltemplate.html"><p>Blog</p></a>
+		</div>
+		<div id="menu_logo_transparent" class="bg_images"></div>
+	</div>
+</div>
+<div id="layers_wrapper" class="content_shadow">
+	<div id="video_layer">
+		<div id="video_sizer">
+	    <div id="botr_7Wi9qfSk_GjAHfwUI_div" style="width: 100%; height: 100%"></div>
+	  </div>
+	</div>
+	<div id="scrolling_layer">
+		<div id="catalog_header" class="c2r1_bg">
+			<div id="logo" class="bg_images"><p>onlive</p></div>
+			<ul id="main_catalog_menu" class="content_margin">
+				<li class="actual_header"><a href="#">ALL GAMES</a></li>
+				<li><a href="#">FEATURED GAMES</a></li>
+				<li><a href="#">NEW RELEASES</a></li>
+				<li><a href="#">NEW TO ONLIVE</a></li>
+				<li><a href="#">NOW BUNDLE</a></li>
+				<li><a href="#">CHOICE BUNDLE</a></li>
+				<li><a href="#">TOUCH PLAYABLE</a></li>
+			</ul>
+			<div class="clear"></div>
+		</div>
+		<div id="catalog_menu">
+			<div id="menu1" class="has_submenu">
+				<p class="white_color">Genres</p>
+				<ul class="content_margin cat_submenu content_shadow">
+					<li class="full_screen"><a href="#">All Genres</a></li>
+					<li><a href="#">Action</a></li>
+					<li><a href="#">Platform</a></li>
+					<li><a href="#">Adventure</a></li>
+					<li><a href="#">Puzzle</a></li>
+					<li><a href="#">Casual</a></li>
+					<li><a href="#">RPG</a></li>
+					<li><a href="#">Classic</a></li>
+					<li><a href="#">Racing</a></li>
+					<li><a href="#">Family</a></li>
+					<li><a href="#">Shooter</a></li>
+					<li><a href="#">Fighting</a></li>
+					<li><a href="#">Simulation</a></li>
+					<li><a href="#">Horror</a></li>
+					<li><a href="#">Sports</a></li>
+					<li><a href="#">Indie</a></li>
+					<li><a href="#">Strategy</a></li>
+				</ul>
+			</div>
+			<div id="menu2" class="has_submenu">
+				<p class="white_color">Online Co-op</p>
+				<ul class="content_margin cat_submenu content_shadow">
+					<li><a href="#">Local Multiplayer</a></li>
+					<li><a href="#">Local Multiplayer Co-op</a></li>
+					<li><a href="#">Local Multiplayer Split</a></li>
+					<li><a href="#">Local Multiplayer Vs.</a></li>
+					<li><a href="#">Multiplayer</a></li>
+					<li><a href="#">Multiplayer Co-op</a></li>
+					<li><a href="#">Multiplayer Vs.</a></li>
+					<li><a href="#">Single Player</a></li>
+				</ul>
+			</div>
+			<div id="menu3" class="has_submenu">
+				<p class="white_color">Content Ratings</p>
+				<ul class="content_margin cat_submenu content_shadow">
+					<li><a href="#">All Content Ratings</a></li>
+					<li><a href="#">Unrated</a></li>
+					<li><a href="#">Everyone</a></li>
+					<li><a href="#">Everyone Ten Plus</a></li>
+					<li><a href="#">Teen</a></li>
+					<li><a href="#">Mature</a></li>
+				</ul>
+			</div>
+			<div id="menu4" class="has_submenu">
+				<p class="white_color">Price Low-High</p>
+				<ul class="content_margin cat_submenu content_shadow">
+					<li><a href="#">Popularity</a></li>
+					<li><a href="#">Released Date</a></li>
+					<li><a href="#">Price High-Low</a></li>
+					<li><a href="#">User Rating</a></li>
+					<li><a href="#">Metacritic Score</a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="games_wrapper" class="c2r1_bg" data-rows="16">
+			<div class="content_margin_rel white_bg header_game_brick">
+				<div class="bg_images header_gamepic"></div>
+				<div class="header_details_wrapper">
+					<h2>ITS HERE.</h2>
+					<h3 class="c2r3_color">Lorem ipsum descriptum dipsum<br />update new features this thing<br />is new you should buy it.</h3>
+					<p class="moredetails">More Details</p>
+					<p class="tryfree">TRY FREE</p>
+					<img src="images/games_site/button_forward_red.png" alt=""/>			
+				</div>
+			</div>
+			<div data-row="0/0/1" class="content_margin_rel game_brick left_side onehalf_size">
+				<div class="sub_brick bg_images gamebrick_01"></div>
+				<div class="game_details play_trailer bg_images" 
+					data-name="BIOSHOCK<br />INFINITE"
+					data-type="ACTION"
+					data-rating="4.3"
+					data-metascore="80"
+					data-content="M"
+					data-bundle="9.99"
+					data-togo="39.99"
+					data-morelink="details.html/bioshock_infinite"
+					data-videoname="Dirt3_01.640">
+				</div>
+			</div>
+			<div data-row="0" data-color="0" class="content_margin_rel game_brick right_side left_info info_brick">
+				<div class="bg_color_wrapper"><h3>Most watched game 3 weeks in a row!</h3></div>
+				<div class="sub_brick bg_images gamebrick_02"></div>
+				<div class="game_details play_trailer bg_images" 
+					data-name="BATMAN<br/>ARKHAM CITY"
+					data-type="ACTION"
+					data-rating="4.7"
+					data-metascore="89"
+					data-content="M"
+					data-bundle="9.99"
+					data-togo="39.99"
+					data-morelink="details.html/bioshock_infinite"
+					data-videoname="Dirt3_01.640">
+				</div>
+			</div>
+			<div data-row="2" data-color="1" class="content_margin_rel game_brick right_side right_info info_brick">
+				<div class="bg_color_wrapper"><h3>New<br />Add-ons<br />available.</h3></div>
+				<div class="sub_brick bg_images gamebrick_03"></div>
+			</div>
+			<div data-row="3" class="content_margin_rel game_brick left_side onehalf_size">
+				<div class="sub_brick bg_images gamebrick_04"></div>
+			</div>
+			<div data-row="4" class="content_margin_rel game_brick right_side onehalf_size">
+				<div class="sub_brick bg_images gamebrick_05"></div>
+			</div>
+			<div data-row="6" class="content_margin_rel game_brick left_side onehalf_size">
+				<div class="sub_brick bg_images gamebrick_06"></div>
+			</div>
+			<div data-row="7" data-color="2" class="content_margin_rel game_brick right_side left_info info_brick">
+				<div class="bg_color_wrapper"><h3>New<br />Add-ons<br />available<br />now.</h3></div>
+				<div class="sub_brick bg_images gamebrick_07"></div>
+			</div>
+			<div data-row="9" data-color="3" class="content_margin_rel game_brick left_side right_info info_brick">
+				<div class="bg_color_wrapper"><h3>3 new<br />empires<br />available<br />now.</h3></div>
+				<div class="sub_brick bg_images gamebrick_08"></div>
+			</div>
+			<div data-row="9" class="content_margin_rel game_brick right_side onehalf_size">
+				<div class="sub_brick bg_images gamebrick_09"></div>
+			</div>
+			<div data-row="11" data-color="4" class="content_margin_rel game_brick left_side left_info info_brick">
+				<div class="bg_color_wrapper"><h3>Oh hey<br />buy this<br />game.</h3></div>
+				<div class="sub_brick bg_images gamebrick_10"></div>
+			</div>
+			<div data-row="13" data-color="5" class="content_margin_rel game_brick left_side left_info info_brick">
+				<div class="bg_color_wrapper"><h3>Feature<br />here!<br />Don't miss<br />this.</h3></div>
+				<div class="sub_brick bg_images gamebrick_11"></div>
+			</div>
+			<div data-row="12" class="content_margin_rel game_brick right_side onehalf_size">
+				<div class="sub_brick bg_images gamebrick_12"></div>
+			</div>
+		</div>
+		<div id="footer_screen" class="clear">
+			<div id="footer_contents" class="c1r2_bg content_padding">
+				<div id="link_wrapper">
+					<a href="#" class="c1r1_color">About</a>
+					<a href="#" class="c1r1_color">Developers</a>
+					<a href="#" class="c1r1_color"><img class="c1r1_bg" src="images/games_site/icon_fb.png" alt=""/>&nbsp;Facebook</a>
+					<a href="#" class="c1r1_color">Legal Info</a>
+					<a class="clear c1r1_color" href="#">Support</a>
+					<a class="c1r1_color" href="#">Contact</a>
+					<a href="#" class="c1r1_color"><img class="c1r1_bg" src="images/games_site/icon_twitter.png" alt=""/>&nbsp;Twitter</a>
+					<a class="clear c1r1_color" href="#">Careers</a>
+					<a class="c1r1_color" href="#">Blog</a>
+					<a href="#" class="c1r1_color"><img class="c1r1_bg" src="images/games_site/icon_youtube.png" alt=""/>&nbsp;YouTube</a>
+				</div>
+				<div id="footer_logo" class="bg_images"><p class="white_color">onlive</p></div>
+			</div>
+		</div>
+		<div class="clear"></div>		
+	</div>
+</div>
+<div class="clear"></div>
+</body>
+</html>

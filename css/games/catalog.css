@@ -1,0 +1,487 @@
+/************************************************************/
+/* Common Tags                  														*/
+/************************************************************/
+
+ul {
+	position: absolute;
+	list-style: none;
+	height: auto;
+}
+
+li {
+	position: relative;
+	float: left;
+	width: 100%;
+	height: auto;
+}
+
+li > a {
+	position: relative;
+	width: 100%;
+	height: auto;
+}
+
+#scrolling_layer > div {
+	z-index: 0;
+}
+
+.content_shadow {
+	-webkit-box-shadow: 13px 13px 1px rgba(0, 0, 0, 0.25);
+	-moz-box-shadow:    13px 13px 1px rgba(0, 0, 0, 0.25);
+	box-shadow:         13px 13px 1px rgba(0, 0, 0, 0.25);	
+}
+
+.content_shadow_reverse {
+	-webkit-box-shadow: -13px 13px 1px rgba(0, 0, 0, 0.25);
+	-moz-box-shadow:    -13px 13px 1px rgba(0, 0, 0, 0.25);
+	box-shadow:         -13px 13px 1px rgba(0, 0, 0, 0.25);	
+}
+
+
+/************************************************************/
+/* Gamepics                   															*/
+/************************************************************/
+
+.header_gamepic {
+	background-image: url(../../images/games_site/catalog/gamepic_borderlands2.png);
+}
+
+.gamebrick_01 {
+	background-image: url(../../images/games_site/catalog/gamepic_bioshock.png);
+}
+
+.gamebrick_02 {
+	background-image: url(../../images/games_site/catalog/gamepic_batman.png);
+}
+
+.gamebrick_03 {
+	background-image: url(../../images/games_site/catalog/gamepic_dirt3.png);
+}
+
+.gamebrick_04 {
+	background-image: url(../../images/games_site/catalog/gamepic_battlefield4.png);
+}
+
+.gamebrick_05 {
+	background-image: url(../../images/games_site/catalog/gamepic_syndicate.png);
+}
+
+.gamebrick_06 {
+	background-image: url(../../images/games_site/catalog/gamepic_simcity.png);
+}
+
+.gamebrick_07 {
+	background-image: url(../../images/games_site/catalog/gamepic_lanoire.png);
+}
+
+.gamebrick_08 {
+	background-image: url(../../images/games_site/catalog/gamepic_civilization5.png);
+}
+
+.gamebrick_09 {
+	background-image: url(../../images/games_site/catalog/gamepic_lastofus.png);
+}
+
+.gamebrick_10 {
+	background-image: url(../../images/games_site/catalog/gamepic_assassin4.png);
+}
+
+.gamebrick_11 {
+	background-image: url(../../images/games_site/catalog/gamepic_crysis2.png);
+}
+
+.gamebrick_12 {
+	background-image: url(../../images/games_site/catalog/gamepic_bioshock.png);
+}
+
+/************************************************************/
+/* Details Box                															*/
+/************************************************************/
+#hidden_details_box {
+	z-index: 3;
+	position: absolute;
+	width: 40%;
+	display: none;
+}
+
+#hidden_details_box > div {
+	position: relative;
+	float: left;
+	width: 90%;
+	margin-left: 10%;
+	height: auto;
+}
+
+#hidden_details_box > div * {
+	position: relative;
+	float: left;
+}
+
+.precache_imgs img {
+	width: 0 !important;
+	height: 0 !important;
+}
+
+#hidden_details_box p.value_txt {
+	font-size: 2.8em;
+	margin-top: 6%;
+	clear: left;
+}
+
+#hidden_details_box p.detail_txt {
+	opacity: 0.5;
+	font-size: 1.4em;
+	line-height: 1.2em;
+}
+
+#hidden_details_box .game_name {
+	width: 100%;
+	margin-top: 10%;
+	font-family: 'aktiv_groteskxbold_italic';	
+	font-size: 3.5em;
+	line-height: 0.9em;
+}
+
+#hidden_details_box .game_type {
+	width: 100%;
+	margin-top: 2%;
+}
+
+.middle_section {
+	margin-top: 6%;
+}
+
+.sub_middle {
+	width: 33%;
+}
+
+.sub_middle > div {
+	width: 80%;
+	margin-top: 8%;
+	line-height: 2.0em;
+}
+
+.sub_middle .user_rating_vis_bg {
+	position: absolute !important;
+	left: 0;
+	bottom: 0;
+	width: 0;
+}
+
+.sub_middle .user_rating_vis_opacity {
+	position: absolute !important;
+	left: 0;
+	bottom: 0;
+	background-color: #ffffff;
+	opacity: 0.5;
+}
+
+.lower_section {
+	margin-top: 7%;
+}
+
+.sub_lower {
+	width: 50%;
+}
+
+.sub_lower img {
+	display: block;
+	clear: left;
+	width: 12%;
+	margin-top: 4.5%;
+	margin-right: 2%;
+}
+
+.sub_lower p {
+	clear: none !important;
+}
+
+.sub_lower p.value_txt {
+	margin-top: 5% !important;
+}
+
+.sub_lower p.month_text {
+	font-size: 1.7em !important;
+	margin-top: 10%;
+}
+
+.button_section {
+	position: absolute !important;
+	left: 0;
+	margin-left: 0 !important;
+	bottom: 0;
+	width: 100% !important;
+}
+
+.button_section > a {
+	width: 50%;
+}
+
+.button_section > a:hover {
+	opacity: 0.7;
+}
+
+.button_section p {
+	line-height: 3.6em;
+	width: 100%;
+	text-align: center;
+}
+
+.details_close {
+	cursor: pointer;
+	position: absolute;
+	width: 12%;
+	top: 10%;
+	z-index: 1;
+}
+
+.details_close.right_close {
+	right: -6%;
+}
+
+.details_close.left_close {
+	left: -6%;
+}
+
+
+/************************************************************/
+/* Catalog Header                														*/
+/************************************************************/
+#catalog_header {
+	overflow: hidden;
+}
+
+#catalog_header > div {
+	position: absolute;
+}
+
+#catalog_header > ul {
+	/* top: 45%; */
+	width: 25%;
+}
+
+#catalog_header > ul li {
+	display: none;
+	opacity: 0;
+	height: 0;
+}
+
+#catalog_header > ul li.actual_header {
+	opacity: 1;
+	display: inline;
+	height: auto;
+}
+
+#catalog_header a {
+	font-family: 'aktiv_groteskregular';
+	font-size: 3.2em;
+	line-height: 1.3em;
+	opacity: 0.5;
+}
+
+#catalog_header li.hovered_header a,
+#catalog_header li.actual_header a {
+	font-family: 'aktiv_groteskbold';
+	opacity: 1;
+}
+
+#catalog_header a > img {
+	position: absolute;
+	width: 8%;
+	right: 0;
+	bottom: 1%;
+}
+
+/************************************************************/
+/* Catalog Menu                								  						*/
+/************************************************************/
+#catalog_menu {
+	z-index: 1 !important;
+}
+
+#catalog_menu > div {
+	width: 20%;
+	position: relative;
+	float: left;
+}
+
+.has_submenu {
+	left: 4%;
+	cursor: pointer;
+	position: absolute;
+	float: left;
+	width: 15%;
+	height: auto;
+}
+
+.has_submenu > p {
+	height: inherit;
+	font-size: 1.5em;
+	padding-left: 10%;
+	line-height: 3.8em;
+}
+
+.has_submenu img {
+	margin-bottom: -3%;
+	margin-left: 5%;
+	width: 12%;
+}
+
+#menu1 li {
+	width: 94%;
+	padding-left: 8%;
+}
+
+#menu1.has_submenu li:not(.full_screen) {
+	width: 41%;
+}
+
+#menu1 ul {
+	width: 130%;
+}
+
+.cat_submenu li {
+	padding-left: 10%;
+	width: 88%;
+}
+
+.cat_submenu {
+	margin-left: -5.7%;
+	padding-top: 7%;
+	padding-bottom: 7%;
+	display: none;
+	width: 100%;
+}
+
+.cat_submenu > li  a {
+	font-size: 1.5em;
+	line-height: 2.2em;
+	opacity: 0.5;
+}
+
+.cat_submenu > li a:hover {
+	opacity: 1;
+}
+
+/************************************************************/
+/* Games wrapper                														*/
+/************************************************************/
+
+#games_wrapper {
+	overflow: hidden;
+}
+
+#games_wrapper > div {
+	position: relative;
+	float: left;
+}
+
+.header_game_brick {
+	width: 88.28%;
+	cursor: pointer;
+}
+
+.header_game_brick > div {
+	position: relative;
+	float: left;
+	height: 100%;
+}
+
+.header_game_brick img {
+	position: absolute;
+	width: 20%;
+	right: 35%;
+	bottom: -7%;
+}
+
+.header_game_brick > div.header_gamepic {
+	width: 68%;
+}
+
+.header_game_brick > div.header_details_wrapper {
+	width: 25%;
+	margin-left: 4%;
+}
+
+.header_details_wrapper > h2 {
+	margin-top: 20%;
+	font-size: 3.5em;
+	margin-bottom: 5%;
+}
+
+.header_details_wrapper > .moredetails {
+	margin-top: 8%;
+	margin-bottom: 30%;
+}
+
+
+.game_brick {
+	position: absolute !important;
+	cursor: pointer;
+	width: 43.94%;
+}
+
+.gamedetails {
+	width: 0;
+	height: 0;
+}
+
+.game_brick > div {
+	position: absolute;
+}
+
+.left_side {
+	left: -1.3%;
+}
+
+.right_side {
+	left: 43.04%;
+}
+
+.game_brick .bg_color_wrapper {
+	top: 0;
+	width: 35%;
+	height: inherit;
+}
+
+.game_brick .bg_color_wrapper > h3 {
+	font-family: 'aktiv_groteskitalic';
+	margin-top: 10%;
+	margin-left: 15%;
+	margin-right: 15%;
+}
+
+.game_brick .play_trailer,
+.game_brick .sub_brick {
+	top: 0;
+	width: 66%;
+	height: inherit;
+}
+
+.game_brick.onehalf_size .play_trailer,
+.game_brick.onehalf_size .sub_brick {
+	width: 100%;
+}
+
+.game_brick.right_info .play_trailer,
+.game_brick.right_info .sub_brick,
+.game_brick.left_info .bg_color_wrapper {
+	left: 0;
+}
+
+.game_brick.left_info .play_trailer,
+.game_brick.right_info .bg_color_wrapper,
+.game_brick.left_info .sub_brick {
+	right: 0;
+}
+
+.show_play_controll {
+	background-image: url(../../images/games_site/video_play_button.png?v=1);
+}
+
+/************************************************************/
+/* Footer screen                														*/
+/************************************************************/
+#footer_screen {
+	display: none;
+}

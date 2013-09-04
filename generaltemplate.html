@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login - onLive (PoC)</title>
+	<link rel="icon" href="" type="image/x-icon"/>	
+	<meta charset="utf-8">	
+	<meta name="viewport" content="initial-scale=0.5,user-scalable=no,maximum-scale=0.5,width=device-width">	
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+	<script src="js/site.js" type="text/javascript"></script>
+	<script src="js/general.js" type="text/javascript"></script>
+	<!-- <script src="webfontkit/specimen_files/easytabs.js" type="text/javascript" charset="utf-8"></script> -->
+	<link rel="stylesheet" href="webfontkit/specimen_files/specimen_stylesheet.css" type="text/css"/>
+	<link rel="stylesheet" href="webfontkit/stylesheet.css?v=1" type="text/css"/>	
+	<link href="css/games/site.css" rel="stylesheet" type="text/css"/>
+	<link href="css/games/general.css" rel="stylesheet" type="text/css"/>
+	<link href="css/games/site_constants.css" rel="stylesheet" type="text/css"/>
+</head>
+<body class="noselect">
+<div id="controllers_wrapper">
+	<div id="menu_hamburger" class="bg_images"></div>
+	<div id="down_arrow" class="bg_images"></div>
+	<div id="menu_screen">
+		<div id="menu_close_button" class="bg_images"></div>
+		<div id="menu_system_main">
+			<a href="index.html"><p>WELCOME</p></a>
+			<a href="catalog.html"><p>GAMES</p></a>
+			<a href="hardware.html"><p>HARDWARE</p></a>
+			<a href="join.html"><p>JOIN</p></a>
+			<a href="login.html"><p class="active_main_menu">LOGIN</p></a>
+		</div>
+		<div id="menu_system_footer">
+			<a href="generaltemplate.html"><p>About</p></a>
+			<a href="generaltemplate.html"><p>Support</p></a>
+			<a href="generaltemplate.html"><p>Carreers</p></a>
+			<a href="generaltemplate.html"><p>Developers</p></a>
+			<a href="generaltemplate.html"><p>Contact</p></a>
+			<a href="generaltemplate.html"><p>Blog</p></a>
+		</div>
+		<div id="menu_logo_transparent" class="bg_images"></div>
+	</div>
+</div>
+<div id="layers_wrapper" class="content_shadow">
+	<div id="scrolling_layer">
+		<div id="logo" class="bg_images"><p>onlive</p></div>
+		<div id="main_content_wrapper" class="c2r1_bg">
+			<div id="main_menu_area" class="white_bg content_padding">
+				<h2 class="c5r2_color">CONTACT<br />US</h2>
+				<ul>
+					<li data-template="" class="c2r2_color">MENU ITEMS</li>
+					<li data-template="" class="c2r2_color">LISTED ITEM WITH<br/>TWO LINES</li>
+					<li data-template="developer_connection_template" class="c2r2_color">DEVELOPER<br />CONNECTION</li>
+					<li data-template="contact_us_template" class="c2r2_color selected_menu">CONTACT US</li>
+					<li data-template="" class="c2r2_color">UNSELECTED</li>
+				</ul>
+			</div>
+			<div id="main_content_area"></div>
+			<div class="clear"></div>
+		</div>
+		<div id="footer_screen" class="clear">
+			<div id="footer_contents" class="c1r2_bg content_padding">
+				<div id="link_wrapper">
+					<a href="#" class="c1r1_color">About</a>
+					<a href="#" class="c1r1_color">Developers</a>
+					<a href="#" class="c1r1_color"><img class="c1r1_bg" src="images/games_site/icon_fb.png" alt=""/>&nbsp;Facebook</a>
+					<a href="#" class="c1r1_color">Legal Info</a>
+					<a class="clear c1r1_color" href="#">Support</a>
+					<a class="c1r1_color" href="#">Contact</a>
+					<a href="#" class="c1r1_color"><img class="c1r1_bg" src="images/games_site/icon_twitter.png" alt=""/>&nbsp;Twitter</a>
+					<a class="clear c1r1_color" href="#">Careers</a>
+					<a class="c1r1_color" href="#">Blog</a>
+					<a href="#" class="c1r1_color"><img class="c1r1_bg" src="images/games_site/icon_youtube.png" alt=""/>&nbsp;YouTube</a>
+				</div>
+				<div id="footer_logo" class="bg_images"><p class="white_color">onlive</p></div>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+<div id="templates_wrapper">
+	<div id="contact_us_template" class="general_template">
+		<div id="contact_left_area">
+			<h3 class="c5r2_color">SEND US AN EMAIL</h3>
+			<div class="input_box white_bg">
+				<input class="c5r2_color" type="text" name="send_name" value="" placeholder="Name"/>
+			</div>
+			<div class="input_box white_bg">
+				<input class="c5r2_color" type="text" name="send_email" value="" placeholder="Email"/>
+			</div>
+			<div class="input_box white_bg">
+				<input class="c5r2_color" type="text" name="send_confmail" value="" placeholder="Confirm Email"/>
+			</div>
+			<div class="input_box white_bg">
+				<input class="c5r2_color" type="text" name="send_category" value="" placeholder="Category"/>
+			</div>
+			<div class="input_box white_bg">
+				<textarea class="c5r2_color" name="send_comment" value="" placeholder="Comment" rows="5"></textarea>
+			</div>
+			<div class="input_box white_bg captcha_header">
+				<input class="c5r2_color" type="text" name="send_captcha" value="" placeholder="Enter words shown below"/>
+			</div>
+			<div class="input_box white_bg">
+				<img src="images/games_site/__delete_captcha.png" alt=""/>
+			</div>
+			<a class="c5r2_color captcha_refresh" href="#">Refresh</a>
+			<a class="c5r2_color captcha_audio" href="#">Audio Clip</a>
+			<a class="c5r2_color captcha_help" href="#">Help</a>
+			<a class="c5r2_bg send_submit"><p>SUBMIT</p></a>
+		</div>
+		<div id="contact_right_area">
+			<div class="company_info_box">
+				<p class="headline c5r2_color">ADDRESS</p>
+				<p class="c2r2_color">1091 N Shoreline Blvd,<br />Suite 100<br />Mountain View, CA<br/>94043&nbsp;&nbsp;
+					<a href="#" class="c5r2_color map_link">Map</a>
+				</p>
+			</div>
+			<div class="company_info_box">
+				<p class="headline c5r2_color">PHONE</p>
+				<p class="c2r2_color">(650) 543-5500</p>
+			</div>
+			<div class="company_info_box">
+				<p class="headline c5r2_color">SUPPORT</p>
+				<p class="c2r2_color">We're here to help —<br />contact us via the<br />
+					<a href="#" class="c5r2_color map_link">Contact site</a>
+				</p>
+			</div>
+			<div class="company_info_box">
+				<p class="headline c5r2_color">PRESS INQUIRIES</p>
+				<p class="c2r2_color">Jane Anderson<br />OnLive PR<br />
+					<a href="mailto:jane.anderson@onlive.com" class="c5r2_color map_link">jane.anderson@onlive.com</a>
+				</p>
+			</div>
+		</div>
+	</div>
+	<div id="developer_connection_template" class="general_template">
+		<div id="developer_wrapper">
+			<h3 class="c5r2_color">DEVELOPER CONNECTION</h3>
+			<p class="c2r3_color dev_headdesc">Want to be a part of the next great advancement in gaming? OnLive delivers your top games instantly to players over the internet.</p>
+			<p class="c2r3_color dev_headdesc">If you're a game developer or publisher interested in becoming a registered OnLive partner, contact us.
+				<a href="#" class="c5r2_color map_link">contact us</a>
+			</p>
+			<p class="c2r3_color dev_headdesc">Once you have an account you'll be able to get detailed information on our OnLive SDK (ODK), submission and publishing process, and developer tools.
+</p>
+			<h4 class="c5r2_color">DISTRIBUTE DIGITALLY</h4>
+			<ul>
+				<li><img src="images/games_site/icon_list_style.png" alt=""/><p class="c2r3_color">Improved economics with no physical packaging, no downloads, no friction and no middlemen.</p></li>
+				<li><img src="images/games_site/icon_list_style.png" alt=""/><p class="c2r3_color">Not susceptible to resale or piracy.</p></li>
+				<li><img src="images/games_site/icon_list_style.png" alt=""/><p class="c2r3_color">Manage your product promotions and pricing dynamically.</li>
+			</ul>
+			<ul>
+				<li><img src="images/games_site/icon_list_style.png" alt=""/><p class="c2r3_color">Your single binary runs anywhere, delivering high-end experiences to low-end devices, across the full spectrum of TVs, PCs, Macs®—and now tablets and smartphones.</p></li>
+			</ul>
+			<div id="caption_area" class="c2r2_bg"></div>
+			<p class="c2r3_color subhead">Your single binary runs anywhere, delivering high-end experiences to low-end devices, across the full spectrum of TVs, PCs, Macs®—and now tablets and smartphones.</p>
+			<div id="caption_subhead" class="half_size c2r2_bg"></div>
+			<h4 class="half_size c5r2_color">SUB HEAD</h4>
+			<p class="c2r3_color half_size">Your single binary runs anywhere, delivering high-end experiences to low-end devices, across the full spectrum of TVs, PCs, Macs®—and now tablets and smartphones.</p>
+
+
+		</div>
+	</div>	
+</div>
+<div class="clear"></div>
+</body>
+</html>

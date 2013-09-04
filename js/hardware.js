@@ -1,3 +1,6 @@
+/************************************************************/
+/* Functions                                                */
+/************************************************************/
 function resizewindow(){
 
   var actualWindowWidth = $(this).width();
@@ -8,7 +11,14 @@ function resizewindow(){
   $('.divider_button > img').css({height : actualWindowWidth*0.05, width : actualWindowWidth*0.05});
   $('.divider_button').css({ bottom : ($('.divider_button > img').width() / 2) * -1 });
 
+<<<<<<< HEAD
   $('#menu_screen').css({ height : actualWindowHeight});
+=======
+  $('#logo').css({ 
+    height : $('#logo').width() * 2,
+    top: actualWindowWidth * 0.02 });
+  $('#controllers_wrapper').css({ height : actualWindowHeight });
+>>>>>>> v4.0
 
   $('#menu_logo_transparent').css({ height : $('#menu_logo_transparent').width()});
   $('#logo').css({ height : $('#logo').width() * 2});
@@ -98,6 +108,7 @@ function resizewindow(){
   $('.video_images').each(function() {
   	$(this).css({ height : $(this).width() * 0.56});
   })
+<<<<<<< HEAD
   $('.content_border').each(function() {
   	$(this).css({ 
   		'border-color': '#ffffff',
@@ -105,8 +116,85 @@ function resizewindow(){
   		'border-style' : 'solid' });
   });
 
+=======
+  $('#forth_screen').css({ height : secondScreenHeight });
+  $('#fifth_screen').css({ height : actualWindowWidth * 0.371 });
+
+  $('#parallax_first_headline').css({ height : $('#parallax_first_headline').width() * 0.31 });
+  $('#video_layer').css({ height : $('#scrolling_layer').height()});
+>>>>>>> v4.0
 
   $('#parallax_second_headline').css({ height : $('#parallax_second_headline').width() * 0.5});  
 */
 
+<<<<<<< HEAD
 }
+=======
+
+/************************************************************/
+/* Document Ready                                           */
+/************************************************************/
+$(document).ready(function($) {
+
+  /************************************************************/
+  /* User interactions - Features                             */
+  /************************************************************/
+  $('#features_wrapper h3').on({
+    mouseover: function() {
+      var ringsName = $(this).attr('data-ringname');
+      $(this)
+        .addClass('c5r2_imp')
+        .siblings()
+          .removeClass('c5r2_imp');
+      $('#featurerings_wrapper div.'+ringsName).stop().animate({ opacity : 1 },300);
+      $('#featurerings_wrapper div:not(.'+ringsName+')').stop().animate({ opacity : 0 },300);
+    }
+  });
+
+  $('.fring').on({
+    mouseover: function() {
+      if ($(this).css('opacity') == 0) {
+        var ringsName = $(this).attr('data-ringname');
+        $('#featurerings_wrapper div.'+ringsName).stop().animate({ opacity : 1 },300);
+        $('#featurerings_wrapper div:not(.'+ringsName+')').stop().animate({ opacity : 0 },300);
+        $('#features_wrapper h3.'+ringsName)
+          .addClass('c5r2_imp')
+          .siblings()
+            .removeClass('c5r2_imp');
+      }
+    }
+  });
+
+  /************************************************************/
+  /* User interactions - Down button                           */
+  /************************************************************/
+  $('#down_arrow').on({
+    click: function() {
+      sectionOffsets[0] = ($('#main_screen').height() * 1.09);
+      sectionOffsets[1] = sectionOffsets[0] + $('#second_screen').height();
+      sectionOffsets[2] = sectionOffsets[1] + $('#third_screen').height();
+      sectionOffsets[3] = sectionOffsets[2] + $('#forth_screen').height();
+      sectionOffsets[4] = sectionOffsets[3] + $('#fifth_screen').height();
+      sectionOffsets[5] = $('#scrolling_layer').height();
+      moveToNextBreakpoint();
+    }
+  });
+
+
+  /************************************************************/
+  /* Initialize small video resources                         */
+  /************************************************************/
+  var plm =  {playlist:
+      [{
+          image: "./images/games_site/welcome/gamepic_dirt3_headline.png",
+          sources: [
+            {file: "http://www.liandesign.hu/onLive_v3/media/Dirt3_01.640.mp4"},
+            {file: "http://www.liandesign.hu/onLive_v3/media/Dirt3_01.oggtheora.ogv"}
+          ]
+      }]};
+
+  createPlayer("main_video_ply", $.extend({}, plm, {autostart: true, repeat: true, mute: true}));
+
+});
+
+>>>>>>> v4.0

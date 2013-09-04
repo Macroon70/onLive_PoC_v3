@@ -1,0 +1,415 @@
+/************************************************************/
+/* Gamepics                   															*/
+/************************************************************/
+.related_01 {
+	background-image: url(../../images/games_site/catalog/gamepic_bioshock.png);
+}
+
+.related_02 {
+	background-image: url(../../images/games_site/catalog/gamepic_batman.png);
+}
+
+.related_03 {
+	background-image: url(../../images/games_site/catalog/gamepic_dirt3.png);
+}
+
+.related_04 {
+	background-image: url(../../images/games_site/catalog/gamepic_battlefield4.png);
+}
+
+.related_05 {
+	background-image: url(../../images/games_site/catalog/gamepic_syndicate.png);
+}
+
+.related_06 {
+	background-image: url(../../images/games_site/catalog/gamepic_simcity.png);
+}
+
+.related_07 {
+	background-image: url(../../images/games_site/catalog/gamepic_lanoire.png);
+}
+
+.related_08 {
+	background-image: url(../../images/games_site/catalog/gamepic_civilization5.png);
+}
+
+.related_09 {
+	background-image: url(../../images/games_site/catalog/gamepic_lastofus.png);
+}
+
+.related_10 {
+	background-image: url(../../images/games_site/catalog/gamepic_assassin4.png);
+}
+
+.related_11 {
+	background-image: url(../../images/games_site/catalog/gamepic_crysis2.png);
+}
+
+.related_12 {
+	background-image: url(../../images/games_site/catalog/gamepic_bioshock.png);
+}
+
+
+/************************************************************/
+/* Background layer  																				*/
+/************************************************************/
+#video_layer > div {
+	position: absolute;
+	top: 0;
+}
+
+#related_games > a {
+	position: relative;
+	float: left;
+}
+
+#related_mask {
+	width: 100%;
+	height: inherit;
+	opacity: 0.8
+}
+
+/************************************************************/
+/* Header                                                   */
+/************************************************************/
+#main_header > * {
+	position: absolute;
+}
+
+.header_bg {
+	left: 41%;
+	top: 19%;
+	width: 39%;
+	background-image: url(../../images/games_site/join/header_bubbles.png);
+}
+
+#main_header > h1 {
+	left: 41.6%;
+	top: 24%;
+	font-size: 8.5em;
+}
+
+#main_header > h2 {
+	left: 42.6%;
+	top: 50%;
+	font-size: 2.9em;
+	line-height: 1.1em;
+}
+
+#main_header > h3 {
+	left: 42.6%;
+	bottom: 6.5%;
+	font-size: 3.2em;
+	line-height: 1.05em;
+}
+
+#join_form_wrapper {
+	top: 7%;
+	width: 29.2%;
+}
+
+.main_form > * {
+	position: relative;
+	float: left;
+	margin-left: 6%;
+	width: 88%;
+}
+
+.main_form h2 {
+	margin-top: 12%;
+	line-height: 1.1em;
+	font-size: 2.9em;
+	margin-bottom: 7%;
+}
+
+.main_form .dob {
+	margin-top: 4%;
+	font-size: 1.4em;
+	margin-bottom: 4%;
+}
+
+.main_form .term_text {
+	line-height: 1.3em !important;
+}
+
+
+#input_gamertag input {
+	margin-right: 15%;
+	width: 50%;
+}	
+
+#select_form {
+	z-index: 1;
+}
+
+#select_form > div {
+	position: relative !important;
+	width: 32.5%;
+	margin-right: 0.7%;
+	padding-top: 6%;
+	padding-bottom: 6%;
+	float: left;
+	cursor: pointer;
+}
+
+#select_form p {
+	margin-left: 15%;
+	font-size: 1.4em;
+	width: 60%;
+	float: left;
+}
+
+#select_form img {
+	width: 9%;
+	margin-top: 6%;
+	margin-left: 1%;
+}
+
+#select_form ul {
+	position: absolute;
+	top: 100%;
+	width: 0;
+	opacity: 0.85;
+	width: 100%;
+	height: 0;
+	overflow: scroll;
+	overflow-x: hidden;
+
+}
+
+#select_form ul li {
+	width: 85%;
+	padding-left: 15%;
+	padding-bottom: 11%;
+	padding-top: 11%;
+	font-family: 'aktiv_groteskregular';
+	font-size: 1.3em;	
+}
+
+.submit_button {
+	margin-top: 1.5%;
+	margin-right: 7%;
+	float: right !important;
+	width: auto;
+	padding: 5%;
+	height: auto;
+}
+
+.submit_button p {
+	width: 100%;
+}
+
+/************************************************************/
+/* Offers                                                   */
+/************************************************************/
+.divider_button {
+	position: absolute;
+	top: -3%;
+	left: 57%;
+}
+
+
+#main_offers div {
+	position: relative;
+	float: left;
+}
+
+.offer_wrapper {
+	height: inherit;
+}
+
+.offer_wrapper * {
+	position: relative;
+	float: left;
+	margin-left: 7%;
+	width: 80%;
+}
+
+.offer_wrapper img {
+	position: absolute;
+	width: 20%;
+	top: -6%;
+}
+
+.offer_wrapper h2 {
+	line-height: 1.1em;
+	margin-top: 22%;
+}
+
+.offer_wrapper h3 {
+	margin-top: 5%;
+	font-family: 'aktiv_groteskxbold';
+	font-size: 6.0em;
+	line-height: 1em;
+}
+
+.offer_wrapper h4 {
+	font-family: 'aktiv_groteskbold';
+	font-size: 1.5em;
+	letter-spacing: -0.1em;
+}
+
+.offer_wrapper p {
+	width: 70%;
+	margin-top: 6%;
+	font-size: 1.5em;
+	line-height: 1.7em;
+}
+
+.offer {
+	width: 27.2%;
+	margin-top: 8%;
+}
+
+.offer.no_bg {
+	margin-right: 5.5%;
+}
+
+.offer.with_bg {
+	margin-right: 0.5%;
+}
+
+.offer a {
+	width: 100%;
+	height: inherit;
+}
+
+.offer.with_bg .offer_wrapper * {
+	margin-left: 18%;
+}
+
+.offer.with_bg .offer_wrapper p {
+	font-size: 1.5em;
+	line-height: 1.5em;
+}
+
+.offer p.offer_view {
+	font-size: 1.5em;
+	line-height: 1.5em;
+}
+
+.offer_price {
+	position: absolute !important;
+	right: 10%;
+	bottom: -5%;
+	width: auto;
+	padding-left: 7%;
+	padding-right: 7%;
+	padding-top: 5%;
+	padding-bottom: 5%;
+}
+
+.offer.no_bg .offer_price {
+	padding-left: 8%;
+	padding-right: 8%;
+}
+
+.offer_sublink {
+	height: auto !important;
+	width: auto !important;
+	margin-left: 18%;
+	bottom: 12%;
+}
+
+.offer_sublink p {
+	line-height: 2.0em !important;
+}
+
+.offer_price p {
+	width: auto;
+	margin: 0 !important;
+	line-height: 1.0em !important;
+	vertical-align: bottom;
+}
+
+.offer_price .offer_price_big {
+	font-size: 2.6em !important;
+}
+
+.offer_price .offer_price_small {
+	margin-top: 8% !important;
+}
+
+.offer_price .offer_price_small_up {
+	margin-top: 5% !important;
+}
+
+/************************************************************/
+/* Mask Layer                                               */
+/************************************************************/
+#mask_layer {
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	opacity: 0.8;
+}
+
+/************************************************************/
+/* Mask Layer                                               */
+/************************************************************/
+#login_layer {
+	position: fixed;
+	width: 21%;
+	left: 39.5%;
+	top: 25%;
+	z-index: 3;
+
+}
+
+#login_layer .checkbox {
+	cursor: pointer;
+	position: relative;
+	float: left;
+	width: 7%;
+	background-position: center;
+	background-size: 80%;
+}
+
+.border_down {
+	padding-top: 7%;
+	padding-bottom: 7%;
+	margin-bottom: 2%;
+	border-bottom: 1.5px;
+	border-style: solid;
+}
+
+.checkbox_checked {
+	background-image: url(../../images/games_site/icon_check.png);
+}
+
+.login_button {
+	margin-top: 1.5%;
+	margin-left: 5.6%;
+	width: 43.7%;
+	padding-top: 5%;
+	padding-bottom: 5%;
+	height: auto;
+}
+
+.login_button.c5r2_bg {
+	margin-left: 1%;
+}
+
+.login_button p {
+	text-align: center;
+}
+
+.join_onlive {
+	margin-top: 3%;
+	width: auto;
+	height: auto;
+}
+
+.rememberme {
+	position: relative;
+	float: left;
+	font-size: 1.5em;
+	margin-left: 3%;
+	line-height: 1.4em;
+}
+
+.join_onlive  p {
+	font-size: 1.3em;
+}

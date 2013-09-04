@@ -1,0 +1,317 @@
+/************************************************************/
+/* Gamepics                   															*/
+/************************************************************/
+
+.header_img {
+	background-image: url(../../images/games_site/gamedetail/header_pic_bioshock.png);
+}
+
+
+/************************************************************/
+/* GameDetail Header             														*/
+/************************************************************/
+#header_wrapper {
+	z-index: 1;
+}
+
+#header_wrapper > div {
+	position: absolute;
+}
+
+#masking_layer {
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: inherit;
+	background-image: url(../../images/games_site/gamedetail/header_pic_transparent.png);
+}
+
+#browse_catalog {
+	width: 20%;
+	height: 17%;
+}
+
+#browse_catalog > div {
+	width: 100%;
+	height: 100%;
+	background-image: url(../../images/games_site/gamedetail/button_browse_games.png);
+	background-size: 70%;
+	background-position: center center;
+}
+
+#header_bubbles {
+	margin-left: 3%;
+	margin-top: 3%;
+	width: 36%;
+	height: 85%;
+	background-image: url(../../images/games_site/gamedetail/header_pic_bubbles.png);
+}
+
+#header_wrapper > h1 {
+	position: absolute;
+	top: 35%;
+}
+
+#header_wrapper #play_trailer {
+	cursor: pointer;
+	width: 30%;
+	height: 55%;
+	right: 11.3%;
+	bottom: 0;
+	background-image: url(../../images/games_site/video_play_button_transparent.png);
+}
+
+.link_box {
+	bottom: -13%;
+	width: 20%;
+	height: 22%;
+}
+
+.link_box > div {
+	width: 100%;
+	height: inherit;
+}
+
+.link_box p {
+	line-height: 3.4em;
+	text-align: center;
+}
+
+.link_box .divider_button {
+	position: absolute;
+	bottom: -33%;
+	left: 75%;
+}
+
+#right_info_panel {
+	width: 20%;
+	right: 12.8%;
+}
+
+#right_info_panel > div {
+	position: absolute;
+	bottom: -87%;
+	width: 100%;
+	height: inherit;
+}
+
+.gamepic_01 {
+	background-image: url(../../images/games_site/gamedetail/gamepic_bioshock.png);
+}
+
+
+/************************************************************/
+/* GameDetails                  														*/
+/************************************************************/
+#details_wrapper {
+	z-index: 0;
+	height: auto;
+	padding-bottom: 5%;
+}
+
+#details_wrapper > div {
+	position: relative;
+	float: left;
+}
+
+#details_wrapper > div * {
+	position: relative;
+	float: left;
+}
+
+
+#details_wrapper h2 {
+	font-size: 1.8em;
+}
+
+#details_wrapper h3 {
+	width: 100%;
+	font-size: 1.3em;
+	line-height: 1.7em;
+	margin-top: 5%;
+	font-family: 'aktiv_groteskmedium';
+}
+
+#details_wrapper p {
+	font-size: 1.3em;
+	font-family: 'aktiv_groteskmedium';
+}
+
+/************************************************************/
+/* Left Info Panel               														*/
+/************************************************************/
+#left_info_panel {
+	margin-top: 6%;
+	width: 44%;
+	height: auto;
+}
+
+.price_box {
+	margin-top: 5%;
+	display: block;
+	width: 49.75%;
+	height: auto;
+}
+
+.price_box img {
+	margin-top: 9%;
+	margin-left: 7%;
+	margin-right: 4%;
+	width: 7%;
+}
+
+.price_box p {
+	font-size: 1.3em;
+	line-height: 5.0em;
+}
+
+.price_box .price {
+	margin-left: 5%;
+	font-size: 1.8em !important;
+	line-height: 3.5em;
+}
+
+.price_box .month_text {
+	margin-right: 7%;
+	margin-top: 8.3%;
+	line-height: 2.0em;
+}
+
+#left_info_panel #description {
+	line-height: 1.4em;
+	font-size: 1.45em;
+}
+
+#left_info_panel #description a {
+	float: none !important;
+	display: inline;
+}
+
+.addon_details {
+	width: 100%;
+	margin-bottom: 0.4%;
+}
+
+.addon_details p {
+	font-size: 1.8em !important;
+	margin-top: 4%;
+}
+
+.addon_details p.addon_desc {
+	margin-left: 3.5%;
+}
+
+.addon_details p.addon_price {
+	float: right !important;
+	margin-right: 5%;
+}
+
+.addon_details p.addon_date {
+	margin-top: 0;
+	margin-top: 1%;
+	margin-left: 3.5%;
+	margin-bottom: 3.5%;
+	font-size: 1.3em !important;
+}
+
+/************************************************************/
+/* Middle info panel             														*/
+/************************************************************/
+#middle_info_panel {
+	margin-top: 2%;
+	width: 10%;
+	padding-left: 5%;
+	height: auto;
+}
+
+#middle_info_panel img.info_icon {
+	position: absolute;
+	width: 10%;
+	left: 20%;
+	top: 0.5%;
+}
+
+.info_panel {
+	margin-top: 5%;
+	margin-bottom: 6%;
+	width: 100%;
+}
+
+.info_panel.more_margin {
+	margin-top: 10% !important;
+	margin-bottom: 2% !important;
+}
+
+
+.info_panel p {
+	width: 100%;
+}
+
+.info_panel p.info_name {
+	margin-bottom: 5%;
+}
+
+.info_panel p.info_value {
+	font-family: 'aktiv_groteskregular' !important;
+	font-size: 1.45em !important;
+	margin-bottom: 5%;
+}
+
+.info_panel p.info_value.bigvalue {
+	font-size: 2.8em !important;
+	line-height: 0.9em !important;
+}
+
+
+.info_panel div.rating_type {
+	width: 100%;
+}
+
+.info_panel div.rating_img {
+	background-image: url(../../images/games_site/user_rating_gray.png?v=1);
+}
+
+.info_panel div.rating_type_cl {
+	width: 100%;
+	position: absolute !important;
+	bottom: 0;
+	left: 0;
+}
+
+.info_panel div.rating_transparent {
+	opacity: 0.3;
+}
+
+.info_panel div.rating_value {
+	width: 0;
+}
+
+.info_panel .info_image {
+	margin-top: 0;
+	margin-right: 10%;
+	margin-bottom: 5%;
+}
+
+.related_01 {
+	background-image: url(../../images/games_site/gamedetail/gamepic_borderlands2.png);
+}
+
+.related_02 {
+	background-image: url(../../images/games_site/gamedetail/gamepic_lastofus.png);
+}
+
+.related_03 {
+	background-image: url(../../images/games_site/gamedetail/gamepic_lanoire.png);
+}
+
+.related_04 {
+	background-image: url(../../images/games_site/gamedetail/gamepic_crysis2.png);
+}
+
+.related_05 {
+	background-image: url(../../images/games_site/gamedetail/gamepic_batman.png);
+}
+
+.related_06 {
+	background-image: url(../../images/games_site/gamedetail/gamepic_assassins.png);
+}
