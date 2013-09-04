@@ -27,7 +27,7 @@ Array.prototype.shuffle = function() {
 /************************************************************/
 function resizewindow(){
 
-  var actualWindowWidth = $('#layers_wrapper').width();
+  actualWindowWidth = $('#layers_wrapper').width();
   var actualWindowHeight = $(this).height();
 
   /************************************************************/
@@ -41,9 +41,10 @@ function resizewindow(){
   $('.divider_button > img').css({height : actualWindowWidth*0.047, width : actualWindowWidth*0.047});
   $('.divider_button').css({ bottom : ($('.divider_button > img').width() / 2) * -1 });
 
-  $('#logo').css({ height : $('#logo').width() * 2});
+  $('#logo').css({ 
+    height : $('#logo').width() * 2,
+    top: actualWindowWidth * 0.02 });
   $('#controllers_wrapper').css({ height : actualWindowHeight });
-
   $('#menu_logo_transparent').css({ height : $('#menu_logo_transparent').width()});
   $('#menu_hamburger').css({ height : $('#menu_hamburger').width()});
   $('#menu_close_button').css({ height : $('#menu_hamburger').height()});
@@ -57,7 +58,12 @@ function resizewindow(){
   $('#games_wrapper > #hidden_details_box').each(function() {
     $(this).css({ height : $('#layers_wrapper').width() * 0.34 });
   });
-  $('#catalog_header').css({ height : actualWindowWidth * 0.117 });
+  if (!$('#catalog_header ul').hasClass('opened_menu')) {
+    $('#catalog_header').css({ height : actualWindowWidth * 0.117 });
+  } else {
+    $('#catalog_header').css({ height: actualWindowWidth * 0.33 });
+  }
+  $('#catalog_header ul').css({ top : actualWindowWidth * 0.05 });
   $('#catalog_menu').css({ height : actualWindowWidth * 0.0488 });
   var rowsNum = $('#games_wrapper').attr('data-rows');
 
@@ -194,7 +200,7 @@ $('html').on({
 /* Catalog defaults                                         */
 /************************************************************/
 catalogCount = 1;
-maxPage = 3;
+maxPage = 4;
 
 /************************************************************/
 /* Window onLoad                                            */
@@ -245,15 +251,15 @@ $(document).ready(function() {
   $('.actual_header').on({
     click: function() {
       if ($('#catalog_header ul').hasClass('opened_menu')) {
-        $('#catalog_header ul').animate({ top : '45%' },300).removeClass('opened_menu');
-        $('#catalog_header li').not('.actual_header').animate({ opacity : 0 },300, function() {
+        $('#catalog_header ul').removeClass('opened_menu');
+        $('#catalog_header li').not('.actual_header').stop().animate({ opacity : 0 },300, function() {
           $(this).css({ 'display' : 'none' })
         });
         $('#catalog_header').animate({ height : $('#layers_wrapper').width() * 0.1 });
         $('#catalog_header img').removeClass('rotate');
       } else {
-        $('#catalog_header ul').animate({ top : '15%' },300).addClass('opened_menu');
-        $('#catalog_header li').css({ 'display' : 'block' }).animate({ opacity : 1, height : '100%' },300);
+        $('#catalog_header ul').addClass('opened_menu');
+        $('#catalog_header li').css({ 'display' : 'block' }).stop().animate({ opacity : 1, height : '100%' },300);
         $('#catalog_header').animate({ height : $('#layers_wrapper').width() * 0.33 });
         $('#catalog_header img').addClass('rotate');
       }
@@ -288,11 +294,13 @@ $(document).ready(function() {
       $(this).children('.cat_submenu').stop().fadeIn(100);
     },
     mouseout: function(e) {
-      $(this).removeClass(catalogHeaderDarkColor[randomNum]+'bg')
-        .find('img')
-          .attr('src','images/games_site/button_down_dark_'+actualSystemColor+'.png');
       var nextHoverElem=e.relatedTarget|| e.toElement;
-      if ($(this).has(nextHoverElem).length == 0) $(this).children('.cat_submenu').stop().fadeOut(100);
+      if ($(this).has(nextHoverElem).length == 0) {
+        $(this).removeClass(catalogHeaderDarkColor[randomNum]+'bg')
+          .find('img')
+            .attr('src','images/games_site/button_down_dark_'+actualSystemColor+'.png');
+        $(this).children('.cat_submenu').stop().fadeOut(100);
+      }
     },
 
   })
@@ -312,13 +320,13 @@ $(document).ready(function() {
             'z-index' : 1,
             'border-color': '#ffffff'
           })
-          .addClass('selected_brick content_shadow_reverse')
+          .addClass('selected_brick')
           .siblings()
             .css({
               'z-index' : 0,
               'border-color' : 'transparent'
             })
-            .removeClass('selected_brick content_shadow_reverse');
+            .removeClass('selected_brick');
         $(this).children('.play_trailer').addClass('show_play_controll');
         $(this).siblings().children('.play_trailer').removeClass('show_play_controll');
         leftPos = ($(this).hasClass('right_side')) ? '18%' : '46%';
@@ -366,11 +374,28 @@ $(document).ready(function() {
             display : 'block' ,
             height : $('#layers_wrapper').width() * 0.34
           })
-          .addClass(bgClass)
+          .addClass(bgClass + ' content_shadow')
           .appendTo('#games_wrapper');
       }
    }
   },'.game_brick');
+
+  /************************************************************/
+  /* Details page close                                       */
+  /************************************************************/
+  $('body').on({
+    click: function(e) {
+      var toElem= e.relatedTarget|| e.toElement;
+      $('img.details_close.cloned_details').parent().remove();
+      $('.game_brick')
+        .css({ 
+          'z-index' : 0,
+          'border-color' : 'transparent' })
+        .removeClass('selected_brick content_shadow')
+        .children('.play_trailer')
+          .removeClass('show_play_controll');
+    }
+  },'img.details_close.cloned_details');
 
   /************************************************************/
   /* User interactions - Down button                           */
@@ -383,15 +408,24 @@ $(document).ready(function() {
   });
 
   /************************************************************/
+  /* User interactions - Global click events listener         */
+  /************************************************************/
+  document.addEventListener('click', function(e) {
+    if ($(e.target).closest('#main_catalog_menu').length == 0 && $('#catalog_header ul').hasClass('opened_menu'))
+      $('.actual_header').trigger('click'); 
+  }, true);
+
+  /************************************************************/
   /* Loading more games                                       */
   /************************************************************/
   $(window).scroll(function(e) {
     var elementHeight = $('#scrolling_layer').height(); 
     var scrollPosition = document.getElementById('scrolling_layer').getBoundingClientRect();
-    if (elementHeight == Math.abs(parseInt(scrollPosition.top) - parseInt($(window).height()))) {
+    if (elementHeight - 1 <= Math.abs(parseInt(scrollPosition.top) - parseInt($(window).height()))) {
       if (catalogCount + 1 <= maxPage) {
         catalogCount++;
-        $('#games_wrapper').attr('data-rows',catalogCount * 16);          
+        if (catalogCount == maxPage) $('#footer_screen').css({ 'display' : 'block' });
+        $('#games_wrapper').attr('data-rows',catalogCount * 16);      
         resizewindow();
         $.ajax({
           url: './ajaxCatalog'+catalogCount+'.php',
@@ -405,9 +439,11 @@ $(document).ready(function() {
             brickAnim((catalogCount-1) * 15);
           },
           error: function(xhr, error) {
-            --catalogCount;
-            $('#games_wrapper').attr('data-rows',catalogCount * 16);
-            //resizewindow();     
+            $('#footer_screen').css({ 'display' : 'block' });            
+            $('#games_wrapper')
+              .attr('data-rows',--catalogCount * 16)
+              .animate({ height : ($('.header_game_brick').width()*0.379) + (actualWindowWidth * 0.078 * (catalogCount * 16)) + (actualWindowWidth * 0.06) },1000);
+            catalogCount = maxPage;
           }
         });
       }

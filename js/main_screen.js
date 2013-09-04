@@ -47,9 +47,12 @@ function sliderChanger(nextElem) {
         left: actualMainScreenVideoOffsets[1] + '%',
         width : actualMainScreenVideoOffsets[2] + '%',
       }, 1000);
+    $('#slider_menu_bg').css({ left: (13 + (nextElemPrefix * 22)) + '%' });
+    /*
     $('#slider_menu_bg').animate({
       left : (13 + (nextElemPrefix * 22)) + '%'
     }, 1000);
+    */
   }
 }
 
@@ -83,7 +86,9 @@ function resizewindow(){
   	$(this).children('div').css({ height : $(this).width() * 0.4673 });
   });
   $('#menu_logo_transparent').css({ height : $('#menu_logo_transparent').width()});
-  $('#logo').css({ height : $('#logo').width() * 2});
+  $('#logo').css({ 
+    height : $('#logo').width() * 2,
+    top: actualWindowWidth * 0.02 });
   $('#menu_hamburger').css({ height : $('#menu_hamburger').width()});
   $('#down_arrow').css({ height : $('#menu_hamburger').height()});
   $('.divider_up_button > img').css({height : actualWindowWidth*0.04 , width : actualWindowWidth*0.04});
@@ -215,14 +220,22 @@ $(document).ready(function() {
   /************************************************************/
   $('#down_arrow').on({
     click: function() {
-      sectionOffsets[0] = $('#main_screen').height() + $('#main_screen_footer').height();
-      sectionOffsets[1] = sectionOffsets[0] + $('.normal_brick').height() + $(window).height();
-      sectionOffsets[2] = sectionOffsets[1] + $('#third_screen').height() + $('.normal_brick').height();
-      sectionOffsets[3] = sectionOffsets[2] + $('#main_screen').height() * 2 + $('.normal_brick').height();
-      sectionOffsets[4] = $('#scrolling_layer').height();
+      sectionOffsets[0] = $('#main_screen').height() + $('#main_screen_footer').height() + $('.normal_brick').height() + $(window).height();
+      sectionOffsets[1] = sectionOffsets[0] + $('#third_screen').height() + $('.normal_brick').height();
+      sectionOffsets[2] = sectionOffsets[1] + $('#main_screen').height() * 2 + $('.normal_brick').height();
+      sectionOffsets[3] = $('#scrolling_layer').height();
       moveToNextBreakpoint();
     }
   });
+
+  /************************************************************/
+  /* User interactions - Global click events listener         */
+  /************************************************************/
+  document.addEventListener('click', function(e) {
+    if ($('#menu_screen').css('right') != 0 && !$('#menu_screen').is(':animated')) {
+      $('#menu_close_button').trigger('click');
+    }
+  }, true);
 
 
   /************************************************************/

@@ -58,7 +58,7 @@ function moveToNextBreakpoint() {
   } else {
     for (var i = 0; i <= sectionOffsets.length; i++) {
       if (sectionOffsets[i] - $(window).height() * 1.01 > Math.abs(scrollingLayerOffsets.top)) {
-        $('html, body').stop().animate({ scrollTop : sectionOffsets[i] - $(window).height()}, 2000);
+        $('html, body').stop().animate({ scrollTop : sectionOffsets[i] - $(window).height()}, 1000);
         break;
       }
     }
@@ -104,12 +104,12 @@ $(window).scroll(function() {
     /* Down Button                                              */
     /************************************************************/
     if ($('#down_arrow').css('opacity') == 1)
-      $('#down_arrow').stop().fadeOut('slow');
+      $('#down_arrow').stop().fadeOut(100);
 
     clearTimeout($.data(this, 'scrollTimer'));
     $.data(this, 'scrollTimer', setTimeout(function() {
-      $('#down_arrow').stop().fadeIn('slow');
-    }, 250));
+      $('#down_arrow').stop().fadeIn(100);
+    }, 1000));
 
     if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
       if (!$('#down_arrow').hasClass('rotate')) {
@@ -197,55 +197,6 @@ $(document).ready(function() {
 			$('#menu_screen').animate({ right : '-130%'}, 300);
 		}
 	});
-
-  /************************************************************/
-  /* User interactions - Down button                           */
-  /************************************************************/
-  $('#down_arrow').on({
-    click: function() {
-      var scrollingLayerOffsets = document.getElementById('scrolling_layer').getBoundingClientRect();
-      if ($(window).scrollTop() + $(window).height() == $(document).height()) {
-        $('html, body').stop().animate({ scrollTop : 0 }, 1000);
-      } else {
-        sectionOffsets[0] = $('#main_screen').height() * 1.1;
-        sectionOffsets[1] = sectionOffsets[0] + $('#second_screen').height();
-        sectionOffsets[2] = sectionOffsets[1] + $('#third_screen').height();
-        sectionOffsets[3] = sectionOffsets[2] + $('#forth_screen').height();
-        sectionOffsets[4] = sectionOffsets[3] + $('#fifth_screen').height();
-        sectionOffsets[5] = $('#scrolling_layer').height();
-        for (var i = 0; i <= sectionOffsets.length; i++) {
-          if (sectionOffsets[i] - $(window).height() * 1.01 > Math.abs(scrollingLayerOffsets.top)) {
-            $('html, body').stop().animate({ scrollTop : sectionOffsets[i] - $(window).height()}, 2000);
-            break;
-          }
-        }
-      }
-    }
-  });  
-
-	/************************************************************/
-	/* User interactions - Global click events listener         */
-	/************************************************************/
-	document.addEventListener('click', function(e) {
-		if ($('#menu_screen').css('right') != 0 && !$('#menu_screen').is(':animated')) {
-			$('#menu_close_button').trigger('click');
-		}
-    var toElem=e.relatedTarget|| e.toElement;
-		if ($(toElem)[0] === $('img.details_close.cloned_details')[0]) {
-			$('img.details_close.cloned_details').parent().remove();
-      $('.game_brick')
-        .css({ 
-          'z-index' : 0,
-          'border-color' : 'transparent' })
-        .removeClass('selected_brick content_shadow_reverse')
-        .children('.play_trailer')
-        	.removeClass('show_play_controll');
-		}
-    $('.input_box').each(function() {
-      $(this).children('ul').animate({ height : 0}, 100);
-    });
-	}, true);
-
 
 });
 

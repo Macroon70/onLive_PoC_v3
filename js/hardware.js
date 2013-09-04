@@ -17,7 +17,9 @@ function resizewindow(){
   $('.divider_button > img').css({height : actualWindowWidth*0.047, width : actualWindowWidth*0.047});
   $('.divider_button').css({ bottom : ($('.divider_button > img').width() / 2) * -1 });
 
-  $('#logo').css({ height : $('#logo').width() * 2});
+  $('#logo').css({ 
+    height : $('#logo').width() * 2,
+    top: actualWindowWidth * 0.02 });
   $('#controllers_wrapper').css({ height : actualWindowHeight });
 
   $('#menu_logo_transparent').css({ height : $('#menu_logo_transparent').width()});

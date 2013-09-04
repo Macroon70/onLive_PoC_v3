@@ -256,7 +256,7 @@ li > a {
 }
 
 #catalog_header > ul {
-	top: 45%;
+	/* top: 45%; */
 	width: 25%;
 }
 
@@ -289,7 +289,7 @@ li > a {
 	position: absolute;
 	width: 8%;
 	right: 0;
-	bottom: -4%;
+	bottom: 1%;
 }
 
 /************************************************************/
@@ -479,3 +479,9 @@ li > a {
 	background-image: url(../../images/games_site/video_play_button.png?v=1);
 }
 
+/************************************************************/
+/* Footer screen                														*/
+/************************************************************/
+#footer_screen {
+	display: none;
+}

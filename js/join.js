@@ -17,7 +17,9 @@ function resizewindow(){
   $('.divider_button').css({height : actualWindowWidth*0.037, width : actualWindowWidth*0.037});
   //$('.divider_button').css({ bottom : ($('.divider_button > img').width() / 2) * -1 });
 
-  $('#logo').css({ height : $('#logo').width() * 2});
+  $('#logo').css({ 
+    height : $('#logo').width() * 2,
+    top: actualWindowWidth * 0.02 });
   $('#controllers_wrapper').css({ height : actualWindowHeight });
 
   $('#menu_logo_transparent').css({ height : $('#menu_logo_transparent').width()});
@@ -84,5 +86,14 @@ $(document).ready(function() {
       return false;
     }
   })
+
+  /************************************************************/
+  /* User interactions - Global click events listener         */
+  /************************************************************/
+  document.addEventListener('click', function(e) {
+    $('.input_box').each(function() {
+      $(this).children('ul').animate({ height : 0}, 100);
+    });
+  }, true);
 
 });
