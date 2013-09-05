@@ -343,6 +343,9 @@
 /* Parallax Layer                														*/
 /************************************************************/
 
+#parallax_layer1 {
+	z-index: 4;
+}
 
 #parallax_first_headline {
 	top: 0.3%;

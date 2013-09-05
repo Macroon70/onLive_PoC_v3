@@ -31,8 +31,6 @@ function resizewindow(){
   $('.footer_big_box').css({ height : $('.footer_box').height() });
   $('#footer_logo').css({ height : $('#footer_logo').width() * 0.272 });
 
-  $('#parallax_layer').css({ height : $('#scrolling_layer').height()});
-  $('#parallax_wrapper').css({ height : $('#scrolling_layer').height() * 2});
 
   /************************************************************/
   /* Unique Values                                            */
@@ -61,6 +59,12 @@ function resizewindow(){
 
   $('#parallax_first_headline').css({ height : $('#parallax_first_headline').width() * 0.31 });
   $('#video_layer').css({ height : $('#scrolling_layer').height()});
+
+  $('#parallax_layer').css({ height : $('#scrolling_layer').height()});
+  $('.parallax_wrapper').each(function() {
+    $(this).css({ height : $('#scrolling_layer').height() + ($(this).parent().attr('data-speed') * $('#scrolling_layer').height())});
+  });
+
 
 }
 

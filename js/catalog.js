@@ -35,6 +35,7 @@ function resizewindow(){
   /* Recalculate Scroll Stop Values                           */
   /************************************************************/
   for(var i=0; i<sectionOffsets.length; i++){
+    console.log('itt');
     sectionOffsets[i] = sectionOffsets[i] * actualWindowWidth / previousWindowWidth;
   }
   previousWindowWidth = actualWindowWidth;
@@ -216,7 +217,7 @@ maxPage = 4;
 /************************************************************/
 $(window).load(function() {
   brickAnim(0);
-  sectionOffsets.push($('#games_wrapper').height() + ($('#catalog_header').height() * 1.5));
+  sectionOffsets.push($('#games_wrapper').height() + ($('.header_game_brick').height() * 1.5));
 });
 
 /************************************************************/
@@ -447,7 +448,7 @@ $(document).ready(function() {
             resizewindow();
             colorizeBricks((catalogCount-1) * 15);
             brickAnim((catalogCount-1) * 15);
-            sectionOffsets.push($('#games_wrapper').height() + ($('#catalog_header').height() * 1.5));
+            sectionOffsets.push($('#games_wrapper').height() + ($('.header_game_brick').height() * 1.5));
           },
           error: function(xhr, error) {
             $('#footer_screen').css({ 'display' : 'block' });            
