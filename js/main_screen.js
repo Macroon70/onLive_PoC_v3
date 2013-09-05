@@ -173,6 +173,15 @@ function pageParallaxElements() {
   addParallaxObject($('#second_upper_level'),1,-2,true,2.63);
   addParallaxObject($('#headline_brick'),1,-1,true,2.63);
   addParallaxObject($('#parallax_second_headline'),2,0,false,7.1);
+  addParallaxObject($('#parallax_third_headline'),2,0,false,15);
+  addParallaxObject($('#box_spectatle'),1,-1,true,5);
+  addParallaxObject($('#parallax_forth_headline'),2,0,false,27);
+  addParallaxObject($('#video_image1'),2,0,true,24);
+  addParallaxObject($('#video_image3'),1,0,true,8.7);
+  createPlayer("small_video_1_ply", $.extend({}, pl3, {autostart: false, repeat: false, mute: true, controls: false}), playerComplete);
+  createPlayer("small_video_3_ply", $.extend({}, pl2, {autostart: false, repeat: false, mute: true, controls: false}), playerComplete);
+
+
 }
 
 /************************************************************/
@@ -325,7 +334,7 @@ $(document).ready(function() {
             {file: "http://www.liandesign.hu/onLive_v3/media/Dirt3_01.oggtheora.ogv"}
           ]
       }]};
-  var pl2 =  {playlist:
+  pl2 =  {playlist:
       [{
           image: "./images/games_site/welcome/gamepic_dirt3_headline.png",
           sources: [
@@ -333,7 +342,7 @@ $(document).ready(function() {
             {file: "http://www.liandesign.hu/onLive_v3/media/Dirt3_01.oggtheora.ogv"}
           ]
       }]};
-  var pl3 =  {playlist:
+  pl3 =  {playlist:
       [{
           image: "./images/games_site/welcome/gamepic_dirt3_headline.png",
           sources: [
@@ -351,8 +360,6 @@ $(document).ready(function() {
       }]};
 
   createPlayer("small_video_2_ply", $.extend({}, pl1, {autostart: false, repeat: false, mute: true, controls: false}), playerComplete);
-  createPlayer("small_video_3_ply", $.extend({}, pl2, {autostart: false, repeat: false, mute: true, controls: false}), playerComplete);
-  createPlayer("small_video_1_ply", $.extend({}, pl3, {autostart: false, repeat: false, mute: true, controls: false}), playerComplete);
   createPlayer("main_video_ply", $.extend({}, plm, {autostart: true, repeat: true, mute: true, controls: false}));
 
 

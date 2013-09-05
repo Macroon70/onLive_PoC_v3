@@ -13,7 +13,7 @@ function addParallaxObject(elem,layer,zindex,isClickable,pusher) {
   if (elem != null && layer != null) {
     zindex = (zindex != null) ? zindex : 0;
     pusher = (pusher != null) ? pusher : 0;
-    isClickable = (isClickable != null) ? 'auto' : 'none';
+    isClickable = (isClickable) ? 'auto' : 'none';
     targetLayer = $('#parallax_layer'+layer+' .parallax_wrapper');
 
     absPos = document.getElementById($(elem).attr('id')).getBoundingClientRect();
@@ -22,19 +22,29 @@ function addParallaxObject(elem,layer,zindex,isClickable,pusher) {
       leftPusher = (($(window).width() - $('.parallax_layer').width()) / 2);
     }
     elemBorder = (parseFloat($(elem).css('border-width')) || 0) * 2;
+    console.log(leftPusher);
     elemPadding = (parseFloat($(elem).css('padding-left')) * 1.25 || 0);
+    rightPos = parseFloat($(elem).css('right'));
+    if (!isNaN(rightPos)) elemPadding += rightPos; 
     $(elem)
       .clone(true,true)
-      .attr('data-hdivider',$(elem).height() / (absPos.width - elemBorder - elemPadding / 1.5))
+      .addClass('parallax_position')
+      .attr('data-hdivider',$(elem).innerHeight() / ($(elem).innerWidth() - (elemPadding / 1.35)))
       .css({ 
         'pointer-events': isClickable,
         'position' : 'absolute !important',
         'z-index' : zindex + ' !important',
         top : (absPos.top / $(targetLayer).height()) * 100 + pusher + '%',
-        left : ((absPos.left - elemBorder - leftPusher) / $(targetLayer).width()) * 100 + '%',
-        width: ((absPos.width - (elemBorder*2) - elemPadding) / $(targetLayer).width()) * 100 + '%'})
+        left : ((absPos.left - leftPusher) / $(targetLayer).innerWidth()) * 100 + '%',
+        width: ((absPos.width - (elemBorder*2) - elemPadding) / $(targetLayer).width()) * 100 + '%',
+        height: $(elem).innerHeight() + 'px' })
       .appendTo(targetLayer);
-    $(elem).css({ 'visibility': 'hidden' });
+    if ( $(elem).css('position') == 'absolute' ) {
+      $(elem).remove();
+    } else {
+      $(elem).css({ 'visibility': 'hidden' }).attr('id','');
+    }
+
   }
 }
 

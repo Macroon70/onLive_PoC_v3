@@ -430,6 +430,10 @@
 	line-height: 0.9em;
 }
 
+.parallax_layer #box_spectatle > h2 {
+	margin-top: 5%;
+}
+
 #box_spectatle > h3 {
 	font-family: 'aktiv_grotesklight';
 	margin-top: 4%;
@@ -441,7 +445,9 @@
 }
 
 #box_spectatle > a {
-	left: 38%;
+	left: 38% !important;
+	width: auto;
+	height: auto;
 }
 
 /************************************************************/
@@ -588,7 +594,7 @@
 #parallax_forth_headline {
 	pointer-events: none;
 	top: 15%;
-	left: 55%;
+	left: 50%;
 	background-image: url(../../images/games_site/welcome/main_forth_bubbles.png);
 	background-size: cover;
 	background-position: top;
