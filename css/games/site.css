@@ -746,9 +746,8 @@ p {
 /* Parallax Layer   																				*/
 /************************************************************/
 
-#parallax_layer {
+.parallax_layer {
 	pointer-events: none;
-	z-index: 2;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -756,12 +755,26 @@ p {
 	overflow: hidden;
 }
 
-#parallax_wrapper {
+#parallax_layer1 {
+	z-index: 2;
+}
+
+#parallax_layer2 {
+	z-index: 3;
+}
+
+.parallax_layer a {
+	left: 0 !important;
+	width: 100%;
+	height: inherit;
+}
+
+.parallax_wrapper {
 	position: absolute;
 	width: 90%;
 }
 
-#parallax_wrapper > div {
+.parallax_wrapper > div {
 	position: absolute;
 }
 

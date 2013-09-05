@@ -132,10 +132,13 @@ function resizewindow(){
   		'border-style' : 'solid' });
   });
   $('#video_layer').css({ height : $('#scrolling_layer').height() });
-  $('#parallax_layer').css({ height : $('#scrolling_layer').height()});
+  $('.parallax_layer').css({ height : $('#scrolling_layer').height()});
   $('body').css({ height : $('#scrolling_layer').height()});
   
-  $('#parallax_wrapper').css({ height : $('#scrolling_layer').height() * 2});
+  $('.parallax_wrapper').each(function() {
+    $(this).css({ height : $('#scrolling_layer').height() + ($(this).parent().attr('data-speed') * $('#scrolling_layer').height())});
+  });
+
   $('#video_image4_above_bg').css({
     width: $('#video_image4').width(),
     height: $('#video_image4').height() * 1.1
@@ -144,6 +147,32 @@ function resizewindow(){
   $('#parallax_second_headline').css({ height : $('#parallax_second_headline').width() * 0.5});  
   $('#parallax_third_headline').css({ height : $('#parallax_third_headline').width() * 0.51 });
   $('#parallax_forth_headline').css({ height : $('#parallax_first_headline').height()});
+
+  $('.parallax_wrapper').children().each(function() {
+    $(this).css({ height : $(this).width() * $(this).attr('data-hdivider')});
+  })
+
+  if (!parallaxObjectsAdded) pageParallaxElements();
+
+}
+
+/************************************************************/
+/* Add parallax elements                                    */
+/************************************************************/
+parallaxObjectsAdded = false;
+
+function pageParallaxElements() {
+  parallaxObjectsAdded = true;  
+  /* params:elem(object),                                     */
+  /*        layer(layerNum),                                  */
+  /*        zindex(css z-index),                              */
+  /*        isClickabel(object is clickable),                 */
+  /*        pusher(vertical push in percent)                  */
+  /* after clone, checkhing every elem css states             */
+  /************************************************************/
+  addParallaxObject($('#second_upper_level'),1,-2,true,2.63);
+  addParallaxObject($('#headline_brick'),1,-1,true,2.63);
+  addParallaxObject($('#parallax_second_headline'),2,0,false,7.1);
 }
 
 /************************************************************/

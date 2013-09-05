@@ -2,6 +2,43 @@
 /* Functions                                                */
 /************************************************************/
 /************************************************************/
+/* Parallax layer function                                  */
+/* params:elem(object),                                     */
+/*        layer(layerNum),                                  */
+/*        zindex(css z-index),                              */
+/*        isClickabel(object is clickable),                 */
+/*        pusher(vertical push in percent)                  */
+/************************************************************/
+function addParallaxObject(elem,layer,zindex,isClickable,pusher) {
+  if (elem != null && layer != null) {
+    zindex = (zindex != null) ? zindex : 0;
+    pusher = (pusher != null) ? pusher : 0;
+    isClickable = (isClickable != null) ? 'auto' : 'none';
+    targetLayer = $('#parallax_layer'+layer+' .parallax_wrapper');
+
+    absPos = document.getElementById($(elem).attr('id')).getBoundingClientRect();
+    var leftPusher = 0;
+    if ($(window).width() > $('.parallax_layer').width()) {
+      leftPusher = (($(window).width() - $('.parallax_layer').width()) / 2);
+    }
+    elemBorder = (parseFloat($(elem).css('border-width')) || 0) * 2;
+    elemPadding = (parseFloat($(elem).css('padding-left')) * 1.25 || 0);
+    $(elem)
+      .clone(true,true)
+      .attr('data-hdivider',$(elem).height() / (absPos.width - elemBorder - elemPadding / 1.5))
+      .css({ 
+        'pointer-events': isClickable,
+        'position' : 'absolute !important',
+        'z-index' : zindex + ' !important',
+        top : (absPos.top / $(targetLayer).height()) * 100 + pusher + '%',
+        left : ((absPos.left - elemBorder - leftPusher) / $(targetLayer).width()) * 100 + '%',
+        width: ((absPos.width - (elemBorder*2) - elemPadding) / $(targetLayer).width()) * 100 + '%'})
+      .appendTo(targetLayer);
+    $(elem).css({ 'visibility': 'hidden' });
+  }
+}
+
+/************************************************************/
 /* Video player functions                                   */
 /************************************************************/
 function playerComplete(pa){
@@ -97,9 +134,11 @@ $(window).scroll(function() {
     /* Parallax effect                                          */
     /************************************************************/
     scrollingLayerOffsets = document.getElementById('scrolling_layer').getBoundingClientRect();
-    var parallaxSpeed = 0.15 // exponencial value
-    $('#parallax_wrapper').css({ top : scrollingLayerOffsets.top * parallaxSpeed });
-
+    $('.parallax_wrapper').each(function() {
+      //var parallaxSpeed = 0.15 // exponencial value
+      var parallaxSpeed = $(this).parent().attr('data-speed');
+      $(this).css({ top : scrollingLayerOffsets.top * parallaxSpeed });
+    });
     /************************************************************/
     /* Down Button                                              */
     /************************************************************/
@@ -124,8 +163,6 @@ $(document).ready(function() {
 
   fullScreenHeight = $(window).height();
   fullScreenWidth = $(window).width();
-
-  resizewindow();
 
 	/************************************************************/
 	/* Client Detects                                           */
