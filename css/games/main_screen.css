@@ -143,7 +143,7 @@
 }
 
 .inactive_main_screen {
-	display: none;
+	/*display: none;*/
 }
 
 #main_screen_signup {
@@ -583,7 +583,7 @@
 	background-image: url(../../images/games_site/welcome/main_third_bubbles.png);
 	pointer-events: none;
 	top: 5.2%;
-	width: 50%;
+	width: 53%;
 }
 
 #parallax_third_headline > h1 {
@@ -598,7 +598,7 @@
 	background-image: url(../../images/games_site/welcome/main_forth_bubbles.png);
 	background-size: cover;
 	background-position: top;
-	width: 45%;
+	width: 50%;
 }
 
 #parallax_forth_headline > h1 {

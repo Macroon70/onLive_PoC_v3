@@ -35,7 +35,6 @@ function resizewindow(){
   /* Recalculate Scroll Stop Values                           */
   /************************************************************/
   for(var i=0; i<sectionOffsets.length; i++){
-    console.log('itt');
     sectionOffsets[i] = sectionOffsets[i] * actualWindowWidth / previousWindowWidth;
   }
   previousWindowWidth = actualWindowWidth;
@@ -137,6 +136,7 @@ function brickAnim(minRow) {
 /* PlayingTrailer                                           */
 /************************************************************/
 function playingTrailer(elem) {
+  $(document).bind('touchmove', false);
   elemOffset = elem.offset();
   elemOffset.top += elem.width() * 0.03;
   elemOffset.left += elem.width() * 0.03;
@@ -158,7 +158,7 @@ function playingTrailer(elem) {
       position: 'absolute',
       width: elem.width(),
       height: elem.height(),
-      'z-index': 10 })
+      'z-index': 9 })
     .offset(elemOffset)
     .append(videoElem);
   $('body').append(playingElem);
@@ -178,11 +178,12 @@ function playingTrailer(elem) {
           height: $(window).innerHeight(),
           left: 0,
           top: $(document).scrollTop(),
+          'cursor': 'pointer',
           'opacity': '0.8',
           'z-index': 9 });
       $('body')
-        .append(playingBg)
         .css({ 'overflow' : 'hidden' });
+      $($(playingElem)).before(playingBg);
   });
 }
 
@@ -202,6 +203,7 @@ $('html').on({
       300, function() {
         $(this).remove();
     });
+    $(document).unbind('touchmove', false);
   }
 }, '#trailer_bg');
 
@@ -314,6 +316,20 @@ $(document).ready(function() {
         $(this).children('.cat_submenu').stop().fadeOut(100);
       }
     },
+    touchstart: function() {
+        if ($(this).hasClass(catalogHeaderDarkColor[randomNum]+ 'bg')) {
+          $(this).removeClass(catalogHeaderDarkColor[randomNum]+'bg')
+            .find('img')
+              .attr('src','images/games_site/button_down_dark_'+actualSystemColor+'.png');
+          $(this).children('.cat_submenu').stop().fadeOut(100);
+        } else {
+          $(this)
+            .addClass(catalogHeaderDarkColor[randomNum]+'bg')
+            .find('img')
+              .attr('src','images/games_site/button_up_white.png');
+          $(this).children('.cat_submenu').stop().fadeIn(100);
+        }
+    }
 
   })
 

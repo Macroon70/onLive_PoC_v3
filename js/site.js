@@ -17,15 +17,17 @@ function addParallaxObject(elem,layer,zindex,isClickable,pusher) {
     targetLayer = $('#parallax_layer'+layer+' .parallax_wrapper');
 
     absPos = document.getElementById($(elem).attr('id')).getBoundingClientRect();
+    // FF refresh fix
+    targetPos = document.getElementById('scrolling_layer').getBoundingClientRect();
+    console.log(targetPos.top);
     var leftPusher = 0;
     if ($(window).width() > $('.parallax_layer').width()) {
       leftPusher = (($(window).width() - $('.parallax_layer').width()) / 2);
     }
-    elemBorder = (parseFloat($(elem).css('border-width')) || 0) * 2;
-    console.log(leftPusher);
+    elemBorder = (parseFloat($(elem).css('border-left-width')) || 0) * 2;
     elemPadding = (parseFloat($(elem).css('padding-left')) * 1.25 || 0);
     rightPos = parseFloat($(elem).css('right'));
-    if (!isNaN(rightPos)) elemPadding += rightPos; 
+    if (!isNaN(rightPos) && rightPos < 200) elemPadding += rightPos; 
     $(elem)
       .clone(true,true)
       .addClass('parallax_position')
@@ -34,7 +36,7 @@ function addParallaxObject(elem,layer,zindex,isClickable,pusher) {
         'pointer-events': isClickable,
         'position' : 'absolute !important',
         'z-index' : zindex + ' !important',
-        top : (absPos.top / $(targetLayer).height()) * 100 + pusher + '%',
+        top : ((absPos.top + Math.abs(targetPos.top)) / $(targetLayer).height()) * 100 + pusher + '%',
         left : ((absPos.left - leftPusher) / $(targetLayer).innerWidth()) * 100 + '%',
         width: ((absPos.width - (elemBorder*2) - elemPadding) / $(targetLayer).width()) * 100 + '%',
         height: $(elem).innerHeight() + 'px' })
@@ -100,7 +102,7 @@ function setHamburgerPosition() {
 /************************************************************/
 function moveToNextBreakpoint() {
   var scrollingLayerOffsets = document.getElementById('scrolling_layer').getBoundingClientRect();
-  if ($(window).scrollTop() + $(window).height() == $(document).height()) {
+  if ($(window).scrollTop() + $(window).height() >= $(document).height() - 10) {
     $('html, body').stop().animate({ scrollTop : 0 }, 1000);
   } else {
     for (var i = 0; i <= sectionOffsets.length; i++) {
@@ -160,7 +162,7 @@ $(window).scroll(function() {
       $('#down_arrow').stop().fadeIn(100);
     }, 1000));
 
-    if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
+    if ($(window).scrollTop() + $(window).height() >= $(document).height() - 10) {
       if (!$('#down_arrow').hasClass('rotate')) {
         $('#down_arrow').addClass('rotate');
       }
@@ -184,6 +186,7 @@ $(document).ready(function() {
 
   if (isiPad) {
   	$('#layers_wrapper').css({'max-width': '2048px'});
+    $('#controllers_wrapper').css({'max-width': '410px'});
   };
 	if (!window.devicePixelRatio) {
 		window.devicePixelRatio = 1;

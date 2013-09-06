@@ -57,6 +57,7 @@ function resizewindow(){
 /* PlayingTrailer                                           */
 /************************************************************/
 function playingTrailer(elem) {
+  $(document).bind('touchmove', false);
   elemOffset = elem.offset();
   playingElem = $(elem.clone(true));
   var plm =  {playlist:
@@ -74,7 +75,7 @@ function playingTrailer(elem) {
       position: 'absolute',
       width: elem.width(),
       height: elem.height(),
-      'z-index': 10 })
+      'z-index': 9 })
     .offset(elemOffset)
     .append(videoElem);
   $('body').append(playingElem);
@@ -95,10 +96,11 @@ function playingTrailer(elem) {
           left: 0,
           top: $(document).scrollTop(),
           'opacity': '0.8',
+          'cursor': 'pointer',
           'z-index': 9 });
       $('body')
-        .append(playingBg)
         .css({ 'overflow' : 'hidden' });
+      $($(playingElem)).before(playingBg);
   });
 }
 
@@ -118,6 +120,7 @@ $('html').on({
       300, function() {
         $(this).remove();
     });
+    $(document).unbind('touchmove', false);
   }
 }, '#trailer_bg');
 

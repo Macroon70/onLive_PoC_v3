@@ -19,6 +19,15 @@ function sliderChanger(nextElem) {
   var activeLayer = $('#main_screen'+actualElemPrefix);
   var pushLayer = $('#main_screen'+nextElemPrefix);
   if (!nextElem.hasClass('white_color') && !$('.active_main_screen').is(':animated')) {
+    actualMainScreenVideoOffsets = nextElemVideoPos.split('/');
+    parentOffsets = document.getElementById('video_layer').getBoundingClientRect();
+    $('#video_sizer')
+      .stop().animate({
+        top : (parentOffsets.height * (actualMainScreenVideoOffsets[0] / 100)) + 'px',
+        left : (parentOffsets.width * (actualMainScreenVideoOffsets[1] /100)) + 'px',
+        width : (parentOffsets.width * (actualMainScreenVideoOffsets[2] / 100)) + 'px'
+      }, 1000);
+    $('#slider_menu_bg').css({ left: (13 + (nextElemPrefix * 22)) + '%' });
     nextElem
       .addClass('white_color')
         .children('p')
@@ -40,14 +49,6 @@ function sliderChanger(nextElem) {
           .removeClass('active_main_screen')
           .addClass('inactive_main_screen');
       });
-    actualMainScreenVideoOffsets = nextElemVideoPos.split('/');
-    $('#video_sizer')
-      .animate({
-        top : actualMainScreenVideoOffsets[0] + '%',
-        left: actualMainScreenVideoOffsets[1] + '%',
-        width : actualMainScreenVideoOffsets[2] + '%',
-      }, 1000);
-    $('#slider_menu_bg').css({ left: (13 + (nextElemPrefix * 22)) + '%' });
     /*
     $('#slider_menu_bg').animate({
       left : (13 + (nextElemPrefix * 22)) + '%'
@@ -132,17 +133,20 @@ function resizewindow(){
   		'border-style' : 'solid' });
   });
   $('#video_layer').css({ height : $('#scrolling_layer').height() });
-  $('.parallax_layer').css({ height : $('#scrolling_layer').height()});
+  $('.parallax_layer').each(function() {
+    $(this).css({ height : $('#scrolling_layer').height()});
+  })
   $('body').css({ height : $('#scrolling_layer').height()});
-  
-  $('.parallax_wrapper').each(function() {
-    $(this).css({ height : $('#scrolling_layer').height() + ($(this).parent().attr('data-speed') * $('#scrolling_layer').height())});
-  });
 
   $('#video_image4_above_bg').css({
     width: $('#video_image4').width(),
     height: $('#video_image4').height() * 1.1
   });
+  
+  $('.parallax_wrapper').each(function() {
+    $(this).css({ height : $('#scrolling_layer').height() + ($(this).parent().attr('data-speed') * $('#scrolling_layer').height())});
+  });
+
   $('#parallax_first_headline').css({ height : $('#parallax_first_headline').width() * 0.61 });
   $('#parallax_second_headline').css({ height : $('#parallax_second_headline').width() * 0.5});  
   $('#parallax_third_headline').css({ height : $('#parallax_third_headline').width() * 0.51 });
@@ -163,25 +167,29 @@ parallaxObjectsAdded = false;
 
 function pageParallaxElements() {
   parallaxObjectsAdded = true;  
-  /* params:elem(object),                                     */
-  /*        layer(layerNum),                                  */
-  /*        zindex(css z-index),                              */
-  /*        isClickabel(object is clickable),                 */
-  /*        pusher(vertical push in percent)                  */
-  /* after clone, checkhing every elem css states             */
-  /************************************************************/
-  addParallaxObject($('#second_upper_level'),1,-2,true,2.63);
-  addParallaxObject($('#headline_brick'),1,-1,true,2.63);
-  addParallaxObject($('#parallax_second_headline'),2,0,false,7.1);
-  addParallaxObject($('#parallax_third_headline'),2,0,false,15);
-  addParallaxObject($('#box_spectatle'),1,-1,true,5);
-  addParallaxObject($('#parallax_forth_headline'),2,0,false,27);
-  addParallaxObject($('#video_image1'),2,0,true,24);
-  addParallaxObject($('#video_image3'),1,0,true,8.7);
+  if (!isiPad) {
+    /* params:elem(object),                                     */
+    /*        layer(layerNum),                                  */
+    /*        zindex(css z-index),                              */
+    /*        isClickabel(object is clickable),                 */
+    /*        pusher(vertical push in percent)                  */
+    /* after clone, checkhing every elem css states             */
+    /************************************************************/
+    addParallaxObject($('#second_upper_level'),1,-2,true,2.63);
+    addParallaxObject($('#headline_brick'),1,-1,true,2.63);
+    addParallaxObject($('#parallax_second_headline'),2,0,false,7.1);
+    addParallaxObject($('#parallax_third_headline'),2,0,false,15);
+    addParallaxObject($('#box_spectatle'),1,-1,true,5);
+    addParallaxObject($('#parallax_forth_headline'),2,0,false,27);
+    addParallaxObject($('#video_image1'),2,0,true,24);
+    addParallaxObject($('#video_image3'),1,0,true,8.7);
+  } else {
+    $('.parallax_layer').each(function() {
+      $(this).height(0);
+    })
+  }
   createPlayer("small_video_1_ply", $.extend({}, pl3, {autostart: false, repeat: false, mute: true, controls: false}), playerComplete);
   createPlayer("small_video_3_ply", $.extend({}, pl2, {autostart: false, repeat: false, mute: true, controls: false}), playerComplete);
-
-
 }
 
 /************************************************************/
@@ -279,7 +287,7 @@ $(document).ready(function() {
   /************************************************************/
   /* Small Video player                                       */
   /************************************************************/
-	$('.small_video_player').on({
+	$('body').on({
 		click: function(event) {
 			var clickedZindex = $(this).css('z-index');
 			if (clickedZindex != 3) {
@@ -293,9 +301,9 @@ $(document).ready(function() {
 						'border-color': '#ffffff',
   					'border-width' : $(this).width() * 0.03 + 'px',
   					'border-style' : 'solid'
-					})
-					.siblings('.small_video_player').each(function() {
-						var childZindex = $(this).css('z-index');
+					});
+          $('.small_video_player').not($(this)).each(function() {
+            var childZindex = $(this).css('z-index');
 						if (childZindex == 3) $(this).css({'z-index' : 2});
 						if (childZindex == 2) $(this).css({'z-index' : 1});
 						if ($(this).hasClass('content_border')) {
@@ -321,7 +329,7 @@ $(document).ready(function() {
 				}
 			}
 		}
-	});
+	}, '.small_video_player');
 
   /************************************************************/
   /* Initialize small video resources                         */
@@ -331,7 +339,7 @@ $(document).ready(function() {
           image: "./images/games_site/welcome/gamepic_dirt3_headline.png",
           sources: [
             {file: "http://www.liandesign.hu/onLive_v3/media/Dirt3_01.mp4"},
-            {file: "http://www.liandesign.hu/onLive_v3/media/Dirt3_01.oggtheora.ogv"}
+            {file: "http://www.liandesign.hu/onLive_v3/media/Dirt3_02.oggtheora.ogv"}
           ]
       }]};
   pl2 =  {playlist:
@@ -339,7 +347,7 @@ $(document).ready(function() {
           image: "./images/games_site/welcome/gamepic_dirt3_headline.png",
           sources: [
             {file: "http://www.liandesign.hu/onLive_v3/media/Dirt3_01.mp4"},
-            {file: "http://www.liandesign.hu/onLive_v3/media/Dirt3_01.oggtheora.ogv"}
+            {file: "http://www.liandesign.hu/onLive_v3/media/Dirt3_02.oggtheora.ogv"}
           ]
       }]};
   pl3 =  {playlist:
@@ -347,7 +355,7 @@ $(document).ready(function() {
           image: "./images/games_site/welcome/gamepic_dirt3_headline.png",
           sources: [
             {file: "http://www.liandesign.hu/onLive_v3/media/Dirt3_01.mp4"},
-            {file: "http://www.liandesign.hu/onLive_v3/media/Dirt3_01.oggtheora.ogv"}
+            {file: "http://www.liandesign.hu/onLive_v3/media/Dirt3_02.oggtheora.ogv"}
           ]
       }]};
   var plm =  {playlist:
@@ -361,8 +369,6 @@ $(document).ready(function() {
 
   createPlayer("small_video_2_ply", $.extend({}, pl1, {autostart: false, repeat: false, mute: true, controls: false}), playerComplete);
   createPlayer("main_video_ply", $.extend({}, plm, {autostart: true, repeat: true, mute: true, controls: false}));
-
-
 });
 
 
