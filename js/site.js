@@ -15,7 +15,6 @@ function addParallaxObject(elem,layer,zindex,isClickable,pusher) {
     pusher = (pusher != null) ? pusher : 0;
     isClickable = (isClickable) ? 'auto' : 'none';
     targetLayer = $('#parallax_layer'+layer+' .parallax_wrapper');
-
     absPos = document.getElementById($(elem).attr('id')).getBoundingClientRect();
     // FF refresh fix
     targetPos = document.getElementById('scrolling_layer').getBoundingClientRect();
