@@ -539,6 +539,7 @@
 
 .playing_small_video > .video_player_controller {
 	opacity: 0.0;
+	pointer-events: visible;
 }
 
 #box_record {

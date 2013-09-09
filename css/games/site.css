@@ -314,6 +314,7 @@ p {
 	position: absolute;
 	left: 0;
 	top: 0;
+	pointer-events: visible;
 }
 
 /*********************/
@@ -501,6 +502,7 @@ p {
 	float: left;
 	display: block;
 	width: 100%;
+	pointer-events: visible;
 }
 
 #menu_system_main p {
@@ -530,6 +532,7 @@ p {
 	float: left;
 	display: block;
 	width: 100%;
+	pointer-events: visible;
 }
 
 #menu_system_footer p {

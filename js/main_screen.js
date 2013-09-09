@@ -277,32 +277,35 @@ $(document).ready(function() {
   /************************************************************/
   /* User interactions - Global click events listener         */
   /************************************************************/
-  document.addEventListener('click', function(e) {
-    if ($('#menu_screen').css('right') != 0 && !$('#menu_screen').is(':animated')) {
-      $('#menu_close_button').trigger('click');
+  $(document).on({
+    click: function(e){
+      if ($('#menu_screen').css('right') != 0 && !$('#menu_screen').is(':animated')) {
+        $('#menu_close_button').trigger('click');
+      }
     }
-  }, true);
+  });
 
 
   /************************************************************/
   /* Small Video player                                       */
   /************************************************************/
-	$('body').on({
+	$('.video_player_controller').on({
 		click: function(event) {
-			var clickedZindex = $(this).css('z-index');
+      var node = this.parentNode;
+			var clickedZindex = $(node).css('z-index');
 			if (clickedZindex != 3) {
-				var idName = $(this).children().first().attr('id');
+				var idName = $(node).children().first().attr('id');
 				event.stopPropagation();
     		jwplayer( idName+'_ply').play();
-				$(this)
+				$(node)
 					.addClass('content_border content_shadow playing_small_video')
 					.css({
 						'z-index' : 3,
 						'border-color': '#ffffff',
-  					'border-width' : $(this).width() * 0.03 + 'px',
+  					'border-width' : $(node).width() * 0.03 + 'px',
   					'border-style' : 'solid'
 					});
-          $('.small_video_player').not($(this)).each(function() {
+          $('.small_video_player').not($(node)).each(function() {
             var childZindex = $(this).css('z-index');
 						if (childZindex == 3) $(this).css({'z-index' : 2});
 						if (childZindex == 2) $(this).css({'z-index' : 1});
@@ -316,20 +319,20 @@ $(document).ready(function() {
 						}
 					})
 			} else {
-				if ($(this).hasClass('playing_small_video')) {
-					$(this).removeClass('playing_small_video')
-					var idName = $(this).children().first().attr('id');
+				if ($(node).hasClass('playing_small_video')) {
+					$(node).removeClass('playing_small_video')
+					var idName = $(node).children().first().attr('id');
 					event.stopPropagation();
 	    		jwplayer( idName+'_ply').pause(true);
 				} else { 
-					$(this).addClass('playing_small_video');
-					var idName = $(this).children().first().attr('id');
+					$(node).addClass('playing_small_video');
+					var idName = $(node).children().first().attr('id');
 					event.stopPropagation();
 	    		jwplayer( idName+'_ply').play(true);
 				}
 			}
 		}
-	}, '.small_video_player');
+	});
 
   /************************************************************/
   /* Initialize small video resources                         */

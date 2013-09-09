@@ -13,12 +13,11 @@ function addParallaxObject(elem,layer,zindex,isClickable,pusher) {
   if (elem != null && layer != null) {
     zindex = (zindex != null) ? zindex : 0;
     pusher = (pusher != null) ? pusher : 0;
-    isClickable = (isClickable) ? 'auto' : 'none';
+    isClickable = (isClickable) ? 'visible' : 'none';
     targetLayer = $('#parallax_layer'+layer+' .parallax_wrapper');
     absPos = document.getElementById($(elem).attr('id')).getBoundingClientRect();
     // FF refresh fix
     targetPos = document.getElementById('scrolling_layer').getBoundingClientRect();
-    console.log(targetPos.top);
     var leftPusher = 0;
     if ($(window).width() > $('.parallax_layer').width()) {
       leftPusher = (($(window).width() - $('.parallax_layer').width()) / 2);
@@ -251,5 +250,5 @@ $(document).ready(function() {
 
 $(window).resize(function(){ resizewindow();});
 
-// a biztonsag kedveert ujrarendezzuk a kepernyot, ha minden lejott
+// for safety we shall reorganize the layout when every item is loaded
 $(window).load(function(){ resizewindow();});
