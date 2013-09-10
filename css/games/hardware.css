@@ -313,8 +313,17 @@ p.price_number {
 	z-index: 1;
 }
 
+<<<<<<< HEAD
 #footer_screen {
 	z-index: 0;
+=======
+/************************************************************/
+/* Parallax Layer                														*/
+/************************************************************/
+
+#parallax_layer1 {
+	z-index: 4;
+>>>>>>> ie_fix
 }
 
 #parallax_second_headline {

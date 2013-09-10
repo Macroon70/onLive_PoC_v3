@@ -477,3 +477,185 @@
 	background-color: #38398B;
 >>>>>>> v4.0
 }
+<<<<<<< HEAD
+=======
+
+/************************************************************/
+/* Webfont                      															*/
+/************************************************************/
+
+@import url("webfontkit/specimen_files/specimen_stylesheet.css");
+
+@font-face {
+    font-family: 'aktiv_groteskthin';
+    src: url('webfontkit/aktivgrotesk_std_th-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'aktiv_groteskhairline_italic';
+    src: url('webfontkit/aktivgrotesk_std_hairlineit-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'aktiv_groteskhairline';
+    src: url('webfontkit/aktivgrotesk_std_hairline-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'aktiv_groteskblack_italic';
+    src: url('webfontkit/aktivgrotesk_std_blkit-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'aktiv_groteskblack';
+    src: url('webfontkit/aktivgrotesk_std_blk-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'aktiv_grotesklight';
+    src: url('webfontkit/aktivgrotesk_std_lt-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'aktiv_groteskmedium_italic';
+    src: url('webfontkit/aktivgrotesk_std_mdit-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'aktiv_groteskregular';
+    src: url('webfontkit/aktivgrotesk_std_rg-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'aktiv_groteskmedium';
+    src: url('webfontkit/aktivgrotesk_std_md-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'aktiv_grotesklight_italic';
+    src: url('webfontkit/aktivgrotesk_std_ltit-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'aktiv_groteskitalic';
+    src: url('webfontkit/aktivgrotesk_std_it-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'aktiv_groteskbold_italic';
+    src: url('webfontkit/aktivgrotesk_std_bdit-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'aktiv_groteskbold';
+    src: url('webfontkit/aktivgrotesk_std_bd-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'aktiv_groteskxbold_italic';
+    src: url('webfontkit/aktivgrotesk_std_xbdit-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'aktiv_groteskxbold';
+    src: url('webfontkit/aktivgrotesk_std_xbd-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'aktiv_groteskthin_italic';
+    src: url('webfontkit/aktivgrotesk_std_thit-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+>>>>>>> ie_fix

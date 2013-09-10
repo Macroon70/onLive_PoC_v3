@@ -54,11 +54,14 @@ function resizewindow(){
   $('.footer_big_box').css({ height : $('.footer_box').height() });
   $('#footer_logo').css({ height : $('#footer_logo').width() * 0.272 });
 
+<<<<<<< HEAD
 
   $('#parallax_layer').css({ height : $('#scrolling_layer').height()});
   $('#parallax_wrapper').css({ height : $('#scrolling_layer').height() * 2});
   $('#parallax_first_headline').css({ height : $('#parallax_first_headline').width() * 0.61 });
   $('#parallax_second_headline').css({ height : $('#parallax_first_headline').width() * 0.61 });
+=======
+>>>>>>> ie_fix
 
 
 
@@ -124,8 +127,18 @@ function resizewindow(){
   $('#video_layer').css({ height : $('#scrolling_layer').height()});
 >>>>>>> v4.0
 
+<<<<<<< HEAD
   $('#parallax_second_headline').css({ height : $('#parallax_second_headline').width() * 0.5});  
 */
+=======
+  $('#parallax_layer').css({ height : $('#scrolling_layer').height()});
+  $('.parallax_wrapper').each(function() {
+    $(this).css({ height : $('#scrolling_layer').height() + ($(this).parent().attr('data-speed') * $('#scrolling_layer').height())});
+  });
+
+
+}
+>>>>>>> ie_fix
 
 <<<<<<< HEAD
 }

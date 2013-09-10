@@ -144,7 +144,7 @@
 }
 
 .inactive_main_screen {
-	display: none;
+	/*display: none;*/
 }
 
 #main_screen_signup {
@@ -289,15 +289,23 @@ p {
 	margin-left: 25%;
 }
 
+#second_upper_level h2,
 #second_screen h2 {
 	margin-top: 12%;
 	font-size: 3.7em;
 }
 
+#second_upper_level h2 {
+	margin-top: 7%;
+}
+
+
+#second_upper_level h3,
 #second_screen h3 {
 	margin-top: 4%;
 }
 
+#second_upper_level p,
 #second_screen p {
 	margin-top: 7%;
 }
@@ -305,6 +313,14 @@ p {
 #second_screen a {
 	left: 38%;
 }
+
+#second_upper_level a {
+	left: 38% !important;
+	bottom: -5%;
+	width: auto;
+	height: auto;
+}
+
 
 #second_upper_level {
 	z-index: 2 !important;
@@ -412,6 +428,10 @@ p {
 	line-height: 0.9em;
 }
 
+.parallax_layer #box_spectatle > h2 {
+	margin-top: 5%;
+}
+
 #box_spectatle > h3 {
 	font-family: 'aktiv_grotesklight';
 	margin-top: 4%;
@@ -423,7 +443,9 @@ p {
 }
 
 #box_spectatle > a {
-	left: 38%;
+	left: 38% !important;
+	width: auto;
+	height: auto;
 }
 
 /************************************************************/
@@ -515,6 +537,7 @@ p {
 
 .playing_small_video > .video_player_controller {
 	opacity: 0.0;
+	pointer-events: visible;
 }
 
 #box_record {
@@ -532,6 +555,7 @@ p {
 	background-size: cover;
 	background-position: top;
 	width: 45%;
+	z-index: 3;
 }
 
 #parallax_first_headline > h1 {
@@ -540,6 +564,7 @@ p {
 
 >>>>>>> v4.0
 #parallax_second_headline {
+	position: absolute !important;
 	pointer-events: none;
 	width: 46%;
 <<<<<<< HEAD
@@ -555,3 +580,33 @@ p {
 	margin-top: 10%;
 	margin-left: 26%;
 }
+<<<<<<< HEAD
+=======
+
+#parallax_third_headline {
+	position: absolute !important;
+	background-image: url(../../images/games_site/welcome/main_third_bubbles.png);
+	pointer-events: none;
+	top: 5.2%;
+	width: 53%;
+}
+
+#parallax_third_headline > h1 {
+	position: absolute;
+	top: 30%;
+}
+
+#parallax_forth_headline {
+	pointer-events: none;
+	top: 15%;
+	left: 50%;
+	background-image: url(../../images/games_site/welcome/main_forth_bubbles.png);
+	background-size: cover;
+	background-position: top;
+	width: 50%;
+}
+
+#parallax_forth_headline > h1 {
+	margin-top: 5%;
+}
+>>>>>>> ie_fix
